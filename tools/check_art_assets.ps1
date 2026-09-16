@@ -27,6 +27,8 @@ $validatorPath = Join-Path $PSScriptRoot 'validate_png_assets.ps1'
 $contactSheetPath = Join-Path $PSScriptRoot 'make_contact_sheet.ps1'
 $alphaReviewPath = Join-Path $PSScriptRoot 'make_alpha_review_sheet.ps1'
 $renderSvgPath = Join-Path $PSScriptRoot 'render_svg_preview.ps1'
+$hashValidatorPath = Join-Path $PSScriptRoot 'validate_asset_hash.ps1'
+$svgCheckoutTestPath = Join-Path $PSScriptRoot 'test_svg_checkout_hash.ps1'
 $referencePath = Join-Path $candidateDirectory 'references\capybara_anatomy_cc0_fernando_sessegolo.jpg'
 $formalContactSheet = Join-Path $candidateDirectory 'clean_contact_sheet_v002.png'
 $formalContactMapping = Join-Path $candidateDirectory 'clean_contact_sheet_v002.mapping.json'
@@ -46,6 +48,8 @@ foreach ($requiredPath in @(
     $contactSheetPath,
     $alphaReviewPath,
     $renderSvgPath,
+    $hashValidatorPath,
+    $svgCheckoutTestPath,
     $manifestPath,
     $candidateManifestPath,
     $homeCandidateManifestPath,
@@ -536,10 +540,13 @@ if ($prototypeFullPath -ne $vectorPrototypePath) {
     [Console]::Error.WriteLine('[art] FAIL: Vector prototype manifest path is not the active source.')
     exit 22
 }
-$prototypeHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $prototypeFullPath).Hash.ToLowerInvariant()
-if ($prototypeHash -ne $prototypeRow.sha256.ToLowerInvariant() -or $prototypeHash -in $quarantineHashes) {
-    [Console]::Error.WriteLine('[art] FAIL: Vector prototype hash is stale or reuses quarantined content.')
-    exit 22
+& $hashValidatorPath -Path $prototypeFullPath -ExpectedHash $prototypeRow.sha256 -QuarantineHashes $quarantineHashes
+if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
+}
+& $svgCheckoutTestPath
+if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
 }
 $svgText = Get-Content -Raw -LiteralPath $prototypeFullPath
 if ($svgText -match '(?i)<!DOCTYPE|<!ENTITY') {
