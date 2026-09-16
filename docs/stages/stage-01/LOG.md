@@ -146,3 +146,14 @@ Added
 - 原始错误：failed to initialize resource state probe，soak coverage counters must all be non-zero；日志build/logs/stage-1-soak-20260916T081029283Z-p22392-2b7307c3.log。
 - 目前只确认测试初始化失败；尚未定位，不断言游戏持续运行故障。ST1-006 / ST1-R001登记，历史Stage1通过记录不改写。
 - 用户随后明确暂停。仅保存本恢复点，未继续修改代码、重跑测试或生成素材。恢复先核验exact SHA CI35072291907，再诊断探针与新REQUESTED/最终提交路径并实际重跑1200秒。
+
+
+## 2026-09-16T16:39:06+08:00 · SOAK-RESUME-01 · 修复初始化与启动长测
+
+- 来源类型：executed_now；用户已明确恢复，Goal现场查询active。base `83409ac685eae74ac22cab352c56ae48f198a4e4` + soak修复。
+- 根因：旧探针未装备芦苇铲，且只生成pickup/resource的REQUESTED没有走实际提交；因此初始化就失败，不是已证实的20分钟崩溃。
+- 修复：独立StageOneSoakProbe通过Input.parse_input_event真实拾取→工具拾取→装备→采集，验证最终成功及库存/资源计数；初始化后才计持续转场输入，保留inputs==transitions。测试进程使用默认设置，不调用持久化保存。
+- 保留迭代失败：run083244的初版复用同一事件对象产生Godot警告；改为duplicate释放事件并等待帧。10秒run `20260916T083339501Z-p42908-3a6aaf25`：69cycles、18transitions/inputs、5selections、69statechecks，退出0无诊断。
+- 独立只读审查无新增B/C/H；原1200秒/心跳/非零计数/持久态/暂停门未降低。
+- 完整门run `20260916T083458202Z-p40852-5e3d745c`：19/19、required=true、零诊断与Windows Debug导出；源码前后指纹一致 `f7684d6c434348ad48bd5f84cb0caec3f12c5f31742b23a6ce1f16cfb86fced6`。之后只更新文档状态。
+- 尚待：实际1200秒长测。本条不以10秒或统一门代替长测，不关闭ST1-006。

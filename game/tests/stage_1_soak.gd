@@ -1,6 +1,7 @@
 extends SceneTree
 
 const MAIN_SCENE: PackedScene = preload("res://scenes/bootstrap/main.tscn")
+const STATE_PROBE: Script = preload("res://tests/stage_1_soak_probe.gd")
 const MOVE_ACTIONS: Array[StringName] = [
 	&"move_right",
 	&"move_down",
@@ -27,6 +28,9 @@ func _init() -> void:
 
 func _run_soak() -> void:
 	var duration_seconds: int = _read_duration_seconds()
+	var settings := root.get_node("SettingsService") as SettingsManagerService
+	settings.replace_settings(SettingsProfile.new())
+	settings.apply_current_settings(false)
 	var main_scene := MAIN_SCENE.instantiate()
 	root.add_child(main_scene)
 	await process_frame
@@ -34,8 +38,8 @@ func _run_soak() -> void:
 	var world_container := main_scene.get_node("WorldContainer") as Node2D
 	var pause_menu := main_scene.get_node("Interface/PauseMenu") as Control
 	var scene_flow := root.get_node("SceneFlowService") as SceneFlowCoordinator
+	await _initialize_state_probe(player, scene_flow)
 	player.interaction_completed.connect(_on_player_interaction_completed)
-	_initialize_state_probe(player, scene_flow)
 	var started_ms: int = Time.get_ticks_msec()
 	var next_heartbeat_seconds: int = HEARTBEAT_INTERVAL_SECONDS
 	var cycle_count: int = 0
@@ -257,17 +261,14 @@ func _initialize_state_probe(
 	player: PlayerCharacter,
 	scene_flow: SceneFlowCoordinator
 ) -> void:
-	home_pickup = scene_flow.current_zone.get_node("PickupPlaceholder") as PickupInteractable
-	home_resource = scene_flow.current_zone.get_node("ResourcePlaceholder") as ResourceInteractable
-	home_chest = scene_flow.current_zone.get_node("ChestPlaceholder") as ChestInteractable
-	var context := InteractionContext.new(player, player.position, Vector2.RIGHT)
-	if not home_pickup.interact(context).is_requested():
-		_fail("failed to initialize pickup state probe")
-	if not home_resource.interact(context).is_requested():
-		_fail("failed to initialize resource state probe")
-	if not home_chest.interact(context).is_success():
-		_fail("failed to initialize chest state probe")
-	expected_resource_uses = home_resource.remaining_uses
+	var probe: Dictionary = await STATE_PROBE.prepare(self, player, scene_flow)
+	if not probe["success"]:
+		_fail(probe["reason"])
+		return
+	home_pickup = probe["pickup"]
+	home_resource = probe["resource"]
+	home_chest = probe["chest"]
+	expected_resource_uses = probe["resource_uses"]
 
 
 func _make_probe_interactable(

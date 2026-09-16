@@ -95,12 +95,12 @@ Stage：
 
 | ID | 级别 | Stage | 状态 | 证据与影响 | 关联任务 / 关闭条件 |
 |---|---|---|---|---|---|
-| R-CI-01 | High | 0.5 | In Progress | 历史CI 35062299753资产exit22；本轮run 20260916T073251372Z-p43016-602f2eaa实际同样失败；SVG LF/CRLF字节hash差异 | AUT-0059；新Windows检出/autocrlf正反、篡改/隔离拒绝和exact SHA完整CI |
+| R-CI-01 | High | 0.5 | Closed | 历史CI 35062299753资产exit22；本轮run 20260916T073251372Z-p43016-602f2eaa实际同样失败；SVG LF/CRLF字节hash差异；最终exact aa2b8ae CI35072291907成功，见Stage0.5 clean-ci-confirmed | AUT-0059；新Windows检出/autocrlf正反、篡改/隔离拒绝和exact SHA完整CI |
 | R-SAVE-01 | High | 2 | Closed | 已复现原备份污染；保存前真实库存/区域/world适用性检查、持久隔离及IO失败拒绝；隔离失败/容量不适用/跨进程再保存再损坏回归均通过 | ST2-R001；Stage2 LOG reliability-integration，run20260916T080216355Z-p8148-b860280a，19/19与61事务检查 |
 | R-HOTBAR-01 | High | 2 | Closed | 原16/27失败；整理/移动/合并映射全部绑定，耗尽/整堆箱转清空；旧schema1及跨进程装备/UI一致 | ST2-R002；35项专项、独立审阅及run20260916T080216355Z-p8148-b860280a |
 | R-INTERACT-01 | High | 2 | Closed | 原满包成功反馈已复现；请求与提交分离，最终数量/事件/震动在实际提交后，replay及读档旧pending拒绝 | ST2-R003；63项专项、独立审阅及run20260916T080216355Z-p8148-b860280a |
-| R-DOC-01 | High | 0.5 | In Progress | 旧恢复线、双backlog、旧启动入口硬锁与RC状态失真 | AUT-0060/0061；14阶段唯一任务源、路径/依赖/证据正负检查及全门通过 |
-| R-CI-02 | High | 0.5 | In Progress | 实际远程02ac9b37ed6eed7d8b12261c0d9772a30704d8f7 / run35069530550 / artifact10435003811：svg_cutout_render exit20及166 class_name解析诊断；SVG资产与10检出回归已过，导入前脚本依赖不存在的全局类缓存 | AUT-0062；版本/导入前置所有Godot脚本，干净缓存回归和exact SHA全CI成功 |
+| R-DOC-01 | High | 0.5 | Closed | 旧恢复线、双backlog、旧启动入口硬锁与RC状态失真；最终exact aa2b8ae CI35072291907成功，见Stage0.5 clean-ci-confirmed | AUT-0060/0061；14阶段唯一任务源、路径/依赖/证据正负检查及全门通过 |
+| R-CI-02 | High | 0.5 | Closed | 实际远程02ac9b37ed6eed7d8b12261c0d9772a30704d8f7 / run35069530550 / artifact10435003811：svg_cutout_render exit20及166 class_name解析诊断；SVG资产与10检出回归已过，导入前脚本依赖不存在的全局类缓存；最终exact aa2b8ae CI35072291907成功，见Stage0.5 clean-ci-confirmed | AUT-0062；版本/导入前置所有Godot脚本，干净缓存回归和exact SHA全CI成功 |
 
 R-POS-01 是 ST2-017 的审阅别名，不另维护状态；任务 ST2-R004 前置到正式家园替换前。R-GIT-01 是 GIT-002 的审阅别名。GIT-002当前安全线已从审阅SHA建立为 `codex/production-clean-20260916`；旧开发/main/tag仍本地保留且禁推，首次新线push还须审计全部待推祖先与LFS对象。
 

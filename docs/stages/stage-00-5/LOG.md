@@ -110,3 +110,10 @@ Known Issues
 - 新JSON schema3记录source_before/after、dirty、差异+未跟踪内容指纹；中文文件名NUL解析实际fixture通过。这是端点一致性检查，不声称连续监控。
 - 产物在本机忽略build/logs与build/takeover/20260916，不随源码上传；CI产物另由exact SHA run索引。此条后的Markdown状态调整只跑文档/格式门，不冒称同一fingerprint。
 - 下一动作：原子提交迁移与可靠性代码；精确HEAD CI验证后推进Stage3母图/动画A-B/UI/四氛围/正式入口。
+
+
+## 2026-09-16T16:39:06+08:00 · clean-ci-confirmed
+
+- 来源类型：executed_now。恢复后实际查询并下载CI产物：run35072291907，job104716383753，artifact10436797343（未过期），exact SHA `aa2b8aeb0bb0e3083c1166dd22091a7f6a091403`，结论success。
+- Windows新检出JSON run `20260916T081021447Z-p1360-b2d1f3f3`：19步全部通过，required=true，source_before.dirty=false且指纹前后一致。Godot导入、资产10检出用例、治理20正负例、游戏回归、61加载事务和Debug导出启动都在同提交覆盖。
+- 本机已下载至build/takeover/20260916/ci-aa2b8ae；公开日志入口https://github.com/T1doo/Capybara/actions/runs/35072291907 。据此关闭R-CI-01/02与迁移R-DOC-01；不代表后续soak或Stage3视觉门通过。

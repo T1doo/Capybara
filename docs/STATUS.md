@@ -4,7 +4,7 @@
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
 - observed_head: aa2b8aeb0bb0e3083c1166dd22091a7f6a091403（受测实现；本次仅文档暂停检查点另行提交）
-- 产品 Stage：3；实际批次：Stage0.5文档/CI及Stage2可靠性整合已通过本地门，实现已提交并push；用户于2026-09-16T16:11:00+08:00明确暂停，等待用户说继续。
+- 产品 Stage：3；实际批次：Stage0.5文档/CI及Stage2可靠性整合已通过本地门，实现已提交并push；用户已明确恢复；Goal现场查询active，正在修复soak并继续Stage3。
 
 ## 安全与当前事实
 
@@ -18,18 +18,15 @@
 
 - 本地run `20260916T080216355Z-p8148-b860280a`：19/19、827/827、61事务检查、零Godot诊断、Windows Debug导出/短启动，required=true。受测02ac9b3+dirty实现/治理工作树，前后指纹一致；不是exact commit。随后仅更新日志/任务状态，另跑治理/格式门。[验证说明](stages/stage-00-5/LOG.md#takeover-validation)。
 - 保留失败：原基线run073251的SVG CRLF失败；远程02ac run35069530550/artifact10435003811在导入前脚本解析失败；整合run075728因runner354行失败。现已固定LF、前置导入并原样拆分测试职责，未删测试降门。
-- 本地机器产物在build/logs及build/takeover/20260916（被忽略，不保证新检出可取）。远程新HEAD CI尚待提交后查询，R-CI-01/02、R-DOC-01仍待最终核验。自动断言/headless/合成手柄/Debug不证明GPU、实体硬件、Release或RC1。
+- 本地机器产物在build/logs及build/takeover/20260916（被忽略，不保证新检出可取）。aa2b8ae远程CI成功产物10436797343已下载核验，R-CI-01/02、R-DOC-01关闭。自动断言/headless/合成手柄/Debug不证明GPU、实体硬件、Release或RC1。
 
 ## 下一动作与缺口
 
-先完成本批安全commit/push并查询exact SHA CI；继续[Stage3 PLAN](stages/stage-03/PLAN.md)的主角生产母图、动画A/B、NPC/UI、同场景四氛围及正式入口。Blender4.5.13官方便携包已校验并实际启动，ART3-004缺工具前置已解除，但比较尚未执行。[Stage3工具记录](stages/stage-03/LOG.md)。
+aa2b8ae精确CI35072291907现已查询成功；soak初始化10秒与统一19步通过，先完成实际1200秒长测；同时继续[Stage3 PLAN](stages/stage-03/PLAN.md)的主角生产母图、动画A/B、NPC/UI、同场景四氛围及正式入口。Blender4.5.13官方便携包已校验并实际启动，ART3-004缺工具前置已解除，但比较尚未执行。[Stage3工具记录](stages/stage-03/LOG.md)。
 
 [ISSUES](ISSUES.md)保留ST2-017后续chunk/layer、QA-001实体手柄以及ART3/ENV3视觉缺口。没有阻止全部本地开发的硬阻塞；没有通过Stage3或RC1，不因文档/CI完成停下。
 
-## 用户暂停检查点
 
-- 暂停时间：2026-09-16T16:11:00+08:00；用户主动暂停，不是RC1完成或技术硬阻塞。停止实现、新测试及素材生产，等待明确继续。
-- 已同步实现：`aa2b8aeb0bb0e3083c1166dd22091a7f6a091403`。完整检查脚本与新存档事务门均保留；原先通过临时暂存版本拆分文档/代码的方案被自动审批拒绝（担忧降低质量门），未执行该操作，改为普通git add完整整合提交，未绕过或删除测试。
-- 已启动的远程CI：run `35072291907` 对应aa2b8ae，最后观察in_progress；暂停时未等结果，恢复后按exact SHA核验。
-- 新增待处理失败：20分钟soak启动即退出1，未进入持续验证；`build/logs/stage-1-soak-20260916T081029283Z-p22392-2b7307c3.log`报failed to initialize resource state probe，coverage counters non-zero门同时失败。没有运行满20分钟，不把先前19步通过解释为soak通过。
-- 恢复第一动作：读取Stage1 LOG/ST1-006，诊断soak资源状态探针与新的请求/提交协议是否相容；修复并完成实际1200秒回归，再继续Stage3。本次暂停不继续修复。
+## 当前执行批次
+
+用户已恢复；上次暂停历史见Stage1 LOG。基线83409ac仅有用户原附件未跟踪。新soak初始化通过真实输入完成资源获取；当前10秒及完整run20260916T083458202Z-p40852-5e3d745c通过，1200秒仍待，不提前关闭ST1-006。新commit后继续长测和Stage3小规模动画方案准备。
