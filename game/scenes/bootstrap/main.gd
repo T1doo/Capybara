@@ -12,10 +12,12 @@ const GROVE_ZONE_SCENE: PackedScene = preload("res://scenes/world/grove_zone.tsc
 @onready var storage_screen: StorageScreen = %StorageScreen
 
 var active_chest: ChestInteractable
+var _resolving_item_request: bool = false
 
 
 func _ready() -> void:
 	player.interaction_completed.connect(_on_player_interaction_completed)
+	player.interaction_requested.connect(_on_player_interaction_requested)
 	storage_screen.closed.connect(_on_storage_screen_closed)
 	var scene_flow := get_node_or_null("/root/SceneFlowService") as SceneFlowCoordinator
 	if scene_flow == null:
@@ -33,42 +35,68 @@ func _ready() -> void:
 		push_error("Initial world zone transition failed: %s" % scene_flow.last_error_key)
 
 
+func _on_player_interaction_requested(request: InteractionResult) -> void:
+	if request == null or request.resolved:
+		return
+	request.resolved = true
+	var result: InteractionResult = InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+	if not _resolving_item_request:
+		_resolving_item_request = true
+		result = _commit_item_request(request)
+		_resolving_item_request = false
+	player.interaction_completed.emit(result)
+
+
+func _commit_item_request(request: InteractionResult) -> InteractionResult:
+	if not request.is_requested():
+		return request if not request.is_success() else InteractionResult.invalid(&"INTERACTION_UNAVAILABLE")
+	if get_tree().paused or player.get_state() == PlayerStateMachine.State.DISABLED:
+		return InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+	var flow := get_node("/root/SceneFlowService") as SceneFlowCoordinator
+	if flow.current_zone == null:
+		return InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+	# Resolve the request's stable target, never whichever object is selected now.
+	var target: InteractableComponent = flow.current_zone.find_interactable(
+		StringName(request.payload.get(&"interaction_id", &""))
+	)
+	var item_id: StringName
+	var requested_quantity: int
+	if target is PickupInteractable:
+		var pickup := target as PickupInteractable
+		if not pickup.claim_request(request):
+			return InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+		item_id = pickup.item_id
+		requested_quantity = pickup.quantity
+	elif target is ResourceInteractable:
+		var resource := target as ResourceInteractable
+		if not resource.claim_request(request, player.get_equipped_tool_id()):
+			return InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+		item_id = resource.resource_id
+		requested_quantity = resource.yield_quantity
+	else:
+		return InteractionResult.blocked(&"INTERACTION_UNAVAILABLE")
+	var service := get_node("/root/InventoryService") as InventoryCoordinator
+	var preview: InventoryTransactionResult = service.player_inventory.add_item(item_id, requested_quantity, true)
+	# Resources require the whole yield; ground pickups may transfer a partial stack.
+	if preview.transferred <= 0 or (target is ResourceInteractable and preview.transferred != requested_quantity):
+		return InteractionResult.blocked(&"INVENTORY_FULL")
+	var transferred: int = service.player_inventory.add_item(item_id, requested_quantity).transferred
+	if transferred <= 0:
+		return InteractionResult.blocked(&"INVENTORY_FULL")
+	if target is PickupInteractable:
+		(target as PickupInteractable).commit_pickup(transferred)
+	else:
+		(target as ResourceInteractable).commit_harvest(transferred)
+	var payload: Dictionary = request.payload.duplicate(true)
+	payload[&"requested_quantity"] = requested_quantity
+	payload[&"quantity"] = transferred
+	if target is ResourceInteractable:
+		payload[&"remaining_uses"] = (target as ResourceInteractable).remaining_uses
+	return InteractionResult.succeeded(request.message_key, payload)
+
+
 func _on_player_interaction_completed(result: InteractionResult) -> void:
 	_request_interaction_feedback(result)
-	if result.is_success() and result.payload.has(&"item_id"):
-		var inventory_service := get_node("/root/InventoryService") as InventoryCoordinator
-		var add_result: InventoryTransactionResult = inventory_service.player_inventory.add_item(
-			StringName(result.payload[&"item_id"]),
-			int(result.payload.get(&"quantity", 1))
-		)
-		var pickup := player.get_current_interactable() as PickupInteractable
-		if pickup == null and result.payload.has(&"interaction_id"):
-			var scene_flow := get_node("/root/SceneFlowService") as SceneFlowCoordinator
-			pickup = scene_flow.current_zone.find_interactable(
-				StringName(result.payload[&"interaction_id"])
-			) as PickupInteractable
-		if pickup != null:
-			pickup.commit_pickup(add_result.transferred)
-	if result.is_success() and result.payload.has(&"resource_id"):
-		var inventory_service := get_node("/root/InventoryService") as InventoryCoordinator
-		var resource_id := StringName(result.payload[&"resource_id"])
-		var requested_quantity: int = int(result.payload.get(&"quantity", 1))
-		var harvest_preview: InventoryTransactionResult = (
-			inventory_service.player_inventory.add_item(resource_id, requested_quantity, true)
-		)
-		var transferred: int = 0
-		if harvest_preview.transferred == requested_quantity:
-			transferred = inventory_service.player_inventory.add_item(
-				resource_id, requested_quantity
-			).transferred
-		var resource: ResourceInteractable = player.get_current_interactable() as ResourceInteractable
-		if resource == null and result.payload.has(&"interaction_id"):
-			var scene_flow := get_node("/root/SceneFlowService") as SceneFlowCoordinator
-			resource = scene_flow.current_zone.find_interactable(
-				StringName(result.payload[&"interaction_id"])
-			) as ResourceInteractable
-		if resource != null:
-			resource.commit_harvest(transferred)
 	if not result.is_success() or not result.payload.has(&"storage_id"):
 		return
 	var inventory_service := get_node("/root/InventoryService") as InventoryCoordinator

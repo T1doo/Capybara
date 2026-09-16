@@ -59,6 +59,23 @@ static func run(
 		"production backup load restores prior inventory"
 	)
 	assert_true.call(tree.paused, "production load preserves pause menu ownership")
+	# A recovered slot must remain recoverable after saving and another damaged main.
+	pause_menu._save_game()
+	assert_true.call(
+		pause_menu.save_status_label.text == pause_menu.tr(&"UI_SAVE_SUCCESS"),
+		"save after backup recovery succeeds"
+	)
+	_write_raw(base_path + ".json", "broken main after recovery and save")
+	pause_menu._load_game()
+	assert_true.call(
+		pause_menu.save_status_label.text == pause_menu.tr(&"UI_LOAD_RECOVERED_BACKUP"),
+		"saving after semantic recovery preserves a usable backup"
+	)
+	assert_vector_approx.call(
+		player.global_position,
+		baseline_position,
+		"second recovery restores the last known usable position"
+	)
 
 	_write_raw(base_path + ".json", "broken main")
 	_write_raw(base_path + ".bak.json", "broken backup")
@@ -101,3 +118,7 @@ static func _cleanup(base_path: String) -> void:
 	for path in [base_path + ".json", base_path + ".bak.json", base_path + ".tmp.json"]:
 		if FileAccess.file_exists(path):
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	var directory: String = ProjectSettings.globalize_path(base_path).get_base_dir()
+	for file_name in DirAccess.get_files_at(directory):
+		if file_name.begins_with(base_path.get_file() + ".json.rejected"):
+			DirAccess.remove_absolute(directory.path_join(file_name))

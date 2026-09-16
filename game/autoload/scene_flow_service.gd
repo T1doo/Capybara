@@ -250,14 +250,41 @@ func preflight_transition(zone_id: StringName, spawn_id: StringName) -> StringNa
 func transition_to_saved_position(
 	zone_id: StringName,
 	spawn_id: StringName,
-	restored_position: Vector2
+	restored_position: Vector2,
+	landing_context: Dictionary = {}
 ) -> bool:
 	var error_key: StringName = preflight_transition(zone_id, spawn_id)
 	if not error_key.is_empty():
 		return _fail(zone_id, spawn_id, error_key)
 	_clear_pending_transition()
-	if not transition_to(zone_id, spawn_id, true, restored_position):
-		return false
+	var previous_zone_id: StringName = get_current_zone_id()
+	var signals_were_blocked: bool = is_blocking_signals()
+	set_block_signals(true)
+	var transitioned: bool = transition_to(zone_id, spawn_id, true)
+	set_block_signals(signals_were_blocked)
+	if not transitioned:
+		return _fail(zone_id, spawn_id, last_error_key)
+	var spawn: WorldSpawnPoint = current_zone.find_spawn_point(spawn_id)
+	var requested: Vector2 = restored_position
+	# These maps have one walking layer and no chunks. Unsupported topology returns
+	# to the named spawn; actual streamed-chunk resolution belongs to Stage 4.
+	if landing_context.get("navigation_layer", "ground") != "ground" or landing_context.has("chunk_id"):
+		requested = spawn.global_position
+	if landing_context.get("map_revision", current_zone.map_revision) != current_zone.map_revision:
+		requested = spawn.global_position
+	var landing: Dictionary = {"success": false}
+	for candidate in current_zone.landing_spawns(spawn_id):
+		landing = SafeLandingResolver.resolve(
+			current_zone, player as CharacterBody2D, requested,
+			candidate.global_position, current_zone.walkable_bounds
+		)
+		if landing["success"]:
+			current_spawn_id = candidate.spawn_id
+			break
+	if not landing["success"]:
+		return _fail(zone_id, spawn_id, &"SAVE_NO_SAFE_LANDING")
+	player.global_position = landing["position"]
+	zone_changed.emit(previous_zone_id, zone_id, current_spawn_id)
 	return true
 
 

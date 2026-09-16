@@ -1,0 +1,6 @@
+content_id,content_type,display_name_zh,display_name_en,name_key,description_key,unlock_condition,source_definition_path,status,notes
+item_branch,item,树枝,Branch,ITEM_BRANCH_NAME,ITEM_BRANCH_DESC,start,game/data/definitions/items/item_branch.tres,prototype_integrated,灰盒真实拾取/库存定义；正式美术及全内容验收未完成。其余planned行不代表已实现。
+crop_leafy_green,crop,嫩叶菜,Tender Greens,CROP_LEAFY_NAME,CROP_LEAFY_DESC,tutorial_seed,,planned,垂直切片快速作物
+fish_pond_minnow,fish,池塘小鱼,Pond Minnow,FISH_MINNOW_NAME,FISH_MINNOW_DESC,first_fishing,,planned,垂直切片普通鱼
+npc_otter_builder,npc,待定,TBD,NPC_OTTER_NAME,NPC_OTTER_DESC,start_story,,planned,水獭木匠，正式名待定
+build_wood_bench,buildable,木长凳,Wooden Bench,BUILD_BENCH_NAME,BUILD_BENCH_DESC,builder_request,,planned,贡献社交舒适标签

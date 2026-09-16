@@ -28,6 +28,23 @@ func create_storage(storage_id: StringName, capacity: int = 32) -> StorageInvent
 	return storage
 
 
+func preflight_save_sections(
+	inventories_data: Variant,
+	hotbar_data: Variant,
+	storages_data: Variant
+) -> InventoryDataResult:
+	# Use the same decoder and current capacity without replacing live models or
+	# notifying UI consumers. The detached coordinator owns only staged models.
+	var staging := InventoryCoordinator.new()
+	staging.content_registry = content_registry
+	staging.player_inventory = player_inventory
+	var result: InventoryDataResult = staging.apply_save_sections(
+		inventories_data, hotbar_data, storages_data
+	)
+	staging.free()
+	return result
+
+
 func apply_save_sections(
 	inventories_data: Variant,
 	hotbar_data: Variant,

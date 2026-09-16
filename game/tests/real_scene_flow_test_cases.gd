@@ -36,15 +36,15 @@ static func run(
 		&"item_branch"
 	)
 	var pickup_result: InteractionResult = pickup.interact(context)
-	assert_true.call(pickup_result.is_success(), "home pickup emits a typed request")
-	main_scene.call(&"_on_player_interaction_completed", pickup_result)
+	assert_true.call(pickup_result.is_requested(), "home pickup emits a typed request")
+	main_scene.call(&"_on_player_interaction_requested", pickup_result)
 	assert_true.call(
 		inventory_service.player_inventory.count_item(&"item_branch")
 		== branch_count_before_pickup + 1,
 		"home pickup enters the production inventory"
 	)
 	var tool_pickup_result: InteractionResult = tool_pickup.interact(context)
-	main_scene.call(&"_on_player_interaction_completed", tool_pickup_result)
+	main_scene.call(&"_on_player_interaction_requested", tool_pickup_result)
 	assert_true.call(
 		inventory_service.player_inventory.count_item(&"item_reed_spade") == 1
 		and not tool_pickup.interaction_enabled,
@@ -84,9 +84,9 @@ static func run(
 	var branch_count_before_gather: int = inventory_service.player_inventory.count_item(
 		&"item_branch"
 	)
-	main_scene.call(&"_on_player_interaction_completed", gather_result)
+	main_scene.call(&"_on_player_interaction_requested", gather_result)
 	assert_true.call(
-		gather_result.is_success()
+		gather_result.is_requested()
 		and gather_result.payload[&"tool_id"] == &"item_reed_spade"
 		and inventory_service.player_inventory.count_item(&"item_branch")
 		== branch_count_before_gather + 1,
@@ -106,7 +106,7 @@ static func run(
 		inventory_service.player_inventory.add_item(&"item_branch", 5, true).transferred == 1,
 		"multi-yield fixture exposes exactly one unit of partial capacity"
 	)
-	main_scene.call(&"_on_player_interaction_completed", resource.interact(context))
+	main_scene.call(&"_on_player_interaction_requested", resource.interact(context))
 	assert_true.call(
 		inventory_service.player_inventory.count_item(&"item_branch")
 		== branch_before_rejected_harvest,
@@ -117,10 +117,11 @@ static func run(
 		"partial-capacity harvest does not consume a resource use"
 	)
 	inventory_service.player_inventory.remove_item(&"item_reed_spade", 5)
+	inventory_service.hotbar.assign(0, _find_item_slot(inventory_service.player_inventory, &"item_reed_spade"))
 	var branch_before_full_harvest: int = inventory_service.player_inventory.count_item(
 		&"item_branch"
 	)
-	main_scene.call(&"_on_player_interaction_completed", resource.interact(context))
+	main_scene.call(&"_on_player_interaction_requested", resource.interact(context))
 	assert_true.call(
 		inventory_service.player_inventory.count_item(&"item_branch")
 		== branch_before_full_harvest + 5,

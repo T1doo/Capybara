@@ -261,9 +261,9 @@ func _initialize_state_probe(
 	home_resource = scene_flow.current_zone.get_node("ResourcePlaceholder") as ResourceInteractable
 	home_chest = scene_flow.current_zone.get_node("ChestPlaceholder") as ChestInteractable
 	var context := InteractionContext.new(player, player.position, Vector2.RIGHT)
-	if not home_pickup.interact(context).is_success():
+	if not home_pickup.interact(context).is_requested():
 		_fail("failed to initialize pickup state probe")
-	if not home_resource.interact(context).is_success():
+	if not home_resource.interact(context).is_requested():
 		_fail("failed to initialize resource state probe")
 	if not home_chest.interact(context).is_success():
 		_fail("failed to initialize chest state probe")

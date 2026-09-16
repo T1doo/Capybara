@@ -38,7 +38,7 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).ProviderPath
 $Path = @($Path) + @($AdditionalPath)
 if ([string]::IsNullOrWhiteSpace($ManifestPath)) {
-    $ManifestPath = Join-Path $repositoryRoot 'docs\ASSET_MANIFEST.csv'
+    $ManifestPath = Join-Path $repositoryRoot 'docs\production\ASSET_MANIFEST.csv'
 }
 
 if (-not ('Capybara.Art.PngInspector' -as [type])) {

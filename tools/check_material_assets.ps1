@@ -6,7 +6,7 @@ $materialRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Provi
 Add-Type -AssemblyName System.Drawing
 
 try {
-    $assetRows = @(Import-Csv -LiteralPath (Join-Path $materialRoot 'docs/ASSET_MANIFEST.csv'))
+    $assetRows = @(Import-Csv -LiteralPath (Join-Path $materialRoot 'docs/production/ASSET_MANIFEST.csv'))
     foreach ($materialName in @('cottage_materials_v1', 'foliage_material_v1')) {
         $recordPath = Join-Path $materialRoot "art/candidates/environment/$materialName/MANIFEST.json"
         $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json

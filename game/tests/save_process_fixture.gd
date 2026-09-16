@@ -42,13 +42,13 @@ func _write_fixture(base_path: String) -> void:
 	var tool_pickup := home_zone.get_node("ReedSpadePickup") as PickupInteractable
 	var resource := home_zone.get_node("ResourcePlaceholder") as ResourceInteractable
 	var context := InteractionContext.new(player, player.global_position, Vector2.RIGHT)
-	main_scene._on_player_interaction_completed(pickup.interact(context))
-	main_scene._on_player_interaction_completed(tool_pickup.interact(context))
+	main_scene._on_player_interaction_requested(pickup.interact(context))
+	main_scene._on_player_interaction_requested(tool_pickup.interact(context))
 	var tool_slot: int = _find_item_slot(inventory_service.player_inventory, &"item_reed_spade")
 	inventory_service.hotbar.assign(5, tool_slot)
 	inventory_service.hotbar.select(5)
 	context.equipped_tool_id = player.get_equipped_tool_id()
-	main_scene._on_player_interaction_completed(resource.interact(context))
+	main_scene._on_player_interaction_requested(resource.interact(context))
 	inventory_service.player_inventory.add_item(&"item_branch", 7)
 	var storage := inventory_service.create_storage(&"storage_process_test", 8)
 	storage.add_item(&"item_reed_fiber", 6)

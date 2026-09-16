@@ -4,9 +4,9 @@
 
 ## 最高优先级目标契约
 
-- Stage 0 之后，根目录的 `CODEX_AUTONOMOUS_GAME_PRODUCTION_GOAL_v2.md` 是本仓库最高优先级项目执行契约。
+- 2026-09-16用户接管要求优先规定执行组织与安全续开发；根目录[v2契约](CODEX_AUTONOMOUS_GAME_PRODUCTION_GOAL_v2.md)继续定义完整产品范围、质量底线和RC1 DoD，不得缩水或另造竞争契约。
 - 本文件、`PLANS.md` 或 `docs/` 与目标契约冲突时，以目标契约为准；永久有效的安全、原创性、密钥和实际测试规则仍不可降低。
-- 恢复自治工作时必须依次读取：目标契约、`AGENTS.md`、`PLANS.md`、`docs/AUTONOMOUS_STATUS.md`、最近 20 条 Git 提交、当前 Git 状态和当前测试结果。
+- 正常恢复依次读取：本文件 → [STATUS](docs/STATUS.md) → [PLANS](PLANS.md) → 当前阶段PLAN及LOG最近条目 → 关联ISSUES和任务所需共享规范 → 实际Git/测试。首次接管或范围/出口疑问完整读v2。
 - Stage 质量门通过后自动 commit、merge、tag，并在远程身份、可见性和权限可安全确认时非强制 push；不得因常规设计选择停下等待批准。
 - 只有目标契约第 4 节的硬阻塞或 RC1 全部 Definition of Done 已满足时，才允许暂停长期 Goal。
 
@@ -38,7 +38,7 @@
 ## 开始任务前
 
 - 确认当前工作区根目录为 `E:\Capybara`，并直接包含本文件与 `docs/`。
-- 读取最高优先级目标契约、`PLANS.md` 和 `docs/AUTONOMOUS_STATUS.md`；缺失时先执行 Stage 0.5 治理恢复。
+- 按上述恢复顺序；缺必需文档先治理恢复。读取工作树、暂存区、未跟踪文件、HEAD、最近20提交、分支/远程历史；保留未知修改，发现并发写入先协调文件归属。
 - 阅读与任务相关的 `docs/` 文件。
 - 检查当前 Git 状态。
 - 识别未提交修改，避免覆盖用户工作。
@@ -126,7 +126,7 @@ $env:GODOT_BIN
 generated_raw -> candidates -> approved -> source_layers/game_ready -> game/assets
 ```
 
-每项素材必须登记到 `docs/ASSET_MANIFEST.csv`。需要记录：来源方式、提示词版本、引用的原创母图、人工修改、许可证或权利依据、批准状态与游戏路径。
+每项素材必须登记到 `docs/production/ASSET_MANIFEST.csv`。需要记录：来源方式、提示词版本、引用的原创母图、人工修改、许可证或权利依据、批准状态与游戏路径。
 
 ## 永久禁止与长期允许范围
 
@@ -147,14 +147,17 @@ generated_raw -> candidates -> approved -> source_layers/game_ready -> game/asse
 - 8 个主要地区、程序化远野、生态响应和多层地形。
 - 高分辨率、非像素、统一绘本 2D/2.5D 正式美术。
 
-## 自治执行与恢复
+## 自治执行、Git 与日志
 
-- 当前计划、质量证据和下一个任务以 `PLANS.md` 与 `docs/AUTONOMOUS_STATUS.md` 为准。
-- 每个可验证小批次完成后运行统一检查，进行自审，更新状态并原子提交。
-- 每个 Stage 通过后合并到稳定 `main`，创建注释标签，再自动进入下一 Stage。
-- GitHub 身份或仓库可见性无法安全确认时继续本地开发与提交，把待同步范围写入自治状态；不得盲目 push。
-- 当前公开历史安全限制见 `GIT-002`：原开发历史包含已隔离素材对象，禁止直接push该历史或把其祖先merge回公开审阅分支。当前tree的独立快照可供审阅；长期同步迁移须另行验证历史可达对象，不得force push。
-- 所有阶段问题统一登记在 `docs/KNOWN_ISSUES.md`，发布证据统一登记在 `docs/RELEASE_READINESS.md`。
+- 唯一任务真源是docs/stages/stage-XX/PLAN.md；14个目录包括stage-00-5（语义ID字符串"0.5"）。PLANS只索引，STATUS只记录当前事实，LOG按阶段记录实际交付/失败/决定，ISSUES唯一维护问题状态。派生backlog只能生成到build。
+- 安全线为 `codex/production-clean-20260916`，从review `79092c078c63c1e1d5a6d056ebcedf8401a9ac59` 或核验的干净后继继续；已有线先验证，不覆盖/回退有效进度。旧本地main、codex/autonomous-v1及旧标签保留本地审计，GIT-002禁止推送或merge旧祖先回公开线。
+- 每个相关批次明确验收、实际运行相关检查、自审、更新PLAN/LOG/STATUS并原子commit。严重回归先复现，保留失败，不删测试、不吞诊断。日志注明executed_now / historical_report / imported_review / static_analysis，source SHA、dirty差异、run、模式/硬件、退出码、跳过项和证据可取性。
+- 每个Stage完整工程/运行/体验门通过后，在安全公开祖先链上PR或普通合并到核验远程main，创建注释标签并继续下一Stage。旧标签冲突不移动，使用明确新安全名称并记映射。RC1未完成不打RC标签。
+- 推送前核对归属/可见性/权限、staged diff、秘密/权利/全部待推祖先与LFS对象；只推显式核验ref。禁止强推、批量所有分支/标签、mirror、删除远程ref、reset --hard、强制checkout或clean清除未知内容。push成功后核验exact SHA Actions/check runs，空结果/旧绿灯不算当前通过。
+- 无凭据或工具仅阻止相关远程/工具动作，继续安全本地开发。STATUS与实际Git不一致先核对，不盲切旧SHA。回退优先revert或安全祖先诊断分支，单文件恢复前确认不会覆盖独有修改。
+- 实现commit、文档检查点和受测source分开记录；不为写入自身最终SHA无限amend。历史只追加勘误，不把失败改成首轮通过；旧本地SHA无需远程可达，原始产物缺失如实写明。
+- 只在v2第4节实际硬阻塞或全部RC1 DoD通过时暂停。普通测试失败/美术不足/Stage完成不是等待用户下一任务的理由；平台中断时写真实恢复点，不虚构后台持续执行。
+- 重大共享设计结论归docs/design，版权/资产/依赖归docs/production。所有问题登记[ISSUES](docs/ISSUES.md)，RC证据登记[RELEASE_READINESS](docs/RELEASE_READINESS.md)。
 
 ## 最终报告格式
 

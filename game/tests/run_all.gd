@@ -1,20 +1,21 @@
 extends SceneTree
 
-const DIRECTION_8_SCRIPT: Script = preload("res://core/direction_8.gd")
+const PLAYER_LOGIC_TEST_CASES: Script = preload("res://tests/player_logic_test_cases.gd")
+
 const DEBUG_OVERLAY_TEST_CASES: Script = preload("res://tests/debug_overlay_test_cases.gd")
 const DISPLAY_MATRIX_TEST_CASES: Script = preload("res://tests/display_matrix_test_cases.gd")
 const CONTENT_REGISTRY_TEST_CASES: Script = preload("res://tests/content_registry_test_cases.gd")
 const INTERACTION_TEST_CASES: Script = preload("res://tests/interaction_test_cases.gd")
+const INTERACTION_COMMIT_TEST_CASES: Script = preload("res://tests/interaction_commit_test_cases.gd")
 const INPUT_DEVICE_TEST_CASES: Script = preload("res://tests/input_device_test_cases.gd")
 const HOME_VISUAL_BLOCKOUT_TEST_CASES: Script = preload("res://tests/home_visual_blockout_test_cases.gd")
 const INVENTORY_TEST_CASES: Script = preload("res://tests/inventory_test_cases.gd")
+const HOTBAR_REMAP_TEST_CASES: Script = preload("res://tests/hotbar_remap_test_cases.gd")
 const INVENTORY_UI_TEST_CASES: Script = preload("res://tests/inventory_ui_test_cases.gd")
 const INVENTORY_SERIALIZATION_TEST_CASES: Script = preload(
 	"res://tests/inventory_serialization_test_cases.gd"
 )
-const MOVEMENT_MATH_SCRIPT: Script = preload("res://core/movement_math.gd")
 const MAIN_SCENE: PackedScene = preload("res://scenes/bootstrap/main.tscn")
-const PLAYER_STATE_MACHINE_SCRIPT: Script = preload("res://scenes/player/player_state_machine.gd")
 const REAL_SCENE_FLOW_TEST_CASES: Script = preload("res://tests/real_scene_flow_test_cases.gd")
 const SAVE_MANAGER_TEST_CASES: Script = preload("res://tests/save_manager_test_cases.gd")
 const SAVE_UI_TEST_CASES: Script = preload("res://tests/save_ui_test_cases.gd")
@@ -36,18 +37,10 @@ func _run_tests() -> void:
 	var settings_service := root.get_node("SettingsService") as SettingsManagerService
 	settings_service.replace_settings(SettingsProfile.new())
 	settings_service.apply_current_settings(false)
-	_test_cardinal_axis_conversion()
-	_test_axis_values_are_clamped()
-	_test_diagonal_input_is_normalized()
-	_test_subunit_input_is_preserved()
-	_test_zero_input_is_preserved()
-	_test_zero_input_keeps_last_direction()
-	_test_non_zero_input_updates_last_direction()
-	_test_eight_direction_mapping()
-	_test_zero_direction_uses_fallback()
-	_test_player_state_machine_transitions()
+	PLAYER_LOGIC_TEST_CASES.run(_assert_true, _assert_int_equal, _assert_float_approx, _assert_vector_approx)
 	CONTENT_REGISTRY_TEST_CASES.run(_assert_true, _assert_int_equal)
 	INVENTORY_TEST_CASES.run(_assert_true, _assert_int_equal)
+	HOTBAR_REMAP_TEST_CASES.run(root.get_node("ContentRegistry"), _assert_true)
 	INVENTORY_SERIALIZATION_TEST_CASES.run(_assert_true, _assert_int_equal)
 	SAVE_MANAGER_TEST_CASES.run(_assert_true, _assert_int_equal)
 	SETTINGS_TEST_CASES.run(_assert_true, _assert_int_equal)
@@ -73,6 +66,8 @@ func _test_phase_zero_scene() -> void:
 	await process_frame
 
 	var player := main_scene.get_node("Player") as CharacterBody2D
+	HOTBAR_REMAP_TEST_CASES.run_runtime(self, main_scene, _assert_true)
+	INTERACTION_COMMIT_TEST_CASES.run(self, main_scene, _assert_true)
 	INVENTORY_UI_TEST_CASES.run(self, main_scene, _assert_true, _assert_int_equal)
 	await SETTINGS_TEST_CASES.run_runtime(
 		self,
@@ -211,105 +206,6 @@ func _test_phase_zero_scene() -> void:
 
 	main_scene.queue_free()
 	await process_frame
-
-
-func _test_cardinal_axis_conversion() -> void:
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.direction_from_axes(-1.0, 0.0),
-		Vector2.LEFT,
-		"horizontal input converts to left"
-	)
-
-
-func _test_axis_values_are_clamped() -> void:
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.direction_from_axes(2.0, 0.0),
-		Vector2.RIGHT,
-		"axis values are clamped"
-	)
-
-
-func _test_diagonal_input_is_normalized() -> void:
-	var direction: Vector2 = MOVEMENT_MATH_SCRIPT.direction_from_axes(1.0, 1.0)
-	_assert_float_approx(direction.length(), 1.0, "diagonal speed is normalized")
-
-
-func _test_subunit_input_is_preserved() -> void:
-	var analog_input := Vector2(0.25, 0.5)
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.normalize_input(analog_input),
-		analog_input,
-		"subunit analog input keeps its magnitude"
-	)
-
-
-func _test_zero_input_is_preserved() -> void:
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.normalize_input(Vector2.ZERO),
-		Vector2.ZERO,
-		"zero input remains zero"
-	)
-
-
-func _test_zero_input_keeps_last_direction() -> void:
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.select_last_non_zero_direction(Vector2.UP, Vector2.ZERO),
-		Vector2.UP,
-		"zero input keeps the last direction"
-	)
-
-
-func _test_non_zero_input_updates_last_direction() -> void:
-	_assert_vector_approx(
-		MOVEMENT_MATH_SCRIPT.select_last_non_zero_direction(Vector2.UP, Vector2(1.0, 1.0)),
-		Vector2(1.0, 1.0).normalized(),
-		"non-zero input updates and normalizes the last direction"
-	)
-
-
-func _test_eight_direction_mapping() -> void:
-	var cases: Array[Array] = [
-		[Vector2.DOWN, Direction8.Value.DOWN],
-		[Vector2(1.0, 1.0), Direction8.Value.DOWN_RIGHT],
-		[Vector2.RIGHT, Direction8.Value.RIGHT],
-		[Vector2(1.0, -1.0), Direction8.Value.UP_RIGHT],
-		[Vector2.UP, Direction8.Value.UP],
-		[Vector2(-1.0, -1.0), Direction8.Value.UP_LEFT],
-		[Vector2.LEFT, Direction8.Value.LEFT],
-		[Vector2(-1.0, 1.0), Direction8.Value.DOWN_LEFT],
-	]
-	for test_case in cases:
-		_assert_int_equal(
-			DIRECTION_8_SCRIPT.from_vector(test_case[0]),
-			test_case[1],
-			"direction maps to %s" % DIRECTION_8_SCRIPT.to_id(test_case[1])
-		)
-
-
-func _test_zero_direction_uses_fallback() -> void:
-	_assert_int_equal(
-		DIRECTION_8_SCRIPT.from_vector(Vector2.ZERO, Direction8.Value.UP_LEFT),
-		Direction8.Value.UP_LEFT,
-		"zero direction preserves the facing fallback"
-	)
-
-
-func _test_player_state_machine_transitions() -> void:
-	var machine: PlayerStateMachine = PLAYER_STATE_MACHINE_SCRIPT.new()
-	_assert_int_equal(machine.current_state, PlayerStateMachine.State.IDLE, "state starts Idle")
-	_assert_true(machine.transition_to(PlayerStateMachine.State.MOVE), "Idle transitions to Move")
-	_assert_true(machine.transition_to(PlayerStateMachine.State.INTERACT), "Move transitions to Interact")
-	_assert_true(
-		not machine.transition_to(PlayerStateMachine.State.MOVE),
-		"Interact rejects a direct transition to Move"
-	)
-	_assert_true(machine.transition_to(PlayerStateMachine.State.IDLE), "Interact transitions to Idle")
-	_assert_true(machine.transition_to(PlayerStateMachine.State.DISABLED), "Idle transitions to Disabled")
-	_assert_true(
-		not machine.transition_to(PlayerStateMachine.State.MOVE),
-		"Disabled rejects a direct transition to Move"
-	)
-	_assert_true(machine.transition_to(PlayerStateMachine.State.IDLE), "Disabled transitions to Idle")
 
 
 func _assert_vector_approx(actual: Vector2, expected: Vector2, test_name: String) -> void:

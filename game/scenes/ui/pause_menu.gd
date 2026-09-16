@@ -147,6 +147,11 @@ func _load_game() -> void:
 	)
 	if not result.success:
 		save_status_label.text = tr(&"UI_LOAD_FAILED")
+	elif result.reason_key == &"SAVE_POSITION_RECOVERED":
+		save_status_label.text = tr(
+			&"UI_LOAD_BACKUP_SAFE_POSITION" if result.recovered_from_backup
+			else &"UI_LOAD_SAFE_POSITION"
+		)
 	elif result.recovered_from_backup:
 		save_status_label.text = tr(&"UI_LOAD_RECOVERED_BACKUP")
 	else:

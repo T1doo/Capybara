@@ -43,9 +43,32 @@ $requiredChecksSatisfied = $true
 $currentStep = $null
 $failure = $null
 $lastStandardOutput = ''
+$sourceBefore = $null
+$sourceAfter = $null
 
 New-Item -ItemType Directory -Force -Path $logDirectory | Out-Null
 Set-Content -LiteralPath $textLogPath -Value "[check] RUN $runId" -Encoding utf8
+
+function Get-SourceEvidence {
+    $sourceCommit = (& git -C $repositoryRoot rev-parse HEAD 2>$null).Trim()
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to capture source commit.' }
+    $sourceDiff = (& git -C $repositoryRoot diff HEAD --no-ext-diff --binary 2>$null) -join "`n"
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to capture source diff.' }
+    $untrackedRaw = (& git -C $repositoryRoot ls-files -z --others --exclude-standard) -join "`n"
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to capture untracked source paths.' }
+    $untrackedPaths = @($untrackedRaw -split "`0" | Where-Object { $_.Length -gt 0 })
+    $untrackedHashes = @($untrackedPaths | Sort-Object | ForEach-Object {
+        $hash = (Get-FileHash -LiteralPath (Join-Path $repositoryRoot $_) -Algorithm SHA256).Hash
+        "$_ $hash"
+    })
+    $bytes = [Text.Encoding]::UTF8.GetBytes($sourceCommit + "`n" + $sourceDiff + "`n" + ($untrackedHashes -join "`n"))
+    return [ordered]@{
+        commit = $sourceCommit
+        dirty = ($sourceDiff.Length -gt 0 -or $untrackedPaths.Count -gt 0)
+        fingerprint_sha256 = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant()
+        untracked_count = $untrackedPaths.Count
+    }
+}
 
 function Write-CheckLine {
     param([Parameter(Mandatory = $true)][string]$Message)
@@ -164,6 +187,7 @@ function Invoke-RecordedCommand {
 }
 
 try {
+    $sourceBefore = Get-SourceEvidence
     if ([string]::IsNullOrWhiteSpace($godotBin)) {
         throw 'GODOT_BIN is not set.'
     }
@@ -199,6 +223,18 @@ try {
     Invoke-RecordedCommand 'art_asset_pipeline' $powerShellBin @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $artAssetsScript
     ) -TimeoutSeconds 60
+    Invoke-RecordedCommand 'godot_version' $godotBin @('--version') -TimeoutSeconds 30
+    $versionOutput = ($lastStandardOutput -split '\r?\n' | Where-Object { $_.Length -gt 0 } | Select-Object -First 1).Trim()
+    $expectedVersion = '4.7.2.stable.official.ed1daf0bf'
+    if ($versionOutput -ne $expectedVersion) {
+        throw "Expected Godot '$expectedVersion', got '$versionOutput'."
+    }
+    ($steps | Where-Object { $_.name -eq 'godot_version' } | Select-Object -Last 1) |
+        Add-Member -NotePropertyName version -NotePropertyValue $versionOutput
+
+    Invoke-RecordedCommand 'godot_import' $godotBin @(
+        '--headless', '--path', $gameRoot, '--import'
+    ) -TimeoutSeconds 180 -FailOnDiagnostics
     Invoke-RecordedCommand 'svg_cutout_render' $powerShellBin @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $svgRenderScript
     ) -TimeoutSeconds 60 -FailOnDiagnostics
@@ -217,24 +253,15 @@ try {
     Invoke-RecordedCommand 'save_process_restart' $powerShellBin @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $saveRestartScript
     ) -TimeoutSeconds 60 -FailOnDiagnostics
-    Invoke-RecordedCommand 'godot_version' $godotBin @('--version') -TimeoutSeconds 30
-    $versionOutput = ($lastStandardOutput -split '\r?\n' | Where-Object { $_.Length -gt 0 } | Select-Object -First 1).Trim()
-    $expectedVersion = '4.7.2.stable.official.ed1daf0bf'
-    if ($versionOutput -ne $expectedVersion) {
-        throw "Expected Godot '$expectedVersion', got '$versionOutput'."
-    }
-    ($steps | Where-Object { $_.name -eq 'godot_version' } | Select-Object -Last 1) |
-        Add-Member -NotePropertyName version -NotePropertyValue $versionOutput
-
-    Invoke-RecordedCommand 'godot_import' $godotBin @(
-        '--headless', '--path', $gameRoot, '--import'
-    ) -TimeoutSeconds 180 -FailOnDiagnostics
     Invoke-RecordedCommand 'automated_tests' $godotBin @(
         '--headless', '--path', $gameRoot, '--script', 'res://tests/run_all.gd'
     ) -TimeoutSeconds 120 -FailOnDiagnostics
     if ($lastStandardOutput -notmatch 'CAPYBARA TESTS PASSED: [1-9][0-9]*/[1-9][0-9]*') {
         throw 'Automated tests exited successfully without the required non-zero test pass marker.'
     }
+    Invoke-RecordedCommand 'save_runtime_transaction' $godotBin @(
+        '--headless', '--path', $gameRoot, '--script', 'res://tests/save_transaction_fixture.gd'
+    ) -TimeoutSeconds 120 -FailOnDiagnostics
     Invoke-RecordedCommand 'main_scene_smoke' $godotBin @(
         '--headless', '--path', $gameRoot, '--quit-after', '10'
     ) -TimeoutSeconds 60 -FailOnDiagnostics
@@ -281,6 +308,11 @@ try {
     Invoke-RecordedCommand 'git_cached_diff_check' 'git' @(
         '-C', $repositoryRoot, 'diff', '--cached', '--check'
     ) -TimeoutSeconds 30
+    $sourceAfter = Get-SourceEvidence
+    if ($sourceBefore.fingerprint_sha256 -ne $sourceAfter.fingerprint_sha256) {
+        $currentStep = 'source_stability'
+        throw 'Source changed during checks; rerun after the batch is stable.'
+    }
     if ($requiredChecksSatisfied) {
         Write-CheckLine '[check] PASS required_checks_satisfied=true'
     }
@@ -305,7 +337,7 @@ finally {
     $commit = (& git -C $repositoryRoot rev-parse HEAD 2>$null).Trim()
     $gitVersion = (& git --version 2>$null).Trim()
     $summary = [ordered]@{
-        schema_version = 2
+        schema_version = 3
         run_id = $runId
         success = ($overallExitCode -eq 0)
         required_checks_satisfied = ($overallExitCode -eq 0 -and $requiredChecksSatisfied)
@@ -315,6 +347,11 @@ finally {
         duration_ms = [int]($finishedAtUtc - $startedAtUtc).TotalMilliseconds
         branch = $branch
         commit = $commit
+        source_commit = if ($null -ne $sourceBefore) { $sourceBefore.commit } else { $null }
+        source_before = $sourceBefore
+        source_after = $sourceAfter
+        execution_mode = 'headless'
+        build_configuration = 'Debug'
         host = [ordered]@{
             os = [Runtime.InteropServices.RuntimeInformation]::OSDescription
             powershell_version = $PSVersionTable.PSVersion.ToString()

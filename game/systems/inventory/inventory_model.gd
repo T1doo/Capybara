@@ -2,6 +2,8 @@ class_name InventoryModel
 extends RefCounted
 
 signal changed
+signal slots_reordered(previous_slots: Array[InventorySlot])
+signal slots_moved(source_index: int, target_index: int, emptied_source: bool, swapped: bool)
 
 const DEFAULT_CAPACITY: int = 24
 
@@ -124,6 +126,7 @@ func move_or_merge(source_index: int, target_index: int, quantity: int = -1) -> 
 	var move_quantity: int = source.quantity if quantity < 0 else mini(quantity, source.quantity)
 	if move_quantity <= 0:
 		return false
+	var swapped: bool = not target.is_empty() and target.item_id != source.item_id
 	if target.is_empty():
 		target.item_id = source.item_id
 		target.quantity = move_quantity
@@ -147,6 +150,7 @@ func move_or_merge(source_index: int, target_index: int, quantity: int = -1) -> 
 		source.quantity = target_copy.quantity
 	else:
 		return false
+	slots_moved.emit(source_index, target_index, source.is_empty(), swapped)
 	changed.emit()
 	return true
 
@@ -223,7 +227,10 @@ func sort_and_compact() -> void:
 			remaining -= stack_quantity
 	while sorted_slots.size() < capacity:
 		sorted_slots.append(InventorySlot.new())
-	_commit_slots(sorted_slots)
+	var previous_slots: Array[InventorySlot] = slots
+	slots = sorted_slots
+	slots_reordered.emit(previous_slots)
+	changed.emit()
 
 
 func count_item(item_id: StringName) -> int:

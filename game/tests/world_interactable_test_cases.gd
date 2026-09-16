@@ -36,7 +36,7 @@ static func _test_pickup(
 	pickup.item_id = &"item_branch"
 	pickup.quantity = 2
 	var result := pickup.interact(context)
-	assert_int_equal.call(result.status, InteractionResult.Status.SUCCESS, "pickup succeeds")
+	assert_int_equal.call(result.status, InteractionResult.Status.REQUESTED, "pickup requests inventory commit")
 	assert_true.call(
 		result.payload[&"item_id"] == &"item_branch" and result.payload[&"quantity"] == 2,
 		"pickup returns a typed item payload"
@@ -71,8 +71,8 @@ static func _test_resource(
 	var first_result: InteractionResult = resource.interact(context)
 	assert_int_equal.call(
 		first_result.status,
-		InteractionResult.Status.SUCCESS,
-		"resource succeeds while uses remain"
+		InteractionResult.Status.REQUESTED,
+		"resource requests commit while uses remain"
 	)
 	assert_true.call(
 		first_result.payload[&"tool_id"] == &"item_reed_spade",

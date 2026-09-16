@@ -2,6 +2,38 @@ class_name WorldZone
 extends Node2D
 
 @export var zone_id: StringName = &""
+@export var walkable_bounds: Rect2 = Rect2(-906.0, -546.0, 1812.0, 1092.0)
+@export var map_revision: int = 1
+
+
+func landing_spawns(preferred: StringName) -> Array[WorldSpawnPoint]:
+	var result: Array[WorldSpawnPoint] = []
+	var pending: Array[Node] = [self]
+	while not pending.is_empty():
+		var node: Node = pending.pop_back()
+		for child in node.get_children():
+			pending.append(child)
+		if node is WorldSpawnPoint:
+			result.append(node)
+	result.sort_custom(func(a: WorldSpawnPoint, b: WorldSpawnPoint) -> bool:
+		if a.spawn_id == preferred or b.spawn_id == preferred:
+			return a.spawn_id == preferred and b.spawn_id != preferred
+		return String(a.spawn_id) < String(b.spawn_id)
+	)
+	return result
+
+
+func capture_load_checkpoint() -> Dictionary:
+	var enabled: Dictionary = {}
+	for interactable in _find_all_interactables():
+		enabled[interactable.interaction_id] = interactable.interaction_enabled
+	return {"state": capture_runtime_state(), "enabled": enabled}
+
+
+func restore_load_checkpoint(checkpoint: Dictionary) -> void:
+	apply_runtime_state(checkpoint["state"])
+	for interactable in _find_all_interactables():
+		interactable.interaction_enabled = checkpoint["enabled"][interactable.interaction_id]
 
 
 func find_spawn_point(target_spawn_id: StringName) -> WorldSpawnPoint:
@@ -103,10 +135,12 @@ func apply_runtime_state(state: Dictionary) -> bool:
 		var entry := state[raw_id] as Dictionary
 		if interactable is PickupInteractable:
 			var pickup := interactable as PickupInteractable
+			pickup.invalidate_pending_request()
 			pickup.quantity = entry["quantity"]
 			pickup.interaction_enabled = pickup.quantity > 0
 		elif interactable is ResourceInteractable:
 			var resource := interactable as ResourceInteractable
+			resource.invalidate_pending_request()
 			resource.remaining_uses = entry["remaining_uses"]
 			resource.interaction_enabled = resource.remaining_uses > 0
 	return true

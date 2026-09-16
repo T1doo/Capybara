@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal state_changed(previous_state: int, current_state: int)
 signal interaction_completed(result: InteractionResult)
+signal interaction_requested(result: InteractionResult)
 
 const DIRECTION_8_SCRIPT: Script = preload("res://core/direction_8.gd")
 const MOVEMENT_MATH_SCRIPT: Script = preload("res://core/movement_math.gd")
@@ -73,7 +74,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	var result := try_interact_current()
 	end_interaction()
-	interaction_completed.emit(result)
+	if result.is_requested():
+		interaction_requested.emit(result)
+	else:
+		interaction_completed.emit(result)
 	get_viewport().set_input_as_handled()
 
 

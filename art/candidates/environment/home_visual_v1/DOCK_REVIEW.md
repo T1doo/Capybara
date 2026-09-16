@@ -18,7 +18,7 @@
 
 ## 实际验证
 
-首轮 `run_all.gd` 为739/739、退出0。之后按独立审查建议补北侧护栏真实碰撞及638点水域分类检查，最终计数与统一门编号见 `docs/AUTONOMOUS_STATUS.md`。
+首轮 `run_all.gd` 为739/739、退出0。之后按独立审查建议补北侧护栏真实碰撞及638点水域分类检查，最终计数与统一门编号已迁至 `docs/stages/stage-03/LOG.md` 的历史记录（原路径属于审阅基准 `79092c078c63c1e1d5a6d056ebcedf8401a9ac59`）。
 
 ```powershell
 & $env:GODOT_BIN --headless --path game --import

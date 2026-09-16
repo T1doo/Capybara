@@ -5,16 +5,30 @@ enum Status {
 	SUCCESS,
 	BLOCKED,
 	INVALID,
+	REQUESTED,
 }
 
 var status: int = Status.INVALID
 var message_key: StringName = &""
 var reason_key: StringName = &""
 var payload: Dictionary = {}
+var resolved: bool = false
 
 
 func is_success() -> bool:
 	return status == Status.SUCCESS
+
+
+func is_requested() -> bool:
+	return status == Status.REQUESTED
+
+
+func cancel() -> void:
+	resolved = true
+
+
+static func requested(message: StringName, request_payload: Dictionary) -> InteractionResult:
+	return _create(Status.REQUESTED, message, &"", request_payload)
 
 
 static func succeeded(

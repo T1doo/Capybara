@@ -14,10 +14,13 @@ if ([string]::IsNullOrWhiteSpace($godotBin) -or -not (Test-Path -LiteralPath $go
 }
 
 function Invoke-SaveFixture {
-    param([Parameter(Mandatory = $true)][string]$Mode)
+    param(
+        [Parameter(Mandatory = $true)][string]$Mode,
+        [string]$Script = 'res://tests/save_process_fixture.gd'
+    )
 
     $output = @(& $godotBin --headless --path $gameRoot `
-        --script 'res://tests/save_process_fixture.gd' -- $Mode $fixtureBasePath 2>&1)
+        --script $Script -- $Mode $fixtureBasePath 2>&1)
     $exitCode = $LASTEXITCODE
     foreach ($line in $output) {
         [Console]::WriteLine([string]$line)
@@ -33,13 +36,23 @@ function Invoke-SaveFixture {
 try {
     Invoke-SaveFixture -Mode 'write'
     Invoke-SaveFixture -Mode 'read'
+    Invoke-SaveFixture -Mode 'cleanup'
+    foreach ($mode in @('seed', 'recover', 'save', 'verify', 'cleanup',
+        'seed', 'isolate_fail', 'save', 'verify', 'cleanup',
+        'seed_capacity', 'isolate_fail', 'save', 'verify', 'faults', 'cleanup')) {
+        Invoke-SaveFixture -Mode $mode -Script 'res://tests/save_recovery_process_fixture.gd'
+    }
+    foreach ($mode in @('write', 'read', 'cleanup')) {
+        Invoke-SaveFixture -Mode $mode -Script 'res://tests/hotbar_process_fixture.gd'
+    }
 }
 catch {
     [Console]::Error.WriteLine("[save-restart] FAIL: $($_.Exception.Message)")
     try { Invoke-SaveFixture -Mode 'cleanup' } catch {}
+    try { Invoke-SaveFixture -Mode 'cleanup' -Script 'res://tests/save_recovery_process_fixture.gd' } catch {}
     exit 16
 }
 
 Invoke-SaveFixture -Mode 'cleanup'
-[Console]::WriteLine('[save-restart] PASS: independent processes restored cross-zone game state.')
+[Console]::WriteLine('[save-restart] PASS: cross-zone state, recovery-save-restart, and write/rotation/commit failures verified.')
 exit 0

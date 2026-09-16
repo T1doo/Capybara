@@ -113,3 +113,5 @@ UI_STORAGE_TITLE,Storage,储物箱
 UI_STORAGE_BACKPACK,Backpack,背包
 UI_STORAGE_CONTAINER,Container,箱内
 UI_STORAGE_TRANSFER_HINT,Select a slot to move its stack between backpack and storage.,选择格位即可在背包与储物箱之间移动整组物品。
+UI_LOAD_SAFE_POSITION,Loaded. Moved to a safe nearby spot.,读取成功。已将你移到附近的安全位置。
+UI_LOAD_BACKUP_SAFE_POSITION,Recovered backup. Moved to a safe nearby spot.,已恢复备份，并将你移到附近的安全位置。
