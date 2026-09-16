@@ -157,3 +157,10 @@ Added
 - 独立只读审查无新增B/C/H；原1200秒/心跳/非零计数/持久态/暂停门未降低。
 - 完整门run `20260916T083458202Z-p40852-5e3d745c`：19/19、required=true、零诊断与Windows Debug导出；源码前后指纹一致 `f7684d6c434348ad48bd5f84cb0caec3f12c5f31742b23a6ce1f16cfb86fced6`。之后只更新文档状态。
 - 尚待：实际1200秒长测。本条不以10秒或统一门代替长测，不关闭ST1-006。
+
+
+## 2026-09-16T17:50:56+08:00 · SOAK-1200-COMPLETE · 实际长测通过
+
+- 来源类型：executed_now；source `dd4af4b808f2451cbd7efe0b3db10eb027d90efd`。长测期间未修改其消费的游戏代码，独立美术工具在其他进程运行。
+- `tools/run_stage_1_soak.ps1 -DurationSeconds 1200`退出0；run20260916T084039617Z-p43072-dd264577：1200秒、8378cycles、2095transitions/inputs、524selections、8378statechecks、20heartbeats，零诊断。
+- 精确提交远程CI35075003214 success。ST1-006 / ST1-R001关闭；这仍是脚本输入与运行态soak，不是实体手柄人工试玩或Stage11两小时性能验收。

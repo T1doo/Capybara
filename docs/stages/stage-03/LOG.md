@@ -278,3 +278,23 @@ GPU 复核命令：
 - 本地证据：`build/takeover/20260916/blender-4.5.13-official.sha256`、`blender-verified.json`、`blender-version.log`；不随源码携带，不保证新检出存在。
 - 限制：只解除缺工具这一前置条件，尚未制作/运行角色正交样板，更没有通过ART3-100动画A/B或角色母图质量门。
 - 下一动作：Stage2可靠性批次与CI整合完成后，按统一AG1造型、相机、游戏尺寸和代表动作制作小规模对比。
+
+
+## 2026-09-16T17:27:03+08:00 · USER-STAGE3-STOP · 本轮阶段停点
+
+- 来源类型：executed_now（用户执行指令记录）。用户要求完成Stage3后暂停，明天再继续。
+- 执行：继续当前Stage3，按完整退出门验证主角/动画路线/NPC/UI/环境四氛围/正式入口及保存恢复；通过后保存安全commit/push、证据与恢复点，停在Stage4开始之前，等待用户明确恢复。
+- 不改变v2的最终产品范围，也不把技术样件或单张候选当作Stage3完成。该用户指令优先于默认阶段通过后自动进入下一Stage的组织规则。
+
+
+## 2026-09-16T17:50:56+08:00 · USER-PAUSE-STAGE3-WIP · 即时暂停与素材恢复点
+
+- 来源类型：executed_now。用户明确“先暂停，改天再做”，覆盖此前继续至Stage3结束的当前执行安排。活动只读代理已中断，不继续实现/生成/测试。
+- 本批交付边界：A/B两种技术路线与21代表帧、共同固定比例及真实Compatibility RTX4060 Laptop GPU场景比较已做；两种正式绘本视觉均失败，完整连续动画/滑步/成本未验，ART3-100保持未完成。AG4只是下右静态RGBA候选，独立H0/M1，不批准PLAYER_MASTER或game_ready。
+- AG3唯一源AG1；AG4唯一源AG3。native图、精确提示词、引用SHA和审查已逐文件登记。AG3原H1保持历史，AG4仅修复本视图可见侧结/披肩/耳形。
+- 工具证据：build/logs/character-candidate-fixtures-20260916T094032135Z-p7336.json 25/25；真实AG3/4检查run20260916T094059555Z通过。新hook接入check_art_assets后完整门未执行，后续恢复必须补。
+- 固定比例report v004直接LockBits原PNG，21帧无触边；v002/v003的GDI重绘测量假阳性已识别，保留但不作为候选缺陷依据。原B首版实际截边仍为真实失败。
+- GPU capture初次JSON浮点/整数数组比较失败已修；一次权限审批超时未执行，允许的一次重试成功。最新world_cutout_contact/world_blender_contact/world_ag4_contact保留源hash、同相机及独立近似静态接触影；该影不能证明动态脚底接触。AG4 pivot(685,824)是由可见脚估的临时值，非批准rig。
+- A候选失败shape-*保留本地并忽略，final-20260916是本批审阅源。Blender .blend和所有渲染仍build-only，可由已验证工具复现；没有覆盖art/source_layers或写入game/assets。
+- 下步只读设计已获得：需要补隐藏HL脚及身体/颈/包下毛面，再做固定母图的可编辑cutout，不能逐帧生图。设计提出的慢速步态估算未实测、未采纳为游戏速度修改；当前move_speed240仍保留，正式动画要验证匹配。
+- Git：暂停前已推送实现dd4af4b；本批素材与工具仍需新整合门，暂停时只建立本地WIP恢复点，不push、不通过阶段、不打Stage3标签。

@@ -1,32 +1,33 @@
 # 当前恢复点
 
-- observed_at: 2026-09-16T16:06:23+08:00
+> 用户最新要求：立即暂停，改天再做。此前“完成Stage3后暂停”的执行安排已被这次即时暂停覆盖。等待用户明确恢复；Stage3和RC1均未完成。
+
+- observed_at: 2026-09-16T17:50:56+08:00
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
-- observed_head: aa2b8aeb0bb0e3083c1166dd22091a7f6a091403（受测实现；本次仅文档暂停检查点另行提交）
-- 产品 Stage：3；实际批次：Stage0.5文档/CI及Stage2可靠性整合已通过本地门，实现已提交并push；用户已明确恢复；Goal现场查询active，正在修复soak并继续Stage3。
+- observed_head: dd4af4b808f2451cbd7efe0b3db10eb027d90efd（最后已推送实现；本地暂停检查点另行记录）
+- 当前产品Stage：3，高品质美术基线与正式入口整合。
+- 当前动作：已停止开发、素材生产和子代理，只保存恢复点；Goal工具最后读取仍active，不表示用户允许继续。
 
-## 安全与当前事实
+## 已完成且有证据
 
-唯一工程E:\Capybara；Godot4.7.2。生产线从review创建，旧本地main、codex/autonomous-v1与旧标签保留且禁止推送/merge回公开线。原9未跟踪文件SHA256保持，用户附件未修改/提交。远程T1doo/Capybara是public且ADMIN；02ac9b3已显式单分支push，祖先与LFS已核验。整合实现aa2b8ae已提交并显式push；仅原用户附件未跟踪。恢复必须先读git status/HEAD，不能盲切本页SHA。
+- 安全分支继承指定review；旧本地main/autonomous-v1与旧标签保留禁推。原用户附件未修改或提交。
+- 接管文档14组PLAN/LOG及核心可靠性修复已提交。aa2b8ae精确CI35072291907成功；soak修复dd4af4b精确CI35075003214成功。
+- 实际1200秒soak通过：run `20260916T084039617Z-p43072-dd264577`，8378cycles、2095transitions/inputs、524selections、8378state_checks、20heartbeats、零诊断。初始化回归ST1-006可据此关闭。[Stage1 LOG](stages/stage-01/LOG.md)。
+- A/B技术样件：12个cutout及9个Blender代表帧，统一512/35°/pivot(256,384)/DR288像素；实际RGBA与GPU比较已运行。两条正式绘本视觉均未通过，不代表ART3-100完成。[审查](../art/candidates/player_animation_ab_v001/REVIEW.md)。
+- AG3→AG4：原生RGBA及四底、本体144px、GPU静态比较；AG4下右静态独立B0/C0/H0/M1，仍technical_candidate，不是母图/游戏正式资产。[AG4审查](../art/candidates/player_ag4_v001/REVIEW.md)。
 
-[Stage0.5 PLAN](stages/stage-00-5/PLAN.md)：14组PLAN/LOG、原70ID完整保留、共100任务；29旧源迁移映射可审计。治理20正负例和SVG10检出/hash用例通过。
+## 暂停时保留的未完成批次
 
-[Stage2 LOG](stages/stage-02/LOG.md#reliability-integration)：备份污染、装备重排、交互提交顺序已复现并修复；当前地图碰撞/连通安全落点与整体加载rollback通过，Stage4真正chunk/layer恢复尚未验证。
+当前素材/工具批次包括 `.gitattributes`、`.gitignore`、资产清单、AG3/AG4原图副本/提示词/审查、A/B最终SVG与制作脚本、QA/GPU夹具、新候选完整性检查器。已执行相关PNG、GPU、hash检查和25个候选正负例；**新资产检查器接入统一入口后的完整门尚未运行**，不得把之前19步通过套用成这批最新整合通过，也不得发布为Stage3通过。
 
-## 最新证据
+暂停前清单：`build/takeover/20260916/pause-stage3/status-before.txt`、`untracked-sha256.json`、`tracked-diff-stat.txt`。原始生成与失败迭代、PNG/.blend和QA产物仍保留在被忽略的art/generated_raw及build；候选副本与脚本可进入本地恢复提交，暂停期间不push。
 
-- 本地run `20260916T080216355Z-p8148-b860280a`：19/19、827/827、61事务检查、零Godot诊断、Windows Debug导出/短启动，required=true。受测02ac9b3+dirty实现/治理工作树，前后指纹一致；不是exact commit。随后仅更新日志/任务状态，另跑治理/格式门。[验证说明](stages/stage-00-5/LOG.md#takeover-validation)。
-- 保留失败：原基线run073251的SVG CRLF失败；远程02ac run35069530550/artifact10435003811在导入前脚本解析失败；整合run075728因runner354行失败。现已固定LF、前置导入并原样拆分测试职责，未删测试降门。
-- 本地机器产物在build/logs及build/takeover/20260916（被忽略，不保证新检出可取）。aa2b8ae远程CI成功产物10436797343已下载核验，R-CI-01/02、R-DOC-01关闭。自动断言/headless/合成手柄/Debug不证明GPU、实体硬件、Release或RC1。
+## 恢复顺序
 
-## 下一动作与缺口
+1. 先检查真实Git HEAD/工作树，保护所有保留修改；确认本地WIP与远程dd4af4b差异。
+2. 运行新资产门/格式/完整统一门，处理真实整合失败后再安全同步本批。
+3. 继续AG4实景接地、隐藏结构补面、可编辑分层与连续动作。现有240移动速度与短足步态必须实际匹配，不能用慢速展示冒充正常移动下无滑步。
+4. 完成四独立方向/八向运动、NPC/UI、环境统一/四氛围及正式入口保存恢复，才能通过[Stage3 PLAN](stages/stage-03/PLAN.md)。恢复后如用户没有另行改变范围，仍在Stage3完成处停下，不自动进入Stage4。
 
-aa2b8ae精确CI35072291907现已查询成功；soak初始化10秒与统一19步通过，先完成实际1200秒长测；同时继续[Stage3 PLAN](stages/stage-03/PLAN.md)的主角生产母图、动画A/B、NPC/UI、同场景四氛围及正式入口。Blender4.5.13官方便携包已校验并实际启动，ART3-004缺工具前置已解除，但比较尚未执行。[Stage3工具记录](stages/stage-03/LOG.md)。
-
-[ISSUES](ISSUES.md)保留ST2-017后续chunk/layer、QA-001实体手柄以及ART3/ENV3视觉缺口。没有阻止全部本地开发的硬阻塞；没有通过Stage3或RC1，不因文档/CI完成停下。
-
-
-## 当前执行批次
-
-用户已恢复；上次暂停历史见Stage1 LOG。基线83409ac仅有用户原附件未跟踪。新soak初始化通过真实输入完成资源获取；当前10秒及完整run20260916T083458202Z-p40852-5e3d745c通过，1200秒仍待，不提前关闭ST1-006。新commit后继续长测和Stage3小规模动画方案准备。
+[ISSUES](ISSUES.md)保留真实视觉、实体手柄以及后续chunk/layer缺口。仅读文件或保存检查点不是阶段完成。

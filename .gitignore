@@ -34,6 +34,9 @@ art/generated_raw/
 art/candidates/_temp/
 art/candidates/_quarantine/**/*.png
 
+# Rejected local geometry trials; the reviewed final source stays tracked.
+art/candidates/player_animation_ab_v001/cutout/shape-*/
+
 # Python
 __pycache__/
 *.pyc

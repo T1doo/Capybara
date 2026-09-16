@@ -1013,7 +1013,11 @@ finally {
     $smokeImage.Dispose()
 }
 
+foreach ($candidateCheck in @('check_character_candidates.ps1', 'test_character_candidates.ps1')) {
+    & (Join-Path $PSScriptRoot $candidateCheck)
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
 [Console]::WriteLine(
-    "[art] PASS: $($allConceptPaths.Count) clean-lineage player concepts ($($technicalCandidatePaths.Count) transparent), 1 home visual concept, 1 cottage visual concept, provenance, CC0 hash, contact/alpha review smoke, and rejection paths verified."
+    "[art] PASS: $($allConceptPaths.Count) clean-lineage concepts, registered controlled adaptations, environment provenance, alpha and rejection paths verified."
 )
 exit 0
