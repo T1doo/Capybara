@@ -137,3 +137,12 @@ Added
 - 历史决定：DEC-014；2026-08-30；Stage 1 仅在同一会话缓存两个已访问灰盒区域实例以保持运行时状态；在存档/chunk 差量尚未建立前，先可靠保留拾取、资源和箱子状态；这是 Stage 1 过渡方案；Stage 2–4 必须迁移为稳定 ID 驱动的稀疏 runtime state/chunk delta，不能无界缓存大型世界；Accepted
 
 - 历史决定：DEC-015；2026-08-30；门转场使用单槽 pending 队列，暂停期间不执行，恢复后仅执行一次；消除 E/A 与 Esc/Start 同帧竞态和重复请求叠加；SceneFlow 使用 ALWAYS 观察恢复；unconfigure 清空 pending；Accepted
+
+
+## 2026-09-16T16:11:00+08:00 · PAUSE-SOAK-01 · 用户暂停前发现soak启动失败
+
+- 来源类型：executed_now；source `aa2b8aeb0bb0e3083c1166dd22091a7f6a091403`，已commit/push，受控代码无未提交差异；原用户交接文件仍未跟踪。
+- 命令：tools/run_stage_1_soak.ps1 -DurationSeconds 1200；退出1，未完成20分钟。
+- 原始错误：failed to initialize resource state probe，soak coverage counters must all be non-zero；日志build/logs/stage-1-soak-20260916T081029283Z-p22392-2b7307c3.log。
+- 目前只确认测试初始化失败；尚未定位，不断言游戏持续运行故障。ST1-006 / ST1-R001登记，历史Stage1通过记录不改写。
+- 用户随后明确暂停。仅保存本恢复点，未继续修改代码、重跑测试或生成素材。恢复先核验exact SHA CI35072291907，再诊断探针与新REQUESTED/最终提交路径并实际重跑1200秒。

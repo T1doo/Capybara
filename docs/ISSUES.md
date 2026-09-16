@@ -105,3 +105,10 @@ Stage：
 R-POS-01 是 ST2-017 的审阅别名，不另维护状态；任务 ST2-R004 前置到正式家园替换前。R-GIT-01 是 GIT-002 的审阅别名。GIT-002当前安全线已从审阅SHA建立为 `codex/production-clean-20260916`；旧开发/main/tag仍本地保留且禁推，首次新线push还须审计全部待推祖先与LFS对象。
 
 GOV-006 的历史“保留七入口横幅”关闭依据仅描述旧治理；本次R-DOC-01用实际删除重复入口和新结构检查取代该方法，保留失败历史不等于保留失效规则。
+
+
+### ST1-006 — 新交互协议整合后soak资源探针初始化失败
+
+级别：High。Stage：1/2。状态：Open。任务：ST1-R001。
+
+aa2b8ae的19步统一门已通过，但随后实际1200秒soak启动即退出1：failed to initialize resource state probe / coverage counters must all be non-zero。日志见Stage1 LOG的PAUSE-SOAK-01。尚未诊断，不能夸大成20分钟游戏崩溃；用户此时主动暂停。恢复先检查探针与请求/提交链，修复并实际跑满1200秒、有效覆盖计数和零诊断后关闭。

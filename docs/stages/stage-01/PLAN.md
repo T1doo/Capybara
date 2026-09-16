@@ -29,6 +29,7 @@
 | CAP-0104 | 区域切换与玩家出生点 | P0 | CAP-0101 | 往返区域位置与状态正确 | done | historical_report: [历史日志](LOG.md#historical-records) |
 | CAP-0105 | 调试覆盖层 | P1 | CAP-0104 | 可切换查看区域/状态/目标/设备与运行时数量 | done | historical_report: [历史日志](LOG.md#historical-records) |
 | CAP-0106 | Stage 1 灰盒 soak | P0 | CAP-0103,CAP-0104,CAP-0105 | 连续 20 分钟无重复玩家/误选/暂停穿透/转场丢失 | done | historical_report: [历史日志](LOG.md#historical-records) |
+| ST1-R001 | 修复接管后soak初始化并重新验证真实输入链 | P0 | CAP-0106,ST2-R003 | 回归新请求/提交路径；资源探针正确初始化，实际1200秒持续流程及非零覆盖计数通过，保留启动失败证据 | todo | - |
 
 ## 退出质量门
 
