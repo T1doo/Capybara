@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://scenes/visual_prototypes/painted_tree_trunk_2d.gd" id="1"]
+[sub_resource type="CircleShape2D" id="Body"]
+radius = 19.0
+[node name="PaintedTreeTrunk" type="StaticBody2D"]
+z_index = 20
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1")
+[node name="Footprint" type="CollisionShape2D" parent="."]
+shape = SubResource("Body")

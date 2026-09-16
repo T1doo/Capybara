@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://systems/interaction/door_interactable.gd" id="1_door_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(62, 92)
+
+[node name="DoorPlaceholder" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_door_script")
+interaction_id = &"door_grove_placeholder"
+prompt_key = &"INTERACTION_ENTER"
+interaction_priority = 100
+destination_zone_id = &"zone_grove_placeholder"
+destination_spawn_id = &"spawn_from_home"
+
+[node name="Visual" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
+color = Color(0.352941, 0.494118, 0.513726, 1)
+
+[node name="Knob" type="Polygon2D" parent="."]
+position = Vector2(18, 4)
+polygon = PackedVector2Array(-4, 0, 0, -4, 4, 0, 0, 4)
+color = Color(0.929412, 0.721569, 0.286275, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_door")

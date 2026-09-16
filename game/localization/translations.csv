@@ -1,0 +1,115 @@
+keys,en,zh_CN
+UI_HOME_VISUAL_PREVIEW,Stage 3 environment preview · Esc / Start: menu,阶段 3 环境预览 · Esc / Start：菜单
+UI_SETTINGS_SESSION_APPLIED,Applied for this session only,已应用（仅本次运行生效）
+UI_PHASE_0_LABEL,Prototype / Phase 0,Prototype / Phase 0
+UI_PAUSE_TITLE,Paused,已暂停
+UI_PAUSE_CONTINUE,Continue,继续
+UI_PAUSE_SETTINGS,Settings,设置
+UI_PAUSE_SAVE,Save,保存
+UI_PAUSE_LOAD,Load,读取
+UI_PAUSE_EXIT,Exit to Desktop,退出到桌面
+UI_SAVE_SUCCESS,Game saved.,游戏已保存。
+UI_SAVE_FAILED,Could not save the game.,无法保存游戏。
+UI_LOAD_SUCCESS,Game loaded.,游戏已读取。
+UI_LOAD_RECOVERED_BACKUP,Main save was damaged. Recovered the backup.,主存档已损坏，已恢复备份。
+UI_LOAD_FAILED,Main save and backup could not be loaded.,主存档与备份均无法读取。
+INTERACTION_PICKUP,Pick up,拾取
+INTERACTION_GATHER,Gather,采集
+INTERACTION_UNAVAILABLE,Unavailable,暂不可用
+INTERACTION_PICKUP_SUCCESS,Picked up,已拾取
+INTERACTION_GATHER_SUCCESS,Gathered,已采集
+INTERACTION_REQUIRES_TOOL,Equip the required tool first.,请先装备所需工具。
+INTERACTION_REST,Rest,休息
+INTERACTION_REST_REQUESTED,Rest requested,已请求休息
+INTERACTION_OPEN,Open,打开
+INTERACTION_CLOSE,Close,关闭
+INTERACTION_STORAGE_OPENED,Storage opened,储物箱已打开
+INTERACTION_STORAGE_CLOSED,Storage closed,储物箱已关闭
+INTERACTION_ENTER,Enter,进入
+INTERACTION_DOOR_LOCKED,Locked,已上锁
+INTERACTION_TRANSITION_REQUESTED,Travel requested,已请求前往
+INTERACTION_TALK,Talk,交谈
+INTERACTION_CONVERSATION_REQUESTED,Conversation requested,已请求交谈
+INPUT_PROMPT_INTERACT_KEYBOARD,E,E
+INPUT_PROMPT_INTERACT_GAMEPAD,South Button,南键
+INPUT_PROMPT_GAMEPAD_BUTTON,Button %d,按钮 %d
+INPUT_PROMPT_GAMEPAD_AXIS,Axis %d %s,摇杆轴 %d %s
+INPUT_PROMPT_PAUSE_KEYBOARD,Escape,Esc
+INPUT_PROMPT_PAUSE_GAMEPAD,Start,开始键
+INPUT_PROMPT_UNKNOWN,Input,输入
+DEBUG_OVERLAY_TITLE,Debug [F3],调试 [F3]
+DEBUG_ZONE,Zone,区域
+DEBUG_STATE,Player state,玩家状态
+DEBUG_FACING,Facing,朝向
+DEBUG_TARGET,Target,目标
+DEBUG_DEVICE,Input device,输入设备
+DEBUG_PLAYER_COUNT,Player count,玩家数量
+DEBUG_ACTIVE_ZONE_COUNT,Active zone count,活动区域数量
+DEBUG_NONE,None,无
+ITEM_BRANCH_NAME,Branch,树枝
+ITEM_BRANCH_DESCRIPTION,A sturdy fallen branch.,一根结实的落枝。
+ITEM_REED_FIBER_NAME,Reed Fiber,芦苇纤维
+ITEM_REED_FIBER_DESCRIPTION,Flexible fiber gathered from wetland reeds.,从湿地芦苇中采集的柔韧纤维。
+ITEM_REED_SPADE_NAME,Reed Spade,芦苇铲
+ITEM_REED_SPADE_DESCRIPTION,A light hand tool woven and bound for wet soil.,为湿润泥土编扎制作的轻便手铲。
+UI_INVENTORY_TITLE,Backpack,背包
+UI_INVENTORY_CAPACITY,Slots %d / %d,格位 %d / %d
+UI_INVENTORY_EMPTY_SLOT,Empty,空
+UI_INVENTORY_UNKNOWN_ITEM,Unknown item,未知物品
+UI_INVENTORY_SLOT_TOOLTIP,Inventory slot %d,背包格位 %d
+UI_HOTBAR_TITLE,Hotbar,快捷栏
+UI_INVENTORY_CLOSE_HINT,Tab / Back: Close,Tab / 返回键：关闭
+UI_INVENTORY_SPLIT,Split half,拆分一半
+UI_INVENTORY_ASSIGN,Assign to hotbar,分配到快捷栏
+UI_INVENTORY_DISCARD,Discard one,丢弃一个
+UI_INVENTORY_SORT,Sort,整理
+UI_INVENTORY_SELECTED_SLOT,Selected slot %d,已选择格位 %d
+UI_INVENTORY_CONFIRM_DISCARD,Press discard again to confirm.,再次按丢弃以确认。
+UI_INVENTORY_DISCARD_LOCKED,Quest items cannot be discarded.,任务物品不能丢弃。
+UI_INVENTORY_SORTED,Backpack sorted.,背包已整理。
+UI_INVENTORY_OPERATION_SUCCESS,Done.,已完成。
+UI_INVENTORY_OPERATION_FAILED,That action is not available.,当前无法执行该操作。
+UI_SETTINGS_TITLE,Settings,设置
+UI_SETTINGS_LANGUAGE,Language,语言
+UI_SETTINGS_DISPLAY_MODE,Display mode,显示模式
+UI_SETTINGS_RESOLUTION,Resolution,分辨率
+UI_SETTINGS_UI_SCALE,UI scale,界面缩放
+UI_SETTINGS_MASTER_VOLUME,Master volume,主音量
+UI_SETTINGS_MUSIC_VOLUME,Music volume,音乐音量
+UI_SETTINGS_SOUND_VOLUME,Sound volume,音效音量
+UI_SETTINGS_CAMERA_SMOOTHING,Camera smoothing,镜头平滑
+UI_SETTINGS_REDUCED_MOTION,Reduce motion,减少动态效果
+UI_SETTINGS_VIBRATION,Controller vibration,手柄震动
+UI_SETTINGS_HIGH_CONTRAST,High-contrast interactions,高对比交互
+UI_SETTINGS_APPLY,Apply,应用
+UI_SETTINGS_CONTROLS,Controls,按键设置
+UI_SETTINGS_BACK,Back,返回
+UI_SETTINGS_SAVED,Settings saved,设置已保存
+UI_SETTINGS_SAVE_FAILED,Could not save settings,设置保存失败
+UI_LANGUAGE_ZH_CN,Simplified Chinese,简体中文
+UI_LANGUAGE_EN,English,English
+UI_DISPLAY_WINDOWED,Windowed,窗口
+UI_DISPLAY_FULLSCREEN,Fullscreen,全屏
+UI_REMAP_TITLE,Control bindings,按键设置
+UI_REMAP_ACTION,Action,动作
+UI_REMAP_KEYBOARD,Keyboard,键盘
+UI_REMAP_GAMEPAD,Gamepad,手柄
+UI_REMAP_HINT,Select a binding then press a new key or gamepad control.,选择绑定后按下新的键盘或手柄按键。
+UI_REMAP_WAITING,Waiting for input…,等待输入…
+UI_REMAP_UNBOUND,Unbound,未绑定
+UI_REMAP_RESET,Restore defaults,恢复默认
+UI_REMAP_GAMEPAD_BUTTON,Button %d,按键 %d
+UI_REMAP_GAMEPAD_AXIS,Axis %d %s,摇杆轴 %d %s
+UI_ACTION_MOVE_LEFT,Move left,向左移动
+UI_ACTION_MOVE_RIGHT,Move right,向右移动
+UI_ACTION_MOVE_UP,Move up,向上移动
+UI_ACTION_MOVE_DOWN,Move down,向下移动
+UI_ACTION_INTERACT,Interact,交互
+UI_ACTION_PAUSE_GAME,Pause,暂停
+UI_ACTION_TOGGLE_INVENTORY,Inventory,背包
+UI_ACTION_HOTBAR_PREVIOUS,Previous hotbar slot,上一个快捷栏位
+UI_ACTION_HOTBAR_NEXT,Next hotbar slot,下一个快捷栏位
+UI_STORAGE_TITLE,Storage,储物箱
+UI_STORAGE_BACKPACK,Backpack,背包
+UI_STORAGE_CONTAINER,Container,箱内
+UI_STORAGE_TRANSFER_HINT,Select a slot to move its stack between backpack and storage.,选择格位即可在背包与储物箱之间移动整组物品。

@@ -1,0 +1,2 @@
+prototype_id,file_path,state,source_method,tool,prompt_id,reference_asset_ids,review_record_path,width,height,alpha_required,sha256,rights_status,notes
+player_cutout_down_right_v001,art/candidates/player_capybara_v1/vector_prototypes/chr_player_cutout_down_right_v001.svg,vector_technical_prototype,ai_assisted_procedural,Codex SVG / Godot 4.7.2,CUTOUT-PROTO-V001,NONE_TEXT_ONLY,art/candidates/player_capybara_v1/TECHNICAL_ROUND_01.md,1024,768,yes,e0e9526dcd4c48cadf822942a6e1ef0d5e9216089bf0d382a9ec5483093de60f,clean_text_only,只证明 cutout/Alpha/144px 技术路线；未批准、未进入游戏

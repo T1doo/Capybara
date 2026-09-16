@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_player_script"]
+[ext_resource type="Script" path="res://systems/interaction/interaction_sensor.gd" id="2_sensor_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_player"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_interaction"]
+radius = 96.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 1
+collision_mask = 2
+script = ExtResource("1_player_script")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(0, 17)
+polygon = PackedVector2Array(-22, -6, 22, -6, 27, 0, 22, 6, -22, 6, -27, 0)
+color = Color(0.0823529, 0.0980392, 0.0901961, 0.25)
+
+[node name="Body" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-22, -14, -12, -23, 10, -23, 22, -14, 25, 2, 18, 17, 4, 23, -13, 20, -24, 8)
+color = Color(0.545098, 0.505882, 0.435294, 1)
+
+[node name="Snout" type="Polygon2D" parent="."]
+position = Vector2(0, 10)
+polygon = PackedVector2Array(-10, -5, 10, -5, 13, 3, 8, 9, -8, 9, -13, 3)
+color = Color(0.392157, 0.34902, 0.290196, 1)
+
+[node name="FacingMarker" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+polygon = PackedVector2Array(1, 0, -7, -5, -7, 5)
+color = Color(0.333333, 0.784314, 0.737255, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_player")
+
+[node name="InteractionSensor" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("2_sensor_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionSensor"]
+shape = SubResource("CircleShape2D_interaction")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0

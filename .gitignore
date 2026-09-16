@@ -1,0 +1,51 @@
+# Godot generated files
+.godot/
+.import/
+export.cfg
+export_presets.cfg.bak
+
+# Build outputs
+build/
+*.exe
+*.pck
+*.zip
+*.log
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.key
+*.pfx
+*.p12
+secrets/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*.tmp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# AI raw outputs and temporary contact sheets
+art/generated_raw/
+art/candidates/_temp/
+art/candidates/_quarantine/**/*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Audio caches
+*.aup3-shm
+*.aup3-wal
+
+# Blender autosaves
+*.blend1
+*.blend2
+
+# Keep approved assets and source layers tracked with Git LFS where appropriate

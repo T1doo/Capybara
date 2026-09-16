@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/home_visual_blockout.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/input_remap_screen.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_screen.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="4"]
+
+[sub_resource type="StyleBoxFlat" id="Panel"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.18, 0.15, 0.92)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+
+[node name="HomeVisualPreview" type="Node2D"]
+
+[node name="Environment" parent="." instance=ExtResource("1")]
+show_grid = false
+show_anchor_guides = false
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="PreviewHint" type="Label" parent="Interface"]
+offset_left = 20.0
+offset_top = 20.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.98, 0.95, 0.84, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("Panel")
+text = "UI_HOME_VISUAL_PREVIEW"
+
+[node name="InputRemapScreen" parent="Interface" instance=ExtResource("2")]
+
+[node name="SettingsScreen" parent="Interface" instance=ExtResource("3")]
+persist_settings = false
+
+[node name="PauseMenu" parent="Interface" instance=ExtResource("4")]
+allow_game_saves = false

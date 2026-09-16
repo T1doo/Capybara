@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scenes/bootstrap/main.gd" id="1_main_script"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="3_pause_scene"]
+[ext_resource type="Script" path="res://scenes/ui/interaction_prompt.gd" id="4_prompt_script"]
+[ext_resource type="Script" path="res://scenes/ui/debug_overlay.gd" id="5_debug_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory_screen.tscn" id="6_inventory_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_screen.tscn" id="7_settings_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/input_remap_screen.tscn" id="8_remap_scene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/storage_screen.tscn" id="9_storage_scene"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phase_label"]
+bg_color = Color(0.054902, 0.0823529, 0.0745098, 0.84)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_debug_overlay"]
+bg_color = Color(0.0313726, 0.0470588, 0.0431373, 0.88)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.333333, 0.784314, 0.737255, 0.72)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main_script")
+
+[node name="WorldContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="." instance=ExtResource("2_player_scene")]
+unique_name_in_owner = true
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="PhaseLabel" type="Label" parent="Interface"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 68.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_phase_label")
+text = "UI_PHASE_0_LABEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractionPrompt" type="Label" parent="Interface"]
+offset_left = 448.0
+offset_top = 640.0
+offset_right = 832.0
+offset_bottom = 696.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 22
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_prompt_script")
+player_path = NodePath("../../Player")
+
+[node name="DebugOverlay" type="Label" parent="Interface"]
+offset_left = 24.0
+offset_top = 84.0
+offset_right = 400.0
+offset_bottom = 316.0
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = 4
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_debug_overlay")
+text = "DEBUG_OVERLAY_TITLE"
+script = ExtResource("5_debug_script")
+player_path = NodePath("../../Player")
+world_container_path = NodePath("../../WorldContainer")
+
+[node name="InventoryScreen" parent="Interface" instance=ExtResource("6_inventory_scene")]
+
+[node name="StorageScreen" parent="Interface" instance=ExtResource("9_storage_scene")]
+unique_name_in_owner = true
+
+[node name="InputRemapScreen" parent="Interface" instance=ExtResource("8_remap_scene")]
+
+[node name="SettingsScreen" parent="Interface" instance=ExtResource("7_settings_scene")]
+
+[node name="PauseMenu" parent="Interface" instance=ExtResource("3_pause_scene")]

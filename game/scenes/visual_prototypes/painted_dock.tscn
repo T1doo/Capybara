@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/visual_prototypes/painted_dock_2d.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="Side"]
+size = Vector2(12,204)
+[sub_resource type="RectangleShape2D" id="Front"]
+size = Vector2(384,12)
+[sub_resource type="RectangleShape2D" id="RearLeft"]
+size = Vector2(160,12)
+[sub_resource type="RectangleShape2D" id="RearRight"]
+size = Vector2(32,12)
+
+[node name="PaintedDock" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Supports" type="Node2D" parent="."]
+z_index = 2
+[node name="Deck" type="Node2D" parent="."]
+z_index = 4
+[node name="RearRail" type="Node2D" parent="."]
+z_index = 20
+[node name="FrontRail" type="Node2D" parent="."]
+z_index = 55
+
+[node name="RailCollision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+[node name="West" type="CollisionShape2D" parent="RailCollision"]
+position = Vector2(-198,0)
+shape = SubResource("Side")
+[node name="East" type="CollisionShape2D" parent="RailCollision"]
+position = Vector2(198,0)
+shape = SubResource("Side")
+[node name="South" type="CollisionShape2D" parent="RailCollision"]
+position = Vector2(0,102)
+shape = SubResource("Front")
+[node name="NorthLeft" type="CollisionShape2D" parent="RailCollision"]
+position = Vector2(-112,-102)
+shape = SubResource("RearLeft")
+[node name="NorthRight" type="CollisionShape2D" parent="RailCollision"]
+position = Vector2(176,-102)
+shape = SubResource("RearRight")

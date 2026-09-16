@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="plasterFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2e6c8"/>
+      <stop offset="0.62" stop-color="#e5d1aa"/>
+      <stop offset="1" stop-color="#cdb78f"/>
+    </linearGradient>
+    <linearGradient id="plasterSide" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ddc99f"/>
+      <stop offset="1" stop-color="#bfa57f"/>
+    </linearGradient>
+    <linearGradient id="timberPaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bb8248"/>
+      <stop offset="0.55" stop-color="#936039"/>
+      <stop offset="1" stop-color="#69452f"/>
+    </linearGradient>
+    <linearGradient id="doorPaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c28a4f"/>
+      <stop offset="1" stop-color="#7b4e31"/>
+    </linearGradient>
+    <linearGradient id="stonePaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9b892"/>
+      <stop offset="1" stop-color="#81745f"/>
+    </linearGradient>
+  </defs>
+  <g id="foundation" stroke="#594537" stroke-width="7" stroke-linejoin="round">
+    <path d="M190 702L620 735L820 632L820 706L622 817L190 774Z" fill="url(#stonePaint)"/>
+    <path d="M206 719L277 725L263 759L205 753M289 728L357 733L349 773L276 765M370 735L447 741L441 782L359 775M459 742L535 748L530 791L451 784M547 749L612 754L611 799L540 792M632 751L692 719L711 751L644 790M701 714L761 682L781 714L720 748" fill="none" stroke="#eee0bc" stroke-width="5" opacity="0.45"/>
+  </g>
+  <g id="wall-front" stroke="#5c4433" stroke-width="8" stroke-linejoin="round">
+    <path d="M190 470L620 494L620 754L190 714Z" fill="url(#plasterFront)"/>
+    <path d="M210 510C290 484 410 505 595 520M214 642C340 614 461 655 600 662" fill="none" stroke="#b99d78" stroke-width="13" opacity="0.13" stroke-linecap="round"/>
+  </g>
+  <g id="wall-side" stroke="#5c4433" stroke-width="8" stroke-linejoin="round">
+    <path d="M620 494L820 390L820 642L620 754Z" fill="url(#plasterSide)"/>
+    <path d="M646 550L793 474M649 667L795 586" fill="none" stroke="#9e8163" stroke-width="12" opacity="0.14" stroke-linecap="round"/>
+  </g>
+  <g id="timber" fill="url(#timberPaint)" stroke="#604029" stroke-width="7" stroke-linejoin="round">
+    <path d="M181 455L631 480L626 514L184 490Z"/>
+    <path d="M602 480L824 367L838 397L620 515Z"/>
+    <path d="M202 477L235 479L235 718L199 715Z"/>
+    <path d="M585 499L624 500L624 756L585 752Z"/>
+    <path d="M797 402L832 383L832 649L797 668Z"/>
+    <path d="M220 596L600 617L599 651L220 628Z"/>
+    <path d="M631 606L808 513L810 550L630 647Z"/>
+    <path d="M246 489L279 491L369 724L333 721Z"/>
+    <path d="M553 497L584 499L497 744L461 741Z"/>
+    <path d="M650 482L683 466L799 618L798 665L773 643Z"/>
+  </g>
+  <g id="door" stroke="#5b3f2d" stroke-width="7" stroke-linejoin="round">
+    <path d="M342 553Q342 515 382 511L475 516Q516 520 516 558L516 743L342 728Z" fill="url(#doorPaint)"/>
+    <path d="M365 559L365 719M404 538L404 724M444 540L444 727M483 548L483 731" fill="none" stroke="#e2ad62" stroke-width="5" opacity="0.5"/>
+    <path d="M350 570Q426 525 508 578" fill="none" stroke="#68452d" stroke-width="12"/>
+    <circle cx="481" cy="638" r="12" fill="#d2a451" stroke="#654830" stroke-width="5"/>
+  </g>
+  <g id="windows" stroke="#5b402d" stroke-width="9" stroke-linejoin="round">
+    <path d="M252 520L321 524L321 607L252 601Z" fill="#79a9a5"/>
+    <path d="M286 522L286 604M253 562L320 566" fill="none" stroke="#e7d6ad" stroke-width="6"/>
+    <path d="M672 522L755 478L755 584L672 631Z" fill="#5f8f91"/>
+    <path d="M713 501L713 608M675 574L753 532" fill="none" stroke="#ddc99f" stroke-width="6"/>
+    <path d="M661 632L770 574L779 602L671 663Z" fill="#7d9a50" stroke="#4f5e39" stroke-width="6"/>
+    <circle cx="693" cy="623" r="10" fill="#f0d27d" stroke="none"/>
+    <circle cx="724" cy="607" r="9" fill="#f4ece0" stroke="none"/>
+    <circle cx="752" cy="592" r="9" fill="#df9871" stroke="none"/>
+  </g>
+  <g id="steps" fill="url(#timberPaint)" stroke="#5c402d" stroke-width="8" stroke-linejoin="round">
+    <path d="M319 728L522 744L564 783L300 763Z"/>
+    <path d="M298 762L565 783L601 824L272 796Z"/>
+    <path d="M309 755L520 771M294 789L562 811" fill="none" stroke="#d2a066" stroke-width="5" opacity="0.55"/>
+  </g>
+  <g id="rain-chain" fill="none" stroke="#53615d" stroke-width="5" stroke-linecap="round">
+    <path d="M568 529C551 550 584 568 566 590C548 611 580 629 563 651C547 672 576 690 560 715"/>
+    <ellipse cx="567" cy="548" rx="10" ry="6" fill="#6d7a73"/>
+    <ellipse cx="566" cy="610" rx="10" ry="6" fill="#6d7a73"/>
+    <ellipse cx="563" cy="671" rx="10" ry="6" fill="#6d7a73"/>
+    <ellipse cx="560" cy="720" rx="11" ry="8" fill="#6d7a73"/>
+  </g>
+</svg>

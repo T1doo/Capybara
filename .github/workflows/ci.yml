@@ -1,0 +1,85 @@
+name: Capybara stage checks
+
+on:
+  push:
+    branches:
+      - main
+      - "codex/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stage-checks:
+    name: Godot 4.7.2 / Windows
+    runs-on: windows-2022
+    timeout-minutes: 35
+    env:
+      GODOT_VERSION: 4.7.2-stable
+      GODOT_EDITOR_SHA256: 731980f9608d61333e5baf54a2ef17210acc7a538446c0cb9969f002aca1e953
+      GODOT_TEMPLATES_SHA256: f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011
+      REQUIRE_WINDOWS_BUILD_SMOKE: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          lfs: true
+
+      - name: Install pinned Godot Standard
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $archivePath = Join-Path $env:RUNNER_TEMP 'godot.zip'
+          $godotDirectory = Join-Path $env:RUNNER_TEMP 'godot'
+          $downloadUrl = "https://github.com/godotengine/godot-builds/releases/download/$env:GODOT_VERSION/Godot_v$env:GODOT_VERSION`_win64.exe.zip"
+          Invoke-WebRequest -Uri $downloadUrl -OutFile $archivePath
+          $archiveHash = (Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($archiveHash -ne $env:GODOT_EDITOR_SHA256) {
+            throw "Godot editor SHA256 mismatch: $archiveHash"
+          }
+          Expand-Archive -LiteralPath $archivePath -DestinationPath $godotDirectory -Force
+          $godotBin = Get-ChildItem -LiteralPath $godotDirectory -Filter '*_console.exe' -Recurse | Select-Object -First 1
+          if ($null -eq $godotBin) {
+            throw 'Godot console executable was not found in the official archive.'
+          }
+          "GODOT_BIN=$($godotBin.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          & $godotBin.FullName --version
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+      - name: Install pinned Windows export templates
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $templateArchive = Join-Path $env:RUNNER_TEMP 'godot-templates.zip'
+          $templateExtract = Join-Path $env:RUNNER_TEMP 'godot-templates'
+          $templateUrl = "https://github.com/godotengine/godot-builds/releases/download/$env:GODOT_VERSION/Godot_v$env:GODOT_VERSION`_export_templates.tpz"
+          Invoke-WebRequest -Uri $templateUrl -OutFile $templateArchive
+          $templateHash = (Get-FileHash -LiteralPath $templateArchive -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($templateHash -ne $env:GODOT_TEMPLATES_SHA256) {
+            throw "Godot export templates SHA256 mismatch: $templateHash"
+          }
+          Expand-Archive -LiteralPath $templateArchive -DestinationPath $templateExtract -Force
+          $windowsTemplate = Get-ChildItem -LiteralPath $templateExtract -Filter 'windows_debug_x86_64.exe' -Recurse | Select-Object -First 1
+          if ($null -eq $windowsTemplate) {
+            throw 'Windows debug export template was not found in the official archive.'
+          }
+          $templateTarget = Join-Path $env:APPDATA 'Godot\export_templates\4.7.2.stable'
+          New-Item -ItemType Directory -Force -Path $templateTarget | Out-Null
+          Copy-Item -Path (Join-Path $windowsTemplate.Directory.FullName '*') -Destination $templateTarget -Recurse -Force
+
+      - name: Run unified checks
+        shell: pwsh
+        run: ./tools/check_project.ps1
+
+      - name: Upload check logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: capybara-check-logs
+          path: build/logs/
+          if-no-files-found: error

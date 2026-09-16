@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/definitions/item_definition.gd" id="1_item_definition"]
+
+[resource]
+script = ExtResource("1_item_definition")
+id = &"item_reed_spade"
+name_key = &"ITEM_REED_SPADE_NAME"
+description_key = &"ITEM_REED_SPADE_DESCRIPTION"
+category = 3
+max_stack = 1
+sell_price = 0
+tags = Array[StringName]([&"tool", &"digging"])

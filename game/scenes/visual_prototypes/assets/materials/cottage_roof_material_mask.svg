@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- R plaster; G vertical wood; GB horizontal wood; B shingles; black preserves base art. -->
+  <g stroke="black" stroke-width="10" stroke-linejoin="round">
+    <path d="M126 466L348 214L754 246L648 526L168 491Z" fill="blue"/>
+    <path d="M754 246L886 421L824 464L648 526Z" fill="blue"/>
+    <path d="M333 199L763 232L783 258L348 225Z" fill="cyan"/>
+    <path d="M121 454L650 511L661 539L128 484Z" fill="cyan"/>
+    <path d="M352 361L447 292L537 372L521 457L363 444Z" fill="red"/>
+    <path d="M331 361L445 267L559 371L529 392L446 319L359 386Z" fill="blue"/>
+    <path d="M379 367L445 317L514 375L503 427L385 420Z" fill="black"/>
+    <path d="M356 442L525 456L529 482L352 467Z" fill="cyan"/>
+    <path d="M650 250L650 132L740 139L740 260Z" fill="black"/>
+    <path d="M637 126L750 135L744 163L642 154Z" fill="black"/>
+    <path d="M674 119L723 123L719 143L677 139Z" fill="black"/>
+  </g>
+</svg>

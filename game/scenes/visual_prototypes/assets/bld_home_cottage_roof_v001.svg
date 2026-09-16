@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="roofPaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#688f83"/>
+      <stop offset="0.48" stop-color="#48786f"/>
+      <stop offset="1" stop-color="#315a56"/>
+    </linearGradient>
+    <linearGradient id="roofSidePaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#456d62"/>
+      <stop offset="1" stop-color="#274946"/>
+    </linearGradient>
+    <linearGradient id="woodPaint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bd8549"/>
+      <stop offset="1" stop-color="#71472e"/>
+    </linearGradient>
+    <linearGradient id="stonePaintRoof" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ddd0ac"/>
+      <stop offset="1" stop-color="#847966"/>
+    </linearGradient>
+    <clipPath id="mainRoofClip">
+      <path d="M126 466L348 214L754 246L648 526L168 491Z"/>
+    </clipPath>
+  </defs>
+  <g id="roof-main" stroke="#4b382d" stroke-width="9" stroke-linejoin="round">
+    <path d="M126 466L348 214L754 246L648 526L168 491Z" fill="url(#roofPaint)"/>
+    <g clip-path="url(#mainRoofClip)" fill="none" stroke-linecap="round">
+      <path d="M142 421L679 462M164 369L698 409M203 318L719 355M251 265L738 301" stroke="#9eb3a0" stroke-width="7" opacity="0.5"/>
+      <path d="M179 485L268 230M282 500L374 220M391 507L478 224M497 514L582 232M599 520L681 240" stroke="#294e4b" stroke-width="5" opacity="0.45"/>
+      <path d="M182 404L238 409M282 413L341 418M387 421L445 426M493 430L551 435M593 438L650 443M221 350L280 354M333 358L393 363M448 367L507 371M565 376L625 380M276 292L337 296M401 301L461 306M523 311L584 316" stroke="#d2c08b" stroke-width="5" opacity="0.28"/>
+    </g>
+  </g>
+  <g id="roof-side" stroke="#49362c" stroke-width="9" stroke-linejoin="round">
+    <path d="M754 246L886 421L824 464L648 526Z" fill="url(#roofSidePaint)"/>
+    <path d="M779 286L854 421M738 342L820 460M700 407L766 485" fill="none" stroke="#789388" stroke-width="6" opacity="0.42"/>
+  </g>
+  <g id="ridge" fill="url(#woodPaint)" stroke="#593c29" stroke-width="8" stroke-linejoin="round">
+    <path d="M333 199L763 232L783 258L348 225Z"/>
+    <path d="M121 454L650 511L661 539L128 484Z"/>
+  </g>
+  <g id="dormer" stroke="#533a2a" stroke-width="8" stroke-linejoin="round">
+    <path d="M352 361L447 292L537 372L521 457L363 444Z" fill="#e5d3aa"/>
+    <path d="M331 361L445 267L559 371L529 392L446 319L359 386Z" fill="url(#roofSidePaint)"/>
+    <path d="M379 367L445 317L514 375L503 427L385 420Z" fill="#79a8a0"/>
+    <path d="M446 326L446 425M386 389L508 400" fill="none" stroke="#ead8ae" stroke-width="7"/>
+    <path d="M356 442L525 456L529 482L352 467Z" fill="url(#woodPaint)"/>
+  </g>
+  <g id="chimney" stroke="#5a4c3f" stroke-width="8" stroke-linejoin="round">
+    <path d="M650 250L650 132L740 139L740 260Z" fill="url(#stonePaintRoof)"/>
+    <path d="M637 126L750 135L744 163L642 154Z" fill="#d9c9a5"/>
+    <path d="M666 169L696 172L687 204L655 201M704 177L733 179L734 215L699 211M671 218L707 221L700 252L661 248" fill="none" stroke="#f0e3c4" stroke-width="5" opacity="0.56"/>
+    <path d="M674 119L723 123L719 143L677 139Z" fill="#4d554d"/>
+  </g>
+</svg>

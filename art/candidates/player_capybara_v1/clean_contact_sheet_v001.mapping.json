@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "output_path": "art/candidates/player_capybara_v1/clean_contact_sheet_v001.png",
+  "output_sha256": "68eb020b1e6d260c25aa2f30b125fdf5e05476c9744b48765d02bae649b37c97",
+  "width": 1678,
+  "height": 994,
+  "columns": 3,
+  "thumbnail_height": 360,
+  "candidates": [
+    {
+      "index": 0,
+      "label": "U1 - Low Loaf",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_u1_v001.png",
+      "sha256": "eb2e59a4594d9fa2bdab9f6f55250f58fa0796ff7c983ccdbbd1a8415f74af7c"
+    },
+    {
+      "index": 1,
+      "label": "V1 - Field Satchel",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_v1_v001.png",
+      "sha256": "2e5e77d94908a630d8788f136750cb295b5590c5f921902620a607dfea7f8b8c"
+    },
+    {
+      "index": 2,
+      "label": "W1 - Graphic Calm",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_w1_v001.png",
+      "sha256": "ee9273141b4bfeec89a1fe1b8ec42c6269e0db7591ea63cc45bb0de5f17d8146"
+    },
+    {
+      "index": 3,
+      "label": "Z1 - Gentle Lily",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_z1_v001.png",
+      "sha256": "b2cfe954d347ef55679ca061cf7dbd9decca4102a3e1b1b2c331cbcc1ee9df1b"
+    },
+    {
+      "index": 4,
+      "label": "AA1 - Minimal Bean",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_aa1_v001.png",
+      "sha256": "d6a25613ffcfd3f0d85c9283ec562c12b961bdc1428e6fe8361a1bbb2cfd7bc7"
+    },
+    {
+      "index": 5,
+      "label": "AD1 - Warm Balance",
+      "file_path": "art/candidates/player_capybara_v1/visual_concepts/chr_player_clean_concept_ad1_v001.png",
+      "sha256": "b66dce29c4057984a0630a05cb4c725c98cce147a6c957f44481173849e31d16"
+    }
+  ]
+}

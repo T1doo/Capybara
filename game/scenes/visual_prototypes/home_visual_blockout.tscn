@@ -1,0 +1,237 @@
+[gd_scene load_steps=27 format=3]
+
+[ext_resource type="Script" path="res://scenes/visual_prototypes/home_visual_blockout.gd" id="1_blockout"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="Shader" path="res://assets/shaders/storybook_water.gdshader" id="3_water_shader"]
+[ext_resource type="Resource" path="res://data/definitions/visual/home_storybook_style_v1.tres" id="4_style"]
+[ext_resource type="Script" path="res://scenes/visual_prototypes/canopy_occluder_2d.gd" id="5_canopy"]
+[ext_resource type="Shader" path="res://assets/shaders/storybook_ground.gdshader" id="6_ground_shader"]
+[ext_resource type="Script" path="res://scenes/visual_prototypes/ambient_motes_2d.gd" id="7_motes"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/bld_home_cottage_shadow_v001.svg" id="8_cottage_shadow"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/bld_home_cottage_walls_v001.svg" id="9_cottage_walls"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/bld_home_cottage_roof_v001.svg" id="10_cottage_roof"]
+[ext_resource type="Script" path="res://scenes/visual_prototypes/layered_cottage_2d.gd" id="11_cottage_script"]
+[ext_resource type="Shader" path="res://assets/shaders/cottage_painted_surface.gdshader" id="12_painted"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/materials/tex_cottage_material_atlas_v001.png" id="13_atlas"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/materials/cottage_roof_material_mask.svg" id="14_roof_mask"]
+[ext_resource type="Texture2D" path="res://scenes/visual_prototypes/assets/materials/cottage_walls_material_mask.svg" id="15_walls_mask"]
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/painted_bridge.tscn" id="16_bridge"]
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/painted_waterwheel.tscn" id="17_waterwheel"]
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/painted_dock.tscn" id="18_dock"]
+[ext_resource type="Script" path="res://scenes/visual_prototypes/painted_foliage_2d.gd" id="19_foliage"]
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/painted_tree_trunk.tscn" id="20_trunk"]
+[ext_resource type="PackedScene" path="res://scenes/visual_prototypes/painted_tree.tscn" id="21_tree"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cottage_roof"]
+resource_local_to_scene = true
+shader = ExtResource("12_painted")
+shader_parameter/material_atlas = ExtResource("13_atlas")
+shader_parameter/material_mask = ExtResource("14_roof_mask")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cottage_walls"]
+resource_local_to_scene = true
+shader = ExtResource("12_painted")
+shader_parameter/material_atlas = ExtResource("13_atlas")
+shader_parameter/material_mask = ExtResource("15_walls_mask")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_canopy"]
+radius = 108.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ground"]
+resource_local_to_scene = true
+shader = ExtResource("6_ground_shader")
+shader_parameter/base_color = Color(0.470588, 0.564706, 0.427451, 1)
+shader_parameter/light_wash = Color(0.552941, 0.627451, 0.47451, 1)
+shader_parameter/deep_wash = Color(0.443137, 0.541176, 0.403922, 1)
+shader_parameter/wash_scale = 240.0
+shader_parameter/grain_strength = 0.045
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_water"]
+resource_local_to_scene = true
+shader = ExtResource("3_water_shader")
+shader_parameter/shallow_color = Color(0.57, 0.8, 0.72, 1)
+shader_parameter/mid_color = Color(0.31, 0.64, 0.63, 1)
+shader_parameter/deep_color = Color(0.17, 0.42, 0.47, 1)
+shader_parameter/glint_color = Color(0.78, 0.91, 0.82, 1)
+shader_parameter/motion_strength = 1.0
+shader_parameter/contrast_strength = 0.0
+shader_parameter/flow_speed = 0.32
+shader_parameter/overlay_alpha = 0.3
+
+[node name="HomeVisualBlockout" type="Node2D"]
+script = ExtResource("1_blockout")
+style_profile = ExtResource("4_style")
+
+[node name="GroundSurface" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+z_index = -20
+material = SubResource("ShaderMaterial_ground")
+polygon = PackedVector2Array(-960, -600, 960, -600, 960, 600, -960, 600)
+
+[node name="WaterCollision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="UpperWaterCollision" type="CollisionPolygon2D" parent="WaterCollision"]
+unique_name_in_owner = true
+
+[node name="LowerWaterCollision" type="CollisionPolygon2D" parent="WaterCollision"]
+unique_name_in_owner = true
+
+[node name="UpperWaterSurface" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+material = SubResource("ShaderMaterial_water")
+
+[node name="LowerWaterSurface" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+material = SubResource("ShaderMaterial_water")
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="PaintedBridge" parent="." instance=ExtResource("16_bridge")]
+position = Vector2(384,0)
+
+[node name="PaintedWaterwheel" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("17_waterwheel")]
+position = Vector2(704,-320)
+sort_actor = NodePath("../Player")
+
+[node name="Left" type="CollisionPolygon2D" parent="WorldBoundary"]
+polygon = PackedVector2Array(-992, -632, -928, -632, -928, 632, -992, 632)
+
+[node name="Right" type="CollisionPolygon2D" parent="WorldBoundary"]
+polygon = PackedVector2Array(928, -632, 992, -632, 992, 632, 928, 632)
+
+[node name="Top" type="CollisionPolygon2D" parent="WorldBoundary"]
+polygon = PackedVector2Array(-992, -632, 992, -632, 992, -568, -992, -568)
+
+[node name="Bottom" type="CollisionPolygon2D" parent="WorldBoundary"]
+polygon = PackedVector2Array(-992, 568, 992, 568, 992, 632, -992, 632)
+
+[node name="Anchors" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Spawn" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+
+[node name="HouseMainDoor" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(-576, -128)
+
+[node name="GardenEntrance" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(-576, 448)
+
+[node name="BridgeWest" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(128, 0)
+
+[node name="BridgeEast" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(640, 0)
+
+[node name="WaterwheelService" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(768, -192)
+
+[node name="DockStand" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(768, 192)
+
+[node name="PrimaryPathRest" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(-256, 0)
+
+[node name="CameraBoundaryReference" type="Marker2D" parent="Anchors" groups=["home_blockout_anchor"]]
+position = Vector2(896, 512)
+
+[node name="PathCanopy" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 60
+position = Vector2(-256, 0)
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+script = ExtResource("5_canopy")
+faded_alpha = 0.34
+fade_seconds = 0.18
+draw_placeholder = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathCanopy"]
+shape = SubResource("CircleShape2D_canopy")
+
+[node name="Foliage" type="Node2D" parent="PathCanopy"]
+script = ExtResource("19_foliage")
+
+[node name="PathTreeTrunk" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("20_trunk")]
+position = Vector2(-256,120)
+sort_actor = NodePath("../Player")
+
+[node name="NorthWestTree" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("21_tree")]
+position = Vector2(-864,-336)
+variant = 1
+sort_actor = NodePath("../Player")
+[node name="SouthWestTree" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("21_tree")]
+position = Vector2(-864,576)
+variant = 2
+sort_actor = NodePath("../Player")
+[node name="NorthEastTree" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("21_tree")]
+position = Vector2(864,-392)
+sort_actor = NodePath("../Player")
+[node name="SouthEastTree" parent="." node_paths=PackedStringArray("sort_actor") instance=ExtResource("21_tree")]
+position = Vector2(896,632)
+variant = 1
+sort_actor = NodePath("../Player")
+
+[node name="AmbientMotes" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = 10
+script = ExtResource("7_motes")
+
+[node name="CottagePrototype" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 20
+position = Vector2(-530.35, -330)
+scale = Vector2(0.55, 0.55)
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+script = ExtResource("11_cottage_script")
+roof_faded_alpha = 0.28
+fade_seconds = 0.2
+
+[node name="ShadowLayer" type="Sprite2D" parent="CottagePrototype"]
+unique_name_in_owner = true
+z_index = -1
+texture = ExtResource("8_cottage_shadow")
+
+[node name="WallsLayer" type="Sprite2D" parent="CottagePrototype"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_cottage_walls")
+texture = ExtResource("9_cottage_walls")
+
+[node name="RoofLayer" type="Sprite2D" parent="CottagePrototype"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_cottage_roof")
+z_index = 40
+texture = ExtResource("10_cottage_roof")
+
+[node name="OcclusionShape" type="CollisionPolygon2D" parent="CottagePrototype"]
+polygon = PackedVector2Array(-386, -46, -164, -298, 242, -266, 374, -91, 136, 27)
+
+[node name="DoorThreshold" type="Marker2D" parent="CottagePrototype"]
+position = Vector2(-83, 224)
+
+[node name="FoundationBody" type="StaticBody2D" parent="CottagePrototype"]
+collision_layer = 2
+collision_mask = 1
+
+[node name="Footprint" type="CollisionPolygon2D" parent="CottagePrototype/FoundationBody"]
+polygon = PackedVector2Array(-322, 202, 108, 242, 308, 130, -122, 90)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+z_index = 50
+scale = Vector2(3, 3)
+
+[node name="PaintedDock" parent="." instance=ExtResource("18_dock")]
+position = Vector2(704,352)
+
+[node name="Camera2D" parent="Player" index="5"]
+zoom = Vector2(0.62, 0.62)
+
+[editable path="Player"]

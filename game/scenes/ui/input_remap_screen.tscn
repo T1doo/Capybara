@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/input_remap_screen.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.117647, 0.160784, 0.14902, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.419608, 0.690196, 0.615686, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="InputRemapScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0313726, 0.0470588, 0.0431373, 0.86)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
+
+[node name="Content" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "UI_REMAP_TITLE"
+horizontal_alignment = 1
+
+[node name="Headers" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Action" type="Label" parent="CenterContainer/Panel/Margin/Content/Headers"]
+custom_minimum_size = Vector2(190, 28)
+layout_mode = 2
+text = "UI_REMAP_ACTION"
+[node name="Keyboard" type="Label" parent="CenterContainer/Panel/Margin/Content/Headers"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+text = "UI_REMAP_KEYBOARD"
+horizontal_alignment = 1
+[node name="Gamepad" type="Label" parent="CenterContainer/Panel/Margin/Content/Headers"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+text = "UI_REMAP_GAMEPAD"
+horizontal_alignment = 1
+
+[node name="BindingRows" type="VBoxContainer" parent="CenterContainer/Panel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Hint" type="Label" parent="CenterContainer/Panel/Margin/Content"]
+layout_mode = 2
+text = "UI_REMAP_HINT"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Content"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+[node name="ResetButton" type="Button" parent="CenterContainer/Panel/Margin/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 44)
+layout_mode = 2
+text = "UI_REMAP_RESET"
+[node name="BackButton" type="Button" parent="CenterContainer/Panel/Margin/Content/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 44)
+layout_mode = 2
+text = "UI_SETTINGS_BACK"

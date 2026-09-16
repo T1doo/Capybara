@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://systems/world/world_zone.gd" id="1_zone_script"]
+[ext_resource type="Script" path="res://systems/world/world_spawn_point.gd" id="2_spawn_script"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/pickup_placeholder.tscn" id="3_pickup_scene"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/resource_placeholder.tscn" id="4_resource_scene"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/bed_placeholder.tscn" id="5_bed_scene"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/chest_placeholder.tscn" id="6_chest_scene"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/door_placeholder.tscn" id="7_door_scene"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/npc_placeholder.tscn" id="8_npc_scene"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(32, 1200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(1920, 32)
+
+[node name="HomeZone" type="Node2D"]
+script = ExtResource("1_zone_script")
+zone_id = &"zone_home_placeholder"
+
+[node name="Ground" type="Polygon2D" parent="."]
+z_index = -10
+polygon = PackedVector2Array(-960, -600, 960, -600, 960, 600, -960, 600)
+color = Color(0.396078, 0.486275, 0.415686, 1)
+
+[node name="GroundInset" type="Polygon2D" parent="."]
+z_index = -9
+polygon = PackedVector2Array(-560, -280, 560, -280, 560, 280, -560, 280)
+color = Color(0.454902, 0.552941, 0.462745, 1)
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="Left" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(-944, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(944, 0)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Top" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, -584)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBoundary"]
+position = Vector2(0, 584)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="SpawnHomeStart" type="Marker2D" parent="."]
+script = ExtResource("2_spawn_script")
+spawn_id = &"spawn_home_start"
+
+[node name="SpawnFromGrove" type="Marker2D" parent="."]
+position = Vector2(-140, -120)
+script = ExtResource("2_spawn_script")
+spawn_id = &"spawn_from_grove"
+
+[node name="PickupPlaceholder" parent="." instance=ExtResource("3_pickup_scene")]
+position = Vector2(84, 0)
+
+[node name="ReedSpadePickup" parent="." instance=ExtResource("3_pickup_scene")]
+position = Vector2(168, 56)
+interaction_id = &"pickup_reed_spade_placeholder"
+item_id = &"item_reed_spade"
+
+[node name="ResourcePlaceholder" parent="." instance=ExtResource("4_resource_scene")]
+position = Vector2(-140, 64)
+
+[node name="BedPlaceholder" parent="." instance=ExtResource("5_bed_scene")]
+position = Vector2(80, 170)
+
+[node name="ChestPlaceholder" parent="." instance=ExtResource("6_chest_scene")]
+position = Vector2(-96, 176)
+
+[node name="DoorToGrove" parent="." instance=ExtResource("7_door_scene")]
+position = Vector2(-220, -120)
+
+[node name="NpcPlaceholder" parent="." instance=ExtResource("8_npc_scene")]
+position = Vector2(220, -96)

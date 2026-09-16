@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/definitions/item_definition.gd" id="1_item_definition"]
+
+[resource]
+script = ExtResource("1_item_definition")
+id = &"item_branch"
+name_key = &"ITEM_BRANCH_NAME"
+description_key = &"ITEM_BRANCH_DESCRIPTION"
+category = 0
+max_stack = 99
+sell_price = 2
+tags = Array[StringName]([&"material", &"wood"])

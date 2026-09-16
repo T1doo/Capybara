@@ -1,0 +1,197 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/settings_screen.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.117647, 0.160784, 0.14902, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.419608, 0.690196, 0.615686, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="SettingsScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0313726, 0.0470588, 0.0431373, 0.82)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 24
+
+[node name="Rows" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Title" type="Label" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "UI_SETTINGS_TITLE"
+horizontal_alignment = 1
+
+[node name="LanguageRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/LanguageRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_LANGUAGE"
+[node name="LanguageOption" type="OptionButton" parent="CenterContainer/Panel/Margin/Rows/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/DisplayRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_DISPLAY_MODE"
+[node name="DisplayOption" type="OptionButton" parent="CenterContainer/Panel/Margin/Rows/DisplayRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResolutionRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/ResolutionRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_RESOLUTION"
+[node name="ResolutionOption" type="OptionButton" parent="CenterContainer/Panel/Margin/Rows/ResolutionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UiScaleRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/UiScaleRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_UI_SCALE"
+[node name="UiScaleOption" type="OptionButton" parent="CenterContainer/Panel/Margin/Rows/UiScaleRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/MasterRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_MASTER_VOLUME"
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/Panel/Margin/Rows/MasterRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="MusicRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/MusicRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_MUSIC_VOLUME"
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/Panel/Margin/Rows/MusicRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="SoundRow" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+[node name="Label" type="Label" parent="CenterContainer/Panel/Margin/Rows/SoundRow"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+text = "UI_SETTINGS_SOUND_VOLUME"
+[node name="SoundSlider" type="HSlider" parent="CenterContainer/Panel/Margin/Rows/SoundRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 80.0
+
+[node name="CameraSmoothingCheck" type="CheckButton" parent="CenterContainer/Panel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_CAMERA_SMOOTHING"
+
+[node name="ReducedMotionCheck" type="CheckButton" parent="CenterContainer/Panel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_REDUCED_MOTION"
+
+[node name="VibrationCheck" type="CheckButton" parent="CenterContainer/Panel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_VIBRATION"
+
+[node name="HighContrastCheck" type="CheckButton" parent="CenterContainer/Panel/Margin/Rows"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "UI_SETTINGS_HIGH_CONTRAST"
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/Panel/Margin/Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CenterContainer/Panel/Margin/Rows"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+[node name="ApplyButton" type="Button" parent="CenterContainer/Panel/Margin/Rows/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+text = "UI_SETTINGS_APPLY"
+[node name="ControlsButton" type="Button" parent="CenterContainer/Panel/Margin/Rows/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+text = "UI_SETTINGS_CONTROLS"
+[node name="BackButton" type="Button" parent="CenterContainer/Panel/Margin/Rows/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+text = "UI_SETTINGS_BACK"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/visual_prototypes/painted_waterwheel_2d.gd" id="1_waterwheel"]
+
+[sub_resource type="RectangleShape2D" id="FrameFootprint"]
+size = Vector2(148,90)
+
+[node name="PaintedWaterwheel" type="Node2D"]
+z_index = 8
+script = ExtResource("1_waterwheel")
+
+[node name="Frame" type="Node2D" parent="."]
+
+[node name="WheelProjection" type="Node2D" parent="."]
+scale = Vector2(0.78,1)
+
+[node name="RotatingWheel" type="Node2D" parent="WheelProjection"]
+
+[node name="Bearing" type="Node2D" parent="."]
+
+[node name="FrameBody" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="Footprint" type="CollisionShape2D" parent="FrameBody"]
+position = Vector2(0,14)
+shape = SubResource("FrameFootprint")

@@ -1,0 +1,23 @@
+{
+  "asset_id": "broadleaf_foliage_v001",
+  "status": "prototype_integrated",
+  "source_method": "OpenAI ImageGen built-in",
+  "prompt_id": "FOLIAGE-MATERIAL-001",
+  "prompt_record": "art/candidates/environment/foliage_material_v1/BRIEF.md",
+  "reference_asset_ids": [],
+  "width": 1254,
+  "height": 1254,
+  "format": "Format24bppRgb",
+  "alpha_required": false,
+  "sha256": "55bc1172366fe9ed00f691ac114891713edc4e9d6c271d30e962c41e01148585",
+  "raw_path": "art/generated_raw/environment/foliage_material_v1/tex_broadleaf_foliage_v001.png",
+  "candidate_path": "art/candidates/environment/foliage_material_v1/tex_broadleaf_foliage_v001.png",
+  "approved_path": "art/approved/foliage_material_v1/tex_broadleaf_foliage_v001.png",
+  "source_path": "art/source_layers/foliage_material_v1/tex_broadleaf_foliage_v001.png",
+  "runtime_path": "game/scenes/visual_prototypes/assets/materials/tex_broadleaf_foliage_v001.png",
+  "review_record": "art/candidates/environment/foliage_material_v1/REVIEW.md",
+  "processing": "Original pixels retained; organic crown meshes provide silhouette transparency, bounded non-repeating UVs and a runtime contrast/volume shader.",
+  "rights_basis": "Original text-only generated material without external reference images or artist imitation",
+  "ai_disclosure_required": true,
+  "release_approved": false
+}

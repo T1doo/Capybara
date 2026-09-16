@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://systems/interaction/npc_interactable.gd" id="1_npc_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npc"]
+radius = 28.0
+
+[node name="NpcPlaceholder" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_npc_script")
+interaction_id = &"npc_otter_builder_placeholder"
+prompt_key = &"INTERACTION_TALK"
+interaction_priority = 300
+npc_id = &"npc_otter_builder"
+conversation_id = &"conversation_otter_intro_placeholder"
+
+[node name="Shadow" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(0, 19)
+polygon = PackedVector2Array(-24, -6, 24, -6, 28, 0, 24, 6, -24, 6, -28, 0)
+color = Color(0.0823529, 0.0980392, 0.0901961, 0.22)
+
+[node name="Body" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-18, -28, 14, -30, 26, -12, 22, 18, 8, 30, -12, 26, -24, 6, -26, -14)
+color = Color(0.388235, 0.431373, 0.4, 1)
+
+[node name="ToolBelt" type="Polygon2D" parent="."]
+position = Vector2(0, 8)
+polygon = PackedVector2Array(-22, -5, 22, -5, 20, 5, -20, 5)
+color = Color(0.470588, 0.301961, 0.172549, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_npc")

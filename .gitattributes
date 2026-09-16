@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+**/tex_cottage_material_atlas_v001.png filter=lfs diff=lfs merge=lfs -text
+**/tex_broadleaf_foliage_v001.png filter=lfs diff=lfs merge=lfs -text

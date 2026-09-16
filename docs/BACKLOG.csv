@@ -1,0 +1,71 @@
+﻿id,phase,epic,task,priority,dependencies,acceptance_criteria,status,owner_notes
+CAP-0001,0,Setup,确认 Godot 4.7.2 可执行路径,P0,,GODOT_BIN 可用于 headless 与 editor；失败时有明确说明,done,已验证 4.7.2 stable official
+CAP-0002,0,Setup,初始化 Git 与 .gitignore,P0,CAP-0001,缓存、构建、密钥与 raw AI 输出不进入 Git,done,沿用已批准基线；无需修改 ignore 或 LFS 规则
+CAP-0003,0,Project,创建 Godot Compatibility 项目,P0,CAP-0001,项目可打开，无解析错误，主场景路径正确,done,headless 导入与主场景冒烟通过
+CAP-0004,0,Player,创建灰盒四方向移动,P0,CAP-0003,斜向归一化，碰撞有效，最后朝向保存,done,自动测试覆盖移动归一化、真实场景移动与边界
+CAP-0005,0,UI,创建暂停菜单,P0,CAP-0003,继续与退出有效，手柄可聚焦,done,键盘窗口实测通过；实体手柄需手工复核
+CAP-0006,0,Testing,创建 headless 检查与测试入口,P0,CAP-0003,PowerShell 返回正确退出码并实际运行,done,零依赖测试与检查脚本实际通过
+AUT-0050,0.5,Governance,纳入长期目标契约并更新 AGENTS 优先级,P0,CAP-0006,恢复会话先读契约且冲突规则明确,done,目标契约和 7 个历史入口边界已验证
+AUT-0051,0.5,Planning,创建 PLANS 和自治状态恢复点,P0,AUT-0050,仅读仓库即可确认 Stage、证据、问题和下一任务,done,恢复顺序和当前状态已建立
+AUT-0052,0.5,Quality,创建质量门、已知问题和发布准备文档,P0,AUT-0050,Stage 与 RC 证据状态可审计,done,依赖和恢复文档一并纳入治理门
+AUT-0053,0.5,Testing,统一检查日志、JSON 结果和治理自检,P0,AUT-0051,单一脚本覆盖治理、导入、测试、烟雾和 diff,done,含超时、诊断、格式、cached diff 与并发安全
+AUT-0054,0.5,CI,建立固定 Godot 4.7.2 Windows CI,P1,AUT-0053,CI 使用锁定官方 actions 并上传检查日志,done,固定 SHA256 与 windows-2022；远程实跑待 GIT-001
+AUT-0055,0.5,Recovery,建立安全备份、回退和远程失效流程,P0,AUT-0051,可从 commit/tag 恢复且不依赖 hard reset,done,恢复文档和待同步策略已验证
+AUT-0056,0.5,Review,完成独立治理审查和 QA 审查,P0,"AUT-0052,AUT-0053,AUT-0054,AUT-0055",High 以上问题为 0,done,两个只读审查完成且发现已修复
+AUT-0057,0.5,Git,建立 Stage 0.5 恢复点并安全同步,P0,AUT-0056,原子 commit；远程不可确认时记录待同步,done,本地 481a140 已建立；push 受 GIT-001 影响并已记录
+CAP-0101,1,Player,玩家状态机,P0,CAP-0004,Idle/Move/Interact/Disabled 互斥且 8 方向 facing 可测试,done,43 项回归覆盖纯逻辑与真实玩家场景
+CAP-0102,1,Interaction,通用交互接口,P0,CAP-0101,可拾取物、资源点和 NPC 使用统一协议,done,拾取物、资源点、床、箱子、门和 NPC 共用 typed 协议与选择器
+CAP-0103,1,Input,键盘/手柄提示切换,P1,CAP-0005,最后输入设备变化时提示正确,done,94 项回归和真实键盘窗口提示通过；实体手柄见 QA-001
+CAP-0104,1,World,区域切换与玩家出生点,P0,CAP-0101,往返区域位置与状态正确,done,123 项回归覆盖住宅地/林地门往返、指定出生点与单玩家不变量
+CAP-0105,1,Debug,调试覆盖层,P1,CAP-0104,可切换查看区域/状态/目标/设备与运行时数量,done,129 项回归与真实窗口验证 F3 隐藏/恢复、暂停兼容和单玩家/单区域计数
+CAP-0106,1,QA,Stage 1 灰盒 soak,P0,"CAP-0103,CAP-0104,CAP-0105",连续 20 分钟无重复玩家/误选/暂停穿透/转场丢失,done,"a9eb836: 1200s, 8378 cycles, 2095 real inputs/transitions, 524 overlapping selections, 8378 state checks, 20 heartbeats, zero diagnostics"
+CAP-0201,2,Data,ItemDefinition 与内容注册表,P0,CAP-0102,稳定 ID 可加载且重复/缺失会报错,done,内置 branch/reed fiber/reed spade 启动验证；事务加载拒绝非法/重复；运行时注册表锁定且调用者只能获得定义副本
+CAP-0202,2,Inventory,背包与堆叠,P0,CAP-0201,容量、堆叠、溢出和任务物品规则通过测试,done,220/220；200 次确定性随机增减、部分/模拟/精确事务、拆分/合并/交换/排序与任务物品锁定通过
+CAP-0203,2,Inventory,快捷栏与储物箱,P1,CAP-0202,键鼠手柄可操作，状态可保存,done,356/356；24×32 Storage 双栏、双向整组事务、typed 上下文和存档编解码通过；856×511 真实窗口转入/转回/Esc 复核
+CAP-0204,2,Save,SaveManager v1,P0,"CAP-0202,CAP-0104",原子写入、备份、读取与错误提示通过,done,397/397；暂停菜单正式保存/读取、语义不可应用 main 自动回退 backup、双损坏不改内存和本地化提示通过；856×511 真实窗口键盘复核
+CAP-0205,2,Localization,zh_CN/en 本地化框架,P1,CAP-0005,玩家可见文字不写死，切换语言后 UI 正常,done,112 个双语键唯一且非空；87 个正式引用全部解析；动态 F/X 输入提示与中英设置页通过；统一门强制检查
+CAP-0206,2,Settings,音量、窗口、UI 缩放与输入设置,P1,CAP-0005,重启后设置保留，1280x800 无出屏,done,608/608；9 动作精确重映射/动态提示；四分辨率×三缩放×五界面末端焦点矩阵；辅助消费者；真实窗口→全屏→1280×800 往返
+CAP-0301,5,WorldGrid,64px 网格状态服务,P0,CAP-0104,世界数据与 TileMap 表现分离,todo,按 v2 Stage 5 执行
+CAP-0302,5,Building,放置预览与占地验证,P0,"CAP-0301,CAP-0202",有效/无效反馈清楚，不重叠、不越界,todo,按 v2 Stage 5 执行
+CAP-0303,5,Building,家具实例移动和收回,P1,"CAP-0302,CAP-0204",实例 ID 稳定，保存后位置一致,todo,按 v2 Stage 5 执行
+CAP-0310,6,Farming,翻土、播种与跨日成长,P0,"CAP-0301,CAP-0201",3 种作物可完整种收并保存,todo,按 v2 Stage 6 扩展到正式农业
+CAP-0311,5,Farming,水体自动灌溉,P0,"CAP-0301,CAP-0320",水体改变后受影响农田正确更新,todo,Stage 5 先建立灌溉范围算法；Stage 6 接入作物
+CAP-0320,5,Water,挖水/填土与可挖遮罩,P0,CAP-0301,边界、建筑和保护区不可破坏,todo,按 v2 Stage 5 执行
+CAP-0321,5,Water,岸边 terrain 更新,P0,CAP-0320,直边、内外角和孤立格表现正确,todo,按 v2 Stage 5 执行
+CAP-0322,5,Water,连通水体和舒适度,P0,CAP-0320,合并/分割后面积与评分正确,todo,按 v2 Stage 5 执行
+CAP-0401,7,Fishing,鱼定义和鱼池表,P1,"CAP-0201,CAP-0322",3 种鱼按条件可复现抽取,todo,按 v2 Stage 7 扩展
+CAP-0402,7,Fishing,单键钓鱼小游戏,P0,CAP-0401,键鼠和手柄可完成，失败反馈清楚,todo,按 v2 Stage 7 执行
+CAP-0410,8,NPC,NPC 状态和网格路径,P0,CAP-0303,动态建筑/水体后仍可寻路或安全失败,todo,按 v2 Stage 8 执行
+CAP-0411,8,NPC,日程与活动点,P1,CAP-0410,跨日和区域加载后日程稳定,todo,按 v2 Stage 8 执行
+CAP-0420,8,Dialogue,可本地化对话数据,P0,CAP-0205,分支、条件和白名单效果可测试,todo,按 v2 Stage 8 执行
+CAP-0421,8,Quest,水獭木匠故事线,P0,"CAP-0420,CAP-0410,CAP-0322",从新存档可完成并解锁小桥,todo,作为 Stage 8 质量样板
+CAP-0422,8,Relationship,一起泡水事件,P0,CAP-0421,池塘达标后可靠触发，状态可保存,todo,作为 Stage 8 质量样板
+CAP-0501,3,Art,生成主角原创概念候选,P0,,6–12 个高差异候选，联系表和 manifest 完整,in_progress,旧链已隔离；七张 clean 概念逐文件登记；用户已锁定 AG1 视觉方向；只剩一次必要透明 cutout 技术适配
+CAP-0502,3,Art,批准 PLAYER_MASTER_V1,P0,CAP-0501,四方向、色板、表情和不可变特征通过审查,todo,扩展为 8 方向目标并执行原创审查
+CAP-0503,3,Animation,主角基础动画,P0,CAP-0502,四方向 idle/walk/interact 无形变漂移,todo,先比较 cutout 与 Blender 预渲染
+CAP-0510,3,Art,环境与水岸套系,P0,CAP-0501,实际场景中比例、光向、透明边缘一致,in_progress,A1已锁定；主屋/木桥/水车/码头/阔叶树模块已接入；树冠有机轮廓/变体/遮挡与树干碰撞排序通过实测；材质四份哈希校验；继续菜地水生植物及ENV3-001/002统一，整体美术门未完成
+CAP-0520,3,UI,UI 主组件板,P1,CAP-0206,中文英文和手柄焦点清楚,todo,不得保留默认控件外观
+CAP-0530,10,Audio,垂直切片音频,P1,CAP-0422,核心动作均有反馈，许可证登记完整,todo,Stage 10 完整音频精修
+CAP-0540,3,Playtest,外部试玩 10–20 人,P0,"CAP-0503,CAP-0510,CAP-0520",80% 可完成并理解水体核心,todo,视觉样板与垂直切片分批测试
+CAP-0601,9,Content,完成家园区内容,P0,CAP-0540,区域内容无占位且主线可玩,todo,8 个正式地区之一
+CAP-0602,9,Content,完成果树林,P1,CAP-0601,区域有独特资源、NPC 与解锁作用,todo,扩展为阳光果林地区
+CAP-0603,9,Content,完成芦苇湿地,P1,CAP-0601,钓鱼与水生生态扩展有效,todo,扩展为芦苇三角洲地区
+CAP-0604,9,Content,完成温泉山脚,P1,"CAP-0602,CAP-0603",主线阶段性结尾可完成,todo,扩展为雾泉高地地区
+CAP-0610,12,Steam,Steamworks 抽象层,P1,CAP-0540,无 Steam 环境仍能运行，平台调用可禁用,todo,按 v2 Stage 12 执行
+CAP-0701,12,Steam,Steam Cloud,P0,"CAP-0610,CAP-0204",双设备冲突和旧存档迁移测试通过,todo,用户后台事项除外
+CAP-0702,12,Steam,Steam Input 与手柄验证,P0,CAP-0610,核心流程无需鼠标,todo,完整手柄回归在 Stage 11 先完成
+CAP-0703,12,Release,商店页与真实截图,P0,CAP-0540,文案与构建一致，无概念冒充实机,todo,公开提交需要用户处理
+CAP-0704,12,Release,AI 内容与权利复核,P0,CAP-0703,manifest 完整，Steam 回答与实际一致,todo,按 RC 权利门执行
+CAP-0705,12,Release,发布候选回归,P0,"CAP-0701,CAP-0702,CAP-0704",无 S0/S1，干净机器安装通过,todo,对应 capybara-rc1
+AUT-0400,4,World,定义 chunk 坐标、生命周期和生成器版本,P0,"CAP-0104,CAP-0204",稳定世界 ID 且生命周期有单元测试,todo,
+AUT-0401,4,World,实现确定性 seed 和 biome 分布,P0,AUT-0400,同 seed/version/chunk 产生相同摘要,todo,
+AUT-0402,4,World,实现 3x3 起步的分块流送与前向预加载,P0,AUT-0401,加载、休眠、卸载、重载无重复对象,todo,
+AUT-0403,4,Save,实现 chunk 稀疏差量和生成器迁移,P0,"AUT-0401,CAP-0204",已探索区域不因升级无声变化,todo,
+AUT-0404,4,QA,世界确定性、可达性、重复率和 60 分钟探索,P0,"AUT-0402,AUT-0403",无崩溃、显著泄漏或重载变化,todo,
+AUT-0900,9,Content,完成 8 个主要地区与 20 个以上小区域,P0,"CAP-0601,CAP-0602,CAP-0603,CAP-0604",各地区有独立视觉、地标、生态和活动,todo,
+AUT-0901,9,Content,完成程序化远野稀有地标和长期探索奖励,P0,AUT-0404,外围不连续重复且可达性通过,todo,
+AUT-1000,10,Polish,正式动画、VFX、昼夜、天气和季节精修,P0,AUT-0900,固定截图三轮审查全部通过,todo,
+AUT-1001,10,Polish,正式 UI、音频、教程、地图和图鉴,P0,AUT-1000,无默认控件或音频断层,todo,
+AUT-1100,11,Reliability,完成 2 小时 soak、性能和内存预算,P0,AUT-1001,无崩溃或显著内存增长,todo,
+AUT-1101,11,Accessibility,完成键鼠/手柄、四分辨率和辅助功能回归,P0,AUT-1001,完整流程无需鼠标且 UI 无溢出,todo,
+AUT-1200,12,Build,可复现 Windows RC 构建、manifest 和 checksum,P0,"AUT-1100,AUT-1101",干净机可启动且构建无密钥/缓存/SDK,todo,
