@@ -329,6 +329,23 @@ GPU 复核命令：
 - 来源类型：executed_now。受测source为 `05d1484ac872017a71ae97716fe10cd619439dac` + 本批dirty拒绝头层记录/mesh探针/文档；本机提升环境完整run `20260923T071020965Z-p29000-2dd78952`实际exit0、19/19、`required_checks_satisfied=true`，游戏827/827、事务61项、候选负例25/25、治理21/21、Debug导出与短启动通过。headless自动门与上一条真实Compatibility GPU截图是两种不同证据。
 - run前后source fingerprint同为 `dc6699ca4e6c3f37d3bd1df7b9148c1bff836cd59e4bf1cebeed90400673b8da`，运行中未变化。此处不声称后续实现提交的exact SHA CI成功；该远程结果仍需提交、push后单独核验。
 
+## 2026-09-23T15:47:20+08:00 · CAP-0520-UI-FAMILY-01 · 共用暂停/设置/背包/储物箱样板
+
+- 来源类型：executed_now。上一批`aa612efd9a68b6d7c5ad1cf378375a83a9260890`对应[exact Windows CI run 35830878098](https://github.com/T1doo/Capybara/actions/runs/35830878098)已成功，本批UI变化尚未提交/取得新exact CI。
+- 新增原创Godot Theme资源，接入暂停、设置、背包、储物箱、按键重映射五个真实界面；定义羊皮纸面板、深绿按钮、悬停/按下/组合态、显式金色焦点圈、浅色禁用态和双语正文色。补充可复用`DangerButton`变化态，暂停退出与背包丢弃使用暖棕危险动作样式。具体色板与未完成门见[设计记录](../../design/UI_STORYBOOK_V1.md)。没有采用第三方字体、插件、图片或游戏内运行时AI。
+- 实际 Windows Godot 4.7.2 / OpenGL 3.3 Compatibility / RTX4060 Laptop GPU：复制既有UI fixture到忽略build里的新输出路径，运行5截图、全部交互断言退出0，包括键盘/合成手柄焦点、暂停返回、设置、中文与英文150%缩放。初版英文150%里一个pressed+hover开关白字裸露在浅面板；补齐`hover_pressed`状态后新GPU截图不再出现该问题。早期失败图保留，不能声称第一次通过。
+- 另在真实主场景捕捉背包和储物箱：初版储物箱8列+长物品名超过1280px宽度，显示底部横向滚动；改箱侧为6列，玩家侧仍6列，复验1280×720截图完整显示两列内容与返回按钮，物品数量/转移规则不变。构建截图只在本机build，非发布资产。未测实体手柄、全部目标分辨率或高对比矩阵，也未完成纹理化面板/图标/字体/标题入口；CAP-0520仍in_progress。
+
+## 2026-09-23T15:51:00+08:00 · CAP-0520-UI-GATE · UI批次本地整合门
+
+- 来源类型：executed_now。完整门 `20260923T074855222Z-p29724-ea5843cf` 在本机提升环境实际exit0，19/19、`required_checks_satisfied=true`；游戏断言827/827、保存事务61项、角色候选负例25/25、治理21/21及Windows Debug导出通过，零Godot导入/执行诊断。源码为 `aa612ef` + 本批UI dirty变更，前后fingerprint同为 `ff1b60920182fa9ea50ec4934579eb5049a00a138633e8759c91da9b2438491a`；不能当成后续提交的exact CI。
+- 实景UI fixture仅用键盘和合成手柄事件；真实体手柄/鼠标完整矩阵、四目标分辨率、正式入口游戏流程与正式UI美术审查仍待办，不据本次回归晋级 CAP-0520 或 Stage 3。
+
+## 2026-09-23T15:58:00+08:00 · CAP-0520-UI-FINAL-LOCAL · 危险动作样板后复验
+
+- 来源类型：executed_now。最后加入可复用`DangerButton`与暂停退出/背包丢弃变化态后，真实GPU重跑暂停/设置双语五截图及主场景背包/储物箱两截图，输出到新的忽略build目录；均实际exit0，初版的英文pressed+hover失配和横向溢出图保留以作前后比照。
+- 最终本地完整门 run `20260923T075649746Z-p30628-1f5e27b3`：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、Debug导出/短启动均通过；受测source为`aa612ef`+本批dirty UI与文档，运行前后指纹一致：`3be239ce7f4a75d01dfd4c2857a1a0417a9090046afc79f56ca0786e01258f54`。最终提交的exact远程CI仍待单独核对。截图是实GPU但不是完整实体手柄、四分辨率或正式美术验收。
+
 ## 2026-09-23T14:52:00+08:00 · ART3-100-PLATE-GATE · 工作树整合复验
 
 - 来源类型：executed_now。第一轮完整门 `20260923T064719461Z-p8668-a801ba0e` 在治理阶段退出10：PLAN证据栏引用外部CI URL，治理规则只接受可检查的本地证据路径；Godot未启动。将证据栏指向保留exact CI链接与SHA的本阶段LOG后，第二轮隔离环境 `20260923T064743450Z-p10960-b78016c8` 导入阶段退出20，Godot无法读取Windows根证书/写本机editor settings；之前的治理、格式和素材步骤已通过。两次失败均保留，不合并为通过。

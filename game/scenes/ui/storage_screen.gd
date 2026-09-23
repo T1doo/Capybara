@@ -4,7 +4,7 @@ extends Control
 signal closed
 
 const PLAYER_COLUMNS: int = 6
-const STORAGE_COLUMNS: int = 8
+const STORAGE_COLUMNS: int = 6
 
 @onready var player_grid: GridContainer = %PlayerGrid
 @onready var storage_grid: GridContainer = %StorageGrid
