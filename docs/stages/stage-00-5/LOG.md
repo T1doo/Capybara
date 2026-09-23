@@ -117,3 +117,11 @@ Known Issues
 - 来源类型：executed_now。恢复后实际查询并下载CI产物：run35072291907，job104716383753，artifact10436797343（未过期），exact SHA `aa2b8aeb0bb0e3083c1166dd22091a7f6a091403`，结论success。
 - Windows新检出JSON run `20260916T081021447Z-p1360-b2d1f3f3`：19步全部通过，required=true，source_before.dirty=false且指纹前后一致。Godot导入、资产10检出用例、治理20正负例、游戏回归、61加载事务和Debug导出启动都在同提交覆盖。
 - 本机已下载至build/takeover/20260916/ci-aa2b8ae；公开日志入口https://github.com/T1doo/Capybara/actions/runs/35072291907 。据此关闭R-CI-01/02与迁移R-DOC-01；不代表后续soak或Stage3视觉门通过。
+## 2026-09-23T14:24:38.1705864+08:00 · GOV-007-REPAIR · 治理路径检查误报修复
+
+- 来源类型：executed_now。受测基线为50f4cf77b20969bcb8b67a5e8b67b59222715310加tools/check_governance.ps1与tools/test_governance.ps1工作树改动。
+- 首次完整run 20260923T060728633Z-p27292-a46077f3在governance退出10：新候选工具的正则路径字符被当成UNC绝对路径；游戏/导出步骤未执行。中间修订又把visual_review_status中的s:\s识作盘符，失败记录保留。
+- 修复后要求盘符字母前有非标识符边界，并要求UNC包含合法主机与共享名；保留E:\Capybara和\\server\share的真实负例。治理21/21通过，14阶段/102任务图有效。
+- 最新本地完整run 20260923T061456741Z-p8340-ca5fdddc：19/19、827/827、61加载事务检查、零Godot诊断、Windows Debug导出与短启动，required=true；源指纹前后一致。本次为dirty worktree，仍待实现提交的exact SHA远程CI，AUT-0063暂不标done。
+- 素材专项也已实际通过：AG3/AG4完整性、清洁引用链、SVG检出10例、新候选25/25负例与格式405文件。通过的是技术/来源门，AG4母图及Stage3视觉门仍开放。
+- 下一动作：仅将本批必要修复与恢复文档原子提交、安全单分支push；核验exact SHA CI后回到Stage3的可编辑角色分层和环境整景。

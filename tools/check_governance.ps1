@@ -276,7 +276,7 @@ foreach ($file in $runtimeFiles) {
     $lineNumber = 0
     foreach ($line in Get-Content -LiteralPath $file.FullName) {
         $lineNumber++
-        if ($line -match '(?i)([A-Z]:\\(?:Users|Capybara|GameDev|Tools|Program Files)|\\\\[^\\\s]+\\)') { $failures.Add("Absolute local path in executable project/config: $($file.FullName):$lineNumber") }
+        if ($line -match '(?i)((?<![A-Za-z0-9_])[A-Z]:\\|\\\\[A-Za-z0-9._-]+\\[A-Za-z0-9.$_-]+)') { $failures.Add("Absolute local path in executable project/config: $($file.FullName):$lineNumber") }
         # Inspect actual local docs references, not prose mentioning a prohibited git command.
         foreach ($referenceMatch in [regex]::Matches($line, 'docs[/\\](?:[A-Za-z0-9_.-]+[/\\])*[A-Za-z0-9_.-]+\.(?:md|csv)')) {
             $reference = $referenceMatch.Value

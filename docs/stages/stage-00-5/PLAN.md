@@ -31,10 +31,11 @@
 | AUT-0056 | 完成独立治理审查和 QA 审查 | P0 | AUT-0052,AUT-0053,AUT-0054,AUT-0055 | High 以上问题为 0 | done | historical_report: [历史日志](LOG.md#historical-records) |
 | AUT-0057 | 建立 Stage 0.5 恢复点并安全同步 | P0 | AUT-0056 | 原子 commit；远程不可确认时记录待同步 | done | historical_report: [历史日志](LOG.md#historical-records) |
 | AUT-0058 | 建立并审计安全续开发线 | P0 | AUT-0057 | 保留工作树/暂存区/未跟踪hash；review祖先正确且无旧开发祖先混入；显式ref安全推送 | done | [接管验证](LOG.md#takeover-validation) |
-| AUT-0059 | 修复 SVG 检出字节与诊断 R-CI-01 | P0 | AUT-0058 | Windows新检出与autocrlf正反例、篡改/隔离负例；exact SHA完整CI成功 | in_progress | - |
+| AUT-0059 | 修复 SVG 检出字节与诊断 R-CI-01 | P0 | AUT-0058 | Windows新检出与autocrlf正反例、篡改/隔离负例；exact SHA完整CI成功 | done | [干净CI确认](LOG.md) |
 | AUT-0060 | 迁移唯一任务真源与14阶段计划日志 | P0 | AUT-0058 | 原70任务、全部开放问题与v2范围有归属；删除重复入口；有效引用和正负治理fixture通过 | done | [接管验证](LOG.md#takeover-validation) |
 | AUT-0061 | 恢复门整合与 CI 证据审阅 | P0 | AUT-0059,AUT-0060,AUT-0062 | 统一本地门、stage审阅包和exact SHA远程check runs有结果；未通过不得通过本轮治理门 | todo | - |
-| AUT-0062 | 修复干净 CI 的 Godot 导入顺序 R-CI-02 | P0 | AUT-0059 | 所有Godot脚本在版本验证/导入后执行；无全局类缓存时SVG渲染/全部断言/导出可运行；exact SHA完整CI成功 | in_progress | - |
+| AUT-0062 | 修复干净 CI 的 Godot 导入顺序 R-CI-02 | P0 | AUT-0059 | 所有Godot脚本在版本验证/导入后执行；无全局类缓存时SVG渲染/全部断言/导出可运行；exact SHA完整CI成功 | done | [干净CI确认](LOG.md) |
+| AUT-0063 | 修正绝对路径检查对候选工具正则的误判 | P0 | AUT-0060,AUT-0062 | 字面量正则不误报，真实盘符与UNC路径仍被负例拒绝；治理门、全套Windows门及新HEAD CI有效 | in_progress | - |
 
 ## 退出质量门
 

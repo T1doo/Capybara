@@ -182,6 +182,10 @@ Invoke-Fixture 'runtime-absolute-path' {
     param($root)
     Write-FixtureFile $root 'game/example.gd' ('const WRONG_PATH = "' + 'E:' + '\Capybara\game"')
 } 'Absolute local path'
+Invoke-Fixture 'runtime-unc-path' {
+    param($root)
+    Write-FixtureFile $root 'tools/example.ps1' 'Set-Location "\\server\share\folder"'
+} 'Absolute local path'
 Invoke-Fixture 'unsafe-status-branch' {
     param($root)
     Edit-FixtureFile $root 'docs/STATUS.md' 'safe_branch: codex/production-clean-20260916' 'safe_branch: codex/autonomous-v1'
