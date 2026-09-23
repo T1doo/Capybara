@@ -106,7 +106,13 @@ try {
         if ($file.FullName -match '(?i)[\\/]_quarantine[\\/]') { continue }
         $rows = @(Import-Csv -LiteralPath $file.FullName)
         if ($rows.Count -eq 0) { continue }
-        if ('reference_path' -in $rows[0].PSObject.Properties.Name -and 'status' -in $rows[0].PSObject.Properties.Name) { $discoveredManifests.Add($file.FullName) }
+        # Only controlled adaptation lifecycles belong to this checker. A clean
+        # visual-concept family may also record an edited parent and has its own gate.
+        if ('reference_path' -in $rows[0].PSObject.Properties.Name -and
+            'status' -in $rows[0].PSObject.Properties.Name -and
+            @($rows | Where-Object { $_.status -in @('technical_candidate', 'approved_concept') }).Count -gt 0) {
+            $discoveredManifests.Add($file.FullName)
+        }
         foreach ($row in $rows) {
             if ($row.file_path -and $row.sha256 -match '^[a-fA-F0-9]{64}$') {
                 $key = ([string]$row.file_path).Replace('\', '/')

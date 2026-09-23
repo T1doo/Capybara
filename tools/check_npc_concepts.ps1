@@ -27,6 +27,9 @@ try {
     }
     $rows = @(Import-Csv -LiteralPath $candidateManifest)
     if ($rows.Count -lt 4 -or $rows.Count -gt 12) { throw "NPC concept family requires 4-12 candidates; found $($rows.Count)." }
+    foreach ($field in @('reference_asset_ids', 'reference_path', 'reference_sha256', 'rights_status', 'visual_review_status')) {
+        if ($field -notin $rows[0].PSObject.Properties.Name) { throw "NPC manifest missing provenance column: $field" }
+    }
     $existing = @(Get-ChildItem -LiteralPath $candidateDirectory -File -Filter '*.png' | ForEach-Object { $_.Name })
     if ($existing.Count -ne $rows.Count) { throw 'Every NPC candidate PNG must have exactly one manifest row.' }
     $quarantineHashes = @((Import-Csv -LiteralPath $quarantineManifest) | ForEach-Object { ([string]$_.sha256).ToLowerInvariant() })
@@ -48,14 +51,25 @@ try {
         if ($row.raw_path -notmatch '^art/generated_raw/npc/[a-z0-9_/]+\.png$' -or
             $row.prompt_record_path -ne ($prefix + 'PROMPTS.md') -or
             $row.review_record_path -ne ($prefix + 'REVIEW.md') -or
-            $row.reference_asset_ids -ne 'NONE_TEXT_ONLY' -or
-            $row.source_method -ne 'ai_assisted' -or
             $row.status -ne 'visual_concept' -or
-            $row.rights_status -ne 'original_project_text_only' -or
             $row.alpha_required -ne 'yes' -or $row.game_path) {
             throw "NPC provenance or lifecycle violation: $id"
         }
-        if ($row.visual_review_status -notin @('primary_shortlist_unapproved', 'backup_shortlist_unapproved', 'hold_unapproved')) {
+        if ($row.reference_asset_ids -eq 'NONE_TEXT_ONLY') {
+            if ($row.source_method -ne 'ai_assisted' -or $row.rights_status -ne 'original_project_text_only' -or
+                $row.reference_path -or $row.reference_sha256) { throw "NPC text-only provenance mismatch: $id" }
+        }
+        else {
+            $parentId = [string]$row.reference_asset_ids
+            $parents = @($rows | Where-Object { $_.candidate_id -eq $parentId })
+            if ($parentId -eq $id -or -not $seenIds.ContainsKey($parentId) -or $parents.Count -ne 1 -or
+                $row.source_method -ne 'ai_assisted_edit' -or $row.rights_status -ne 'original_project_clean_lineage' -or
+                $row.reference_path -ne $parents[0].file_path -or $row.reference_sha256 -ne $parents[0].sha256 -or
+                $parents[0].status -ne 'visual_concept') {
+                throw "NPC edited candidate lacks an earlier exact clean parent: $id"
+            }
+        }
+        if ($row.visual_review_status -notin @('primary_shortlist_unapproved', 'backup_shortlist_unapproved', 'hold_unapproved', 'second_round_unapproved')) {
             throw "NPC concept has unsupported visual state: $id"
         }
         if ($row.prompt_id -ne $id -or $promptText -notmatch ('(?m)^## ' + [regex]::Escape($id) + '\s*$')) {
@@ -88,7 +102,7 @@ try {
         if ($inspection.Width -ne [int]$row.width -or $inspection.Height -ne [int]$row.height -or
             $inspection.PixelFormat -ne $row.pixel_format) { throw "NPC exact dimensions/pixel format mismatch: $($row.candidate_id)" }
     }
-    [Console]::WriteLine("[npc-concepts] PASS: $($rows.Count) unapproved clean text-only concepts; exact hashes, RGBA, prompts, rights and no game paths verified.")
+    [Console]::WriteLine("[npc-concepts] PASS: $($rows.Count) unapproved clean text-only/edited concepts; exact hashes, RGBA, parent chain, prompts, rights and no game paths verified.")
     exit 0
 }
 catch {

@@ -395,3 +395,25 @@ GPU 复核命令：
 
 - 来源类型：executed_now。完整本地门`20260923T113432854Z-p15128-a74f4a80`在获准Windows环境实际exit0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、原有角色候选25个负例与新增NPC四文件精确hash/Alpha/来源/空game路径通过，Windows Debug导出/短启动通过。受测source为`e22b737728b0ee9f7f355905c8b0b173415098d6` + 本批dirty NPC候选/清单/检查器/文档，运行前后指纹相同`191f49df5789fb898c6e12ffd02aa5f3c47a9b625ed21ca6df4df36436930a6a`；不是后续提交的exact远程CI。
 - 四底/144px仅静态缩图；未实际完成同家园GPU对比、第二轮、独立审阅、游戏角色动作或NPC行为。工程绿灯只证明安全登记和现有回归未被破坏，不批准主NPC母图。
+
+## 2026-09-23T21:09:38+08:00 · ART3-101-NPC-A2 · 河狸A唯一父图第二轮改稿
+
+- 来源类型：executed_now。首轮实现提交`9effef39ae7f989116c87cc0e610c02211891e9d`的[exact Windows CI run 35857952021](https://github.com/T1doo/Capybara/actions/runs/35857952021)实际success且headSha一致。新A2只引用本项目NPC-A原图SHA`bc0fa71aad72ef98cac48ace04bee2233dfb0cca9c9f96dfd5cf4e0f26faf759`，内置ImageGen精确模型名未披露；原图/候选字节相同，A2 SHA`77f1c8ab6cad32b2149d5900c246d7a6bd1582df9928a6714a0f3f7794e39eb7`。完整提示词与parent链见[候选记录](../../../art/candidates/npc_river_residents_v001/PROMPTS.md)。未引用隔离或第三方图。
+- A2原生1223×1286真RGBA、border Alpha0，四底/144px在忽略的`build/art-pipeline/npc_bridgewright_a2_review_20260923/four_backgrounds`实际检查；新增校验器对5候选准确父SHA、来源权利、空game_path与Alpha实际退出0。审阅发现毛面/围裙笔触更概括、配件仍可读，但要求的35°俯角/尾根和可编辑四向结构没有实现，头部略变圆；保持`second_round_unapproved`。该静态四底不证明GPU过滤/连续动画或独立视觉批准，ART3-101/NPC3-001不关闭。
+- 下一步改变制作方法：基于已记录的A/A2造型规则做可编辑结构与转面，不再以同类生图反复要求镜头旋转。完整门及新提交exact CI尚待本批运行。
+
+## 2026-09-23T21:37:43+08:00 · ART3-101-NPC-A-GPU · A/A2同尺度静态实景
+
+- 来源类型：executed_now。复用已提交的`tools/art/capture_character_candidate.gd`，将字节未变的NPC-A和A2复制到忽略build，统一1223×1286画布、`display_scale=0.116788`、临时pivot(729,1248)、1280×720相机(0,-96)、同玩家位置(64,0)与共享近似静态接触影。Windows Godot 4.7.2 OpenGL 3.3 Compatibility / RTX4060 Laptop GPU实际exit0，捕捉两张固定视图；源文件SHA分别为`bc0fa71a...`和`77f1c8ab...`，render manifest SHA`54845de1dfb91c1fc5168667fd9afadb4ca240ef3bcaa10bf168b4faf2c048c8`，capture_manifest保留脚本/帧定位。图片仅在`build/art-pipeline/npc_a_gpu_20260923/world_comparison`，不随Git发布。
+- 主线程查看：A2在家园尺度笔触更概括，但暖橙色比桥/环境突出，轮廓与俯角未明显优于A1。此为技术实景，无独立美术批准、连续动作、NPC/主角相对运动、正式入口或真实脚底锁定。仍不批准NPC母图。
+
+## 2026-09-23T22:24:20+08:00 · ART3-101-A2-GATE · 清单范围失败与完整重跑
+
+- 来源类型：executed_now。第一轮本地完整run`20260923T135051531Z-p9768-7e20685f`在素材阶段exit22：NPC-A2清单加入`reference_path`字段后，旧`check_character_candidates.ps1`把NPC视觉概念也发现为主角技术候选，NPC-A/B/C/D因空父路径、A2因`visual_concept`生命周期被拒；Godot步骤未执行。这是治理范围误判，不改写为首轮通过；GOV-008登记并同批修正。
+- 主角检查器现只自动发现`technical_candidate`/`approved_concept`生命周期的清单，独立NPC视觉概念和A2引用链仍由`check_npc_concepts.ps1`完整检查。新增真实生产范围回归，`test_character_candidates.ps1`实际26/26通过，主角定向候选仍3项，NPC五项来源/Hash/Alpha/空game_path通过。
+- 完整重跑`20260923T142120826Z-p32320-c50accef`在获准Windows环境实际exit0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、角色负例26/26、NPC五项及Windows Debug导出/短启动通过。受测source为`9effef39ae7f989116c87cc0e610c02211891e9d` + dirty A2/检查器/文档；运行前后指纹同为`81be478bae9b36cbf36a9736947f936af8c8a8354415c7e35aa6ddd7d9e10540`。这不是即将提交的新SHA的远程CI，且不批准NPC母图。
+
+## 2026-09-23T22:24:20+08:00 · USER-PAUSE-STAGE3-WIP-03 · 明天继续的安全停点
+
+- 来源类型：executed_now（用户指令）。用户明确“我们先暂停一下吧，明天继续，你收尾一下”。收尾只完成已开始的A2改稿/检查器修正的真实复验与安全提交，不再开启新Stage3制作；暂停长期Goal，等待用户下次明确恢复。不改变v2合同、ART3-101或Stage3质量门。
+- A2第二轮是部分视觉改稿，且同尺度GPU仍显示俯角/结构不达标；五张NPC候选全部未批准、没有游戏路径。AG4玩家、多方向、NPC母图、正式UI资产、整景三轮视觉与玩法入口仍未完成。恢复顺序：核实际Git/远程/未跟踪交接附件与新提交exact CI → 本PLAN/LOG/ISSUES → 从可控NPC结构/主角动画及正式场景门继续；不从旧main/autonomous-v1续线。

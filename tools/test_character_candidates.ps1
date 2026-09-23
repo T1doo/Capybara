@@ -164,6 +164,17 @@ foreach ($case in @(
     if (-not $passed) { [Console]::Error.WriteLine("[character-fixture] FAIL $($case.Name)") }
 }
 
+$productionScopePath = Join-Path $fixtureRoot 'production_scope.json'
+$scopeOutput = @(& $checker -JsonOutputPath $productionScopePath 2>&1)
+$scopeExit = $LASTEXITCODE
+$scopeRows = if ($scopeExit -eq 0 -and (Test-Path -LiteralPath $productionScopePath)) {
+    @((Get-Content -LiteralPath $productionScopePath -Raw | ConvertFrom-Json).candidates)
+} else { @() }
+$scopePassed = $scopeExit -eq 0 -and @($scopeRows | Where-Object { $_.manifest -match 'npc_river_residents_v001' }).Count -eq 0
+$results.Add([pscustomobject]@{ case = 'independent-npc-visual-concepts-out-of-scope'; passed = $scopePassed;
+    exit_code = $scopeExit; expected_failure = ''; output = ($scopeOutput -join ' ') })
+if (-not $scopePassed) { [Console]::Error.WriteLine('[character-fixture] FAIL independent-npc-visual-concepts-out-of-scope') }
+
 $reportPath = Join-Path $fixtureRoot 'results.json'
 $results | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $reportPath -Encoding utf8
 $logDirectory = Join-Path $repositoryRoot 'build/logs'
