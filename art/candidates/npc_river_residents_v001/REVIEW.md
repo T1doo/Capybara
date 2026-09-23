@@ -1,0 +1,14 @@
+# First-round original river resident NPC concepts
+
+All four images are text-only, project-original ImageGen concept explorations. They have no third-party visual reference, game path, approval or NPC master status. Source files were copied byte-for-byte from their ignored raw outputs; exact prompts and tool identity are in [PROMPTS](PROMPTS.md), and per-file hashes/dimensions/status are in [CANDIDATE_MANIFEST](CANDIDATE_MANIFEST.csv). The current check only establishes real RGBA and clean rights/provenance, not animation readiness.
+
+On 2026-09-23 the primary agent actually inspected native outputs, white/black/grass/water four-background contacts and independently normalized 144px previews. The review outputs are local ignored files at `build/art-pipeline/npc_first_round_review_20260923/four_backgrounds`; clean checkout will need to rerun the tool. All four PNGs opened as Format32bppArgb, passed the PNG/Alpha/padding checker, and had border Alpha no greater than 1/255. Very faint nonzero edge pixels exist in A/B/D, so a future GPU filtering/halo check is still required.
+
+| ID | Actual first-round visual observation | Current decision |
+|---|---|---|
+| NPC-A beaver bridgewright | Broad flat tail, grey work apron, paper survey map and compact upright body remain legible at 144px. Silhouette/job differ from the low capybara player. Fur is painterly but still more realistic/upright than the target elevated camera; four sides, apron stability and gait are unknown. | Provisional **shortlist only** for a targeted second round. Not a master. |
+| NPC-B river otter | Long tapered tail and water-sample kit distinguish it from A/player. The fur and lighting read more like a realistic animal portrait; nearly frontal upright pose misses the requested elevated game projection. | Hold; not a style/pose anchor. |
+| NPC-C wetland heron | Species and neck/beak are distinct, and botanical role is clear at native resolution. At 144px the legs, beak and basket become thin; edge colors on the pale neck/beak require careful future filtering checks. | Hold; no production pose acceptance. |
+| NPC-D pond turtle | Shell, strap and journal provide a strong original shape and painterly surface at 144px. Its broad low mass approaches the player's footprint, and the requested four visible feet are not all visible. | Backup shortlist for later NPC design, not the Stage 3 master by default. |
+
+These are four distinct **first-round concepts**, not four directions of one finished NPC. Two rounds, an independent visual selection, a fixed palette/identity sheet, true four-direction/8-way anatomy, editable source, animation and an actual same-scale home-world GPU capture remain. Do not count contact-sheet rows or transparent technical checks as ART3-101 completion. A second round should refine the best original direction, rather than mix anatomy and accessories across unrelated species.

@@ -384,3 +384,14 @@ GPU 复核命令：
 
 - 来源类型：executed_now。基线提交`9f99faf37d184d5e6d420e41f9f47cf60d402b1f` + 本批dirty木材代码/文档，本机完整run`20260923T101123918Z-p37452-272a391c`实际exit0，19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、角色候选负例25/25、治理21/21及Windows Debug导出/短启动通过。运行前后源码指纹一致`824f44fe524e834f83770de568e98496ed3ff46ecab007189ab32176ce412d5d`；不是后续新提交的exact SHA远程CI。
 - 真实GPU前后近景分别为桥/码头/水车各5图，已人工查看中景与木板；统计取单块区域，跳过整景三轮独立视觉、实体手柄、正式入口和完整动态材质审查。ENV3-001仍In Progress。
+
+## 2026-09-23T19:22:32+08:00 · ART3-101-NPC-ROUND1 · 四种原创河岸居民首轮
+
+- 来源类型：executed_now。四次内置ImageGen分别使用纯文字、无图像参考；实际生成原图放在忽略的`art/generated_raw/npc/`，字节相同副本登记至`art/candidates/npc_river_residents_v001/`。精确四段提示词、工具未披露精确模型名、UTC输出记录、来源/权利与逐文件SHA见[PROMPTS](../../../art/candidates/npc_river_residents_v001/PROMPTS.md)和[CANDIDATE_MANIFEST](../../../art/candidates/npc_river_residents_v001/CANDIDATE_MANIFEST.csv)。未触及隔离图或`game/assets`。
+- `tools/check_npc_concepts.ps1`实际退出0：4/4文件hash、真RGBA、边框Alpha≤1、至少一像素透明留白、纯文字来源、提示词与全局素材登记、未批准状态和空game_path检查通过。实际四底与各自144px联系表在忽略的`build/art-pipeline/npc_first_round_review_20260923/four_backgrounds`；四张图片均为不同物种方向，不是同一角色转面。
+- [视觉与设计记录](../../../art/candidates/npc_river_residents_v001/REVIEW.md)：A河狸工匠的尾/围裙/图纸在144px可读，暂列第二轮方向；D乌龟备选，B水獭写实/相机偏正面，C苍鹭细腿与篮子缩小时减弱。主线程首轮视觉观察并非独立审批；无母图、游戏资产、四方向或NPC行为系统。ART3-101仍in_progress，新增NPC3-001。完整工程门及新提交exact CI待本批后续运行。
+
+## 2026-09-23T19:44:09+08:00 · ART3-101-NPC-ROUND1-GATE · 首轮候选整合门
+
+- 来源类型：executed_now。完整本地门`20260923T113432854Z-p15128-a74f4a80`在获准Windows环境实际exit0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、原有角色候选25个负例与新增NPC四文件精确hash/Alpha/来源/空game路径通过，Windows Debug导出/短启动通过。受测source为`e22b737728b0ee9f7f355905c8b0b173415098d6` + 本批dirty NPC候选/清单/检查器/文档，运行前后指纹相同`191f49df5789fb898c6e12ffd02aa5f3c47a9b625ed21ca6df4df36436930a6a`；不是后续提交的exact远程CI。
+- 四底/144px仅静态缩图；未实际完成同家园GPU对比、第二轮、独立审阅、游戏角色动作或NPC行为。工程绿灯只证明安全登记和现有回归未被破坏，不批准主NPC母图。

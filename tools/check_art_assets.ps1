@@ -1013,7 +1013,7 @@ finally {
     $smokeImage.Dispose()
 }
 
-foreach ($candidateCheck in @('check_character_candidates.ps1', 'test_character_candidates.ps1')) {
+foreach ($candidateCheck in @('check_character_candidates.ps1', 'test_character_candidates.ps1', 'check_npc_concepts.ps1')) {
     & (Join-Path $PSScriptRoot $candidateCheck)
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 }
