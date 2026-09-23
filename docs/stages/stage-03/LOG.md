@@ -346,6 +346,12 @@ GPU 复核命令：
 - 来源类型：executed_now。最后加入可复用`DangerButton`与暂停退出/背包丢弃变化态后，真实GPU重跑暂停/设置双语五截图及主场景背包/储物箱两截图，输出到新的忽略build目录；均实际exit0，初版的英文pressed+hover失配和横向溢出图保留以作前后比照。
 - 最终本地完整门 run `20260923T075649746Z-p30628-1f5e27b3`：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、Debug导出/短启动均通过；受测source为`aa612ef`+本批dirty UI与文档，运行前后指纹一致：`3be239ce7f4a75d01dfd4c2857a1a0417a9090046afc79f56ca0786e01258f54`。最终提交的exact远程CI仍待单独核对。截图是实GPU但不是完整实体手柄、四分辨率或正式美术验收。
 
+## 2026-09-23T16:03:02+08:00 · USER-PAUSE-STAGE3-WIP-02 · 即时暂停收尾
+
+- 来源类型：executed_now（用户指令）。用户要求“先暂停一下，改天继续做，请你整理收尾暂停一下”。本轮停止新的Stage 3实现；这覆盖先前“Stage3完成后暂停”的执行时点，不改变v2契约或Stage 3退出标准。
+- 本轮安全检查点：`a43248f7922c4143c8479977b3c243c411aee2da`，仅显式推送`codex/production-clean-20260916`，本地/远程同SHA；原交接附件仍为唯一未跟踪文件、哈希与接管记录一致。没有stage tag、merge main、强推或传播旧祖先。该提交的[exact Windows CI run 35834863552](https://github.com/T1doo/Capybara/actions/runs/35834863552)初写本条时进行中；16:06+08复核headSha精确对应且conclusion=success。暂停文档自身的新提交仍需另核。
+- Stage 3目前只是WIP：AG4补面/网格idle及共用UI样板均未批准完整美术门；主角四方向/脚底锁定、NPC母图、正式UI资产、四氛围和真实入口尚未完成。恢复时先读STATUS/PLAN/本LOG末尾，核真实Git和新CI，再继续Stage3；不要从旧main/autonomous-v1或旧本地标签切新线。
+
 ## 2026-09-23T14:52:00+08:00 · ART3-100-PLATE-GATE · 工作树整合复验
 
 - 来源类型：executed_now。第一轮完整门 `20260923T064719461Z-p8668-a801ba0e` 在治理阶段退出10：PLAN证据栏引用外部CI URL，治理规则只接受可检查的本地证据路径；Godot未启动。将证据栏指向保留exact CI链接与SHA的本阶段LOG后，第二轮隔离环境 `20260923T064743450Z-p10960-b78016c8` 导入阶段退出20，Godot无法读取Windows根证书/写本机editor settings；之前的治理、格式和素材步骤已通过。两次失败均保留，不合并为通过。
