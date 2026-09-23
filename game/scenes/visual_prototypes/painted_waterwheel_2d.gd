@@ -2,6 +2,7 @@ class_name PaintedWaterwheel2D
 extends Node2D
 
 const TIMBER: Texture2D = preload("res://scenes/visual_prototypes/assets/materials/tex_cottage_material_atlas_v001.png")
+const WOOD_SHADER: Shader = preload("res://assets/shaders/soft_painted_wood.gdshader")
 const TURN_SPEED: float = -0.38
 
 @export var sort_actor: Node2D
@@ -11,9 +12,12 @@ const TURN_SPEED: float = -0.38
 var flow_enabled: bool = true
 var reduced_motion: bool = false
 var _flow_phase: float = 0.0
+var wood_material: ShaderMaterial
 
 
 func _ready() -> void:
+	wood_material = ShaderMaterial.new()
+	wood_material.shader = WOOD_SHADER
 	_build_frame()
 	_build_wheel()
 	var settings := get_node_or_null("/root/SettingsService") as SettingsManagerService
@@ -119,6 +123,7 @@ func _timber(parent: Node2D, points: PackedVector2Array, tint: Color) -> void:
 	var polygon := Polygon2D.new()
 	polygon.polygon = points
 	polygon.texture = TIMBER
+	polygon.material = wood_material
 	polygon.color = tint
 	var bounds := Rect2(points[0],Vector2.ZERO)
 	for point in points:

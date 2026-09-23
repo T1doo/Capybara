@@ -373,3 +373,14 @@ GPU 复核命令：
 
 - 来源类型：executed_now。实际本地完整门`20260923T094557263Z-p24164-bd4a4152`在获准Windows环境退出0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、候选负例25/25、治理21/21、Debug导出/短启动通过。受测source为`234ae3a7d729a827e5ec4c38147db555c9d97406` + 本批dirty代码/文档，前后指纹相同`3421c01bb7ecfa5da463273eb9f1ca9c50befd2b529301ed1f94e170ea8a129d`；这不是后续提交的exact SHA CI。
 - 真实GPU四图与Pillow跨材质样本检查均在本机实际退出0。headless自动门不包含真实天气循环、实体手柄、四分辨率或独立美术质量评价；这些仍为跳过/未完成项，不能用于ART3-102退出门。
+
+## 2026-09-23T18:09:24+08:00 · ENV3-001-SOFTWOOD-01 · 近景木材材质小批次
+
+- 来源类型：executed_now。基线HEAD `9f99faf37d184d5e6d420e41f9f47cf60d402b1f` 的[exact Windows CI run 35845615402](https://github.com/T1doo/Capybara/actions/runs/35845615402)已实际success且headSha一致；本批wood代码尚未提交或取得新exact CI。原始项目木材atlas字节和源文件没有修改。
+- 新增共享`soft_painted_wood.gdshader`，桥/码头/水车木质Polygon2D在原贴图上做局部颜色柔化；Godot 4.7.2导入exit0，真实Windows OpenGL 3.3 Compatibility / RTX4060 Laptop GPU分别复跑桥、码头、水车各5个固定视图，exit0。新截图写入独立忽略build目录，原始`bridge_review`/`dock_review`/`waterwheel_review`前图未覆盖。材质取样和视觉边界见[设计记录](../../design/SOFT_PAINTED_WOOD_PROBE.md)。
+- 桥/码头各一块固定板片局部灰度标准差18.33→13.82与18.42→13.76；该狭窄统计只证实纹理对比降低。近景肉眼仍见重复大木结、平直板片与柱/绳结构不足，未修主屋贴图、不关闭ENV3-001，不宣称整景绘本艺术门通过。完整工程门尚待本批运行。
+
+## 2026-09-23T18:13:58+08:00 · ENV3-001-SOFTWOOD-GATE · 木材批次完整复验
+
+- 来源类型：executed_now。基线提交`9f99faf37d184d5e6d420e41f9f47cf60d402b1f` + 本批dirty木材代码/文档，本机完整run`20260923T101123918Z-p37452-272a391c`实际exit0，19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、角色候选负例25/25、治理21/21及Windows Debug导出/短启动通过。运行前后源码指纹一致`824f44fe524e834f83770de568e98496ed3ff46ecab007189ab32176ce412d5d`；不是后续新提交的exact SHA远程CI。
+- 真实GPU前后近景分别为桥/码头/水车各5图，已人工查看中景与木板；统计取单块区域，跳过整景三轮独立视觉、实体手柄、正式入口和完整动态材质审查。ENV3-001仍In Progress。

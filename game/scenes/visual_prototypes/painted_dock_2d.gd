@@ -3,13 +3,18 @@ extends Node2D
 
 const DECK_RECT := Rect2(-192.0, -96.0, 384.0, 192.0)
 const TIMBER: Texture2D = preload("res://scenes/visual_prototypes/assets/materials/tex_cottage_material_atlas_v001.png")
+const WOOD_SHADER: Shader = preload("res://assets/shaders/soft_painted_wood.gdshader")
 
 @onready var deck: Node2D = $Deck
 @onready var rear_rail: Node2D = $RearRail
 @onready var front_rail: Node2D = $FrontRail
 
+var wood_material: ShaderMaterial
+
 
 func _ready() -> void:
+	wood_material = ShaderMaterial.new()
+	wood_material.shader = WOOD_SHADER
 	_build_deck()
 	_build_rail(rear_rail, Vector2(-192,-96), Vector2(-32,-96), 3)
 	_build_rail(rear_rail, Vector2(160,-96), Vector2(192,-96), 2)
@@ -92,6 +97,7 @@ func _wood(parent: Node2D, points: PackedVector2Array, variant: int, horizontal:
 	var polygon := Polygon2D.new()
 	polygon.polygon = points
 	polygon.texture = TIMBER
+	polygon.material = wood_material
 	polygon.color = tint
 	var bounds := Rect2(points[0],Vector2.ZERO)
 	for point in points:
