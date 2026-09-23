@@ -4,5 +4,6 @@
 *.svg text eol=lf
 art/candidates/player_ag3_v001/*.png filter=lfs diff=lfs merge=lfs -text
 art/candidates/player_ag4_v001/*.png filter=lfs diff=lfs merge=lfs -text
+art/candidates/player_ag4_body_plate_v001/*.png filter=lfs diff=lfs merge=lfs -text
 **/tex_cottage_material_atlas_v001.png filter=lfs diff=lfs merge=lfs -text
 **/tex_broadleaf_foliage_v001.png filter=lfs diff=lfs merge=lfs -text

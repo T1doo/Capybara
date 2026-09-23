@@ -117,6 +117,12 @@ aa2b8ae的19步统一门已通过，但随后实际1200秒soak启动即退出1�
 ST1-006关闭补记：dd4af4b修复初始化真实拾取/装备/提交链，20260916T084039617Z-p43072-dd264577实际1200秒通过（8378轮、2095转场、20心跳、零诊断）。原始启动失败保留，不改写为首轮通过。
 ### GOV-007 — 治理检查误报新候选正则
 
-级别：High。Stage：0.5。状态：In Progress。任务：AUT-0063。
+级别：High。Stage：0.5。状态：Closed。任务：AUT-0063。
 
-实际本地完整门20260923T060728633Z-p27292-a46077f3在governance退出10；绝对路径扫描器把check_character_candidates.ps1中的正则转义认成UNC，游戏步骤未执行。最小修复后治理21/21及完整门20260923T061456741Z-p8340-ca5fdddc通过；真实盘符与UNC负例仍拒绝。待安全提交及exact SHA Windows CI成功后关闭，不把本地dirty通过冒充远程验收。
+实际本地完整门20260923T060728633Z-p27292-a46077f3在governance退出10；绝对路径扫描器把check_character_candidates.ps1中的正则转义认成UNC，游戏步骤未执行。最小修复后治理21/21及完整门20260923T061456741Z-p8340-ca5fdddc通过；真实盘符与UNC负例仍拒绝。修复提交ddd27422d8688db851b43f93ccb810b8ba2fb65a的[exact Windows CI run 35827040265](https://github.com/T1doo/Capybara/actions/runs/35827040265)实际成功，2026-09-23关闭；本地dirty门和远程exact门分开记录。
+
+### ART3-006 — AG4头颈补面分层接缝
+
+级别：High。Stage：3。状态：In Progress。任务：ART3-100、CAP-0503。
+
+AG4原画布局部身体补面已通过来源、哈希和真Alpha技术检查，但它不是可直接暴露的躯干轮廓。2026-09-23用原AG4作宽头/围巾mask的12原生像素抬头探针，在肩背出现暗斜线，围巾旧位置留残影；中性缩略图接近原画不代表运动通过。证据、明确遮罩和失败原因见[候选审查](../art/candidates/player_ag4_body_plate_v001/REVIEW.md)及可复现脚本；具体失败图在本机忽略的build中。需把头、围巾、原可见躯干分开，限定补面ROI并复测运动极值/四底/真实游戏尺度，之后才能进入足底锁定和动画路线验收。

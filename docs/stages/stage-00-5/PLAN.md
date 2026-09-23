@@ -35,7 +35,7 @@
 | AUT-0060 | 迁移唯一任务真源与14阶段计划日志 | P0 | AUT-0058 | 原70任务、全部开放问题与v2范围有归属；删除重复入口；有效引用和正负治理fixture通过 | done | [接管验证](LOG.md#takeover-validation) |
 | AUT-0061 | 恢复门整合与 CI 证据审阅 | P0 | AUT-0059,AUT-0060,AUT-0062 | 统一本地门、stage审阅包和exact SHA远程check runs有结果；未通过不得通过本轮治理门 | todo | - |
 | AUT-0062 | 修复干净 CI 的 Godot 导入顺序 R-CI-02 | P0 | AUT-0059 | 所有Godot脚本在版本验证/导入后执行；无全局类缓存时SVG渲染/全部断言/导出可运行；exact SHA完整CI成功 | done | [干净CI确认](LOG.md) |
-| AUT-0063 | 修正绝对路径检查对候选工具正则的误判 | P0 | AUT-0060,AUT-0062 | 字面量正则不误报，真实盘符与UNC路径仍被负例拒绝；治理门、全套Windows门及新HEAD CI有效 | in_progress | - |
+| AUT-0063 | 修正绝对路径检查对候选工具正则的误判 | P0 | AUT-0060,AUT-0062 | 字面量正则不误报，真实盘符与UNC路径仍被负例拒绝；治理门、全套Windows门及新HEAD CI有效 | done | [本地失败、修复与exact CI](LOG.md) |
 
 ## 退出质量门
 

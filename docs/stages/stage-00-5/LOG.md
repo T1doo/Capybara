@@ -125,3 +125,9 @@ Known Issues
 - 最新本地完整run 20260923T061456741Z-p8340-ca5fdddc：19/19、827/827、61加载事务检查、零Godot诊断、Windows Debug导出与短启动，required=true；源指纹前后一致。本次为dirty worktree，仍待实现提交的exact SHA远程CI，AUT-0063暂不标done。
 - 素材专项也已实际通过：AG3/AG4完整性、清洁引用链、SVG检出10例、新候选25/25负例与格式405文件。通过的是技术/来源门，AG4母图及Stage3视觉门仍开放。
 - 下一动作：仅将本批必要修复与恢复文档原子提交、安全单分支push；核验exact SHA CI后回到Stage3的可编辑角色分层和环境整景。
+
+## 2026-09-23T14:46:10+08:00 · AUT-0063-CLOSE · exact CI 核验
+
+- 来源类型：executed_now。修复提交 `ddd27422d8688db851b43f93ccb810b8ba2fb65a` 沿指定 review 的安全祖先链正常推至 `codex/production-clean-20260916`，无强推/旧标签传播。
+- [Windows run 35827040265](https://github.com/T1doo/Capybara/actions/runs/35827040265) 的 `headSha` 精确等于 ddd2742，`Godot 4.7.2 / Windows` 及其中 `Run unified checks`、`Upload check logs` 均 conclusion=success。此为远程 exact SHA 证据；本地先前脏树 run 20260923T061456741Z-p8340-ca5fdddc 仍按当时来源单独保留。
+- `GOV-007` 与 `AUT-0063` 关闭；不据此声称 Stage 3 美术或正式入口通过。

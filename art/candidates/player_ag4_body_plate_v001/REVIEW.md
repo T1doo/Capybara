@@ -1,0 +1,11 @@
+# AG4 body clean plate — local underpainting review
+
+- Candidate: `AG4-BODY-PLATE-001`, SHA-256 `5da7f8328e08bef767a2e12053968772f86b5976390ada7543fb2eb9f56f4395`.
+- Sole image reference: clean-chain AG4, SHA-256 `e92cd4791957b4db13b65b1c8865c574a54975b907647088de26e8edd7975521`.
+- Status: `technical_candidate`; **unapproved**. No `game_path` and no `PLAYER_MASTER` claim.
+
+The 1402×1122 native RGBA plate removes the visible head, scarf, leaf bag and three feet and supplies broadly continuous fur under those parts. Independent visual review checked the native image and white, black, grass-green and lake-blue backgrounds. It found no obvious halo or orphaned accessory. This is suitable as a bounded source of concealed fur only; the forward fur bulge is not an accepted exposed shoulder silhouette. The four-background 144px image of this plate is independently normalized and cannot establish alignment to the AG4 whole-character 144px scale.
+
+`tools/art/probe_ag4_head_plate.py` uses exact source/plate SHA checks, the native common canvas, and one explicit broad head-and-wrap polygon. It retains all AG4 source pixels outside the soft mask and places the plate only under that region. Review fixtures are in ignored `build/art-pipeline/ag4_head_plate_probe_20260923/`: neutral, 12 native-pixel raised/lowered/forward poses, native layers and preview images. The neutral preview appears near the source, but the **raised native pose fails**: a dark diagonal cut shows from upper back into the shoulder, and the scarf's old position leaves a ghost below the moved wrap. The broad polygon also includes original torso paint, so it is a diagnostic cut and not production segmentation. This failure must remain visible; do not use the generated frame in game or claim animation passed.
+
+Next art work: separate the true head, wrap and exposed torso boundaries using editable masks; make the layer overlap account for the full displaced wrap; replace only concealed fur ROIs with the plate. Check the resulting native composite at neutral and motion extremes on four backgrounds, then compare GPU at actual game size. Separately obtain and validate the hidden far hind foot and foot locks at unchanged Player movement speed before treating any gait as accepted.

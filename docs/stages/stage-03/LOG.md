@@ -304,3 +304,15 @@ GPU 复核命令：
 - 2026-09-23按恢复入口先核真实Git/LFS/原附件哈希。素材管线实际检验AG3→AG4→AG1逐级clean SHA、真实RGBA、索引与原图未登记拒绝；25/25最小正负例通过。格式扫描405项通过。
 - 完整门第一轮在治理绝对路径误判时真实失败；修复后run 20260923T061456741Z-p8340-ca5fdddc 19/19通过，游戏断言827/827、加载事务61项及Windows Debug烟雾通过。受测source为50f4cf7+两脚本dirty改动，不把它称作新提交的exact CI通过。
 - 角色路线ART3-100继续in_progress：真实A/B样件仍存在各自绘本视觉High，AG4仅DR静态technical_candidate。隐藏足/颈/包下补面、240移动速度的连续足底与四独立方向仍缺实际产物和验收；正式入口依赖没有解除。
+
+## 2026-09-23T14:46:10+08:00 · ART3-100-AG4-PLATE-PROBE · 局部补面与失败运动探针
+
+- 来源类型：executed_now。参考 AG4 SHA `e92cd4791957b4db13b65b1c8865c574a54975b907647088de26e8edd7975521`；补面 SHA `5da7f8328e08bef767a2e12053968772f86b5976390ada7543fb2eb9f56f4395`。唯一原图引用为清洁链 AG4，完整提示词见新增候选 PROMPT，原始生成图仍在忽略的 `art/generated_raw`。未引用隔离图，未覆盖 AG4 或 `art/source_layers`。
+- 本地 `check_character_candidates.ps1` 对三个受控候选实际退出0；新补面 1402×1122 Format32bppArgb、边框 Alpha0、哈希/引用链/生命周期通过。独立视觉检查四背景未见明显 halo；判为未批准局部补绘来源，非完整躯干轮廓。
+- `tools/art/probe_ag4_head_plate.py` 在原生共同画布做宽头颈/围巾 cutout、静止及上/下/前各12像素运动，对应源PNG未修改；输出在忽略的 `build/art-pipeline/ag4_head_plate_probe_20260923`。检查 native 抬头图发现肩背暗斜切线与围巾旧位残影，故探针**失败**，登记 ART3-006。中性缩略图相近不能覆盖失败。该遮罩非生产分层；尚无连续脚底/四向/正式游戏 GPU 动画结果。
+- 下一步先精确分离头、围巾和原可见躯干，限定补面使用区并重做运动极值、四底与实际游戏尺寸审查；不因本次检查器通过而批准 PLAYER_MASTER、ART3-100 或 Stage 3 门。
+
+## 2026-09-23T14:52:00+08:00 · ART3-100-PLATE-GATE · 工作树整合复验
+
+- 来源类型：executed_now。第一轮完整门 `20260923T064719461Z-p8668-a801ba0e` 在治理阶段退出10：PLAN证据栏引用外部CI URL，治理规则只接受可检查的本地证据路径；Godot未启动。将证据栏指向保留exact CI链接与SHA的本阶段LOG后，第二轮隔离环境 `20260923T064743450Z-p10960-b78016c8` 导入阶段退出20，Godot无法读取Windows根证书/写本机editor settings；之前的治理、格式和素材步骤已通过。两次失败均保留，不合并为通过。
+- 在获准的本机环境实际重跑相同 `tools/check_project.ps1`：run `20260923T064911390Z-p25556-8e40857b`，19/19步骤、游戏827/827、保存事务61项、候选负例25/25、治理21/21及Windows Debug导出通过，`required_checks_satisfied=true`、exit0。执行模式headless；源码为 `ddd2742` + 本批dirty改动，前后指纹同为 `abcf4bde928d436cf847dbcf1effdcb0df393d2b1a743a2b21ab9f284bed9e35`。这不是后续提交的exact SHA CI，且自动断言不替代失败的绘本运动视觉审查。
