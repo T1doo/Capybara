@@ -356,3 +356,20 @@ GPU 复核命令：
 
 - 来源类型：executed_now。第一轮完整门 `20260923T064719461Z-p8668-a801ba0e` 在治理阶段退出10：PLAN证据栏引用外部CI URL，治理规则只接受可检查的本地证据路径；Godot未启动。将证据栏指向保留exact CI链接与SHA的本阶段LOG后，第二轮隔离环境 `20260923T064743450Z-p10960-b78016c8` 导入阶段退出20，Godot无法读取Windows根证书/写本机editor settings；之前的治理、格式和素材步骤已通过。两次失败均保留，不合并为通过。
 - 在获准的本机环境实际重跑相同 `tools/check_project.ps1`：run `20260923T064911390Z-p25556-8e40857b`，19/19步骤、游戏827/827、保存事务61项、候选负例25/25、治理21/21及Windows Debug导出通过，`required_checks_satisfied=true`、exit0。执行模式headless；源码为 `ddd2742` + 本批dirty改动，前后指纹同为 `abcf4bde928d436cf847dbcf1effdcb0df393d2b1a743a2b21ab9f284bed9e35`。这不是后续提交的exact SHA CI，且自动断言不替代失败的绘本运动视觉审查。
+
+## 2026-09-23T17:43:48+08:00 · USER-RESUME-AND-REVIEW-PACKET · 恢复与外部审阅材料
+
+- 来源类型：executed_now（用户恢复指令及读写核验）。用户先要求暂停后的GPT独立审查资料，再明确“ok了你可以继续了”“请继续吧”；长期Goal仍active，Stage3继续，不把先前即时暂停当作阶段完成。
+- 恢复时核实际Git：HEAD与远程生产安全分支同为`234ae3a7d729a827e5ec4c38147db555c9d97406`，指定review基线仍为祖先；暂存区与已跟踪工作树清洁，原交接附件为唯一未跟踪文件且哈希`72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`。Git LFS fsck通过。暂停文档提交的[exact Windows CI 35835580503](https://github.com/T1doo/Capybara/actions/runs/35835580503)实际success，headSha精确对应。
+- 供外部GPT复核的`234ae3a`快照链接、独立问题清单、原AG4/补面、失败cutout探针、真实GPU UI/mesh图与dirty本地门JSON已打包到忽略的`build/review_packets/stage3_pause_20260923_234ae3a.zip`；ZIP 11项，SHA-256 `e02a136d1206c84245282bac0a0bfcd25da2dcc5d8c200e287ac6010541ef5bd`。未加入原附件、隔离图片或凭据；该包固定旧快照，不含后续开发。
+
+## 2026-09-23T17:43:48+08:00 · ART3-102-ATMOSPHERE-PROBE-01 · 同景四氛围技术探针
+
+- 来源类型：executed_now。新增原生Godot世界乘色/窗光/确定性静态雨痕组件和只写`build`的真实GPU截图夹具，未接正式入口；使用clean AG4 SHA `e92cd4791957b4db13b65b1c8865c574a54975b907647088de26e8edd7975521`，角色本体约144px，固定1280×720相机、位置、同一World实例与减少动态。Godot 4.7.2 Windows OpenGL 3.3 Compatibility / NVIDIA RTX4060 Laptop GPU实际运行退出0，四张截图与源/脚本/截图哈希在`build/art-pipeline/home_atmosphere_probe_20260923_final/capture_manifest.json`。
+- 首轮方案真实失败：`build/art-pipeline/home_atmosphere_probe_20260923_first`中CanvasModulate没有调暗unshaded地面/水/房屋，地面夜/晨固定取样亮度比1.0；保留失败图。改用世界上层乘色和其后局部additive窗光，第二/第三次试验也保留。最终用`tools/art/check_home_atmosphere_capture.py`对4张图、脚本及源SHA和5个跨材质/角色位置实际退出0；五个样本夜/晨亮度比约0.48，窗位夜间更亮。这个狭窄像素检查不证明整景质量。
+- [设计与限制](../../design/HOME_ATMOSPHERE_PROBE.md)：雨仅静态线条，缺湿面/水生态反应；夜窗光不等于正式灯具，黄昏仍放大已有木色问题；环境结构、三轮独立视觉、完整天气/四季、四分辨率和正式玩法入口均未通过。ART3-102只从todo进入in_progress，ENV3-001/002保留，新增ENV3-003。
+
+## 2026-09-23T17:49:40+08:00 · ART3-102-LOCAL-GATE · 四氛围批次整合复验
+
+- 来源类型：executed_now。实际本地完整门`20260923T094557263Z-p24164-bd4a4152`在获准Windows环境退出0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、候选负例25/25、治理21/21、Debug导出/短启动通过。受测source为`234ae3a7d729a827e5ec4c38147db555c9d97406` + 本批dirty代码/文档，前后指纹相同`3421c01bb7ecfa5da463273eb9f1ca9c50befd2b529301ed1f94e170ea8a129d`；这不是后续提交的exact SHA CI。
+- 真实GPU四图与Pillow跨材质样本检查均在本机实际退出0。headless自动门不包含真实天气循环、实体手柄、四分辨率或独立美术质量评价；这些仍为跳过/未完成项，不能用于ART3-102退出门。

@@ -49,7 +49,7 @@ AG1是造型锚点，未锁定PLAYER_MASTER；A1家园、主屋/桥/水车/码�
 | CAP-0520 | UI 主组件板 | P1 | CAP-0206 | 中文英文和手柄焦点清楚 | in_progress | [共享样板方向](../../design/UI_STORYBOOK_V1.md)、[实景与交互记录](LOG.md) |
 | ART3-100 | 小规模 cutout 与正交预渲染路线比较 | P0 | CAP-0502 | 同相机/尺寸/代表动作对照观感、一致性、成本、性能与服装扩展，记录可重复源与决策 | in_progress | [A/B审查](../../../art/candidates/player_animation_ab_v001/REVIEW.md)、[AG4补面失败探针](../../../art/candidates/player_ag4_body_plate_v001/REVIEW.md)、[网格idle实景探针](../../../tools/art/probe_ag4_mesh_idle.gd) |
 | ART3-101 | 主要 NPC 母图与制作样板 | P0 | CAP-0501 | 独立剪影、设定、真实Alpha、方向/光向/尺度与主角一致；不冒充已实现日程关系 | todo | - |
-| ART3-102 | 统一整景与四氛围、环境问题关闭 | P0 | CAP-0510 | 同家园晴天上午/黄昏/雨天/夜晚真实截图；ENV3-001/002材质结构层次和接触统一；三轮视觉审查 | todo | - |
+| ART3-102 | 统一整景与四氛围、环境问题关闭 | P0 | CAP-0510 | 同家园晴天上午/黄昏/雨天/夜晚真实截图；ENV3-001/002材质结构层次和接触统一；三轮视觉审查 | in_progress | [四氛围技术探针](../../design/HOME_ATMOSPHERE_PROBE.md)、[实景/失败记录](LOG.md) |
 | ART3-103 | 图集、pivot、Alpha 与导入流水线 | P0 | CAP-0502 | 可编辑源、四底边缘、角色本体尺度、图集切片/脚底pivot/导入预设/来源哈希能复现；合法晋级正例 | todo | - |
 | ART3-104 | 批准视觉接入正式 Player/WorldZone/保存入口 | P0 | CAP-0503,ART3-101,ART3-102,ART3-103,CAP-0520,ST2-R001,ST2-R002,ST2-R003,ST2-R004 | 正常启动可移动/拾取/工具/箱子/暂停/区域转换/保存退出继续；保留稳定ID并验证旧档；VisualPreview仅夹具 | todo | - |
 | ART3-105 | 内部真实流程与 Stage 3 整合审阅 | P0 | ART3-104 | 真实键鼠及手柄输入链、四分辨率、四氛围/动画/NPC/UI与跨进程恢复证据；完整统一门和独立视觉/QA；非外部玩家样本 | todo | - |
