@@ -47,7 +47,7 @@ AG1是造型锚点，未锁定PLAYER_MASTER；A1家园、主屋/桥/水车/码�
 | CAP-0503 | 主角基础动画 | P0 | CAP-0502,ART3-100 | 先完成cutout/Blender实景A/B；至少四独立方向、八方向运动及idle/walk/pickup/soak稳定；配饰不镜像错位 | todo | - |
 | CAP-0510 | 环境与水岸套系 | P0 | CAP-0501 | 实际场景中比例、光向、透明边缘一致 | in_progress | - |
 | CAP-0520 | UI 主组件板 | P1 | CAP-0206 | 中文英文和手柄焦点清楚 | todo | - |
-| ART3-100 | 小规模 cutout 与正交预渲染路线比较 | P0 | CAP-0502 | 同相机/尺寸/代表动作对照观感、一致性、成本、性能与服装扩展，记录可重复源与决策 | in_progress | [A/B审查](../../../art/candidates/player_animation_ab_v001/REVIEW.md)、[AG4补面失败探针](../../../art/candidates/player_ag4_body_plate_v001/REVIEW.md) |
+| ART3-100 | 小规模 cutout 与正交预渲染路线比较 | P0 | CAP-0502 | 同相机/尺寸/代表动作对照观感、一致性、成本、性能与服装扩展，记录可重复源与决策 | in_progress | [A/B审查](../../../art/candidates/player_animation_ab_v001/REVIEW.md)、[AG4补面失败探针](../../../art/candidates/player_ag4_body_plate_v001/REVIEW.md)、[网格idle实景探针](../../../tools/art/probe_ag4_mesh_idle.gd) |
 | ART3-101 | 主要 NPC 母图与制作样板 | P0 | CAP-0501 | 独立剪影、设定、真实Alpha、方向/光向/尺度与主角一致；不冒充已实现日程关系 | todo | - |
 | ART3-102 | 统一整景与四氛围、环境问题关闭 | P0 | CAP-0510 | 同家园晴天上午/黄昏/雨天/夜晚真实截图；ENV3-001/002材质结构层次和接触统一；三轮视觉审查 | todo | - |
 | ART3-103 | 图集、pivot、Alpha 与导入流水线 | P0 | CAP-0502 | 可编辑源、四底边缘、角色本体尺度、图集切片/脚底pivot/导入预设/来源哈希能复现；合法晋级正例 | todo | - |

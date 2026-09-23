@@ -312,6 +312,23 @@ GPU 复核命令：
 - `tools/art/probe_ag4_head_plate.py` 在原生共同画布做宽头颈/围巾 cutout、静止及上/下/前各12像素运动，对应源PNG未修改；输出在忽略的 `build/art-pipeline/ag4_head_plate_probe_20260923`。检查 native 抬头图发现肩背暗斜切线与围巾旧位残影，故探针**失败**，登记 ART3-006。中性缩略图相近不能覆盖失败。该遮罩非生产分层；尚无连续脚底/四向/正式游戏 GPU 动画结果。
 - 下一步先精确分离头、围巾和原可见躯干，限定补面使用区并重做运动极值、四底与实际游戏尺寸审查；不因本次检查器通过而批准 PLAYER_MASTER、ART3-100 或 Stage 3 门。
 
+## 2026-09-23T15:08:44+08:00 · ART3-100-HEAD-LAYER-REJECT · 独立头层生成失败
+
+- 来源类型：executed_now。对唯一清洁AG4原图进行一次ImageGen分层编辑；输出SHA、实际提示词和拒绝理由见[生产记录](../../production/AG4_REJECTED_HEAD_LAYER_20260923.md)。生成结果虽然仍为1402×1122，但可见头/围巾大幅放大并偏移，且Alpha边框有非零样本；没有进入候选、游戏资源或下一轮参考链。
+- 同时在忽略的build里比较了两种代码探针：缩窄遮罩能减轻围巾残影，但肩背直线接缝仍在；12原生像素的小幅连续变形视觉上可避开硬接缝，尚未验证面部比例、动作幅度、GPU/帧率、正式资产权利与四底，不把它算作通过。此处改变制作方法，停止依赖同类独立生图来拆头层。
+
+## 2026-09-23T15:08:44+08:00 · ART3-100-MESH-IDLE · 原AG4纹理的实际GPU网格探针
+
+- 来源类型：executed_now。新增`tools/art/probe_ag4_mesh_idle.gd`，严格校验原AG4 SHA；用 Godot Polygon2D 的32×26三角网格，在原1402×1122画布对头部施加高斯局部顶点变形。角色本体高度目标144px，pivot暂定(689,834)，240的正式Player移动速度未更改。没有把候选PNG复制到`game/assets`，没有使用被拒绝的生成头层。
+- 在本机Windows Godot 4.7.2 Standard 的真实 OpenGL 3.3 Compatibility / NVIDIA RTX 4060 Laptop GPU，命令行实际exit0；`build/art-pipeline/ag4_mesh_idle_20260923_final/`保留中性、上抬12、前探12三个1280×720实景截图及源/脚本SHA manifest。测试运行模式是真GPU实景夹具，非headless；不是正式Player入口或实体手柄测试。
+- 原尺寸与实景肉眼检查：相比宽/窄cutout探针，三张网格图没有明显肩部直切线、旧围巾残影；但在144px尺寸位移很轻，尚未构成可接受的完整idle动作。没有测连续帧、面部纹理剪切/配饰拓展/性能分布，也没有证明足底锁定、pickup/soak、四方向或ART3-100路线决策。ART3-006仍在进行，不能把这项局部探针当作失败项关闭。
+- `05d1484ac872017a71ae97716fe10cd619439dac`上一批补面/失败探针已通过[对应exact Windows CI 35829068210](https://github.com/T1doo/Capybara/actions/runs/35829068210)；本条新增脚本和拒绝样本记录尚未提交/通过新提交CI。
+
+## 2026-09-23T15:12:30+08:00 · ART3-100-MESH-GATE · 第二批工作树整合门
+
+- 来源类型：executed_now。受测source为 `05d1484ac872017a71ae97716fe10cd619439dac` + 本批dirty拒绝头层记录/mesh探针/文档；本机提升环境完整run `20260923T071020965Z-p29000-2dd78952`实际exit0、19/19、`required_checks_satisfied=true`，游戏827/827、事务61项、候选负例25/25、治理21/21、Debug导出与短启动通过。headless自动门与上一条真实Compatibility GPU截图是两种不同证据。
+- run前后source fingerprint同为 `dc6699ca4e6c3f37d3bd1df7b9148c1bff836cd59e4bf1cebeed90400673b8da`，运行中未变化。此处不声称后续实现提交的exact SHA CI成功；该远程结果仍需提交、push后单独核验。
+
 ## 2026-09-23T14:52:00+08:00 · ART3-100-PLATE-GATE · 工作树整合复验
 
 - 来源类型：executed_now。第一轮完整门 `20260923T064719461Z-p8668-a801ba0e` 在治理阶段退出10：PLAN证据栏引用外部CI URL，治理规则只接受可检查的本地证据路径；Godot未启动。将证据栏指向保留exact CI链接与SHA的本阶段LOG后，第二轮隔离环境 `20260923T064743450Z-p10960-b78016c8` 导入阶段退出20，Godot无法读取Windows根证书/写本机editor settings；之前的治理、格式和素材步骤已通过。两次失败均保留，不合并为通过。

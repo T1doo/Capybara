@@ -1,0 +1,10 @@
+# AG4 isolated head generation — rejected first attempt
+
+- Source image: project-owned AG4 `art/candidates/player_ag4_v001/chr_player_ag4_down_right_v001.png`, SHA-256 `e92cd4791957b4db13b65b1c8865c574a54975b907647088de26e8edd7975521`.
+- Output kept only in ignored raw storage: `art/generated_raw/character/player_ag4_layers_20260923/rejected_head_layer_v001/head_layer_v001.png`, SHA-256 `cbe9b5d23e1d7f33e9700d6db0c22dfb534ff0fd6488bdee7cbd55c12e99d464`.
+- Tool: built-in image_gen.imagegen; exact model undisclosed. Native output 1402×1122 RGBA. Status: **rejected**, no candidate or game path.
+- Actual full nonzero Alpha bounds: `(81,21,1388,1122)`; Alpha>127 bounds: `(436,264,1242,927)`. Two nonzero border Alpha samples. The visible head/scarf is materially larger and displaced from its original AG4 location and the top of the head/back shape was reinvented. The exact native canvas size alone does not mean it aligns. Do not use it as a rig layer or as a new reference image.
+
+## Exact prompt
+
+> Edit the attached original project-owned AG4 capybara character image into ONE isolated head-and-neck accessory layer for a 2D cutout rig. Keep the original visible head exactly aligned in the same 1402x1122 native canvas: same broad blunt snout, one visible dark almond eye, small round ears, warm painterly fur, upper-left light, down-right elevated camera, and the original teal scarf in its exact resting shape and position. Remove the entire torso, feet, leaf satchel, strap, wooden button, ground, shadow, and every other body part, leaving only the existing head and complete teal scarf on a truly transparent RGBA canvas. Reconstruct only a narrow hidden back-of-head and underside overlap concealed by the torso/scarf in the original, enough for 12 native-pixel idle movement. Do not invent a new face, change anatomy, alter the expression, repaint the scarf, add a second scarf knot, or shift/scale/crop the subject. Do not add checkerboard, text, logo, halo, or any background. This is an UNAPPROVED layer candidate; preserving existing facial identity and original coordinates matters more than embellishment.
