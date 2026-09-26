@@ -2,15 +2,15 @@
 
 > 用户已在 2026-09-26 明确恢复续开发。Stage 3 尚未完成，原v2契约与RC1范围不变。
 
-- observed_at: 2026-09-27T00:00:17+08:00
+- observed_at: 2026-09-27T00:34:29+08:00
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
-- observed_head: 51d463cbb736884db8bf13e829189dd73f0bcda6（本地与远程安全分支一致；UI框A/B候选仍为dirty工作树）
+- observed_head: dfce033cff433b08d5d28c777bea7d4b07814b0e（本地与远程安全分支一致；CI导入顺序修复仍为dirty工作树）
 - 产品 Stage：3，主角母图、正式场景/UI、四氛围和入口整合均未通过。
 
 ## 安全与已核对事实
 
-唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public，当前身份 ADMIN；远程生产分支与本地 51d463c 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
+唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public；远程生产分支与本地 dfce033 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
 
 ## 最近证据
 
@@ -27,10 +27,11 @@
 - A2批次完整门首轮`20260923T135051531Z-p9768-7e20685f`在素材范围误判exit22，Godot未运行；GOV-008修正后完整重跑`20260923T142120826Z-p32320-c50accef`通过19/19、827/827、61事务项、角色负例26/26。受测为当时的`9effef3` + dirty修正，不冒充随后`51d463c`的exact CI；失败与成功均保留Stage3 LOG。
 - A2暂停检查点`51d463c`已于恢复时安全单分支推送，[exact Windows CI run 36249512491](https://github.com/T1doo/Capybara/actions/runs/36249512491)已success且headSha一致。新UI 9-slice两轮手工SVG候选均512px真Alpha/精确来源并有实景截图，B仅技术shortlist，未批准或接入游戏。[UI框审查](../art/candidates/ui_storybook_frame_v001/REVIEW.md)。
 - 本批UI整合门首轮`20260926T155247272Z-p14208-99456d1c`因检查器误收SVG在素材阶段exit22；GOV-009修正后`20260926T155650197Z-p47504-06a08ced`完整重跑通过19/19、827/827、61事务项及UI A/B重渲染。受测是`51d463c`+dirty变更；新实现提交的exact CI仍须单独核验。
+- UI A/B实现提交`dfce033`的[exact Windows CI run 36254180422](https://github.com/T1doo/Capybara/actions/runs/36254180422)实际失败：干净检出的素材门在Godot导入前渲染SVG，缺类名缓存，原artifact已取回本地。调整统一本地门的执行顺序后，dirty本机run`20260926T163001149Z-p47464-a9fba8ae`通过19/19、827/827、61事务项，待新提交exact CI；[GOV-010](ISSUES.md)保持In Progress。
 - 上述工程/技术门不批准角色母图，不证明实体手柄、完整动画、正式入口或 RC1。
 
 ## 下一动作
 
-1. 本批先跑完整门并安全提交/显式单分支push手工UI A/B候选及验证器；核新SHA的exact CI，不以两张面板截图批准正式UI。
+1. 审本批导入顺序修复staged diff，安全commit并只推显式分支，核新SHA Windows CI；GOV-010只有远端精确通过才关闭，保留dfce失败。
 2. 针对B的矢量感、四分辨率/实体手柄和图标字体做下一轮设计/审查，符合正式资产工作流后才接游戏Theme；UI3-004仍开放。
 3. 继续NPC-A/A2可编辑结构/转面、玩家AG4可编辑四足及真实连续idle/walk/pickup/soak、环境与正式玩法入口；保持240移动速度，缺独立视觉/QA前不宣称Stage3通过。[ISSUES](ISSUES.md)保留未结项。

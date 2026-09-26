@@ -6,6 +6,7 @@
 
 | ID | 级别 | Stage | 状态 | 问题 | 当前证据 | 缓解措施 | 关闭条件 |
 |---|---|---:|---|---|---|---|---|
+| GOV-010 | Medium | 3 | In Progress | 新UI SVG来源检查在干净CI中于Godot导入前启动渲染，缺全局类缓存而失败 | `dfce033`的exact Windows run36254180422素材阶段exit22；artifact10910201444的原日志有174条Godot解析诊断，本机暖缓存曾全过 | 统一门把Godot版本/导入移至会启动引擎的素材管线前，保留失败日志并重跑 | 新修复提交的exact SHA Windows CI通过；本地dirty通过不能单独关闭 |
 | QA-001 | Medium | 0–2 | Open | 实体手柄尚未在当前机器完成全流程人工回归 | 合成事件覆盖摇杆、十字键、Start、A、Back、肩键、重映射、断连回退与震动分发；键盘窗口复核通过 | 保持手柄输入为一等路径；获得实体设备时执行移动、modal、Storage、Save、重映射、焦点滚动和震动矩阵 | 实体通用/Xbox 布局手柄完成 Stage 0–2 全流程回归并记录结果 |
 | ST2-016 | Medium | 2 | Open | `screen_shake_intensity`、`text_speed`、`instant_text` 已持久化但当前 Stage 尚无对应生产效果 | 当前尚无屏幕震动或正式对话逐字系统可消费这些字段 | 保留版本化字段；在 Stage 8 对话和 Stage 10 VFX 接入时同时增加 UI、消费者与回归，不提前显示无效控件 | 对应系统落地后设置可见、可观察、可持久化且有自动/窗口证据 |
 | ST2-017 | Medium | 2–4 | In Progress | 当前地图安全落点及正式加载事务已加固；完整流送chunk和多层恢复须随Stage4/5扩展 | 61项实际碰撞/连通/备用出生点/全状态回滚；run20260916T080216355Z-p8148-b860280a通过 | 单层地图未知chunk/layer回命名安全点，正式SaveManager外层事务保护；裸flow方法不独自承担整体回滚 | Stage4真实chunk生命周期与Stage5多层行走接入后延伸位置回归；当前Stage2范围已通过 |

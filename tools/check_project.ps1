@@ -220,9 +220,6 @@ try {
     Invoke-RecordedCommand 'repository_format' $powerShellBin @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $formatScript
     ) -TimeoutSeconds 30
-    Invoke-RecordedCommand 'art_asset_pipeline' $powerShellBin @(
-        '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $artAssetsScript
-    ) -TimeoutSeconds 60
     Invoke-RecordedCommand 'godot_version' $godotBin @('--version') -TimeoutSeconds 30
     $versionOutput = ($lastStandardOutput -split '\r?\n' | Where-Object { $_.Length -gt 0 } | Select-Object -First 1).Trim()
     $expectedVersion = '4.7.2.stable.official.ed1daf0bf'
@@ -235,6 +232,12 @@ try {
     Invoke-RecordedCommand 'godot_import' $godotBin @(
         '--headless', '--path', $gameRoot, '--import'
     ) -TimeoutSeconds 180 -FailOnDiagnostics
+
+    # Art checks now include isolated SVG rendering; class_name caches must exist
+    # before any tool launches Godot against a clean Windows checkout.
+    Invoke-RecordedCommand 'art_asset_pipeline' $powerShellBin @(
+        '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $artAssetsScript
+    ) -TimeoutSeconds 60
     Invoke-RecordedCommand 'svg_cutout_render' $powerShellBin @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $svgRenderScript
     ) -TimeoutSeconds 60 -FailOnDiagnostics

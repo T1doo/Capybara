@@ -425,6 +425,12 @@ GPU 复核命令：
 - 失败如实保留：首版SVG初用256px，虽渲染成功却不满足现有管线512px最小尺寸；隔离环境运行无法访问Godot用户log/系统根证书，获准本机重跑成功。A首轮GPU夹具因响应式弹窗运行时重挂节点而找不到旧深路径，修正夹具后实际截图；A使用默认80px内容边距压缩按钮，0px又撞边，20px仍侵占角饰。B减小角部/线条，build-only fixture明确56px纹理切片与24px内容边距，在真实OpenGL Compatibility / RTX4060 Laptop GPU获得中文1280×720暂停/设置及英文1280×800/150%截图，按钮和垂直滚动可用。
 - `tools/check_ui_frame_candidates.ps1`对两轮原始SVG、精确父SHA、无外链/脚本、全局登记、空game路径及两张重新渲染PNG hash实际退出0；这不是独立艺术批准。B仍矢量感偏强，图标/字体/标题入口/全分辨率/实体手柄与高对比未通过；CAP-0520和UI3-004保持in_progress。完整工程门与新提交exact CI待本批实际执行。
 
+## 2026-09-27T00:34:29+08:00 · GOV-010-CLEAN-CI-IMPORT · 精确CI失败与顺序修正
+
+- 来源类型：executed_now。UI SVG候选实现提交`dfce033cff433b08d5d28c777bea7d4b07814b0e`已安全单分支push，但[exact Windows run 36254180422](https://github.com/T1doo/Capybara/actions/runs/36254180422)为failure，`Run unified checks`失败。不能把此前本地暖缓存19/19当精确提交CI。通过现有Git凭据只在进程内读取原CI artifact10910201444到忽略的`build/ci_reviews/36254180422`，没有在输出或仓库保存凭据。原始报告`20260926T160532905Z-p3880-6326f78e`显示governance/format过、`art_asset_pipeline` exit22；UI SVG工具在Godot导入前运行触发174条缺全局类名解析诊断，后续引擎/导出步骤未运行。旧失败完整保留。
+- 最小修复：`tools/check_project.ps1`保持19项检查及同一素材检查内容，只把Godot版本确认和headless导入放到会启动Godot渲染的`art_asset_pipeline`前，符合既有干净检出依赖顺序。不删除候选/断言/输出，也不把异常吞掉。
+- 本机获准Windows环境重新实际执行run`20260926T163001149Z-p47464-a9fba8ae`：version/import均先于素材门，19/19、`required_checks_satisfied=true`、827/827游戏断言和61项保存事务检查、Windows Debug导出/短启动通过；来源`dfce033`+当时dirty顺序修复，前后fingerprint同为`a1cf42a09b24da7791315e23162060253e61944eed4fbbc16f03039c35ab406e`。该证据仍不是新提交exact CI；GOV-010保持In Progress至远程精确SHA成功。
+
 ## 2026-09-27T00:00:17+08:00 · CAP-0520-UI-FRAME-GATE · 分类失败与完整复验
 
 - 来源类型：executed_now。首轮完整门`20260926T155247272Z-p14208-99456d1c`在素材阶段exit22；新增UI SVG清单含父源/`technical_candidate`字段，被主角定向PNG检查器误收，UI-A/B按主角必需字段被拒，Godot后续步骤未执行。首轮失败原样保留，登记GOV-009。
