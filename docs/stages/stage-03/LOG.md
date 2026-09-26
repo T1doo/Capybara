@@ -417,3 +417,16 @@ GPU 复核命令：
 
 - 来源类型：executed_now（用户指令）。用户明确“我们先暂停一下吧，明天继续，你收尾一下”。收尾只完成已开始的A2改稿/检查器修正的真实复验与安全提交，不再开启新Stage3制作；暂停长期Goal，等待用户下次明确恢复。不改变v2合同、ART3-101或Stage3质量门。
 - A2第二轮是部分视觉改稿，且同尺度GPU仍显示俯角/结构不达标；五张NPC候选全部未批准、没有游戏路径。AG4玩家、多方向、NPC母图、正式UI资产、整景三轮视觉与玩法入口仍未完成。恢复顺序：核实际Git/远程/未跟踪交接附件与新提交exact CI → 本PLAN/LOG/ISSUES → 从可控NPC结构/主角动画及正式场景门继续；不从旧main/autonomous-v1续线。
+
+## 2026-09-26T23:50:28+08:00 · USER-RESUME-AND-UI-FRAME · 恢复及9-slice两轮研究
+
+- 来源类型：executed_now。用户明确“ok请继续”“今天是新的一天”恢复。恢复时唯一未跟踪文件仍为原交接附件且哈希`72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`；安全分支本地`51d463c`领先远程一个，正常显式push成功并上传A2 LFS。该提交的[exact Windows CI run 36249512491](https://github.com/T1doo/Capybara/actions/runs/36249512491)实际success、headSha精确对应。未推旧main/autonomous-v1或标签。
+- 按CAP-0520的正式9-slice缺口，手工创作两个项目原创SVG源A/B，仅保留于`art/candidates/ui_storybook_frame_v001`。A源SHA`477468f52da04d6cfe0683b3c24aa520d80fff99ea7650aeba2a18b4ae8c57d0`，B为其直接手工改稿SHA`ba8351da2baf2c4d72fca0eca012a905c9dafa4e4377df38436643d46133c513`；Godot实际渲染512×512真实RGBA/border Alpha0，PNG SHA分别`49a76711...`/`9dd5a331...`，未复制进游戏资产。来源与审查见[候选记录](../../../art/candidates/ui_storybook_frame_v001/REVIEW.md)。
+- 失败如实保留：首版SVG初用256px，虽渲染成功却不满足现有管线512px最小尺寸；隔离环境运行无法访问Godot用户log/系统根证书，获准本机重跑成功。A首轮GPU夹具因响应式弹窗运行时重挂节点而找不到旧深路径，修正夹具后实际截图；A使用默认80px内容边距压缩按钮，0px又撞边，20px仍侵占角饰。B减小角部/线条，build-only fixture明确56px纹理切片与24px内容边距，在真实OpenGL Compatibility / RTX4060 Laptop GPU获得中文1280×720暂停/设置及英文1280×800/150%截图，按钮和垂直滚动可用。
+- `tools/check_ui_frame_candidates.ps1`对两轮原始SVG、精确父SHA、无外链/脚本、全局登记、空game路径及两张重新渲染PNG hash实际退出0；这不是独立艺术批准。B仍矢量感偏强，图标/字体/标题入口/全分辨率/实体手柄与高对比未通过；CAP-0520和UI3-004保持in_progress。完整工程门与新提交exact CI待本批实际执行。
+
+## 2026-09-27T00:00:17+08:00 · CAP-0520-UI-FRAME-GATE · 分类失败与完整复验
+
+- 来源类型：executed_now。首轮完整门`20260926T155247272Z-p14208-99456d1c`在素材阶段exit22；新增UI SVG清单含父源/`technical_candidate`字段，被主角定向PNG检查器误收，UI-A/B按主角必需字段被拒，Godot后续步骤未执行。首轮失败原样保留，登记GOV-009。
+- 修复只收`ai_assisted_edit`来源的PNG受控生命周期清单，NPC视觉概念和手工UI矢量各由自己的checker验证；已有范围回归同时明确排除这两类，`test_character_candidates.ps1`实际26/26，独立UI A/B exact源/父hash、512真Alpha重渲染检查通过。
+- 完整重跑`20260926T155650197Z-p47504-06a08ced`在获准Windows环境实际exit0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、角色负例26/26、UI两轮与Windows Debug导出/短启动通过。受测source为`51d463cbb736884db8bf13e829189dd73f0bcda6` + 本批dirty SVG/checker/docs，运行前后指纹相同`70ddf7071c7785fa9d89aa7e3e6fe988dafc9944282c9d5c6d4cf5bee9a4357c`。这不等于之后提交的exact远程CI；两张UI候选均未批准或进游戏资产，完整UI矩阵未测。

@@ -170,10 +170,12 @@ $scopeExit = $LASTEXITCODE
 $scopeRows = if ($scopeExit -eq 0 -and (Test-Path -LiteralPath $productionScopePath)) {
     @((Get-Content -LiteralPath $productionScopePath -Raw | ConvertFrom-Json).candidates)
 } else { @() }
-$scopePassed = $scopeExit -eq 0 -and @($scopeRows | Where-Object { $_.manifest -match 'npc_river_residents_v001' }).Count -eq 0
-$results.Add([pscustomobject]@{ case = 'independent-npc-visual-concepts-out-of-scope'; passed = $scopePassed;
+$scopePassed = $scopeExit -eq 0 -and @($scopeRows | Where-Object {
+    $_.manifest -match 'npc_river_residents_v001|ui_storybook_frame_v001'
+}).Count -eq 0
+$results.Add([pscustomobject]@{ case = 'independent-concept-and-vector-out-of-scope'; passed = $scopePassed;
     exit_code = $scopeExit; expected_failure = ''; output = ($scopeOutput -join ' ') })
-if (-not $scopePassed) { [Console]::Error.WriteLine('[character-fixture] FAIL independent-npc-visual-concepts-out-of-scope') }
+if (-not $scopePassed) { [Console]::Error.WriteLine('[character-fixture] FAIL independent-concept-and-vector-out-of-scope') }
 
 $reportPath = Join-Path $fixtureRoot 'results.json'
 $results | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $reportPath -Encoding utf8

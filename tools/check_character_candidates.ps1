@@ -110,7 +110,8 @@ try {
         # visual-concept family may also record an edited parent and has its own gate.
         if ('reference_path' -in $rows[0].PSObject.Properties.Name -and
             'status' -in $rows[0].PSObject.Properties.Name -and
-            @($rows | Where-Object { $_.status -in @('technical_candidate', 'approved_concept') }).Count -gt 0) {
+            @($rows | Where-Object { $_.status -in @('technical_candidate', 'approved_concept') -and
+                $_.source_method -eq 'ai_assisted_edit' -and $_.file_path -match '\.png$' }).Count -gt 0) {
             $discoveredManifests.Add($file.FullName)
         }
         foreach ($row in $rows) {

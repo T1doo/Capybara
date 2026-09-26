@@ -1,16 +1,16 @@
 # 当前恢复点
 
-> 用户已在 2026-09-23 明确要求现在收尾并暂停，明天再继续。Stage 3 尚未完成；等待下次明确恢复，原v2契约与RC1范围不变。
+> 用户已在 2026-09-26 明确恢复续开发。Stage 3 尚未完成，原v2契约与RC1范围不变。
 
-- observed_at: 2026-09-23T22:24:20+08:00
+- observed_at: 2026-09-27T00:00:17+08:00
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
-- observed_head: 9effef39ae7f989116c87cc0e610c02211891e9d（本地与远程安全分支一致；NPC A2第二轮改稿仍为dirty工作树）
+- observed_head: 51d463cbb736884db8bf13e829189dd73f0bcda6（本地与远程安全分支一致；UI框A/B候选仍为dirty工作树）
 - 产品 Stage：3，主角母图、正式场景/UI、四氛围和入口整合均未通过。
 
 ## 安全与已核对事实
 
-唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public，当前身份 ADMIN；远程生产分支与本地 9effef3 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4及补面已提交 PNG 为 LFS 对象。
+唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public，当前身份 ADMIN；远程生产分支与本地 51d463c 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
 
 ## 最近证据
 
@@ -24,12 +24,13 @@
 - 恢复后在同一家园、同一相机与AG4比例下实际拍出晴晨/黄昏/雨天/夜晚四个Compatibility GPU技术视图。首轮CanvasModulate漏过unshaded绘本着色器：地面夜/晨亮度比1.0，失败保留；乘色层修正后五个固定样本比约0.48，夜窗局部暖光可见。本批dirty工作树完整门`20260923T094557263Z-p24164-bd4a4152`通过19/19、827/827、61事务项。[设计与边界](design/HOME_ATMOSPHERE_PROBE.md)。仅技术探针，ART3-102仍in_progress。
 - 四氛围提交`9f99faf`的[exact Windows CI run 35845615402](https://github.com/T1doo/Capybara/actions/runs/35845615402)已success且headSha一致。随后小批次给桥/码头/水车木材加入共用柔化shader，原atlas不变；真实GPU各5镜头通过，局部木板纹理对比降低但重复结疤与结构仍未解决。本批dirty完整门`20260923T101123918Z-p37452-272a391c`通过19/19、827/827、61事务项，待实现提交的exact CI。[木材探针边界](design/SOFT_PAINTED_WOOD_PROBE.md)。ENV3-001仍进行中。
 - 木材批次提交`e22b737`的[exact Windows CI run 35848659236](https://github.com/T1doo/Capybara/actions/runs/35848659236)与NPC首轮提交`9effef3`的[exact Windows CI run 35857952021](https://github.com/T1doo/Capybara/actions/runs/35857952021)均success且headSha精确对应。NPC四张纯文字首轮与唯一A父图的第二轮A2共5张真RGBA候选，哈希/四底/144px及A2父链检查通过；A/A2同尺度Compatibility实景已捕捉，A2笔触改善但俯角与可编辑四向结构仍未解决，所有PNG仍未批准。[NPC审查](../art/candidates/npc_river_residents_v001/REVIEW.md)。ART3-101 in_progress，无母图/四方向/日程。
-- A2批次完整门首轮`20260923T135051531Z-p9768-7e20685f`在素材范围误判exit22，Godot未运行；GOV-008修正后完整重跑`20260923T142120826Z-p32320-c50accef`通过19/19、827/827、61事务项、角色负例26/26。受测为当前HEAD `9effef3` + dirty修正，待收尾提交/新exact CI；失败与成功均保留Stage3 LOG。
+- A2批次完整门首轮`20260923T135051531Z-p9768-7e20685f`在素材范围误判exit22，Godot未运行；GOV-008修正后完整重跑`20260923T142120826Z-p32320-c50accef`通过19/19、827/827、61事务项、角色负例26/26。受测为当时的`9effef3` + dirty修正，不冒充随后`51d463c`的exact CI；失败与成功均保留Stage3 LOG。
+- A2暂停检查点`51d463c`已于恢复时安全单分支推送，[exact Windows CI run 36249512491](https://github.com/T1doo/Capybara/actions/runs/36249512491)已success且headSha一致。新UI 9-slice两轮手工SVG候选均512px真Alpha/精确来源并有实景截图，B仅技术shortlist，未批准或接入游戏。[UI框审查](../art/candidates/ui_storybook_frame_v001/REVIEW.md)。
+- 本批UI整合门首轮`20260926T155247272Z-p14208-99456d1c`因检查器误收SVG在素材阶段exit22；GOV-009修正后`20260926T155650197Z-p47504-06a08ced`完整重跑通过19/19、827/827、61事务项及UI A/B重渲染。受测是`51d463c`+dirty变更；新实现提交的exact CI仍须单独核验。
 - 上述工程/技术门不批准角色母图，不证明实体手柄、完整动画、正式入口或 RC1。
 
 ## 下一动作
 
-1. 本轮按用户要求收尾：审 staged diff/LFS、安全提交/显式单分支push，核验新SHA的远程CI；暂停后不启动新制作。用户明确恢复时先核工作树/远程/该CI，不凭旧绿灯推定通过。
-2. 恢复后以A/A2视觉规则改用可编辑结构/转面方法，实际审查俯角、配饰、固定角色比例和144px同场景GPU；保留A2未通过的部分与来源。NPC3-001仍开放。
-3. 按[Stage 3 PLAN](stages/stage-03/PLAN.md)继续玩家AG4可编辑头/围巾/四足及真实连续idle/walk/pickup/soak；保持当前240移动速度并测脚底漂移，再验证四独立方向/八向移动。ART3-006未关闭。
-4. 正式UI纹理/图标/字体与四分辨率/实体手柄、环境统一和默认玩法入口仍须完成；全部Stage3实景/输入/保存恢复/视觉门通过前不宣称阶段完成。[ISSUES](ISSUES.md)保留未结项。
+1. 本批先跑完整门并安全提交/显式单分支push手工UI A/B候选及验证器；核新SHA的exact CI，不以两张面板截图批准正式UI。
+2. 针对B的矢量感、四分辨率/实体手柄和图标字体做下一轮设计/审查，符合正式资产工作流后才接游戏Theme；UI3-004仍开放。
+3. 继续NPC-A/A2可编辑结构/转面、玩家AG4可编辑四足及真实连续idle/walk/pickup/soak、环境与正式玩法入口；保持240移动速度，缺独立视觉/QA前不宣称Stage3通过。[ISSUES](ISSUES.md)保留未结项。
