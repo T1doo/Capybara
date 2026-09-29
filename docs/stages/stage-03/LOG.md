@@ -451,3 +451,16 @@ GPU 复核命令：
 - 来源类型：executed_now。用户再次明确继续，Goal active。HEAD/远程安全线同为`919c162468f725ac2705e577c9d8fa4a6cfd406c`，其exact Windows CI36256258334再次查询success；无暂存修改，五份跟踪文档及新增字体审查为已知未提交进度，原附件仍未跟踪且哈希未变。旧检查进程41967已不存在，故本次重新执行专项，不把被中断运行记为通过。
 - 本机Windows专项实际exit0：治理21/21（`build/governance-fixtures/20260929T104747126Z-p45968/results.json`）、格式429路径、素材管线含26/26角色负例、5项NPC与2项UI精确SVG重渲染通过。受测来源`919c162`+字体/CI审查dirty文档；没有产品代码改变，未重复完整游戏/导出门。本条随后仅追加检查记录，受测源码与文档检查点提交分开。
 - 下一小批聚焦ART3-100的已有Blender样件结构/材质，在固定相机和比例下复验；保留旧样件及所有失败证据。Stage3质量门仍未通过。
+
+## 2026-09-29T22:36:00+08:00 · ART3-100-MESH-V002 · 可编辑形体与真实移速单向步态
+
+- 来源类型：executed_now。字体文档提交`f5fb86a14e7c034953945a901cbb96f100ef1848`仅显式安全分支推送；首次TLS握手失败，核远端仍919c162后重试成功。[exact Windows CI36558684608](https://github.com/T1doo/Capybara/actions/runs/36558684608)headSha一致且success。以下v002源/工具为该SHA上的dirty实现，不冒充已被此CI覆盖。
+- 新增模块化Blender可编辑源及真实Player GPU运动夹具，保留原v001与全部原始素材。重做头肩/鼻口/耳杯、三趾短足、低垂围巾和叶包，原始程序材质和顶点色分区；无图像/第三方模型导入，无游戏路径。最终`four_views_walk_20260929_r3`实际Blender4.5.13 LTS/Cycles CPU/32samples/4threads退出0，60.22秒生成4站立方向+18下右walk帧；22张512RGBA无Alpha触边、单次DR标定后同相机/尺度/pivot。完整来源哈希、未批准判定和复现入口见[生产审查](../../production/PLAYER_MESH_V002_REVIEW.md)。
+- 实际Godot4.7.2 Compatibility/NVIDIA RTX4060 Laptop GPU：`static_gpu_20260929`四个1280×720家园视图exit0；`walk_gpu_20260929_r4`真实Player碰撞与合成Input输入，240px/s未改，36物理帧/两周期exit0。独立saved-evidence checker重新计算源/帧/Blender文件哈希及Alpha，重建实际移动和投影足点；64个stance比较最大漂移0.00001706px/tick、移动误差0.00000326px/tick。仅下右两周期技术证据；非图像反推接触、非性能/实体手柄/全动作/八方向通过。
+- 失败保留：首轮Blender在Vector.length误作函数时traceback但默认exit0；修正属性并在后续命令显式python-exit-code1。GPU首轮常量解析失败、次轮JSON数字数组比较误拒，均未到移动。第三轮原始运动记录真实失败4px/tick：夹具节点入树自动启用，提前记入24个玩家禁用帧；改为入树后禁用、准备好再同步启动，第四轮通过，未降低速度或放宽阈值。旧输出/日志全部保留build，未改写失败。
+- 主线程已查看四个原始方向、步态极值及全部固定场景图：结构细节更清楚但小尺寸仍光滑模型感，围巾细、头躯规则，AB-VIS-003/004仍未解决；本次不锁定B路线、不批准母图或Stage3。下一小批优先代表方向的受控原创绘本材质/头脸；不因能输出帧就扩建全套动画。完整工程门待本批实际执行。
+
+## 2026-09-29T22:39:00+08:00 · ART3-100-V002-GATE · 结构步态批次完整门
+
+- 来源类型：executed_now。本机获准Windows环境完整run`20260929T143238417Z-p44532-07c6636c`实际exit0，19/19、required_checks_satisfied=true，游戏827/827、存档事务61项、治理21/21、角色负例26/26、Windows Debug导出/启动通过，零Godot诊断。受测source为`f5fb86a14e7c034953945a901cbb96f100ef1848`+本批dirty源/夹具/登记/文档，前后fingerprint同为`59f4e281abdd3cc213f0fbc660874fd37e30094a75315a1bc499780bbbb7708e`。随后追加本检查记录，待新实现commit的exact CI独立核验。
+- 渲染及GPU专项前述失败/成功均保留；完整headless门不包含正式绘本批准、实体手柄、全方向连续动作或RC1。模型仍未批准，不合并Stage3、不打阶段完成标签。

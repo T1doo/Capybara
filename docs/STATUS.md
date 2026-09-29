@@ -2,15 +2,15 @@
 
 > 用户已在 2026-09-29 明确继续开发。Stage 3 尚未完成，原v2契约与RC1范围不变。
 
-- observed_at: 2026-09-29T18:51:00+08:00
+- observed_at: 2026-09-29T22:36:00+08:00
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
-- observed_head: 919c162468f725ac2705e577c9d8fa4a6cfd406c（本地与远程安全分支一致；仅字体候选审查文档为dirty工作树）
+- observed_head: f5fb86a14e7c034953945a901cbb96f100ef1848（本地与远程安全分支一致；本批玩家v002源/夹具/审查为dirty工作树）
 - 产品 Stage：3，主角母图、正式场景/UI、四氛围和入口整合均未通过。
 
 ## 安全与已核对事实
 
-唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public；远程生产分支与本地 919c162 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
+唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public；远程生产分支与本地 f5fb86a 一致。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
 
 ## 最近证据
 
@@ -29,10 +29,12 @@
 - 本批UI整合门首轮`20260926T155247272Z-p14208-99456d1c`因检查器误收SVG在素材阶段exit22；GOV-009修正后`20260926T155650197Z-p47504-06a08ced`完整重跑通过19/19、827/827、61事务项及UI A/B重渲染。受测是`51d463c`+dirty变更；新实现提交的exact CI仍须单独核验。
 - UI A/B实现提交`dfce033`的[exact Windows CI run 36254180422](https://github.com/T1doo/Capybara/actions/runs/36254180422)实际失败：干净检出的素材门在Godot导入前渲染SVG，缺类名缓存，原artifact已取回本地。调整统一本地门的执行顺序后，dirty本机run`20260926T163001149Z-p47464-a9fba8ae`通过19/19、827/827、61事务项；这只是修复过程的本机证据，远程结果见下一条。
 - 修复提交`919c162`的[exact Windows CI run 36256258334](https://github.com/T1doo/Capybara/actions/runs/36256258334)已success且headSha一致，GOV-010关闭。官方OFL中文字体只在本机忽略build试用，299字形覆盖0缺失；小字较细，决定不接游戏。[字体候选审查](production/FONT_LXGW_WENKAI_V1_522_CANDIDATE.md)。
+- 字体/CI文档检查点`f5fb86a`安全单分支推送成功（首次TLS握手失败，核远端后重试成功）；[exact Windows CI 36558684608](https://github.com/T1doo/Capybara/actions/runs/36558684608)已success且headSha一致。
+- 本批玩家Blender v002重做可编辑结构，实际渲染4站立方向及下右18帧walk；固定35°/0.5比例，22张真RGBA无触边，已有四方向真实GPU家园图。原240移速/碰撞下两个周期36物理帧、64足底标记对比通过，最大漂移约0.000017px；前置夹具失败及修复保留。仍是平滑模型样件，未通过绘本视觉，不能据标记数学通过批准角色。完整dirty工程门`20260929T143238417Z-p44532-07c6636c`已19/19、827/827、61事务通过，新提交exact CI仍需另核；[审查和可重复源](production/PLAYER_MESH_V002_REVIEW.md)。
 - 上述工程/技术门不批准角色母图，不证明实体手柄、完整动画、正式入口或 RC1。
 
 ## 下一动作
 
-1. 字体审查文档已通过本次治理21/21、格式429路径及素材专项，保存文档检查点；其候选与许可不入游戏，不因字形覆盖通过就批准正式字体。
-2. 集中修正已有玩家Blender样件的头肩/鼻口/足部/叶包结构及材质，保留v001，新版本固定35°相机与统一比例实渲四方向，在144px及真实GPU场景审查；不是新增第三条动画路线。
-3. 后续继续连续idle/walk/pickup/soak与240移动速度下接地证据，NPC结构、正式UI矩阵和环境入口仍未完成。[ISSUES](ISSUES.md)保留未结项。
+1. 保存已通过完整工程门的v002结构/步态批次，安全单分支提交后核验exact CI；不把dirty受测源等同新提交。
+2. 聚焦一个代表方向的头脸/毛色与真实绘本表面，改进144px下仍平滑的模型感；保留已有相机/步幅校准，不继续单纯加噪点或扩建两条完整动画产线。
+3. 视觉样板通过后扩展八方向和连续idle/walk/pickup/soak，并继续NPC、正式UI矩阵、环境和玩法入口。原v2范围与240移速不变；[ISSUES](ISSUES.md)未结项仍有效。
