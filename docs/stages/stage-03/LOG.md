@@ -495,3 +495,11 @@ GPU 复核命令：
 
 - 来源类型：executed_now。获准本机Windows完整run`20260929T151825912Z-p30424-a30fb95b`实际exit0，19/19、required_checks_satisfied=true、游戏827/827、存档事务61、治理21/21、角色负例26/26、新PNG像素7/7及全部原有素材、来源/父hash/LFS候选、Windows Debug导出/启动通过，零Godot诊断。受测source为`db1075e7974a3229c686ef38800c3cd44ff63b5a`+dirty形体/重绘/检查器/文档，前后fingerprint同为`87264602fcb48dfb58924613c61e8a8a02909d92b51383812c8e67b87928e4d9`。
 - 检查完成后仅补本日志、已知同mesh自遮挡限制及去重两条相同Git属性，无新增运行行为；受测source与最终提交不混称。新exact CI待提交后查询，GOV-011暂不关闭。绘本艺术门、投射转面/完整动作、实体手柄/正式入口仍未通过，未标Stage3完成。
+
+## 2026-09-29T23:28:00+08:00 · GOV-011-EXACT-CI-CLOSE · 安全推送与精确远程门
+
+- 来源类型：executed_now。实现提交`3e28d1e4119ae7c3dbabe17031212518c07ee96a`仅显式安全分支正常push，两项LFS原生/重绘PNG上传成功；`git lfs fsck HEAD`通过，原交接附件仍唯一未跟踪且未更改。staged原生generator按LF的hash与manifest吻合，两个PNG均为LFS指针。
+- [exact Windows CI36589768084](https://github.com/T1doo/Capybara/actions/runs/36589768084)实际success，headSha精确对应；Checkout、Run unified checks、Upload check logs成功，GOV-011关闭。runner另有既有固定版本checkout/upload-artifact的Node20转Node24提示；这不等于Godot诊断或本批失败，也未为此改变引擎/Action版本。
+- 当前Stage3与RC1未完成，Goal继续active；角色母图/路线、转面缺面/同mesh自遮挡、全动作、NPC/UI/环境和正式入口尚未通过。供外部GPT中途检查的3e28d1e源码链接、全部32项文件变更和本机截图/dirty门已整理到忽略的`build/review_packets/stage3_progress_20260929_3e28d1e`；该快照固定本次实现，不声称包含未来进度，未发送给外部人员。
+
+- 外部审阅ZIP已实际校验15项均可解压，`build/review_packets/stage3_progress_20260929_3e28d1e.zip` SHA-256 `8124378fa016eed5664ebeaf264197d0eadd201d4f3199d1347fcbe4c0b5d38b`；包含fixed-SHA链接、CI API元数据、全部变更清单及明确标注dirty来源的本机证据。原附件/隔离图/凭据未打包。
