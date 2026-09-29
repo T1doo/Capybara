@@ -464,3 +464,16 @@ GPU 复核命令：
 
 - 来源类型：executed_now。本机获准Windows环境完整run`20260929T143238417Z-p44532-07c6636c`实际exit0，19/19、required_checks_satisfied=true，游戏827/827、存档事务61项、治理21/21、角色负例26/26、Windows Debug导出/启动通过，零Godot诊断。受测source为`f5fb86a14e7c034953945a901cbb96f100ef1848`+本批dirty源/夹具/登记/文档，前后fingerprint同为`59f4e281abdd3cc213f0fbc660874fd37e30094a75315a1bc499780bbbb7708e`。随后追加本检查记录，待新实现commit的exact CI独立核验。
 - 渲染及GPU专项前述失败/成功均保留；完整headless门不包含正式绘本批准、实体手柄、全方向连续动作或RC1。模型仍未批准，不合并Stage3、不打阶段完成标签。
+
+## 2026-09-29T22:48:00+08:00 · ART3-100-PIGMENT-STUDY · 原创毛色表面研究
+
+- 来源类型：executed_now。结构/步态批次本地提交`0a50dce`，显式安全分支push两次均TLS握手失败；gh API核远端仍`f5fb86a`，仅命令级OpenSSL的只读ls-remote亦TLS EOF。没有关闭证书验证、改变持久Git配置、强推或合并旧祖先；此局部网络问题只阻止推送/exact新CI，继续本地开发。
+- 内置imagegen一次纯文字、零图片引用生成1254×1254 RGB原创毛色场，原始及candidate逐字节SHA`3d8a8d6ebb9864bfa8a929bde9737a3cba7c2af62564bfa35a5072bf82983ead`；精确模型未披露，提示词、来源与全局登记已记录，候选走LFS。没有人工改像素声明、没有复制至game/assets，没有使用隔离图。
+- 新Blender surface-only夹具读既有v002 `.blend`/候选精确hash，固定35°/512/pivot/0.5游戏比例，材质独立混合后保存新build `.blend`。两轮scale0.38、weight0.60/0.95及scale0.65、weight0.25/0.45，共4张透明渲染与同一家园4张Compatibility/RTX4060 GPU截图均exit0；主线程实际查看。首轮宽色块斑驳，弱化后平滑模型感未解，维持technical_unapproved，不以纹理已生成关闭美术问题。[原始提示词与审查](../../../art/candidates/player_fur_gouache_v001/REVIEW.md)。
+- 新候选来源检查实际exit0：原始RGB尺寸/hash、纯文字零引用、隔离hash拒绝、全局登记与空game_path；挂入既有素材门。首轮未提交脚本未单独归档，原渲染/log保留但不声称旧源码hash可从Git取回；当前参数可复现相同试验设置。完整工程门待此候选/检查器批次实际执行。
+
+## 2026-09-29T22:52:00+08:00 · ART3-100-PIGMENT-GATE · 材质候选完整门
+
+- 来源类型：executed_now。本机Windows完整run`20260929T144738229Z-p38756-fdd256e8`实际exit0，19/19、required_checks_satisfied=true、827/827、存档事务61项、治理21/21、角色26/26、新毛色来源检查、Debug导出/启动通过。受测为`0a50dce`+本批dirty候选/管线/文档，源指纹见同名JSON，运行前后一致；随后仅追加检查记录并去除一次重复的相同LFS属性行，无行为变化，未把后续文档提交当成受测源码。
+- 额外实际像素核验：r2两档PNG/源脚本/原texture/packed blend hash吻合，两个Alpha平面与原v002站立PNG逐像素完全相同，证明本轮未改外轮廓；此狭窄事实不批准材质。r2弱档仍未达到绘本目标，停止继续只调全局混合强度。
+- 隔离环境HTTP/1.1只读git曾报SEC_E_NO_CREDENTIALS，不能据此认定账户凭据失效；随后获准本机环境的同一只读ls-remote已成功，远端确为f5fb86a。计划仅命令级HTTP/1.1重试两批安全提交，exact新CI仍以实际查询为准。

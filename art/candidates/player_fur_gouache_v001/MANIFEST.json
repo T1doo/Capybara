@@ -1,0 +1,21 @@
+{
+  "asset_id": "player_fur_gouache_a_v001",
+  "status": "technical_unapproved",
+  "release_approved": false,
+  "source_method": "ai_generated_text_only",
+  "tool": "built-in imagegen; exact model not disclosed",
+  "prompt_id": "FUR-GOUACHE-A-20260929",
+  "prompt_record": "art/candidates/player_fur_gouache_v001/PROMPTS.md",
+  "reference_asset_ids": [],
+  "reference_image_paths": [],
+  "raw_path": "art/generated_raw/player_materials/fur_gouache_a_v001.png",
+  "candidate_path": "art/candidates/player_fur_gouache_v001/fur_gouache_a_v001.png",
+  "sha256": "3d8a8d6ebb9864bfa8a929bde9737a3cba7c2af62564bfa35a5072bf82983ead",
+  "width": 1254,
+  "height": 1254,
+  "pixel_format": "RGB",
+  "alpha_required": false,
+  "rights_status": "clean_text_only",
+  "human_edits": "none",
+  "game_path": ""
+}
