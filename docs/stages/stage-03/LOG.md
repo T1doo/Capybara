@@ -431,8 +431,23 @@ GPU 复核命令：
 - 最小修复：`tools/check_project.ps1`保持19项检查及同一素材检查内容，只把Godot版本确认和headless导入放到会启动Godot渲染的`art_asset_pipeline`前，符合既有干净检出依赖顺序。不删除候选/断言/输出，也不把异常吞掉。
 - 本机获准Windows环境重新实际执行run`20260926T163001149Z-p47464-a9fba8ae`：version/import均先于素材门，19/19、`required_checks_satisfied=true`、827/827游戏断言和61项保存事务检查、Windows Debug导出/短启动通过；来源`dfce033`+当时dirty顺序修复，前后fingerprint同为`a1cf42a09b24da7791315e23162060253e61944eed4fbbc16f03039c35ab406e`。该证据仍不是新提交exact CI；GOV-010保持In Progress至远程精确SHA成功。
 
+## 2026-09-27T00:47:45+08:00 · GOV-010-EXACT-CI-CLOSE · 干净导入顺序验证
+
+- 来源类型：executed_now。修复提交`919c162468f725ac2705e577c9d8fa4a6cfd406c`在安全分支显式正常push；[exact Windows run 36256258334](https://github.com/T1doo/Capybara/actions/runs/36256258334)的headSha精确对应且conclusion=success，`Run unified checks`和`Upload check logs`均通过。此前`dfce033`失败没有改写，GOV-010关闭；本条仅确认工程门，不批准UI美术。
+
+## 2026-09-27T00:47:45+08:00 · CAP-0520-FONT-CANDIDATE · 官方OFL字体试验与搁置
+
+- 来源类型：executed_now。只在忽略的`build/font_candidates/lxgw_wenkai_v1_522/`下载作者官方release v1.522未修改`LXGWWenKai-Medium.ttf`25,379,848字节，实际SHA-256与官方digest `d4bdeb38a39151d74d084cba5090f8cb7d20bf83eedb78c35939ae70b9f4e3f6`一致；标签OFL原文Git blob、SHA与具体权利条件见[生产审查](../../production/FONT_LXGW_WENKAI_V1_522_CANDIDATE.md)。未购付费、未用插件、没有把字体或许可证移入游戏/提交。
+- Godot 4.7.2真实读取字体成功，当前中英翻译CSV的299个不同非控制字符均有字形。兼容GPU界面夹具五截图实际exit0；首次临时夹具错误引用预览场景不存在的背包/箱子节点，随后仅在存在的三个场景上重跑成功。全局应用后小字号中文控制项偏细，标题单用虽有手写感但收益小于25 MB打包/完整QA成本，决定`hold_unapproved`，保留现有Theme字体。未测试四分辨率/实体手柄/正式入口字体，CAP-0520仍in_progress。
+
 ## 2026-09-27T00:00:17+08:00 · CAP-0520-UI-FRAME-GATE · 分类失败与完整复验
 
 - 来源类型：executed_now。首轮完整门`20260926T155247272Z-p14208-99456d1c`在素材阶段exit22；新增UI SVG清单含父源/`technical_candidate`字段，被主角定向PNG检查器误收，UI-A/B按主角必需字段被拒，Godot后续步骤未执行。首轮失败原样保留，登记GOV-009。
 - 修复只收`ai_assisted_edit`来源的PNG受控生命周期清单，NPC视觉概念和手工UI矢量各由自己的checker验证；已有范围回归同时明确排除这两类，`test_character_candidates.ps1`实际26/26，独立UI A/B exact源/父hash、512真Alpha重渲染检查通过。
 - 完整重跑`20260926T155650197Z-p47504-06a08ced`在获准Windows环境实际exit0：19/19、`required_checks_satisfied=true`、游戏827/827、保存事务61项、治理21/21、角色负例26/26、UI两轮与Windows Debug导出/短启动通过。受测source为`51d463cbb736884db8bf13e829189dd73f0bcda6` + 本批dirty SVG/checker/docs，运行前后指纹相同`70ddf7071c7785fa9d89aa7e3e6fe988dafc9944282c9d5c6d4cf5bee9a4357c`。这不等于之后提交的exact远程CI；两张UI候选均未批准或进游戏资产，完整UI矩阵未测。
+
+## 2026-09-29T18:51:00+08:00 · RESUME-FONT-CHECKPOINT · 恢复后的文档专项
+
+- 来源类型：executed_now。用户再次明确继续，Goal active。HEAD/远程安全线同为`919c162468f725ac2705e577c9d8fa4a6cfd406c`，其exact Windows CI36256258334再次查询success；无暂存修改，五份跟踪文档及新增字体审查为已知未提交进度，原附件仍未跟踪且哈希未变。旧检查进程41967已不存在，故本次重新执行专项，不把被中断运行记为通过。
+- 本机Windows专项实际exit0：治理21/21（`build/governance-fixtures/20260929T104747126Z-p45968/results.json`）、格式429路径、素材管线含26/26角色负例、5项NPC与2项UI精确SVG重渲染通过。受测来源`919c162`+字体/CI审查dirty文档；没有产品代码改变，未重复完整游戏/导出门。本条随后仅追加检查记录，受测源码与文档检查点提交分开。
+- 下一小批聚焦ART3-100的已有Blender样件结构/材质，在固定相机和比例下复验；保留旧样件及所有失败证据。Stage3质量门仍未通过。

@@ -6,7 +6,6 @@
 
 | ID | 级别 | Stage | 状态 | 问题 | 当前证据 | 缓解措施 | 关闭条件 |
 |---|---|---:|---|---|---|---|---|
-| GOV-010 | Medium | 3 | In Progress | 新UI SVG来源检查在干净CI中于Godot导入前启动渲染，缺全局类缓存而失败 | `dfce033`的exact Windows run36254180422素材阶段exit22；artifact10910201444的原日志有174条Godot解析诊断，本机暖缓存曾全过 | 统一门把Godot版本/导入移至会启动引擎的素材管线前，保留失败日志并重跑 | 新修复提交的exact SHA Windows CI通过；本地dirty通过不能单独关闭 |
 | QA-001 | Medium | 0–2 | Open | 实体手柄尚未在当前机器完成全流程人工回归 | 合成事件覆盖摇杆、十字键、Start、A、Back、肩键、重映射、断连回退与震动分发；键盘窗口复核通过 | 保持手柄输入为一等路径；获得实体设备时执行移动、modal、Storage、Save、重映射、焦点滚动和震动矩阵 | 实体通用/Xbox 布局手柄完成 Stage 0–2 全流程回归并记录结果 |
 | ST2-016 | Medium | 2 | Open | `screen_shake_intensity`、`text_speed`、`instant_text` 已持久化但当前 Stage 尚无对应生产效果 | 当前尚无屏幕震动或正式对话逐字系统可消费这些字段 | 保留版本化字段；在 Stage 8 对话和 Stage 10 VFX 接入时同时增加 UI、消费者与回归，不提前显示无效控件 | 对应系统落地后设置可见、可观察、可持久化且有自动/窗口证据 |
 | ST2-017 | Medium | 2–4 | In Progress | 当前地图安全落点及正式加载事务已加固；完整流送chunk和多层恢复须随Stage4/5扩展 | 61项实际碰撞/连通/备用出生点/全状态回滚；run20260916T080216355Z-p8148-b860280a通过 | 单层地图未知chunk/layer回命名安全点，正式SaveManager外层事务保护；裸flow方法不独自承担整体回滚 | Stage4真实chunk生命周期与Stage5多层行走接入后延伸位置回归；当前Stage2范围已通过 |
@@ -61,6 +60,7 @@
 |---|---|---:|---|---|---|
 | GOV-008 | Medium | 3 | Closed | NPC-A2增加父图字段后旧主角定向候选检查器把视觉概念清单误收为主角技术候选，首轮完整门在素材阶段exit22 | 失败run`20260923T135051531Z-p9768-7e20685f`保留；按技术候选/批准概念生命周期限定发现范围，独立NPC概念/改稿由`check_npc_concepts.ps1`验证；新增真实生产范围回归后26/26，完整重跑`20260923T142120826Z-p32320-c50accef`19/19通过 |
 | GOV-009 | Medium | 3 | Closed | UI技术SVG清单带父源字段后，旧主角PNG定向候选检查器再次误收非角色资产，完整门素材阶段exit22 | 失败run`20260926T155247272Z-p14208-99456d1c`保留；发现条件进一步限定`ai_assisted_edit` PNG及受控生命周期，范围回归同时排除NPC概念与UI矢量，角色26/26和独立UI 2/2通过；完整重跑`20260926T155650197Z-p47504-06a08ced`19/19通过 |
+| GOV-010 | Medium | 3 | Closed | 新UI SVG来源检查在干净CI中于Godot导入前启动渲染，缺全局类缓存而失败 | 失败`dfce033` exact run36254180422和artifact10910201444保留；`tools/check_project.ps1`先固定Godot版本并导入、再运行含SVG渲染的素材门；修复提交`919c162`的[exact Windows CI 36256258334](https://github.com/T1doo/Capybara/actions/runs/36256258334)headSha一致且success |
 | GIT-001 | Low | 0.5 | Closed | 历史隔离环境gh认证异常曾被误认为全局凭据失效 | 2026-09-23实际gh CLI查询`234ae3a`的exact run35835580503，headSha和success可取；显式安全分支Git推送正常。仅关闭认证误判，旧祖先公开风险仍由GIT-002保持Open |
 | ST0-001 | High | 0 | Closed | Stage 0 文件未提交，旧报告无法作为稳定基线 | `803b90d`、`capybara-stage-00`、统一检查 `17/17`、主场景烟雾退出码 0 |
 | ST0-002 | Medium | 0 | Closed | 暂停输入仅物理键时无法兼容部分合成/逻辑键事件 | 同时登记逻辑/物理键；当前窗口 Escape、焦点和退出复核通过 |
