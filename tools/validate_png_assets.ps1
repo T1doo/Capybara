@@ -96,26 +96,20 @@ namespace Capybara.Art {
                     ContentBottomExclusive = 0
                 };
 
-                using (var normalized = new Bitmap(source.Width, source.Height, PixelFormat.Format32bppArgb)) {
-                    using (var graphics = Graphics.FromImage(normalized)) {
-                        graphics.Clear(Color.Transparent);
-                        graphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
-                        graphics.DrawImageUnscaled(source, 0, 0);
-                    }
-
-                    var rectangle = new Rectangle(0, 0, normalized.Width, normalized.Height);
-                    var data = normalized.LockBits(rectangle, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+                // Read source pixels directly: DrawImageUnscaled can still rescale by DPI.
+                // Inspecting that redraw falsely reports clipped Alpha on valid Blender PNGs.
+                {
+                    var rectangle = new Rectangle(0, 0, source.Width, source.Height);
+                    var data = source.LockBits(rectangle, ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
                     try {
-                        int absoluteStride = Math.Abs(data.Stride);
-                        var bytes = new byte[absoluteStride * normalized.Height];
-                        Marshal.Copy(data.Scan0, bytes, 0, bytes.Length);
-                        for (int y = 0; y < normalized.Height; y++) {
-                            int row = data.Stride >= 0 ? y * absoluteStride : (normalized.Height - 1 - y) * absoluteStride;
-                            for (int x = 0; x < normalized.Width; x++) {
-                                int alpha = bytes[row + (x * 4) + 3];
+                        var bytes = new byte[source.Width * 4];
+                        for (int y = 0; y < source.Height; y++) {
+                            Marshal.Copy(IntPtr.Add(data.Scan0, y * data.Stride), bytes, 0, bytes.Length);
+                            for (int x = 0; x < source.Width; x++) {
+                                int alpha = bytes[(x * 4) + 3];
                                 if (alpha < result.MinimumAlpha) result.MinimumAlpha = alpha;
                                 if (alpha > result.MaximumAlpha) result.MaximumAlpha = alpha;
-                                if (x == 0 || y == 0 || x == normalized.Width - 1 || y == normalized.Height - 1) {
+                                if (x == 0 || y == 0 || x == source.Width - 1 || y == source.Height - 1) {
                                     if (alpha > result.MaximumBorderAlpha) result.MaximumBorderAlpha = alpha;
                                 }
                                 if (alpha == 0) {
@@ -134,7 +128,7 @@ namespace Capybara.Art {
                             }
                         }
                     } finally {
-                        normalized.UnlockBits(data);
+                        source.UnlockBits(data);
                     }
                 }
                 return result;

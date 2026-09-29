@@ -2,15 +2,15 @@
 
 > 用户已在 2026-09-29 明确继续开发。Stage 3 尚未完成，原v2契约与RC1范围不变。
 
-- observed_at: 2026-09-29T22:48:00+08:00
+- observed_at: 2026-09-29T23:18:00+08:00
 - safe_branch: codex/production-clean-20260916
 - review_baseline: 79092c078c63c1e1d5a6d056ebcedf8401a9ac59
-- observed_head: 0a50dce（本地已提交玩家v002；远端安全线仍f5fb86a，TLS握手失败，未取得新exact CI；毛色材质候选批次dirty）
+- observed_head: db1075e7974a3229c686ef38800c3cd44ff63b5a（本地与远端安全线一致；其exact CI已通过，v003/重绘/PNG检查器修复为dirty批次）
 - 产品 Stage：3，主角母图、正式场景/UI、四氛围和入口整合均未通过。
 
 ## 安全与已核对事实
 
-唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public；远程生产分支仍为 f5fb86a，本地领先已提交的0a50dce；两次push均TLS握手失败，OpenSSL只读ls-remote也遇TLS EOF，未修改持久Git配置或关闭证书验证。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
+唯一工程 E:\Capybara；当前分支从指定审阅提交的干净祖先链继续。旧本地 main/autonomous-v1/标签禁推禁合并。远程 T1doo/Capybara 为 public；远程生产分支与本地db1075e一致；此前TLS握手失败后在获准本机环境使用命令级HTTP/1.1显式push成功，未修改持久Git配置或关闭证书验证。原交接附件仍未跟踪，SHA-256 `72ab12633bd4f9a585d502ee1dcf9aa34526e9e0ec3472882d5e159d39e5f3b1`未变化。Git LFS fsck HEAD 通过，AG3/AG4、补面及NPC PNG已提交为LFS对象。
 
 ## 最近证据
 
@@ -32,10 +32,13 @@
 - 字体/CI文档检查点`f5fb86a`安全单分支推送成功（首次TLS握手失败，核远端后重试成功）；[exact Windows CI 36558684608](https://github.com/T1doo/Capybara/actions/runs/36558684608)已success且headSha一致。
 - 本批玩家Blender v002重做可编辑结构，实际渲染4站立方向及下右18帧walk；固定35°/0.5比例，22张真RGBA无触边，已有四方向真实GPU家园图。原240移速/碰撞下两个周期36物理帧、64足底标记对比通过，最大漂移约0.000017px；前置夹具失败及修复保留。仍是平滑模型样件，未通过绘本视觉，不能据标记数学通过批准角色。完整dirty工程门`20260929T143238417Z-p44532-07c6636c`已19/19、827/827、61事务通过，新提交exact CI仍需另核；[审查和可重复源](production/PLAYER_MESH_V002_REVIEW.md)。
 - 结构/步态批次本地commit`0a50dce`已保存，推送受上述TLS连接失败影响，不能声称有新远端CI。其后一次纯文字内置imagegen生成原创毛色笔触材质；同模型两轮混合尺度、4张Blender图与4张真实GPU图均实际完成，强档斑驳/弱档仍光滑，维持未批准。见[材质审查](../art/candidates/player_fur_gouache_v001/REVIEW.md)，没有游戏路径。本批完整dirty run `20260929T144738229Z-p38756-fdd256e8`已19/19、827/827、61事务通过；本机命令级HTTP/1.1只读Git连接已恢复，待显式push及新exact CI。
+- 后续核验：结构/步态0a50dce与材质db1075e已一起安全push；[db1075e exact Windows CI36586007241](https://github.com/T1doo/Capybara/actions/runs/36586007241)headSha一致且success，包含前者祖先变更，不冒充单独0a50dce触发的CI。
+- v003缩短头锥、加宽颊部并实渲四方向/四家园图；对固定DR做一次双输入重绘（原生模型目标+清洁AG4笔触参考），原RGBA可见mask IoU约0.97677、存在边界扩张/低Alpha杂点，不能直接晋级。固定rest UV与可见性权重的模型投射已渲染静止/微呼吸及两张GPU图，静止Alpha与原模型逐像素一致，仍只证明一个视图的方法。[完整审查](../art/candidates/player_v003_paintover_v001/REVIEW.md)。
+- 新native图暴露PNG检查器的GDI按DPI重绘误报；GOV-011修为直接源像素，7/7专项通过；完整dirty run `20260929T151825912Z-p30424-a30fb95b`已19/19、827/827、61事务通过，待新提交exact CI。
 - 上述工程/技术门不批准角色母图，不证明实体手柄、完整动画、正式入口或 RC1。
 
 ## 下一动作
 
-1. 完成毛色候选登记/检查的本地批次；网络恢复后只推安全分支并核验新exact CI，不把本地通过当成远程通过。
-2. 聚焦代表方向的头脸/颊部结构与分区绘制，共同解决144px下模型感；两轮全局材质已暴露取舍，不再仅调全局噪点/纹理强度。保留已有相机/步幅校准。
-3. 视觉样板通过后扩展八方向和连续idle/walk/pickup/soak，并继续NPC、正式UI矩阵、环境和玩法入口。原v2范围与240移速不变；[ISSUES](ISSUES.md)未结项仍有效。
+1. 完成v003/受控重绘与GOV-011批次整合门、来源/LFS审计和安全提交，核验新exact CI。
+2. 沿同一可编辑路线检查rest-UV投射接缝、转面/动作暴露的缺失表面；当前只有DR微呼吸，不能把v002两周期结果当v003动画证据。停止单纯调全局噪点/纹理强度。
+3. 样板达到原绘本标准后继续独立方向、完整代表动作、NPC/UI/整景及真实入口；Stage3和RC1均未完成。[ISSUES](ISSUES.md)保留未结项。

@@ -1,0 +1,40 @@
+{
+  "asset_id": "player_v003_paintover_a_v001",
+  "status": "technical_unapproved",
+  "game_path": "",
+  "rights_status": "original_project_clean_lineage",
+  "source_method": "ai_assisted_edit",
+  "prompt_id": "PLAYER-V003-PAINT-A-20260929",
+  "prompt_record": "art/candidates/player_v003_paintover_v001/PROMPTS.md",
+  "review_record": "art/candidates/player_v003_paintover_v001/REVIEW.md",
+  "tool": "built-in imagegen; exact model not disclosed",
+  "native_target": {
+    "path": "art/candidates/player_v003_paintover_v001/native_target_v003.png",
+    "sha256": "11183b4bdb8d7bd22483f2e7efb09c75fb1534576d541b14d5f9e8420adfed4d",
+    "width": 512,
+    "height": 512,
+    "role": "edit_target_original_procedural_model"
+  },
+  "style_reference": {
+    "path": "art/candidates/player_ag4_v001/chr_player_ag4_down_right_v001.png",
+    "sha256": "e92cd4791957b4db13b65b1c8865c574a54975b907647088de26e8edd7975521",
+    "role": "paint_handling_only_not_geometry"
+  },
+  "paintover": {
+    "path": "art/candidates/player_v003_paintover_v001/paintover_a_v001.png",
+    "sha256": "06781018de02905d017667e0bb03c3a3fde82a2c164ba8153dfa281ab3a4201a",
+    "width": 1254,
+    "height": 1254
+  },
+  "raw_path": "art/generated_raw/player_paintover/player_v003_paintover_a_v001.png",
+  "native_source_script": "tools/art/probe_player_shape_v003.py",
+  "native_source_script_sha256": "9499c4164add379fc2a215c38d6d8f36dbd0bd016427f646e8fa361fcb67ca2b",
+  "source_render_manifest": "build/art-pipeline/player_shape_v003/four_views_20260929/render_manifest.json",
+  "source_render_manifest_sha256": "057c5634be5c8469e9f17385838924df7ab663ba0446dbb7d29177ac0d0e69ff",
+  "normalized_alpha_iou_threshold128": 0.9767724335679653,
+  "limits": [
+    "raw paintover has low-alpha speckles and expanded visible boundary",
+    "not an approved sprite or master",
+    "source render evidence is local build-only; clean checkout regenerates"
+  ]
+}

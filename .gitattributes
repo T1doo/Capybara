@@ -7,5 +7,7 @@ art/candidates/player_ag4_v001/*.png filter=lfs diff=lfs merge=lfs -text
 art/candidates/player_ag4_body_plate_v001/*.png filter=lfs diff=lfs merge=lfs -text
 art/candidates/npc_river_residents_v001/*.png filter=lfs diff=lfs merge=lfs -text
 art/candidates/player_fur_gouache_v001/*.png filter=lfs diff=lfs merge=lfs -text
+art/candidates/player_v003_paintover_v001/*.png filter=lfs diff=lfs merge=lfs -text
+tools/art/probe_player_shape_v003.py text eol=lf
 **/tex_cottage_material_atlas_v001.png filter=lfs diff=lfs merge=lfs -text
 **/tex_broadleaf_foliage_v001.png filter=lfs diff=lfs merge=lfs -text

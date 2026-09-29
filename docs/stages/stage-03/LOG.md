@@ -477,3 +477,21 @@ GPU 复核命令：
 - 来源类型：executed_now。本机Windows完整run`20260929T144738229Z-p38756-fdd256e8`实际exit0，19/19、required_checks_satisfied=true、827/827、存档事务61项、治理21/21、角色26/26、新毛色来源检查、Debug导出/启动通过。受测为`0a50dce`+本批dirty候选/管线/文档，源指纹见同名JSON，运行前后一致；随后仅追加检查记录并去除一次重复的相同LFS属性行，无行为变化，未把后续文档提交当成受测源码。
 - 额外实际像素核验：r2两档PNG/源脚本/原texture/packed blend hash吻合，两个Alpha平面与原v002站立PNG逐像素完全相同，证明本轮未改外轮廓；此狭窄事实不批准材质。r2弱档仍未达到绘本目标，停止继续只调全局混合强度。
 - 隔离环境HTTP/1.1只读git曾报SEC_E_NO_CREDENTIALS，不能据此认定账户凭据失效；随后获准本机环境的同一只读ls-remote已成功，远端确为f5fb86a。计划仅命令级HTTP/1.1重试两批安全提交，exact新CI仍以实际查询为准。
+
+## 2026-09-29T23:18:00+08:00 · ART3-100-SHAPE-PAINT-PROJECTION · 形体与固定静止UV重绘
+
+- 来源类型：executed_now。获准本机命令级HTTP/1.1推送`0a50dce`与`db1075e7974a3229c686ef38800c3cd44ff63b5a`成功；[db1075e exact Windows CI36586007241](https://github.com/T1doo/Capybara/actions/runs/36586007241)实际success、headSha一致，包含前者祖先变更，不冒充单独0a50dce运行。原TLS失败仍保留，不改持久配置/证书验证。
+- db1075e上的dirty新工具读取原v002精确.blend，v003缩短头锥、增加宽颊/口鼻、重定位原面部细节；固定相机/比例/脚控，Blender4.5.13 LTS/Cycles CPU的首张与最终四向均exit0，原生/形变控制保留但未重新批准动作。Godot4.7.2 Compatibility/RTX4060 Laptop四张家园截图exit0；源快照、hash、鼻横条首轮和实际视觉边界见[候选审查](../../../art/candidates/player_v003_paintover_v001/REVIEW.md)。
+- 内置imagegen一次双输入（v003 native目标SHA11183b4b...、清洁AG4仅笔触参考SHAe92cd479...），输出1254RGBA SHA06781018de02905d017667e0bb03c3a3fde82a2c164ba8153dfa281ab3a4201a，原始字节不变并保留LFS候选/精确提示词。归一化Alpha>128 IoU0.9767724、可见扩张2.3075%、非零Alpha远处杂点；因此不直接晋级精灵/母图。
+- 新静止UV工具用原模型相机、ray visibility和朝向权重，仅将画面颜色绑定到rest UV，背面/遮挡仍原材质；35mesh/7200控制顶点中1373点有非零paint权重。静止+小呼吸两张Blender及两张实景GPU图均exit0，已查看；静止Alpha与原native逐像素完全一致，源/paint/frame hash核验通过。原图未被裁切清理，模型决定轮廓。仍只有DR表面与极小变形，AgX色彩和固定visibility限制、转面/缺失面/完整动作未通过，不选定路线或批准母图。
+
+## 2026-09-29T23:18:00+08:00 · GOV-011-PNG-SOURCE-PIXELS · DPI误报与原始像素修复
+
+- 来源类型：executed_now。新来源检查首轮因PowerShell数组连接优先级误拼成单字符串退出22；加明确括号修正。随后PNG门真实拒绝native图（border_alpha255），同时缺全局直接PNG路径；后者按既有family登记模式从权威JSON生成build-only路径CSV，不能把临时CSV当新任务真源。
+- 调查原图与GDI重绘：同一512PNG约71.9836DPI，Pillow与原Bitmap.GetPixel证明border0、bbox(112,170,389,458)；旧Graphics.DrawImageUnscaled重绘到96DPI临时Bitmap后实际bbox(149,226,512,512)、267个可见边界像素、border255，失败图保留`build/png_inspector_redraw_failure_20260929.png`。修复`validate_png_assets.ps1`直接LockBits原像素、逐行处理stride，取消有DPI副作用的重绘；不改透明阈值/缺Alpha/真实触边/空图的拒绝逻辑。
+- `test_png_pixel_inspection.ps1`实际7/7（`build/art-pipeline/png-pixel-fixtures/20260929T151607906Z-p11008/results.json`）：72/96/300DPI相同的3600不透明像素及固定bbox、真实BlenderPNG，以及RGB不透明/真触边/空图保持可识别。修后新来源/原生/重绘PNG专项exit0，精确clean输入链、native generator hash与空game_path通过；GOV-011待完整门及新exact CI关闭。
+
+## 2026-09-29T23:22:00+08:00 · GOV-011-SHAPE-PAINT-GATE · 完整整合门
+
+- 来源类型：executed_now。获准本机Windows完整run`20260929T151825912Z-p30424-a30fb95b`实际exit0，19/19、required_checks_satisfied=true、游戏827/827、存档事务61、治理21/21、角色负例26/26、新PNG像素7/7及全部原有素材、来源/父hash/LFS候选、Windows Debug导出/启动通过，零Godot诊断。受测source为`db1075e7974a3229c686ef38800c3cd44ff63b5a`+dirty形体/重绘/检查器/文档，前后fingerprint同为`87264602fcb48dfb58924613c61e8a8a02909d92b51383812c8e67b87928e4d9`。
+- 检查完成后仅补本日志、已知同mesh自遮挡限制及去重两条相同Git属性，无新增运行行为；受测source与最终提交不混称。新exact CI待提交后查询，GOV-011暂不关闭。绘本艺术门、投射转面/完整动作、实体手柄/正式入口仍未通过，未标Stage3完成。

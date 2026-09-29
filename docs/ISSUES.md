@@ -6,6 +6,7 @@
 
 | ID | 级别 | Stage | 状态 | 问题 | 当前证据 | 缓解措施 | 关闭条件 |
 |---|---|---:|---|---|---|---|---|
+| GOV-011 | Medium | 3 | In Progress | PNG检查先用GDI DrawImageUnscaled重绘，仍按DPI放大约72DPI的Blender图，误报Alpha触边 | 原512PNG bbox(112,170,389,458)/border0，重绘后bbox(149,226,512,512)/border255；Pillow与原Bitmap像素交叉确认 | 改为直接LockBits逐行读取源像素；72/96/300DPI及真实Blender、不透明/触边/空图共7项实际通过，保留旧失败 | 本批完整门及新提交exact CI通过，拒绝不透明/真触边/空图规则不弱化 |
 | QA-001 | Medium | 0–2 | Open | 实体手柄尚未在当前机器完成全流程人工回归 | 合成事件覆盖摇杆、十字键、Start、A、Back、肩键、重映射、断连回退与震动分发；键盘窗口复核通过 | 保持手柄输入为一等路径；获得实体设备时执行移动、modal、Storage、Save、重映射、焦点滚动和震动矩阵 | 实体通用/Xbox 布局手柄完成 Stage 0–2 全流程回归并记录结果 |
 | ST2-016 | Medium | 2 | Open | `screen_shake_intensity`、`text_speed`、`instant_text` 已持久化但当前 Stage 尚无对应生产效果 | 当前尚无屏幕震动或正式对话逐字系统可消费这些字段 | 保留版本化字段；在 Stage 8 对话和 Stage 10 VFX 接入时同时增加 UI、消费者与回归，不提前显示无效控件 | 对应系统落地后设置可见、可观察、可持久化且有自动/窗口证据 |
 | ST2-017 | Medium | 2–4 | In Progress | 当前地图安全落点及正式加载事务已加固；完整流送chunk和多层恢复须随Stage4/5扩展 | 61项实际碰撞/连通/备用出生点/全状态回滚；run20260916T080216355Z-p8148-b860280a通过 | 单层地图未知chunk/layer回命名安全点，正式SaveManager外层事务保护；裸flow方法不独自承担整体回滚 | Stage4真实chunk生命周期与Stage5多层行走接入后延伸位置回归；当前Stage2范围已通过 |
