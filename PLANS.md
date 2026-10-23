@@ -1,6 +1,6 @@
 # 阶段总路线索引
 
-产品范围只由[v2 契约](CODEX_AUTONOMOUS_GAME_PRODUCTION_GOAL_v2.md)定义；任务状态只在各阶段PLAN，实际记录在对应LOG。[当前恢复点](docs/STATUS.md)记录当前事实。Stage3是产品焦点，本轮先完成Stage0.5治理/CI与Stage2可靠性回归，再回到正式美术及入口。
+产品范围只由[v2 契约](CODEX_AUTONOMOUS_GAME_PRODUCTION_GOAL_v2.md)定义；任务状态只在各阶段PLAN，实际记录在对应LOG。[当前恢复点](docs/STATUS.md)记录当前事实。本文件仅作阶段路线索引；当前执行批次与恢复事实见各阶段PLAN及STATUS。
 
 | Stage | 目标 / 任务入口 | 关键前置与退出证据 |
 |---|---|---|

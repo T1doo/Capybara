@@ -58,8 +58,27 @@ try {
         }
         $results.Add([pscustomobject]@{ case_id = $kind; passed = $true; observed = $actual })
     }
+    $paths = @('touched_border', 'empty_rgba') | ForEach-Object {
+        [pscustomobject]@{ file_path = [IO.Path]::GetRelativePath($root, (Join-Path $output ($_ + '_v001.png'))).Replace('\', '/') }
+    }
+    $manifest = Join-Path $output 'validator_paths.csv'
+    $paths | Export-Csv -LiteralPath $manifest -NoTypeInformation -Encoding utf8
+    $powerShellBin = [Diagnostics.Process]::GetCurrentProcess().MainModule.FileName
+    foreach ($kind in @('touched_border', 'empty_rgba')) {
+        $report = Join-Path $output ($kind + '_validator.json')
+        $messages = @(& $powerShellBin -NoProfile -File (Join-Path $PSScriptRoot 'validate_png_assets.ps1') `
+            -Path (Join-Path $output ($kind + '_v001.png')) -RequireAlpha -ManifestPath $manifest -JsonOutputPath $report 2>&1)
+        $code = $LASTEXITCODE
+        $messages | Set-Content -LiteralPath (Join-Path $output ($kind + '_validator.log')) -Encoding utf8
+        $validation = Get-Content -LiteralPath $report -Raw | ConvertFrom-Json
+        $reason = if ($kind -eq 'touched_border') { 'Image border exceeds allowed alpha' } else { 'Image has no visible content' }
+        if ($code -ne 21 -or $validation.success -or ($validation.failures -join "`n") -notmatch [regex]::Escape($reason)) {
+            throw "Validator did not reject $kind for the expected reason."
+        }
+        $results.Add([pscustomobject]@{ case_id = $kind + '_validator_rejection'; passed = $true; exit_code = $code })
+    }
     $results | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $output 'results.json') -Encoding utf8
-    [Console]::WriteLine("[png-pixel-fixture] PASS: 7/7; source Alpha independent of DPI; opaque/occupied/empty cases retained; $output")
+    [Console]::WriteLine("[png-pixel-fixture] PASS: 7 source-pixel cases + 2 end-to-end validator rejection cases; $output")
     exit 0
 } catch {
     [Console]::Error.WriteLine('[png-pixel-fixture] FAIL: ' + $_.Exception.Message)

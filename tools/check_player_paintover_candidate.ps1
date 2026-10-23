@@ -3,16 +3,20 @@ param()
 
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).ProviderPath
-$prefix = 'art/candidates/player_v003_paintover_v001/'
+$families = @(
+    @{ prefix = 'art/candidates/player_v003_paintover_v001/'; id = 'player_v003_paintover_a_v001'; native = 'native_target_v003.png'; paint = 'paintover_a_v001.png'; style = 'art/candidates/player_ag4_v001/chr_player_ag4_down_right_v001.png' },
+    @{ prefix = 'art/candidates/player_v003_rear_paintover_v001/'; id = 'player_v003_rear_paintover_a_v001'; native = 'native_target_up_left_v003.png'; paint = 'rear_paintover_a_v001.png'; style = 'art/candidates/player_v003_paintover_v001/paintover_a_v001.png' }
+)
 
 try {
+    foreach ($family in $families) {
+    $prefix = $family.prefix
     $record = Get-Content -LiteralPath (Join-Path $root ($prefix + 'MANIFEST.json')) -Raw | ConvertFrom-Json
-    if ($record.status -ne 'technical_unapproved' -or $record.game_path -or
+    if ($record.asset_id -ne $family.id -or $record.status -ne 'technical_unapproved' -or $record.game_path -or
         $record.rights_status -ne 'original_project_clean_lineage' -or $record.source_method -ne 'ai_assisted_edit') {
         throw 'Paintover must remain an unapproved clean project edit with no game path.'
     }
-    $expected = @(($prefix + 'native_target_v003.png'), ($prefix + 'paintover_a_v001.png'),
-        'art/candidates/player_ag4_v001/chr_player_ag4_down_right_v001.png')
+    $expected = @(($prefix + $family.native), ($prefix + $family.paint), $family.style)
     $inputs = @($record.native_target, $record.paintover, $record.style_reference)
     $quarantine = @(Import-Csv -LiteralPath (Join-Path $root 'art/candidates/_quarantine/player_capybara_v1_unverified_reference/QUARANTINE_MANIFEST.csv'))
     for ($i = 0; $i -lt $inputs.Count; $i++) {
@@ -45,7 +49,8 @@ try {
         Where-Object { $_.asset_id -eq $record.asset_id })
     if ($global.Count -ne 1 -or $global[0].source_path -ne ($prefix + 'MANIFEST.json') -or
         $global[0].game_path -or $global[0].status -ne $record.status) { throw 'Global scope mismatch.' }
-    [Console]::WriteLine('[paintover] PASS: exact native/paint/style hashes, frozen generator, RGBA and unapproved scope; no geometry/quality approval.')
+    [Console]::WriteLine('[paintover] PASS: ' + $family.id + '; exact native/paint/style hashes, frozen generator, RGBA and unapproved scope.')
+    }
     exit 0
 } catch {
     [Console]::Error.WriteLine('[paintover] FAIL: ' + $_.Exception.Message)

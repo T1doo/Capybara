@@ -30,6 +30,10 @@ func _capture() -> void:
 		_fail("Expected a render manifest with a canvas array.")
 		return
 	var canvas: Array = data["canvas"]
+	var route_label: String = str(data.get("route", data.get("asset_version", "")))
+	if route_label.is_empty():
+		_fail("Expected a route or numbered asset version.")
+		return
 	if canvas.size() != 2 or int(canvas[0]) < 128 or int(canvas[1]) < 128:
 		_fail("Expected valid source canvas dimensions.")
 		return
@@ -93,7 +97,7 @@ func _capture() -> void:
 			return
 		sprite.texture = ImageTexture.create_from_image(bitmap)
 		caption.text = "%s / %s / %s — UNAPPROVED TECHNICAL COMPARISON" % [
-			data["route"], frame["direction"], frame["pose"]
+			route_label, frame["direction"], frame["pose"]
 		]
 		for _frame in range(3):
 			await process_frame

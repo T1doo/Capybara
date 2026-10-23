@@ -1,0 +1,37 @@
+{
+  "asset_id": "player_v003_rear_paintover_a_v001",
+  "status": "technical_unapproved",
+  "game_path": "",
+  "rights_status": "original_project_clean_lineage",
+  "source_method": "ai_assisted_edit",
+  "prompt_id": "PLAYER-V003-REAR-PAINT-A-20260930",
+  "prompt_record": "art/candidates/player_v003_rear_paintover_v001/PROMPTS.md",
+  "review_record": "art/candidates/player_v003_rear_paintover_v001/REVIEW.md",
+  "native_target": {
+    "path": "art/candidates/player_v003_rear_paintover_v001/native_target_up_left_v003.png",
+    "sha256": "f009aee9341456d66412b7e112edc3ed012a8ae95641e5812cbcc85cbbd913a2",
+    "width": 512,
+    "height": 512
+  },
+  "paintover": {
+    "path": "art/candidates/player_v003_rear_paintover_v001/rear_paintover_a_v001.png",
+    "sha256": "c7c384daf098b66950df8d42c124708a40304989b717193174449affa14b2d1b",
+    "width": 1254,
+    "height": 1254
+  },
+  "style_reference": {
+    "path": "art/candidates/player_v003_paintover_v001/paintover_a_v001.png",
+    "sha256": "06781018de02905d017667e0bb03c3a3fde82a2c164ba8153dfa281ab3a4201a",
+    "role": "paint_handling_only"
+  },
+  "native_source_script": "tools/art/probe_player_shape_v003.py",
+  "native_source_script_sha256": "9499c4164add379fc2a215c38d6d8f36dbd0bd016427f646e8fa361fcb67ca2b",
+  "raw_path": "art/generated_raw/player_paintover/player_v003_rear_paintover_a_v001.png",
+  "raw_alpha_iou": 0.8494628321212708,
+  "registered_alpha_iou": 0.9799096775115583,
+  "uv_offset": [
+    0.003189792663476874,
+    0.023125996810207338
+  ],
+  "registration": "translation only, native-to-paint top-left pixel shift +4,-29; source bytes unchanged"
+}
