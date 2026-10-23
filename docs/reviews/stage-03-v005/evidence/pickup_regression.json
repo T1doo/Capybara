@@ -1,0 +1,35 @@
+{
+  "scope": "actual game test runner, then-current 307aa46 + dirty regression; source/scene snapshots included",
+  "red": {
+    "exit_code": 1,
+    "sha256": "b9940ee6ff471f8bb162f65da65145264bbbe68e2febc4da6cb761eb5a7fd3e4",
+    "local_log": "build/pickup_visual_red_20261023.log",
+    "messages": [
+      "PASS: available pickup is visible",
+      "PASS: partial transfer keeps remaining pickup visible",
+      "PASS: invalid over-transfer does not hide pickup",
+      "ERROR: FAIL: consumed pickup disappears with committed quantity | expected=true actual=false",
+      "PASS: available pickup snapshot restores",
+      "PASS: restoring available quantity restores its image",
+      "PASS: consumed pickup snapshot restores",
+      "ERROR: FAIL: loaded consumed pickup remains invisible | expected=true actual=false",
+      "ERROR: CAPYBARA TESTS FAILED: 2/835 failed"
+    ]
+  },
+  "green": {
+    "exit_code": 0,
+    "sha256": "a99e0bd06a824941ba6421e0ac0f42c878b2d74cfe2786ecad21704cfd738b39",
+    "local_log": "build/pickup_visual_green_20261023.log",
+    "messages": [
+      "PASS: available pickup is visible",
+      "PASS: partial transfer keeps remaining pickup visible",
+      "PASS: invalid over-transfer does not hide pickup",
+      "PASS: consumed pickup disappears with committed quantity",
+      "PASS: available pickup snapshot restores",
+      "PASS: restoring available quantity restores its image",
+      "PASS: consumed pickup snapshot restores",
+      "PASS: loaded consumed pickup remains invisible",
+      "CAPYBARA TESTS PASSED: 835/835"
+    ]
+  }
+}

@@ -19,3 +19,12 @@ docs/reviews/stage-03-v004/evidence/*.json -text whitespace=cr-at-eol
 docs/reviews/stage-03-v004/evidence/source/* -text whitespace=cr-at-eol
 docs/reviews/stage-03-v004/cutout_layers/*.png filter=lfs diff=lfs merge=lfs -text
 docs/reviews/stage-03-v004/cutout_layers/layer_manifest.json -text whitespace=cr-at-eol
+docs/reviews/stage-03-v005/*.png filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v005/*.mp4 filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v005/assets/*.png filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v005/assets/*.json -text whitespace=cr-at-eol
+docs/reviews/stage-03-v005/evidence/*.json -text whitespace=cr-at-eol
+docs/reviews/stage-03-v005/evidence/*.log -text whitespace=cr-at-eol
+docs/reviews/stage-03-v005/evidence/source/* -text whitespace=cr-at-eol
+# Preserve this frozen engine console log's original terminal blank line.
+docs/reviews/stage-03-v005/evidence/interactive_startup.log -text whitespace=cr-at-eol,-blank-at-eof

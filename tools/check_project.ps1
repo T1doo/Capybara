@@ -262,6 +262,13 @@ try {
     if ($lastStandardOutput -notmatch 'CAPYBARA TESTS PASSED: [1-9][0-9]*/[1-9][0-9]*') {
         throw 'Automated tests exited successfully without the required non-zero test pass marker.'
     }
+    Invoke-RecordedCommand 'live_candidate_gait' $godotBin @(
+        '--headless', '--path', $gameRoot, '--script', 'res://../tools/art/test_player_hybrid_gait.gd', '--',
+        (Join-Path $logDirectory "hybrid-gait-$runId.json")
+    ) -TimeoutSeconds 30 -FailOnDiagnostics
+    if ($lastStandardOutput -notmatch 'HYBRID GAIT: [1-9][0-9]* cases / 0 failures') {
+        throw 'Live gait regressions exited without their non-zero pass marker.'
+    }
     Invoke-RecordedCommand 'save_runtime_transaction' $godotBin @(
         '--headless', '--path', $gameRoot, '--script', 'res://tests/save_transaction_fixture.gd'
     ) -TimeoutSeconds 120 -FailOnDiagnostics

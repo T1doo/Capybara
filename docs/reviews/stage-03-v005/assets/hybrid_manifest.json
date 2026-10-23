@@ -1,0 +1,1956 @@
+{
+  "schema": 1,
+  "status": "technical_unapproved",
+  "complete": true,
+  "model_sha256": "2f767262c5e78eb2cc6f34e706d51692b9478f26679360a1c0244111b87a77e1",
+  "canvas": [
+    640,
+    640
+  ],
+  "pivot": [
+    320,
+    480
+  ],
+  "display_scale": 0.5,
+  "reference_yaw": -0.2646344006061554,
+  "projection": [
+    [
+      46.06095886230469,
+      46.06097412109375
+    ],
+    [
+      26.419479370117188,
+      -26.419479370117188
+    ]
+  ],
+  "height_scale": 53.35960388183594,
+  "headings": [
+    {
+      "index": 0,
+      "yaw": -0.2646344006061554,
+      "screen_facing": "down_right",
+      "upper": [
+        {
+          "path": "upper_00_0.png",
+          "sha256": "5033df12908e87f1c1629ddd71362fa448ddedbd254a8b6b7011ed1a5966d58a",
+          "alpha_bbox": [
+            176,
+            266,
+            453,
+            531
+          ],
+          "alpha_height": 265,
+          "edge_alpha_pixels": 0
+        },
+        {
+          "path": "upper_00_1.png",
+          "sha256": "e0edfb3825b0bab893c060c5c01831ce43920bb17a2291c816ab4bb85b203b37",
+          "alpha_bbox": [
+            176,
+            266,
+            452,
+            536
+          ],
+          "alpha_height": 270,
+          "edge_alpha_pixels": 0
+        },
+        {
+          "path": "upper_00_2.png",
+          "sha256": "0d72aca76063bf870a2d92ec0923fe3e443329bcecc0650c1095a7ceef6201dc",
+          "alpha_bbox": [
+            176,
+            266,
+            451,
+            542
+          ],
+          "alpha_height": 276,
+          "edge_alpha_pixels": 0
+        },
+        {
+          "path": "upper_00_3.png",
+          "sha256": "ed74ea620aa15711cea4a8b73b026d1c07f3b76b1e2e1ca5900eeec7b8532f70",
+          "alpha_bbox": [
+            176,
+            266,
+            450,
+            547
+          ],
+          "alpha_height": 281,
+          "edge_alpha_pixels": 0
+        },
+        {
+          "path": "upper_00_4.png",
+          "sha256": "28ef6c8cd5ad625b799845921612b3a1f44f257a2ee881ab6c02464ae9ad5c30",
+          "alpha_bbox": [
+            176,
+            266,
+            450,
+            553
+          ],
+          "alpha_height": 287,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            407.9851989746094,
+            456.6842346191406
+          ],
+          "sole": [
+            418.3563537597656,
+            517.7470703125
+          ],
+          "image": {
+            "path": "Fore_Left_00.png",
+            "sha256": "3c7e62518bdcb558d2a947f4590ac4aeccecc726278ee8225b827785455be7fb",
+            "alpha_bbox": [
+              386,
+              448,
+              438,
+              525
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            317.57708740234375,
+            486.4275817871094
+          ],
+          "sole": [
+            327.9482727050781,
+            547.4903564453125
+          ],
+          "image": {
+            "path": "Fore_Right_00.png",
+            "sha256": "b34f0e39286d84253e774ade2b0d366e0859c313f22f68a0538fc68441238dd6",
+            "alpha_bbox": [
+              296,
+              478,
+              348,
+              554
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            304.2733154296875,
+            352.9723815917969
+          ],
+          "sole": [
+            314.6445007324219,
+            414.0351867675781
+          ],
+          "image": {
+            "path": "Hind_Left_00.png",
+            "sha256": "16a44c407ea871195d45763e908c03ef009070217fa457142ac9270735c1b148",
+            "alpha_bbox": [
+              283,
+              344,
+              334,
+              421
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            213.86521911621094,
+            382.7156982421875
+          ],
+          "sole": [
+            224.23641967773438,
+            443.77850341796875
+          ],
+          "image": {
+            "path": "Hind_Right_00.png",
+            "sha256": "1ac45b677a710620ba1bf0a25a9e26abe0afd89dff014b3f4bb428c39b068298",
+            "alpha_bbox": [
+              192,
+              374,
+              243,
+              451
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "yaw": 0.26038188139564644,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_01_0.png",
+          "sha256": "bc15d14ef00235203159577faaeaa0248d2cccc4dbeb1749a4932c1575939b53",
+          "alpha_bbox": [
+            131,
+            290,
+            487,
+            507
+          ],
+          "alpha_height": 217,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            420.5240478515625,
+            427.6302490234375
+          ],
+          "sole": [
+            438.5614013671875,
+            484.3145751953125
+          ],
+          "image": {
+            "path": "Fore_Left_01.png",
+            "sha256": "dbd6a3362c574cdafa629778178894c7e7b93b94002514dc0310c3ea059270f7",
+            "alpha_bbox": [
+              397,
+              420,
+              456,
+              493
+            ],
+            "alpha_height": 73,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            368.2840576171875,
+            479.35919189453125
+          ],
+          "sole": [
+            386.3214416503906,
+            536.0435791015625
+          ],
+          "image": {
+            "path": "Fore_Right_01.png",
+            "sha256": "703c72cff66ec36d2b1dd72cda9a5dbafaf7d8764c9692e7fdf7328e9d9cde5b",
+            "alpha_bbox": [
+              344,
+              472,
+              404,
+              544
+            ],
+            "alpha_height": 72,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            240.15057373046875,
+            367.70306396484375
+          ],
+          "sole": [
+            258.1878967285156,
+            424.38739013671875
+          ],
+          "image": {
+            "path": "Hind_Left_01.png",
+            "sha256": "24c2a98cf7e09fb4c1e99a69ac84e47a062343b107a14771a7ac0d713b4f7c6b",
+            "alpha_bbox": [
+              216,
+              361,
+              276,
+              433
+            ],
+            "alpha_height": 72,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            187.9105987548828,
+            419.4320068359375
+          ],
+          "sole": [
+            205.9479522705078,
+            476.1163635253906
+          ],
+          "image": {
+            "path": "Hind_Right_01.png",
+            "sha256": "8bf520c9f936d21b6b472e25a42f5ef540f393930b9ddec49268ed6451c75d46",
+            "alpha_bbox": [
+              164,
+              412,
+              224,
+              485
+            ],
+            "alpha_height": 73,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "yaw": 0.7853981633974483,
+      "screen_facing": "right",
+      "upper": [
+        {
+          "path": "upper_02_0.png",
+          "sha256": "bad19abad060a384a20c35a883ac0588d4df27db28b9b2bb5a7b639b7a99b484",
+          "alpha_bbox": [
+            111,
+            313,
+            483,
+            518
+          ],
+          "alpha_height": 205,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            405.98486328125,
+            398.884521484375
+          ],
+          "sole": [
+            426.8296813964844,
+            449.576171875
+          ],
+          "image": {
+            "path": "Fore_Left_02.png",
+            "sha256": "6227e3b11aec40bc771610abf460d4b1f0b60822fa9cae6233a73dc2c79c3568",
+            "alpha_bbox": [
+              381,
+              392,
+              440,
+              458
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            405.98486328125,
+            458.66497802734375
+          ],
+          "sole": [
+            426.8296813964844,
+            509.35662841796875
+          ],
+          "image": {
+            "path": "Fore_Right_02.png",
+            "sha256": "336e3dac272aed6032187a53fb2fe6348b64d9da2a99d949abed1410c6f0940b",
+            "alpha_bbox": [
+              381,
+              452,
+              440,
+              518
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            197.5366973876953,
+            398.884521484375
+          ],
+          "sole": [
+            218.3815155029297,
+            449.5761413574219
+          ],
+          "image": {
+            "path": "Hind_Left_02.png",
+            "sha256": "c43a8ab8d97896292152deea8043912ef2537d480517c5a6d54e4af070a05e2d",
+            "alpha_bbox": [
+              173,
+              392,
+              232,
+              458
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            197.53668212890625,
+            458.66497802734375
+          ],
+          "sole": [
+            218.38150024414062,
+            509.3565979003906
+          ],
+          "image": {
+            "path": "Hind_Right_02.png",
+            "sha256": "ad708015661d8c9f5d949b0f8414791cc23f2bb7cea902e951e0e3d467e987eb",
+            "alpha_bbox": [
+              173,
+              452,
+              232,
+              518
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "yaw": 1.310414547306043,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_03_0.png",
+          "sha256": "3710e65896b956464b93db5d5f7e2e8bd863183cb88ef93a0fb89a92954511bb",
+          "alpha_bbox": [
+            131,
+            308,
+            487,
+            531
+          ],
+          "alpha_height": 223,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            368.28411865234375,
+            378.1903076171875
+          ],
+          "sole": [
+            386.3214416503906,
+            422.88922119140625
+          ],
+          "image": {
+            "path": "Fore_Left_03.png",
+            "sha256": "572271c764dbf9f8580c4adfd6fcb93890eb348ef5ccb3e860b75ae03b4023b5",
+            "alpha_bbox": [
+              344,
+              371,
+              404,
+              436
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            420.5240478515625,
+            429.9192810058594
+          ],
+          "sole": [
+            438.5614013671875,
+            474.6181945800781
+          ],
+          "image": {
+            "path": "Fore_Right_03.png",
+            "sha256": "2a71dc6f4c03f5ffb71e912005b8c75bc348e19c2e6c25d9e785e7dd9adec393",
+            "alpha_bbox": [
+              396,
+              423,
+              457,
+              488
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            187.91058349609375,
+            438.11749267578125
+          ],
+          "sole": [
+            205.94793701171875,
+            482.81640625
+          ],
+          "image": {
+            "path": "Hind_Left_03.png",
+            "sha256": "2ebf6cdd628d32e454a17eab01c3e29a57d98a2560e3c408d47a8f94fe2b5b37",
+            "alpha_bbox": [
+              164,
+              431,
+              224,
+              496
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            240.15052795410156,
+            489.8464660644531
+          ],
+          "sole": [
+            258.1878662109375,
+            534.5453491210938
+          ],
+          "image": {
+            "path": "Hind_Right_03.png",
+            "sha256": "c665bf2279f3b70b3d2f461d0d6c23da1bb8f2c68ab41576f143a171428cc024",
+            "alpha_bbox": [
+              216,
+              483,
+              276,
+              548
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "yaw": 1.8354309312146375,
+      "screen_facing": "up_right",
+      "upper": [
+        {
+          "path": "upper_04_0.png",
+          "sha256": "20b2327b49c6d79e25c2d2f25c37f115f08ccff1170f76121bcfdf1d716183de",
+          "alpha_bbox": [
+            178,
+            296,
+            453,
+            545
+          ],
+          "alpha_height": 249,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            317.5771179199219,
+            371.1219482421875
+          ],
+          "sole": [
+            327.94830322265625,
+            411.4423828125
+          ],
+          "image": {
+            "path": "Fore_Left_04.png",
+            "sha256": "0f28007a7c40b528d67b78fb79a4a47bff187ab52830209fc970a8ed1197b888",
+            "alpha_bbox": [
+              296,
+              363,
+              347,
+              430
+            ],
+            "alpha_height": 67,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            407.9851989746094,
+            400.8652648925781
+          ],
+          "sole": [
+            418.35638427734375,
+            441.18572998046875
+          ],
+          "image": {
+            "path": "Fore_Right_04.png",
+            "sha256": "29eaf4989bee983412ae94235456a4ace20904c9afa41d71569b760a960ec5ec",
+            "alpha_bbox": [
+              386,
+              392,
+              438,
+              460
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            213.86521911621094,
+            474.83380126953125
+          ],
+          "sole": [
+            224.23641967773438,
+            515.1542358398438
+          ],
+          "image": {
+            "path": "Hind_Left_04.png",
+            "sha256": "a56de0167f9a0090db0c9f811a62b0aef02869dbdccec1bcc230ff61c4f27403",
+            "alpha_bbox": [
+              192,
+              466,
+              244,
+              534
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            304.2733154296875,
+            504.5771484375
+          ],
+          "sole": [
+            314.6445007324219,
+            544.8975830078125
+          ],
+          "image": {
+            "path": "Hind_Right_04.png",
+            "sha256": "efa240a59f9b2849d6ede163ca9ba0381beea689898d49210e9f73a434fb899b",
+            "alpha_bbox": [
+              283,
+              496,
+              334,
+              564
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "yaw": 2.0958127935219286,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_05_0.png",
+          "sha256": "8cd4c8fddad83f92d4cd27869691eed936a6722f2c1b3217fe776e0680797c11",
+          "alpha_bbox": [
+            205,
+            291,
+            424,
+            553
+          ],
+          "alpha_height": 262,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            291.7813415527344,
+            373.423095703125
+          ],
+          "sole": [
+            297.1477966308594,
+            412.5616760253906
+          ],
+          "image": {
+            "path": "Fore_Left_05.png",
+            "sha256": "9023c6fd0a81276244d3e35d4379a9a64aa3fc844a0b7705d9e560bd303307de",
+            "alpha_bbox": [
+              271,
+              365,
+              317,
+              433
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            392.4922180175781,
+            388.81353759765625
+          ],
+          "sole": [
+            397.85870361328125,
+            427.9521179199219
+          ],
+          "image": {
+            "path": "Fore_Right_05.png",
+            "sha256": "f4e56da1b094ee4dab188cf22e8497f5e654c5e43716240c1513e2798f1f2ba0",
+            "alpha_bbox": [
+              372,
+              380,
+              417,
+              448
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            238.11643981933594,
+            488.9538269042969
+          ],
+          "sole": [
+            243.48291015625,
+            528.0924072265625
+          ],
+          "image": {
+            "path": "Hind_Left_05.png",
+            "sha256": "ecc65c4d6eda83c0c612a96c356a521c42e8bdc057a0b4610a0f78de314b2870",
+            "alpha_bbox": [
+              217,
+              480,
+              263,
+              548
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            338.82733154296875,
+            504.3442687988281
+          ],
+          "sole": [
+            344.19378662109375,
+            543.4828491210938
+          ],
+          "image": {
+            "path": "Hind_Right_05.png",
+            "sha256": "f0e44055d0e37a8e11547f41b48bb8931c2098634aa0f7715de68f719551ce6d",
+            "alpha_bbox": [
+              318,
+              495,
+              364,
+              564
+            ],
+            "alpha_height": 69,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "yaw": 2.3561946558292193,
+      "screen_facing": "up",
+      "upper": [
+        {
+          "path": "upper_06_0.png",
+          "sha256": "7868cd8f896d74bcddbb1a1a81fc030e23e089837f1a98e5fbf3c7538c32118f",
+          "alpha_bbox": [
+            228,
+            291,
+            431,
+            555
+          ],
+          "alpha_height": 264,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            267.887939453125,
+            379.45587158203125
+          ],
+          "sole": [
+            267.887939453125,
+            418.19140625
+          ],
+          "image": {
+            "path": "Fore_Left_06.png",
+            "sha256": "25ecbbebd40061585436181dd3dfe1ba92d86472879ef4112db7df616e14ba3b",
+            "alpha_bbox": [
+              247,
+              371,
+              288,
+              439
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            372.112060546875,
+            379.45587158203125
+          ],
+          "sole": [
+            372.112060546875,
+            418.19140625
+          ],
+          "image": {
+            "path": "Fore_Right_06.png",
+            "sha256": "d110403f45b21abceb0a9127c1f652854822da68fc650b2f9e436e5bae3b5360",
+            "alpha_bbox": [
+              352,
+              370,
+              393,
+              439
+            ],
+            "alpha_height": 69,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            267.8879699707031,
+            499.01678466796875
+          ],
+          "sole": [
+            267.887939453125,
+            537.7523193359375
+          ],
+          "image": {
+            "path": "Hind_Left_06.png",
+            "sha256": "55a5a115920e0e7767bf20eca50714184be133e81d81f48e4cd2824c6f86aa50",
+            "alpha_bbox": [
+              248,
+              490,
+              289,
+              558
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            372.112060546875,
+            499.01678466796875
+          ],
+          "sole": [
+            372.112060546875,
+            537.7523193359375
+          ],
+          "image": {
+            "path": "Hind_Right_06.png",
+            "sha256": "bdb661119c83ec619102fbad272035456e46e69637a4f48ee57156d4460e28f2",
+            "alpha_bbox": [
+              352,
+              490,
+              393,
+              558
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "yaw": 2.616576477133306,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_07_0.png",
+          "sha256": "f32c6b348ad260db16b283a5b10c9ffd3c8a90303e8339fd4bb3b9d93764d59a",
+          "alpha_bbox": [
+            216,
+            292,
+            449,
+            553
+          ],
+          "alpha_height": 261,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            247.50779724121094,
+            388.81353759765625
+          ],
+          "sole": [
+            242.14129638671875,
+            427.9521179199219
+          ],
+          "image": {
+            "path": "Fore_Left_07.png",
+            "sha256": "57feb7307b4a807ab7e04cf999e2b41a7589bb33d0e48d54ae7554968cf190fd",
+            "alpha_bbox": [
+              223,
+              380,
+              268,
+              448
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            348.21868896484375,
+            373.423095703125
+          ],
+          "sole": [
+            342.8521728515625,
+            412.5616760253906
+          ],
+          "image": {
+            "path": "Fore_Right_07.png",
+            "sha256": "58bb6b0de57d66b81dd5fb6cf00242ecab93cd559f913ff26c6ea49be67a0e1d",
+            "alpha_bbox": [
+              323,
+              365,
+              369,
+              433
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            301.17266845703125,
+            504.3442687988281
+          ],
+          "sole": [
+            295.80621337890625,
+            543.4828491210938
+          ],
+          "image": {
+            "path": "Hind_Left_07.png",
+            "sha256": "36622ba89fcc5fc1fd3ec83f775a0e3bb1381f7ec499842f791506e16d7592ae",
+            "alpha_bbox": [
+              277,
+              496,
+              322,
+              564
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            401.883544921875,
+            488.9538269042969
+          ],
+          "sole": [
+            396.5170593261719,
+            528.0924072265625
+          ],
+          "image": {
+            "path": "Hind_Right_07.png",
+            "sha256": "b43d72f743593b41e3f68e7d2ffdfe8988a65b91b70ead4bf38fde4887c9b13a",
+            "alpha_bbox": [
+              377,
+              480,
+              423,
+              548
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "yaw": 2.8769582984373927,
+      "screen_facing": "up_left",
+      "upper": [
+        {
+          "path": "upper_08_0.png",
+          "sha256": "6a5d60684891f3bdbdc3f85d9bce058ffa456a269f921be0e0b6d7125c557f6e",
+          "alpha_bbox": [
+            187,
+            296,
+            464,
+            545
+          ],
+          "alpha_height": 249,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            232.01480102539062,
+            400.86529541015625
+          ],
+          "sole": [
+            221.6436004638672,
+            441.18572998046875
+          ],
+          "image": {
+            "path": "Fore_Left_08.png",
+            "sha256": "9fb490350140cb0ef50610a8f047a6fcbda4b0551b046d71b681245adb02d23a",
+            "alpha_bbox": [
+              202,
+              392,
+              254,
+              460
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            322.42291259765625,
+            371.1219482421875
+          ],
+          "sole": [
+            312.0517272949219,
+            411.4423828125
+          ],
+          "image": {
+            "path": "Fore_Right_08.png",
+            "sha256": "a63926d3052d4cb66b04ea254da93be94fb2cdefd0483322739ab295a9b60182",
+            "alpha_bbox": [
+              293,
+              363,
+              344,
+              430
+            ],
+            "alpha_height": 67,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            335.7266845703125,
+            504.5771484375
+          ],
+          "sole": [
+            325.3554992675781,
+            544.8975830078125
+          ],
+          "image": {
+            "path": "Hind_Left_08.png",
+            "sha256": "7576bbfdcc2d6b60607505dd027bc625879cb6f8b871c49d4e14d4989ae625fe",
+            "alpha_bbox": [
+              306,
+              496,
+              357,
+              564
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            426.1347961425781,
+            474.83380126953125
+          ],
+          "sole": [
+            415.7635803222656,
+            515.1542358398438
+          ],
+          "image": {
+            "path": "Hind_Right_08.png",
+            "sha256": "7f1a8346b5cc3f902c740ad14e593a6ac70aea3160e375e051da139760b4af71",
+            "alpha_bbox": [
+              396,
+              466,
+              448,
+              534
+            ],
+            "alpha_height": 68,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "yaw": 3.4019745577123173,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_09_0.png",
+          "sha256": "7b8f90b14be110dae83c30fd93465129866eb4f8c10d6d330a53dcb656a9a448",
+          "alpha_bbox": [
+            153,
+            310,
+            509,
+            519
+          ],
+          "alpha_height": 209,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            219.4759521484375,
+            429.91925048828125
+          ],
+          "sole": [
+            201.4385986328125,
+            474.6181945800781
+          ],
+          "image": {
+            "path": "Fore_Left_09.png",
+            "sha256": "f86bb0c10dcf3dae86095fd107eaeed9101a3f5b06fd45e1f0b848fe137c9dc3",
+            "alpha_bbox": [
+              183,
+              423,
+              243,
+              488
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            271.7159423828125,
+            378.1903076171875
+          ],
+          "sole": [
+            253.67857360839844,
+            422.88922119140625
+          ],
+          "image": {
+            "path": "Fore_Right_09.png",
+            "sha256": "f45bd12ca67ea308b1aad0a670c6ebc12d69e35b65cffadc0e77499273095287",
+            "alpha_bbox": [
+              236,
+              371,
+              296,
+              437
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            399.84942626953125,
+            489.8464660644531
+          ],
+          "sole": [
+            381.8121032714844,
+            534.54541015625
+          ],
+          "image": {
+            "path": "Hind_Left_09.png",
+            "sha256": "52bceae54fb3d3ba8ebe74ffc3e6786b45feb8eba50385240c62506066d250bc",
+            "alpha_bbox": [
+              364,
+              483,
+              424,
+              548
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            452.0893859863281,
+            438.11749267578125
+          ],
+          "sole": [
+            434.05206298828125,
+            482.81640625
+          ],
+          "image": {
+            "path": "Hind_Right_09.png",
+            "sha256": "2e17d714dd36c4e4b7e62d3c5104874f8ac78aa37e378d2ac4dd72280f9aa87e",
+            "alpha_bbox": [
+              416,
+              431,
+              476,
+              496
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "yaw": 3.9269908169872414,
+      "screen_facing": "left",
+      "upper": [
+        {
+          "path": "upper_10_0.png",
+          "sha256": "1cda3cf3c6bed4463aa3c3d35e07127c4afa92af6e74a21262e3eaa4da266dca",
+          "alpha_bbox": [
+            156,
+            311,
+            530,
+            487
+          ],
+          "alpha_height": 176,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            234.01510620117188,
+            458.66497802734375
+          ],
+          "sole": [
+            213.17030334472656,
+            509.3565979003906
+          ],
+          "image": {
+            "path": "Fore_Left_10.png",
+            "sha256": "10df8ee4ce43d257420e7f20a713465426807248af14a69f115f53b52c1020eb",
+            "alpha_bbox": [
+              200,
+              452,
+              259,
+              518
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            234.01513671875,
+            398.884521484375
+          ],
+          "sole": [
+            213.17031860351562,
+            449.5761413574219
+          ],
+          "image": {
+            "path": "Fore_Right_10.png",
+            "sha256": "c9a50c85e5547df90d1c53726b3288d891688c47eb7506247beebc01f9136583",
+            "alpha_bbox": [
+              200,
+              393,
+              259,
+              458
+            ],
+            "alpha_height": 65,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            442.46331787109375,
+            458.66497802734375
+          ],
+          "sole": [
+            421.61846923828125,
+            509.35662841796875
+          ],
+          "image": {
+            "path": "Hind_Left_10.png",
+            "sha256": "12c86b7fd1aaa73a8fdcbfe7f00467cde294a39feeb336c1e7cd531c85d43124",
+            "alpha_bbox": [
+              408,
+              452,
+              468,
+              518
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            442.46331787109375,
+            398.8845520019531
+          ],
+          "sole": [
+            421.6184997558594,
+            449.576171875
+          ],
+          "image": {
+            "path": "Hind_Right_10.png",
+            "sha256": "ffa65ba9d91b432a96840b334d8f5aaea7cfce5665fccb7900386276e54a58ed",
+            "alpha_bbox": [
+              408,
+              392,
+              467,
+              458
+            ],
+            "alpha_height": 66,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "yaw": 4.452007200895835,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_11_0.png",
+          "sha256": "70ef36fc5cbad6f9bf77e325649585109cf971288fb43ef88df4a638bd80c048",
+          "alpha_bbox": [
+            153,
+            290,
+            509,
+            507
+          ],
+          "alpha_height": 217,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            271.71588134765625,
+            479.35919189453125
+          ],
+          "sole": [
+            253.67852783203125,
+            536.0435791015625
+          ],
+          "image": {
+            "path": "Fore_Left_11.png",
+            "sha256": "4cca7187c606e33a74abd1b6316cf3b93b50f6d1830cf6bf6e4a1c6354f803cb",
+            "alpha_bbox": [
+              236,
+              472,
+              296,
+              544
+            ],
+            "alpha_height": 72,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            219.4759521484375,
+            427.6302490234375
+          ],
+          "sole": [
+            201.43861389160156,
+            484.3145751953125
+          ],
+          "image": {
+            "path": "Fore_Right_11.png",
+            "sha256": "2806700e9a8f8d4cad47af8a056152d0928c58edd7181baa3faa6b20099b6806",
+            "alpha_bbox": [
+              184,
+              420,
+              243,
+              493
+            ],
+            "alpha_height": 73,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            452.0893859863281,
+            419.4320373535156
+          ],
+          "sole": [
+            434.05206298828125,
+            476.11639404296875
+          ],
+          "image": {
+            "path": "Hind_Left_11.png",
+            "sha256": "f3fda1cc10c97f57faf991346242040af79091b29b444c0319dcb4edadc28d87",
+            "alpha_bbox": [
+              416,
+              412,
+              476,
+              484
+            ],
+            "alpha_height": 72,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            399.8494873046875,
+            367.70306396484375
+          ],
+          "sole": [
+            381.8121032714844,
+            424.38739013671875
+          ],
+          "image": {
+            "path": "Hind_Right_11.png",
+            "sha256": "2efe574e9946f5fdccdf74402dba02de3d43d6ea719bde38ed6aabcd26cca93b",
+            "alpha_bbox": [
+              364,
+              361,
+              424,
+              433
+            ],
+            "alpha_height": 72,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "yaw": 4.97702358480443,
+      "screen_facing": "down_left",
+      "upper": [
+        {
+          "path": "upper_12_0.png",
+          "sha256": "3e0ab51f9496d229c277d9f28b575abec7d9ee63953683f8aff18e10f5c56ed1",
+          "alpha_bbox": [
+            187,
+            266,
+            462,
+            531
+          ],
+          "alpha_height": 265,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            322.42291259765625,
+            486.4275817871094
+          ],
+          "sole": [
+            312.05169677734375,
+            547.4903564453125
+          ],
+          "image": {
+            "path": "Fore_Left_12.png",
+            "sha256": "fc597ec576b62f0ae962421f41a0b73600fb9ef105039adfe9f379877e1bf696",
+            "alpha_bbox": [
+              293,
+              478,
+              344,
+              554
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            232.01478576660156,
+            456.6842346191406
+          ],
+          "sole": [
+            221.6436004638672,
+            517.7470703125
+          ],
+          "image": {
+            "path": "Fore_Right_12.png",
+            "sha256": "e6b49e8e7e0965df04bfedc4a7fe860cd9a5a8a2c94d7b30ec88f37be634db05",
+            "alpha_bbox": [
+              202,
+              448,
+              254,
+              525
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            426.134765625,
+            382.7156982421875
+          ],
+          "sole": [
+            415.7635803222656,
+            443.7785339355469
+          ],
+          "image": {
+            "path": "Hind_Left_12.png",
+            "sha256": "2a6359b437f27524586d18dd23bf4be4d6e111cd9dc74f4e517a945ed0d96236",
+            "alpha_bbox": [
+              396,
+              374,
+              448,
+              451
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            335.7266845703125,
+            352.9723815917969
+          ],
+          "sole": [
+            325.3554992675781,
+            414.0351867675781
+          ],
+          "image": {
+            "path": "Hind_Right_12.png",
+            "sha256": "ae9755f1fd2322bd065c0eece250aafe01e6afb0e4c73fdca2565d50578ddb21",
+            "alpha_bbox": [
+              306,
+              345,
+              357,
+              421
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "yaw": 5.237405447111721,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_13_0.png",
+          "sha256": "d1385d4763eba3f4fa133525674cd94e2d5202f54f980d1f7661bdd291d4ded3",
+          "alpha_bbox": [
+            216,
+            260,
+            435,
+            536
+          ],
+          "alpha_height": 276,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            348.2186584472656,
+            484.12640380859375
+          ],
+          "sole": [
+            342.8521728515625,
+            546.3711547851562
+          ],
+          "image": {
+            "path": "Fore_Left_13.png",
+            "sha256": "e25c34409a133d163ae45ddc7b6786da6b97cbbe6df5898d3032895e3ac27f44",
+            "alpha_bbox": [
+              324,
+              475,
+              369,
+              552
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            247.50778198242188,
+            468.7359313964844
+          ],
+          "sole": [
+            242.1412811279297,
+            530.9806518554688
+          ],
+          "image": {
+            "path": "Fore_Right_13.png",
+            "sha256": "2b14f99cffa23a064c96e9c4d9b770c8ef92a51170b46efd2f7af765697408c7",
+            "alpha_bbox": [
+              223,
+              460,
+              268,
+              537
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            401.8835754394531,
+            368.5956726074219
+          ],
+          "sole": [
+            396.5170593261719,
+            430.84039306640625
+          ],
+          "image": {
+            "path": "Hind_Left_13.png",
+            "sha256": "1d74cc3d134149bfcc844ff50c961fa5ea0796a1cd7fb4a1ed9dcfa0990caaf0",
+            "alpha_bbox": [
+              377,
+              360,
+              423,
+              437
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            301.1726989746094,
+            353.2052307128906
+          ],
+          "sole": [
+            295.80621337890625,
+            415.4499206542969
+          ],
+          "image": {
+            "path": "Hind_Right_13.png",
+            "sha256": "d9dcb03ec85eea4d42177e8d573e5da184afc18eb940728a3d919565abb7e1f9",
+            "alpha_bbox": [
+              276,
+              344,
+              322,
+              421
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "yaw": 5.497787309419013,
+      "screen_facing": "down",
+      "upper": [
+        {
+          "path": "upper_14_0.png",
+          "sha256": "03430a03c4d56dd61e74fc3e572d2a3a985d1fc3def7c47973397ae97f75c57b",
+          "alpha_bbox": [
+            209,
+            257,
+            413,
+            537
+          ],
+          "alpha_height": 280,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            372.112060546875,
+            478.0936279296875
+          ],
+          "sole": [
+            372.112060546875,
+            540.7413330078125
+          ],
+          "image": {
+            "path": "Fore_Left_14.png",
+            "sha256": "c66139bcaa18d2de95fb665a7d762cc628afa2391daa51fb0afc12704021f934",
+            "alpha_bbox": [
+              351,
+              469,
+              393,
+              545
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            267.887939453125,
+            478.0936279296875
+          ],
+          "sole": [
+            267.8879699707031,
+            540.7413940429688
+          ],
+          "image": {
+            "path": "Fore_Right_14.png",
+            "sha256": "d829a9925afdc26abd2dc73ef4fa7403149adae362e3267ca8bf41368bd1b66c",
+            "alpha_bbox": [
+              247,
+              469,
+              288,
+              545
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            372.11199951171875,
+            358.53271484375
+          ],
+          "sole": [
+            372.11199951171875,
+            421.1804504394531
+          ],
+          "image": {
+            "path": "Hind_Left_14.png",
+            "sha256": "f1c16115948f80c1e50d300f527bc397bd70196e8a8547455aea9ab58d5df562",
+            "alpha_bbox": [
+              352,
+              350,
+              392,
+              425
+            ],
+            "alpha_height": 75,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            267.887939453125,
+            358.53271484375
+          ],
+          "sole": [
+            267.887939453125,
+            421.1804504394531
+          ],
+          "image": {
+            "path": "Hind_Right_14.png",
+            "sha256": "1db96a7981324294bc7944fd634b2941e87dc99e9b46aa2dfbd0f3acb3a0a4f0",
+            "alpha_bbox": [
+              247,
+              349,
+              288,
+              425
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "yaw": 5.758169107996222,
+      "screen_facing": "turn_inbetween",
+      "upper": [
+        {
+          "path": "upper_15_0.png",
+          "sha256": "3add0b7777d31de4ecd1d52fb794ba667d2e1ccfd69501eeab83640108b59209",
+          "alpha_bbox": [
+            190,
+            260,
+            424,
+            536
+          ],
+          "alpha_height": 276,
+          "edge_alpha_pixels": 0
+        }
+      ],
+      "feet": [
+        {
+          "id": "Fore_Left",
+          "hip": [
+            392.4922180175781,
+            468.7359313964844
+          ],
+          "sole": [
+            397.85870361328125,
+            530.9806518554688
+          ],
+          "image": {
+            "path": "Fore_Left_15.png",
+            "sha256": "b780296b6d83975b9ec88a75d49e811b7b4867a24ba714b52217537fa53ec717",
+            "alpha_bbox": [
+              372,
+              460,
+              417,
+              537
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Fore_Right",
+          "hip": [
+            291.7813415527344,
+            484.12640380859375
+          ],
+          "sole": [
+            297.1477966308594,
+            546.3711547851562
+          ],
+          "image": {
+            "path": "Fore_Right_15.png",
+            "sha256": "4e07bb9d2b7416c3880ec87296c1cd50e942c84c8e784021df2e19cdb3878c45",
+            "alpha_bbox": [
+              271,
+              475,
+              317,
+              552
+            ],
+            "alpha_height": 77,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Left",
+          "hip": [
+            338.82733154296875,
+            353.2052307128906
+          ],
+          "sole": [
+            344.19378662109375,
+            415.4499206542969
+          ],
+          "image": {
+            "path": "Hind_Left_15.png",
+            "sha256": "ea78222395a0050b7abbbb8448370bf2d843ef4192bcf6cd6f8f9e252c6f999f",
+            "alpha_bbox": [
+              318,
+              345,
+              364,
+              421
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "id": "Hind_Right",
+          "hip": [
+            238.11643981933594,
+            368.5956726074219
+          ],
+          "sole": [
+            243.48291015625,
+            430.84039306640625
+          ],
+          "image": {
+            "path": "Hind_Right_15.png",
+            "sha256": "b204a56f3c72dfec39dad4deee38caec3c828ad68b0326862da185e12d4c5460",
+            "alpha_bbox": [
+              217,
+              360,
+              263,
+              436
+            ],
+            "alpha_height": 76,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    }
+  ],
+  "native_references": [
+    {
+      "heading": 0,
+      "image": {
+        "path": "native_reference_00.png",
+        "sha256": "2549c71fecc805da9e9a843f220e59b93ca74bb5263b6932e519e285d88af2a1",
+        "alpha_bbox": [
+          176,
+          266,
+          453,
+          554
+        ],
+        "alpha_height": 288,
+        "edge_alpha_pixels": 0
+      }
+    },
+    {
+      "heading": 4,
+      "image": {
+        "path": "native_reference_04.png",
+        "sha256": "05788601af5dd76fe486695c9c0f72a87ad5d030e29eac5674ccc1d1d9281d5c",
+        "alpha_bbox": [
+          178,
+          296,
+          453,
+          564
+        ],
+        "alpha_height": 268,
+        "edge_alpha_pixels": 0
+      }
+    },
+    {
+      "heading": 8,
+      "image": {
+        "path": "native_reference_08.png",
+        "sha256": "0e4a941480ec8a48aae82481bbca6b67c4edb96abfa1e19587a3e0d6cf34d77b",
+        "alpha_bbox": [
+          187,
+          296,
+          464,
+          564
+        ],
+        "alpha_height": 268,
+        "edge_alpha_pixels": 0
+      }
+    },
+    {
+      "heading": 12,
+      "image": {
+        "path": "native_reference_12.png",
+        "sha256": "62dfb30936a390a7b23042b648e9a979d4d5860eaea827ff958fb0e107d8d3fd",
+        "alpha_bbox": [
+          187,
+          266,
+          462,
+          554
+        ],
+        "alpha_height": 288,
+        "edge_alpha_pixels": 0
+      }
+    }
+  ],
+  "method": "bounded upper-body turn plates + four independent live 2D foot meshes; no trajectory input",
+  "heading_sampling": "eight exact screen facings plus bounded turn inbetweens; not uniform model yaw",
+  "limits": "candidate; discrete turn plates, approximate limb skin/shadows; five DR-only pickup replacements; no approval",
+  "exporter_sha256": "c1749979ab7ffccc404e8e3e8c1b3eda82b2b3def295c920acc5100ea6194f70",
+  "skin_helper_sha256": "120a3f5184af7b5be54f2b2d94ed556dc1de60a823a6af29c04c917151f37639",
+  "blender": "4.5.13 LTS",
+  "samples": 32,
+  "threads": 8,
+  "elapsed_seconds": 137.65599999998813
+}

@@ -1,0 +1,233 @@
+{
+  "crops": {
+    "eight_directions.png": [
+      {
+        "requested_tick": 680,
+        "render_tick": 680,
+        "crop": [
+          470,
+          217,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 770,
+        "render_tick": 770,
+        "crop": [
+          406,
+          161,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 860,
+        "render_tick": 860,
+        "crop": [
+          458,
+          93,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 950,
+        "render_tick": 950,
+        "crop": [
+          530,
+          141,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 1060,
+        "render_tick": 1060,
+        "crop": [
+          499,
+          248,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 1145,
+        "render_tick": 1145,
+        "crop": [
+          428,
+          256,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 1230,
+        "render_tick": 1230,
+        "crop": [
+          420,
+          186,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 1315,
+        "render_tick": 1315,
+        "crop": [
+          490,
+          177,
+          320,
+          320
+        ]
+      }
+    ],
+    "turn_and_stop.png": [
+      {
+        "requested_tick": 150,
+        "render_tick": 150,
+        "crop": [
+          408,
+          104,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 267,
+        "render_tick": 267,
+        "crop": [
+          524,
+          220,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 365,
+        "render_tick": 365,
+        "crop": [
+          521,
+          217,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 410,
+        "render_tick": 410,
+        "crop": [
+          521,
+          217,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 440,
+        "render_tick": 440,
+        "crop": [
+          501,
+          197,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 530,
+        "render_tick": 530,
+        "crop": [
+          530,
+          217,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 2100,
+        "render_tick": 2100,
+        "crop": [
+          391,
+          214,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 2600,
+        "render_tick": 2600,
+        "crop": [
+          406,
+          153,
+          320,
+          320
+        ]
+      },
+      {
+        "requested_tick": 3100,
+        "render_tick": 3100,
+        "crop": [
+          462,
+          149,
+          320,
+          320
+        ]
+      }
+    ]
+  },
+  "native_layer_alpha": [
+    {
+      "heading": 0,
+      "screen_facing": "down_right",
+      "alpha_iou": 0.9999796255170025,
+      "scope": "unposed native layer composition; not live gait acceptance"
+    },
+    {
+      "heading": 4,
+      "screen_facing": "up_right",
+      "alpha_iou": 1.0,
+      "scope": "unposed native layer composition; not live gait acceptance"
+    },
+    {
+      "heading": 8,
+      "screen_facing": "up_left",
+      "alpha_iou": 1.0,
+      "scope": "unposed native layer composition; not live gait acceptance"
+    },
+    {
+      "heading": 12,
+      "screen_facing": "down_left",
+      "alpha_iou": 0.9999584337850196,
+      "scope": "unposed native layer composition; not live gait acceptance"
+    }
+  ],
+  "pickup_pixels": {
+    "scope": "two times in the same actual movie, no image edits; yellow diagnostic box surrounds floor prop",
+    "samples": [
+      {
+        "tick": 150,
+        "viewport_point": [
+          740,
+          496
+        ],
+        "rgb": [
+          131,
+          86,
+          51
+        ]
+      },
+      {
+        "tick": 267,
+        "viewport_point": [
+          740,
+          496
+        ],
+        "rgb": [
+          201,
+          173,
+          119
+        ]
+      }
+    ]
+  }
+}

@@ -4,8 +4,21 @@ extends InteractableComponent
 signal pickup_requested(item_id: StringName, quantity: int)
 
 @export var item_id: StringName = &""
-@export_range(1, 999, 1) var quantity: int = 1
+@export_range(1, 999, 1) var quantity: int = 1:
+	set(value):
+		quantity = value
+		_refresh_presentation()
+@export var visual: CanvasItem
 var _pending_request: InteractionResult
+
+
+func _ready() -> void:
+	_refresh_presentation()
+
+
+func _refresh_presentation() -> void:
+	if is_instance_valid(visual):
+		visual.visible = quantity > 0
 
 
 func _perform_interaction(_context: InteractionContext) -> InteractionResult:

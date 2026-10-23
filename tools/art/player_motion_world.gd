@@ -18,6 +18,8 @@ static func create(tree: SceneTree) -> GameBootstrap:
 	var pickup := PICKUP.instantiate() as PickupInteractable
 	pickup.interaction_id = &"pickup_motion_study_branch"
 	pickup.position = Vector2(100, 40)
+	# Floor props must sit above the home's immediate road draw, below Player.
+	pickup.z_index = 2
 	zone.add_child(pickup)
 	pickup.owner = zone
 	var packed := PackedScene.new()

@@ -1,0 +1,24 @@
+{
+  "scope": "authored source UV markers measured through actual 2D draw triangles; not image-inferred contact or visual approval",
+  "ticks": 3840,
+  "nominal_seconds": 64.0,
+  "moving_exact_facings": [
+    "down",
+    "down_left",
+    "down_right",
+    "left",
+    "right",
+    "up",
+    "up_left",
+    "up_right"
+  ],
+  "turn_headings": 16,
+  "blocked_ticks": 492,
+  "stance_comparisons": 9874,
+  "max_drawn_marker_error_px": 5.773472162168974e-05,
+  "max_stance_slide_px": 5.5016346412644084e-05,
+  "cropped_texture_bytes": 6658132,
+  "source_images": 84,
+  "record_sha256": "4af2682f9199dcbbe835d952342c80de2b2162d2d1eb7804fd8a611cdaa6b812",
+  "manifest_sha256": "be945cb9e8af7e4f7e6dcf9039a1a8a337cf07f4921a388559af124482f8ef81"
+}

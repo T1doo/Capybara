@@ -1,0 +1,108 @@
+extends RefCounted
+
+const MAIN: PackedScene = preload("res://scenes/bootstrap/main.tscn")
+const HOME: PackedScene = preload("res://scenes/visual_prototypes/home_visual_blockout.tscn")
+const PICKUP: PackedScene = preload("res://scenes/interactables/pickup_placeholder.tscn")
+
+
+static func create(tree: SceneTree) -> GameBootstrap:
+	var zone := WorldZone.new()
+	zone.name = "MotionStudyZone"
+	zone.zone_id = GameBootstrap.HOME_ZONE_ID
+	var spawn := WorldSpawnPoint.new()
+	spawn.name = "Spawn"
+	spawn.spawn_id = GameBootstrap.HOME_SPAWN_ID
+	spawn.position = Vector2(-160, -220)
+	zone.add_child(spawn)
+	spawn.owner = zone
+	var pickup := PICKUP.instantiate() as PickupInteractable
+	pickup.interaction_id = &"pickup_motion_study_branch"
+	pickup.position = Vector2(100, 40)
+	# Floor props must sit above the home's immediate road draw, below Player.
+	pickup.z_index = 2
+	zone.add_child(pickup)
+	pickup.owner = zone
+	var packed := PackedScene.new()
+	assert(packed.pack(zone) == OK)
+	zone.free()
+	var flow := tree.root.get_node("SceneFlowService") as SceneFlowCoordinator
+	assert(flow.register_zone_scene(GameBootstrap.HOME_ZONE_ID, packed))
+	var main := MAIN.instantiate() as GameBootstrap
+	var actor := main.get_node("Player") as PlayerCharacter
+	var visual := HOME.instantiate() as HomeVisualBlockout
+	var reference_actor := visual.get_node("Player") as PlayerCharacter
+	# Reuse the existing home-preview scale/collider preset, not a new movement controller.
+	actor.scale = reference_actor.scale
+	actor.z_index = reference_actor.z_index
+	for node in visual.find_children("*", "Node", true, false):
+		for property: Dictionary in node.get_property_list():
+			if property["name"] == &"sort_actor":
+				node.set(&"sort_actor", actor)
+	reference_actor.free()
+	visual.show_grid = false
+	visual.show_anchor_guides = false
+	tree.root.add_child(main)
+	tree.current_scene = main
+	flow.current_zone.add_child(visual)
+	for node_name: String in ["PhaseLabel", "DebugOverlay"]:
+		(main.get_node("Interface").get_node(node_name) as CanvasItem).hide()
+	(main.get_node("Interface/PauseMenu") as PauseMenu).allow_game_saves = false
+	actor.follow_camera.enabled = false
+	actor.restore_runtime_state(spawn_position(), &"down_right")
+	var barrier := StaticBody2D.new()
+	barrier.name = "VisibleCollisionStudyWall"
+	barrier.collision_layer = 2
+	barrier.collision_mask = 1
+	barrier.position = Vector2(128, -150)
+	var shape := CollisionShape2D.new()
+	var rectangle := RectangleShape2D.new()
+	rectangle.size = Vector2(24, 700)
+	shape.shape = rectangle
+	barrier.add_child(shape)
+	var wall := Polygon2D.new()
+	wall.polygon = PackedVector2Array([Vector2(-12, -350), Vector2(12, -350), Vector2(12, 350), Vector2(-12, 350)])
+	wall.color = Color(0.42, 0.29, 0.16, 0.9)
+	barrier.add_child(wall)
+	flow.current_zone.add_child(barrier)
+	return main
+
+
+static func spawn_position() -> Vector2:
+	return Vector2(-160, -220)
+
+
+static func axes_at(tick: int) -> Vector2:
+	if tick >= 120 and tick < 192:
+		return Vector2(1, 1)
+	if tick == 360 or (tick >= 432 and tick < 504):
+		return Vector2(-1, -1)
+	if tick == 552 or (tick >= 624 and tick < 696):
+		return Vector2(1, 1)
+	if tick == 720 or (tick >= 792 and tick < 972):
+		return Vector2.RIGHT
+	if tick >= 1020:
+		var cycle_tick: int = (tick - 1020) % 384
+		if cycle_tick == 0 or (cycle_tick >= 72 and cycle_tick < 144):
+			return Vector2(-1, -1)
+		if cycle_tick == 192 or (cycle_tick >= 264 and cycle_tick < 336):
+			return Vector2(1, 1)
+	return Vector2.ZERO
+
+
+static func apply_input(tick: int) -> void:
+	var axes: Vector2 = axes_at(tick)
+	for entry: Array in [[&"move_left", axes.x < 0], [&"move_right", axes.x > 0], [&"move_up", axes.y < 0], [&"move_down", axes.y > 0]]:
+		if entry[1]:
+			Input.action_press(entry[0])
+		else:
+			Input.action_release(entry[0])
+	if tick == 240:
+		var event := InputEventAction.new()
+		event.action = &"interact"
+		event.pressed = true
+		Input.parse_input_event(event)
+	if tick == 241:
+		var event := InputEventAction.new()
+		event.action = &"interact"
+		event.pressed = false
+		Input.parse_input_event(event)

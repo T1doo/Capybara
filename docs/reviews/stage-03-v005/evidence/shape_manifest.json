@@ -1,0 +1,79 @@
+{
+  "route": "blender_v003_shape_only",
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    384
+  ],
+  "display_scale": 0.5,
+  "camera_pitch_degrees": 35,
+  "orthographic_scale": 3.9299935028876787,
+  "frames": [
+    {
+      "direction": "down_right",
+      "pose": "shape_v003",
+      "path": "down_right_idle.png",
+      "sha256": "8443bcdc808c5d80b37ee789ef6d6b9a94ca7641c9dfe7ed3e5303b0c290928d",
+      "alpha_bbox": [
+        112,
+        170,
+        389,
+        458
+      ],
+      "alpha_height": 288,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "down_left",
+      "pose": "shape_v003",
+      "path": "down_left_idle.png",
+      "sha256": "d688e32ea351fc1c7f591bdeb918c64865ddfd3fe8e1234e08bfaf74d1d95fe1",
+      "alpha_bbox": [
+        123,
+        171,
+        398,
+        458
+      ],
+      "alpha_height": 287,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "up_right",
+      "pose": "shape_v003",
+      "path": "up_right_idle.png",
+      "sha256": "3e0c525f89df8ce1ca28db76b1fc569825547262ef19f7178327339115c144c0",
+      "alpha_bbox": [
+        114,
+        200,
+        389,
+        468
+      ],
+      "alpha_height": 268,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "up_left",
+      "pose": "shape_v003",
+      "path": "up_left_idle.png",
+      "sha256": "da96f00e02c0fc27beeffa2db82bc82f4001e7fe93e189e71e6f8a510b0e7804",
+      "alpha_bbox": [
+        123,
+        200,
+        400,
+        468
+      ],
+      "alpha_height": 268,
+      "edge_alpha_pixels": 0
+    }
+  ],
+  "source_model_manifest_sha256": "daf856eccfe0f7974274a96ba828b912e83df3721de0277b4dd0b3accbf29036",
+  "source_blend_sha256": "35ae998dce11df2326e55b1ccab1eb58342262d485e06f0aa9bbb8baa0d9612a",
+  "source_script_sha256": "9499c4164add379fc2a215c38d6d8f36dbd0bd016427f646e8fa361fcb67ca2b",
+  "blend_path": "player_shape_v003.blend",
+  "blend_sha256": "aa980a5784e0c1e461ebdbb4304c64df5f20090c9295e4fd392ee5dfb313e923",
+  "status": "technical_unapproved",
+  "limits": "static shape study; old morph deltas retained provisionally; no motion acceptance"
+}

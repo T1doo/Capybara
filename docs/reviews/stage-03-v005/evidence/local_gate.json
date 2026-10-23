@@ -1,0 +1,258 @@
+{
+  "schema_version": 3,
+  "run_id": "20261023T094005288Z-p69352-be2526a8",
+  "success": true,
+  "required_checks_satisfied": true,
+  "exit_code": 0,
+  "started_at_utc": "2026-10-23T09:40:05.2961768Z",
+  "finished_at_utc": "2026-10-23T09:42:00.2468799Z",
+  "duration_ms": 114951,
+  "branch": "codex/production-clean-20260916",
+  "commit": "307aa46ed440330069b8143234d9ee5005ae3a84",
+  "source_commit": "307aa46ed440330069b8143234d9ee5005ae3a84",
+  "source_before": {
+    "commit": "307aa46ed440330069b8143234d9ee5005ae3a84",
+    "dirty": true,
+    "fingerprint_sha256": "70404dc05ea6df0536ae486d4ec7d128b9dc8bdd45b5d15d36adf026e80926d0",
+    "untracked_count": 125
+  },
+  "source_after": {
+    "commit": "307aa46ed440330069b8143234d9ee5005ae3a84",
+    "dirty": true,
+    "fingerprint_sha256": "70404dc05ea6df0536ae486d4ec7d128b9dc8bdd45b5d15d36adf026e80926d0",
+    "untracked_count": 125
+  },
+  "execution_mode": "headless",
+  "build_configuration": "Debug",
+  "host": {
+    "os": "Microsoft Windows 10.0.22631",
+    "powershell_version": "7.6.5",
+    "powershell_edition": "Core",
+    "git_version": "git version 2.55.0.windows.3"
+  },
+  "godot_executable": "Godot_v4.7.2-stable_win64_console.exe",
+  "failure": null,
+  "steps": [
+    {
+      "name": "governance",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 17783,
+      "failure_message": null
+    },
+    {
+      "name": "repository_format",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 2155,
+      "failure_message": null
+    },
+    {
+      "name": "godot_version",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 65,
+      "failure_message": null,
+      "version": "4.7.2.stable.official.ed1daf0bf"
+    },
+    {
+      "name": "godot_import",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "duration_ms": 2912,
+      "failure_message": null
+    },
+    {
+      "name": "art_asset_pipeline",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 35687,
+      "failure_message": null
+    },
+    {
+      "name": "svg_cutout_render",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 1543,
+      "failure_message": null
+    },
+    {
+      "name": "painted_material_assets",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 809,
+      "failure_message": null
+    },
+    {
+      "name": "svg_cutout_alpha_review",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 1295,
+      "failure_message": null
+    },
+    {
+      "name": "localization_integrity",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 590,
+      "failure_message": null
+    },
+    {
+      "name": "settings_process_restart",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 1960,
+      "failure_message": null
+    },
+    {
+      "name": "save_process_restart",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 13144,
+      "failure_message": null
+    },
+    {
+      "name": "automated_tests",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 120,
+      "duration_ms": 27101,
+      "failure_message": null
+    },
+    {
+      "name": "live_candidate_gait",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 487,
+      "failure_message": null
+    },
+    {
+      "name": "save_runtime_transaction",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 120,
+      "duration_ms": 853,
+      "failure_message": null
+    },
+    {
+      "name": "main_scene_smoke",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 665,
+      "failure_message": null
+    },
+    {
+      "name": "home_visual_blockout_smoke",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 569,
+      "failure_message": null
+    },
+    {
+      "name": "home_visual_preview_smoke",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "duration_ms": 666,
+      "failure_message": null
+    },
+    {
+      "name": "windows_build_smoke",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 300,
+      "duration_ms": 5864,
+      "failure_message": null
+    },
+    {
+      "name": "git_worktree_diff_check",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 115,
+      "failure_message": null
+    },
+    {
+      "name": "git_cached_diff_check",
+      "status": "passed",
+      "exit_code": 0,
+      "native_exit_code": 0,
+      "diagnostic_count": 0,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "duration_ms": 44,
+      "failure_message": null
+    }
+  ]
+}

@@ -558,3 +558,28 @@ GPU 复核命令：
 - [exact Windows CI39919257839](https://github.com/T1doo/Capybara/actions/runs/39919257839)实际completed/success、headSha精确一致；下载capybara-check-logs，run`20261023T074011687Z-p2516-f393e59f`，19/19、827/827、61事务及Debug导出/启动实际通过，exit0，前后dirty=false/untracked0/fingerprint均`4e855805af96ea34f0565f1154a5817a785d129ba4ca4a4becdfb37a29fa2f99`。[冻结摘要](../../reviews/stage-03-v004/evidence/ci_5ed2538.json)公开提供，不用旧CI代替。
 - 对固定5ed2538的新增33项逐项匿名GET：视频、同帧PNG、16层、manifest/报告/源码均HTTP200，长度/SHA全部吻合；主审阅页/A-B页raw均200。[分发记录](../../reviews/stage-03-v004/evidence/ab_public_delivery.json)有真实固定URL。没有替用户向其他人发消息，没有新建Release或上传整个build。
 - 自审重点为：子集不冒充完整银行、旧/新PNG元数据与RGBA分开、二维分层确实独立绘制、路径规范化不放宽根目录/哈希边界、错误退出不计录制成功。路线/母图/Stage3依旧未批准；下批继续背侧转向和自由起停，不重复本批已完成的walk/pickup、分发或PNG治理。后续文档检查点与受测实现分开，不为自身最终SHA循环amend。
+
+## 2026-10-23 · V005-LIVE-HYBRID · 解除轨迹依赖与完整源构建
+
+- 来源类型：executed_now。恢复HEAD307aa46，工作树除原交接附件无既有修改；安全分支/暂存/最近20提交/远程及分支已检查，原附件SHA72ab1263...未变。以下来源为该基线+本批dirty源码/文档，精确执行快照与父清单见[v005 EVIDENCE](../../reviews/stage-03-v005/EVIDENCE.json)，不冒用祖先CI覆盖。
+- 新显示组件只消费实际Player位置/朝向/交互，不消费预录位置或帧银行。上半身保留头颈/配件原生遮挡，四足独立网格实时变形；源始终为同一v003形体与前后两张已登记PNG。先生成等角16面并实际跑900tick，急转足部偏移最大53.08px；按中性足点速度缩短转弯步距并补旋转前瞻后，同段降到44.81px。该数不批准腿形，首轮素材/录像均保留。
+- 35°投影的游戏八向不是等角模型yaw。改为八个精确朝向加八个中间姿态后，独立检查拒绝了source_b的朝向标签：导出足部循环覆盖了heading标签变量，像素/角度存在但标签错。保留source_b和full_c，修源码变量名后，从仓库输入完整重新构建，不修改旧报告passed或给旧产物改标签凑通过。
+- `tools/build_player_motion_sample.ps1 -LiveHybrid`在新目录rebuild_20261023_d实际完整exit0：import→native→shape→paint→hybrid→gpu_live→mp4。固定Godot4.7.2 Standard/Compatibility、RTX4060 Laptop、Blender4.5.13 LTS/Cycles CPU/32采样/8线程。未读取旧私有blend/轨迹；新blend由仓库源码和两张精确PNG生成，Binary Date/RenderTime不要求与旧产物同SHA。原控制源未覆盖，未自动升级工具。
+- 最终新录制3840物理帧/64游戏秒，3845画面帧/64.083秒，捕捉墙钟67.460306秒（不是性能或soak）。八向转身后均实际行走，背侧转向、急停/反向、真实拾取1、492阻挡帧，原240/radius22/scale3/safe_margin0.08保留；四氛围为既有预设。MP4 SHA`668f9cbb47f4d9d550c13b08b4e54af47da1d77dfbb064c1e4b8952dea4feb88`。84张运行纹理在内存无缩放裁透明留白，6658132像素字节，非总VRAM。
+- 独立检查重新读取源RGBA/hash/边距、实际位置差、八向投影和实际ArrayMesh顶点/UV三角形足点：9874次着地比较，最大网格足点误差0.00005774px、漂移0.00005502px，仍按0.02/0.25px门。第一次受阻检查把tick513尚差20.84°的原地转身当空走；保留失败，改为身体对齐后给最后支撑步收尾再要求静止，不放宽接触容差。它验证作者足点，不是像素识别真实脚掌。
+- 纯Gait8组（含30/60/120Hz、堵停/急反/原地转向/八向/跳变）实际0失败，并接入统一check_project的独立必需步骤，工程门从19变20；不是新增PNG治理。只用公开副本的play入口在public_replay_e实际1400tick/23.333秒、八向匹配、诊断0并通过独立检查。自由分支另以--quit-after180实际启动/相机/退出诊断0，无测试输入注入；不声称实体键鼠/手柄已验收。
+- 主线程查看八向、背侧/低头/墙边和氛围实际GPU图：表面未整块退回灰模，配件没有镜像换边；侧视体块/笔触、脚掌、急反向仍未艺术批准，转面/低头是有限替换且仅下右有低头。未关闭ART3-003/004、母图或Stage3。技术主实现已集中实时混合方案；下一批精修该角色和补代表动作，不再并行扩建轨迹银行。
+- 精选审阅包初始105项约15.97MB，含完整84运行PNG和4原生对照、视频/实景/报告/源码快照；原始AVI/blend与失败大产物留build，无game/assets晋级。分发/当前整合门及exact CI待后续实际结果，不把本机产物称外部已取得。
+
+## 2026-10-23 · ST2-020-PICKUP-PRESENTATION · 正式入口拾取显示修复
+
+- 来源类型：executed_now。自审真实流程发现PickupInteractable.commit_pickup只改quantity/interaction_enabled，WorldZone恢复也只写数据，正式场景的Visual未同步。旧v004播放夹具手动hide掩盖该缺口；新v005没有该补丁，因此继续修正式组件，未伪造库存成功或另写第二套玩法。
+- 新增8项真实PackedScene与WorldZone状态断言，先实际运行game/tests/run_all.gd，exit1/2 of835失败，消耗后隐藏和载入已消耗状态两项复现；原日志build/pickup_visual_red_20261023.log保留。正式组件新增导出CanvasItem引用，quantity变更及ready同步visibility；场景绑定Visual，部分量仍可见，恢复有量重新显示。旧夹具3行手动hide移除，库存事务、稳定ID、JSON版本/字段和碰撞不变。
+- 同一游戏测试实际重跑exit0/835 of835，原日志build/pickup_visual_green_20261023.log，摘要/原日志SHA见[红绿证据](../../reviews/stage-03-v005/evidence/pickup_regression.json)。未把失败改写成首轮通过，也未删除测试。ST2-020待本批新整合门和exact CI关闭。
+- 新64秒样板增加独立终态要求：InventoryService实际item_branch增量1、目标quantity0、正式visual不可见；不只统计interaction_completed。在新目录rebuild_20261023_g从源码/两张PNG完整重建，全部步骤exit0，GPU3840tick/492阻挡/八向匹配/库存增量1/消耗图形true，捕捉墙钟67.842052秒；MP4 SHA`9e1167263eb841fddbdaf6cc533b8d052715d888ae70f58ff94b1203969612e6`。835测试与全流程新录像覆盖的是正式组件修复，不是仅预览技巧。
+- 原D版审阅副本逐项哈希确认后复制归档build/review_packets/v005_before_pickup_visual_fix，旧build全保留；仅更新本轮自己生成、未发布的allowlist副本为G版，未知文件会拒绝覆盖。公开素材新目录public_replay_h实际1400tick/23.333秒再次通过严格独立检查；自由分支interactive_startup_i启动/自动退出180画面帧诊断0，不宣称手工输入已测。
+
+- 对原始GPU像素继续检查发现，家园即时道路z=0覆盖了测试区同z的拾取物，导致拾取前也看不见；正式灰盒地面本为z=-10，不是同一问题。只把共用家园夹具pickup放到z=2（地面之上/角色50之下），不改Item位置、Collider或交互距离。新final_live_20261023_j使用公开副本再次实际3840tick/64秒，库存增量1/消耗图形true、八向/492阻挡及严格网格/漂移检查通过，墙钟67.042077秒。最终MP4 SHA`9d89f799c20c2b6eec9876887b834fd78e64c9b34769d6bb8d04955e0a9d3acb`。
+- 同一录像tick150地物中心像素(740,496)为RGB(131,86,51)，tick267变道路RGB(201,173,119)；[前后原像素诊断](../../reviews/stage-03-v005/pickup_visible_then_consumed.png)有明确黄框，仅诊断不改原图。原G版媒体/映射先归档build/review_packets/v005_before_final_road_layer，最后视频/图/记录更新到J版；原生素材仍来自完整G构建，生成及场景复跑证据分开，不虚构重复执行Blender。
+
+- 最终冻结批次统一run`20261023T094005288Z-p69352-be2526a8`实际exit0/20 of20、required_checks_satisfied=true；835/835游戏断言、8组实时步态、61存档事务、既有PNG/素材/治理和Windows Debug导出/启动全部通过。受测源307aa46+本批dirty，前后指纹同为`70404dc05ea6df0536ae486d4ec7d128b9dc8bdd45b5d15d36adf026e80926d0`；[原始机器摘要](../../reviews/stage-03-v005/evidence/local_gate.json)已冻结。检查后仅补日志/摘要，代码行为未再改；新提交exact CI仍待查询。

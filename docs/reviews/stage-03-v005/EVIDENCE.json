@@ -1,0 +1,720 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-23",
+  "source_commit": "307aa46ed440330069b8143234d9ee5005ae3a84",
+  "source_dirty": "v005 live tools/recipe, formal pickup visibility correction, explicit home fixture floor-prop ordering; execution snapshots included",
+  "scope": "unapproved bounded live candidate; external review copies, no game asset promotion",
+  "files": [
+    {
+      "file": "live_motion.mp4",
+      "bytes": 8032693,
+      "sha256": "9d89f799c20c2b6eec9876887b834fd78e64c9b34769d6bb8d04955e0a9d3acb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/final_live_20261023_j/review.mp4"
+    },
+    {
+      "file": "assets/hybrid_manifest.json",
+      "bytes": 50656,
+      "sha256": "be945cb9e8af7e4f7e6dcf9039a1a8a337cf07f4921a388559af124482f8ef81",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/hybrid_manifest.json"
+    },
+    {
+      "file": "evidence/live_motion.json",
+      "bytes": 3068579,
+      "sha256": "4af2682f9199dcbbe835d952342c80de2b2162d2d1eb7804fd8a611cdaa6b812",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/final_live_20261023_j/live/live_motion.json"
+    },
+    {
+      "file": "evidence/live_check.json",
+      "bytes": 761,
+      "sha256": "b8a5c5b2a97c2d2a2fcd709c36de981c34f906b4ed0773fc0ad16500d3d2c2c1",
+      "copied_from": "build/hybrid_check_20261023_j.json"
+    },
+    {
+      "file": "evidence/gait_tests.json",
+      "bytes": 1481,
+      "sha256": "11c38d83ddb469629c9ed2d86565d2c78d7fe3d975538450994e33a0058f5d88",
+      "copied_from": "build/hybrid_gait_20261023_a.json"
+    },
+    {
+      "file": "evidence/encode.json",
+      "bytes": 576,
+      "sha256": "c4f94776c8247f6ae8587cc1b480dbdb8952fe458ca3871aa1c64fc32a07d1d0",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/final_live_20261023_j/review.json"
+    },
+    {
+      "file": "evidence/native_manifest.json",
+      "bytes": 7970,
+      "sha256": "daf856eccfe0f7974274a96ba828b912e83df3721de0277b4dd0b3accbf29036",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/native/render_manifest.json"
+    },
+    {
+      "file": "evidence/shape_manifest.json",
+      "bytes": 2178,
+      "sha256": "5442add466360a6fbd45e0efe1178a15acdd43464bae20c1791fa43ae0948697",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/shape/render_manifest.json"
+    },
+    {
+      "file": "evidence/paint_manifest.json",
+      "bytes": 4071,
+      "sha256": "e985fb1924c25db3f903b5f76772847fe0c912be402edbf6eadbe13a488a1bc9",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/paint/render_manifest.json"
+    },
+    {
+      "file": "evidence/source_recipe.log",
+      "bytes": 370,
+      "sha256": "58410096e62cfeb999b5de91eca801ccd6f812853f4251f29d364579335dda74",
+      "copied_from": "build/hybrid_rebuild_20261023_g.log"
+    },
+    {
+      "file": "evidence/source/exporter.py.txt",
+      "bytes": 8906,
+      "sha256": "c1749979ab7ffccc404e8e3e8c1b3eda82b2b3def295c920acc5100ea6194f70",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/exporter_source.py"
+    },
+    {
+      "file": "evidence/source/gait.gd.txt",
+      "bytes": 5427,
+      "sha256": "bfc0491a2f2dd4597a4a10d0bb8828a96526b964a15624482e0a4ddc15821180",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/live/player_hybrid_gait.gd"
+    },
+    {
+      "file": "evidence/source/visual.gd.txt",
+      "bytes": 9030,
+      "sha256": "bf17af5670e7d0ea83d4d4169c20791a80e1ddd276845bf7f17656d66a4dc4d2",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/live/player_hybrid_visual.gd"
+    },
+    {
+      "file": "evidence/source/driver.gd.txt",
+      "bytes": 10849,
+      "sha256": "954508607431d9c4923b8bcdae938bdf18a4b6c9a0235e3aa15ff456f9d90a5e",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/live/probe_player_hybrid_v005.gd"
+    },
+    {
+      "file": "evidence/source/checker.py.txt",
+      "bytes": 5873,
+      "sha256": "e0126b88cdb8d4812524bc01c5d460735ec39ff46e8c818dc356e5aa1220564b",
+      "copied_from": "tools/art/check_player_hybrid.py"
+    },
+    {
+      "file": "evidence/source/recipe.ps1.txt",
+      "bytes": 4594,
+      "sha256": "eb649c33d38a333ee9c3287dce8cbb64805f5fc13b476448bff69fd457ab2bc2",
+      "copied_from": "tools/build_player_motion_sample.ps1"
+    },
+    {
+      "file": "evidence/source/gait_tests.gd.txt",
+      "bytes": 4515,
+      "sha256": "2116868b4694ef3fcd913baf78b806bb32d4d55e29c784a20a36150c966465b3",
+      "copied_from": "tools/art/test_player_hybrid_gait.gd"
+    },
+    {
+      "file": "evidence/source/pickup.gd.txt",
+      "bytes": 1722,
+      "sha256": "5efedb829de723b578896a5f5a54c21241d23abc8af1d4b08d77c68fc57deeed",
+      "copied_from": "game/systems/interaction/pickup_interactable.gd"
+    },
+    {
+      "file": "evidence/source/pickup_scene.tscn.txt",
+      "bytes": 859,
+      "sha256": "fd140d38349cbf42bb88e77ae828a41df5d0bb005d357d34c71973d064577956",
+      "copied_from": "game/scenes/interactables/pickup_placeholder.tscn"
+    },
+    {
+      "file": "evidence/source/pickup_tests.gd.txt",
+      "bytes": 8352,
+      "sha256": "c30140d5a6cb0cea90a9c9ccc74caacf2c1c0708ebb49229685e7b27abd9e7ac",
+      "copied_from": "game/tests/world_interactable_test_cases.gd"
+    },
+    {
+      "file": "assets/upper_00_0.png",
+      "bytes": 113063,
+      "sha256": "5033df12908e87f1c1629ddd71362fa448ddedbd254a8b6b7011ed1a5966d58a",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_00_0.png"
+    },
+    {
+      "file": "assets/upper_00_1.png",
+      "bytes": 114050,
+      "sha256": "e0edfb3825b0bab893c060c5c01831ce43920bb17a2291c816ab4bb85b203b37",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_00_1.png"
+    },
+    {
+      "file": "assets/upper_00_2.png",
+      "bytes": 114768,
+      "sha256": "0d72aca76063bf870a2d92ec0923fe3e443329bcecc0650c1095a7ceef6201dc",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_00_2.png"
+    },
+    {
+      "file": "assets/upper_00_3.png",
+      "bytes": 115990,
+      "sha256": "ed74ea620aa15711cea4a8b73b026d1c07f3b76b1e2e1ca5900eeec7b8532f70",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_00_3.png"
+    },
+    {
+      "file": "assets/upper_00_4.png",
+      "bytes": 117135,
+      "sha256": "28ef6c8cd5ad625b799845921612b3a1f44f257a2ee881ab6c02464ae9ad5c30",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_00_4.png"
+    },
+    {
+      "file": "assets/upper_01_0.png",
+      "bytes": 122665,
+      "sha256": "bc15d14ef00235203159577faaeaa0248d2cccc4dbeb1749a4932c1575939b53",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_01_0.png"
+    },
+    {
+      "file": "assets/upper_02_0.png",
+      "bytes": 120440,
+      "sha256": "bad19abad060a384a20c35a883ac0588d4df27db28b9b2bb5a7b639b7a99b484",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_02_0.png"
+    },
+    {
+      "file": "assets/upper_03_0.png",
+      "bytes": 118752,
+      "sha256": "3710e65896b956464b93db5d5f7e2e8bd863183cb88ef93a0fb89a92954511bb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_03_0.png"
+    },
+    {
+      "file": "assets/upper_04_0.png",
+      "bytes": 107188,
+      "sha256": "20b2327b49c6d79e25c2d2f25c37f115f08ccff1170f76121bcfdf1d716183de",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_04_0.png"
+    },
+    {
+      "file": "assets/upper_05_0.png",
+      "bytes": 100602,
+      "sha256": "8cd4c8fddad83f92d4cd27869691eed936a6722f2c1b3217fe776e0680797c11",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_05_0.png"
+    },
+    {
+      "file": "assets/upper_06_0.png",
+      "bytes": 98555,
+      "sha256": "7868cd8f896d74bcddbb1a1a81fc030e23e089837f1a98e5fbf3c7538c32118f",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_06_0.png"
+    },
+    {
+      "file": "assets/upper_07_0.png",
+      "bytes": 102135,
+      "sha256": "f32c6b348ad260db16b283a5b10c9ffd3c8a90303e8339fd4bb3b9d93764d59a",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_07_0.png"
+    },
+    {
+      "file": "assets/upper_08_0.png",
+      "bytes": 106591,
+      "sha256": "6a5d60684891f3bdbdc3f85d9bce058ffa456a269f921be0e0b6d7125c557f6e",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_08_0.png"
+    },
+    {
+      "file": "assets/upper_09_0.png",
+      "bytes": 114812,
+      "sha256": "7b8f90b14be110dae83c30fd93465129866eb4f8c10d6d330a53dcb656a9a448",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_09_0.png"
+    },
+    {
+      "file": "assets/upper_10_0.png",
+      "bytes": 114553,
+      "sha256": "1cda3cf3c6bed4463aa3c3d35e07127c4afa92af6e74a21262e3eaa4da266dca",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_10_0.png"
+    },
+    {
+      "file": "assets/upper_11_0.png",
+      "bytes": 117466,
+      "sha256": "70ef36fc5cbad6f9bf77e325649585109cf971288fb43ef88df4a638bd80c048",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_11_0.png"
+    },
+    {
+      "file": "assets/upper_12_0.png",
+      "bytes": 110504,
+      "sha256": "3e0ab51f9496d229c277d9f28b575abec7d9ee63953683f8aff18e10f5c56ed1",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_12_0.png"
+    },
+    {
+      "file": "assets/upper_13_0.png",
+      "bytes": 106055,
+      "sha256": "d1385d4763eba3f4fa133525674cd94e2d5202f54f980d1f7661bdd291d4ded3",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_13_0.png"
+    },
+    {
+      "file": "assets/upper_14_0.png",
+      "bytes": 104360,
+      "sha256": "03430a03c4d56dd61e74fc3e572d2a3a985d1fc3def7c47973397ae97f75c57b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_14_0.png"
+    },
+    {
+      "file": "assets/upper_15_0.png",
+      "bytes": 107440,
+      "sha256": "3add0b7777d31de4ecd1d52fb794ba667d2e1ccfd69501eeab83640108b59209",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/upper_15_0.png"
+    },
+    {
+      "file": "assets/Fore_Left_00.png",
+      "bytes": 15608,
+      "sha256": "3c7e62518bdcb558d2a947f4590ac4aeccecc726278ee8225b827785455be7fb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_00.png"
+    },
+    {
+      "file": "assets/Fore_Right_00.png",
+      "bytes": 16189,
+      "sha256": "b34f0e39286d84253e774ade2b0d366e0859c313f22f68a0538fc68441238dd6",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_00.png"
+    },
+    {
+      "file": "assets/Hind_Left_00.png",
+      "bytes": 15096,
+      "sha256": "16a44c407ea871195d45763e908c03ef009070217fa457142ac9270735c1b148",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_00.png"
+    },
+    {
+      "file": "assets/Hind_Right_00.png",
+      "bytes": 15221,
+      "sha256": "1ac45b677a710620ba1bf0a25a9e26abe0afd89dff014b3f4bb428c39b068298",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_00.png"
+    },
+    {
+      "file": "assets/Fore_Left_01.png",
+      "bytes": 15580,
+      "sha256": "dbd6a3362c574cdafa629778178894c7e7b93b94002514dc0310c3ea059270f7",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_01.png"
+    },
+    {
+      "file": "assets/Fore_Right_01.png",
+      "bytes": 16625,
+      "sha256": "703c72cff66ec36d2b1dd72cda9a5dbafaf7d8764c9692e7fdf7328e9d9cde5b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_01.png"
+    },
+    {
+      "file": "assets/Hind_Left_01.png",
+      "bytes": 15141,
+      "sha256": "24c2a98cf7e09fb4c1e99a69ac84e47a062343b107a14771a7ac0d713b4f7c6b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_01.png"
+    },
+    {
+      "file": "assets/Hind_Right_01.png",
+      "bytes": 15428,
+      "sha256": "8bf520c9f936d21b6b472e25a42f5ef540f393930b9ddec49268ed6451c75d46",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_01.png"
+    },
+    {
+      "file": "assets/Fore_Left_02.png",
+      "bytes": 15187,
+      "sha256": "6227e3b11aec40bc771610abf460d4b1f0b60822fa9cae6233a73dc2c79c3568",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_02.png"
+    },
+    {
+      "file": "assets/Fore_Right_02.png",
+      "bytes": 16398,
+      "sha256": "336e3dac272aed6032187a53fb2fe6348b64d9da2a99d949abed1410c6f0940b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_02.png"
+    },
+    {
+      "file": "assets/Hind_Left_02.png",
+      "bytes": 14913,
+      "sha256": "c43a8ab8d97896292152deea8043912ef2537d480517c5a6d54e4af070a05e2d",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_02.png"
+    },
+    {
+      "file": "assets/Hind_Right_02.png",
+      "bytes": 14956,
+      "sha256": "ad708015661d8c9f5d949b0f8414791cc23f2bb7cea902e951e0e3d467e987eb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_02.png"
+    },
+    {
+      "file": "assets/Fore_Left_03.png",
+      "bytes": 15245,
+      "sha256": "572271c764dbf9f8580c4adfd6fcb93890eb348ef5ccb3e860b75ae03b4023b5",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_03.png"
+    },
+    {
+      "file": "assets/Fore_Right_03.png",
+      "bytes": 15807,
+      "sha256": "2a71dc6f4c03f5ffb71e912005b8c75bc348e19c2e6c25d9e785e7dd9adec393",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_03.png"
+    },
+    {
+      "file": "assets/Hind_Left_03.png",
+      "bytes": 14747,
+      "sha256": "2ebf6cdd628d32e454a17eab01c3e29a57d98a2560e3c408d47a8f94fe2b5b37",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_03.png"
+    },
+    {
+      "file": "assets/Hind_Right_03.png",
+      "bytes": 14744,
+      "sha256": "c665bf2279f3b70b3d2f461d0d6c23da1bb8f2c68ab41576f143a171428cc024",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_03.png"
+    },
+    {
+      "file": "assets/Fore_Left_04.png",
+      "bytes": 15019,
+      "sha256": "0f28007a7c40b528d67b78fb79a4a47bff187ab52830209fc970a8ed1197b888",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_04.png"
+    },
+    {
+      "file": "assets/Fore_Right_04.png",
+      "bytes": 15082,
+      "sha256": "29eaf4989bee983412ae94235456a4ace20904c9afa41d71569b760a960ec5ec",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_04.png"
+    },
+    {
+      "file": "assets/Hind_Left_04.png",
+      "bytes": 14427,
+      "sha256": "a56de0167f9a0090db0c9f811a62b0aef02869dbdccec1bcc230ff61c4f27403",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_04.png"
+    },
+    {
+      "file": "assets/Hind_Right_04.png",
+      "bytes": 14465,
+      "sha256": "efa240a59f9b2849d6ede163ca9ba0381beea689898d49210e9f73a434fb899b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_04.png"
+    },
+    {
+      "file": "assets/Fore_Left_05.png",
+      "bytes": 14885,
+      "sha256": "9023c6fd0a81276244d3e35d4379a9a64aa3fc844a0b7705d9e560bd303307de",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_05.png"
+    },
+    {
+      "file": "assets/Fore_Right_05.png",
+      "bytes": 14719,
+      "sha256": "f4e56da1b094ee4dab188cf22e8497f5e654c5e43716240c1513e2798f1f2ba0",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_05.png"
+    },
+    {
+      "file": "assets/Hind_Left_05.png",
+      "bytes": 14390,
+      "sha256": "ecc65c4d6eda83c0c612a96c356a521c42e8bdc057a0b4610a0f78de314b2870",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_05.png"
+    },
+    {
+      "file": "assets/Hind_Right_05.png",
+      "bytes": 14166,
+      "sha256": "f0e44055d0e37a8e11547f41b48bb8931c2098634aa0f7715de68f719551ce6d",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_05.png"
+    },
+    {
+      "file": "assets/Fore_Left_06.png",
+      "bytes": 14739,
+      "sha256": "25ecbbebd40061585436181dd3dfe1ba92d86472879ef4112db7df616e14ba3b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_06.png"
+    },
+    {
+      "file": "assets/Fore_Right_06.png",
+      "bytes": 14411,
+      "sha256": "d110403f45b21abceb0a9127c1f652854822da68fc650b2f9e436e5bae3b5360",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_06.png"
+    },
+    {
+      "file": "assets/Hind_Left_06.png",
+      "bytes": 14154,
+      "sha256": "55a5a115920e0e7767bf20eca50714184be133e81d81f48e4cd2824c6f86aa50",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_06.png"
+    },
+    {
+      "file": "assets/Hind_Right_06.png",
+      "bytes": 13945,
+      "sha256": "bdb661119c83ec619102fbad272035456e46e69637a4f48ee57156d4460e28f2",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_06.png"
+    },
+    {
+      "file": "assets/Fore_Left_07.png",
+      "bytes": 15051,
+      "sha256": "57feb7307b4a807ab7e04cf999e2b41a7589bb33d0e48d54ae7554968cf190fd",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_07.png"
+    },
+    {
+      "file": "assets/Fore_Right_07.png",
+      "bytes": 14570,
+      "sha256": "58bb6b0de57d66b81dd5fb6cf00242ecab93cd559f913ff26c6ea49be67a0e1d",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_07.png"
+    },
+    {
+      "file": "assets/Hind_Left_07.png",
+      "bytes": 14493,
+      "sha256": "36622ba89fcc5fc1fd3ec83f775a0e3bb1381f7ec499842f791506e16d7592ae",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_07.png"
+    },
+    {
+      "file": "assets/Hind_Right_07.png",
+      "bytes": 14191,
+      "sha256": "b43d72f743593b41e3f68e7d2ffdfe8988a65b91b70ead4bf38fde4887c9b13a",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_07.png"
+    },
+    {
+      "file": "assets/Fore_Left_08.png",
+      "bytes": 15509,
+      "sha256": "9fb490350140cb0ef50610a8f047a6fcbda4b0551b046d71b681245adb02d23a",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_08.png"
+    },
+    {
+      "file": "assets/Fore_Right_08.png",
+      "bytes": 14774,
+      "sha256": "a63926d3052d4cb66b04ea254da93be94fb2cdefd0483322739ab295a9b60182",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_08.png"
+    },
+    {
+      "file": "assets/Hind_Left_08.png",
+      "bytes": 14805,
+      "sha256": "7576bbfdcc2d6b60607505dd027bc625879cb6f8b871c49d4e14d4989ae625fe",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_08.png"
+    },
+    {
+      "file": "assets/Hind_Right_08.png",
+      "bytes": 14399,
+      "sha256": "7f1a8346b5cc3f902c740ad14e593a6ac70aea3160e375e051da139760b4af71",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_08.png"
+    },
+    {
+      "file": "assets/Fore_Left_09.png",
+      "bytes": 16079,
+      "sha256": "f86bb0c10dcf3dae86095fd107eaeed9101a3f5b06fd45e1f0b848fe137c9dc3",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_09.png"
+    },
+    {
+      "file": "assets/Fore_Right_09.png",
+      "bytes": 15090,
+      "sha256": "f45bd12ca67ea308b1aad0a670c6ebc12d69e35b65cffadc0e77499273095287",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_09.png"
+    },
+    {
+      "file": "assets/Hind_Left_09.png",
+      "bytes": 15321,
+      "sha256": "52bceae54fb3d3ba8ebe74ffc3e6786b45feb8eba50385240c62506066d250bc",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_09.png"
+    },
+    {
+      "file": "assets/Hind_Right_09.png",
+      "bytes": 14700,
+      "sha256": "2e17d714dd36c4e4b7e62d3c5104874f8ac78aa37e378d2ac4dd72280f9aa87e",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_09.png"
+    },
+    {
+      "file": "assets/Fore_Left_10.png",
+      "bytes": 16060,
+      "sha256": "10df8ee4ce43d257420e7f20a713465426807248af14a69f115f53b52c1020eb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_10.png"
+    },
+    {
+      "file": "assets/Fore_Right_10.png",
+      "bytes": 15150,
+      "sha256": "c9a50c85e5547df90d1c53726b3288d891688c47eb7506247beebc01f9136583",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_10.png"
+    },
+    {
+      "file": "assets/Hind_Left_10.png",
+      "bytes": 15392,
+      "sha256": "12c86b7fd1aaa73a8fdcbfe7f00467cde294a39feeb336c1e7cd531c85d43124",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_10.png"
+    },
+    {
+      "file": "assets/Hind_Right_10.png",
+      "bytes": 14716,
+      "sha256": "ffa65ba9d91b432a96840b334d8f5aaea7cfce5665fccb7900386276e54a58ed",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_10.png"
+    },
+    {
+      "file": "assets/Fore_Left_11.png",
+      "bytes": 16169,
+      "sha256": "4cca7187c606e33a74abd1b6316cf3b93b50f6d1830cf6bf6e4a1c6354f803cb",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_11.png"
+    },
+    {
+      "file": "assets/Fore_Right_11.png",
+      "bytes": 15637,
+      "sha256": "2806700e9a8f8d4cad47af8a056152d0928c58edd7181baa3faa6b20099b6806",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_11.png"
+    },
+    {
+      "file": "assets/Hind_Left_11.png",
+      "bytes": 15658,
+      "sha256": "f3fda1cc10c97f57faf991346242040af79091b29b444c0319dcb4edadc28d87",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_11.png"
+    },
+    {
+      "file": "assets/Hind_Right_11.png",
+      "bytes": 15055,
+      "sha256": "2efe574e9946f5fdccdf74402dba02de3d43d6ea719bde38ed6aabcd26cca93b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_11.png"
+    },
+    {
+      "file": "assets/Fore_Left_12.png",
+      "bytes": 15872,
+      "sha256": "fc597ec576b62f0ae962421f41a0b73600fb9ef105039adfe9f379877e1bf696",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_12.png"
+    },
+    {
+      "file": "assets/Fore_Right_12.png",
+      "bytes": 15662,
+      "sha256": "e6b49e8e7e0965df04bfedc4a7fe860cd9a5a8a2c94d7b30ec88f37be634db05",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_12.png"
+    },
+    {
+      "file": "assets/Hind_Left_12.png",
+      "bytes": 15384,
+      "sha256": "2a6359b437f27524586d18dd23bf4be4d6e111cd9dc74f4e517a945ed0d96236",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_12.png"
+    },
+    {
+      "file": "assets/Hind_Right_12.png",
+      "bytes": 14968,
+      "sha256": "ae9755f1fd2322bd065c0eece250aafe01e6afb0e4c73fdca2565d50578ddb21",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_12.png"
+    },
+    {
+      "file": "assets/Fore_Left_13.png",
+      "bytes": 15519,
+      "sha256": "e25c34409a133d163ae45ddc7b6786da6b97cbbe6df5898d3032895e3ac27f44",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_13.png"
+    },
+    {
+      "file": "assets/Fore_Right_13.png",
+      "bytes": 15676,
+      "sha256": "2b14f99cffa23a064c96e9c4d9b770c8ef92a51170b46efd2f7af765697408c7",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_13.png"
+    },
+    {
+      "file": "assets/Hind_Left_13.png",
+      "bytes": 15132,
+      "sha256": "1d74cc3d134149bfcc844ff50c961fa5ea0796a1cd7fb4a1ed9dcfa0990caaf0",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_13.png"
+    },
+    {
+      "file": "assets/Hind_Right_13.png",
+      "bytes": 14763,
+      "sha256": "d9dcb03ec85eea4d42177e8d573e5da184afc18eb940728a3d919565abb7e1f9",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_13.png"
+    },
+    {
+      "file": "assets/Fore_Left_14.png",
+      "bytes": 15403,
+      "sha256": "c66139bcaa18d2de95fb665a7d762cc628afa2391daa51fb0afc12704021f934",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_14.png"
+    },
+    {
+      "file": "assets/Fore_Right_14.png",
+      "bytes": 15691,
+      "sha256": "d829a9925afdc26abd2dc73ef4fa7403149adae362e3267ca8bf41368bd1b66c",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_14.png"
+    },
+    {
+      "file": "assets/Hind_Left_14.png",
+      "bytes": 14740,
+      "sha256": "f1c16115948f80c1e50d300f527bc397bd70196e8a8547455aea9ab58d5df562",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_14.png"
+    },
+    {
+      "file": "assets/Hind_Right_14.png",
+      "bytes": 14532,
+      "sha256": "1db96a7981324294bc7944fd634b2941e87dc99e9b46aa2dfbd0f3acb3a0a4f0",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_14.png"
+    },
+    {
+      "file": "assets/Fore_Left_15.png",
+      "bytes": 15533,
+      "sha256": "b780296b6d83975b9ec88a75d49e811b7b4867a24ba714b52217537fa53ec717",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Left_15.png"
+    },
+    {
+      "file": "assets/Fore_Right_15.png",
+      "bytes": 15874,
+      "sha256": "4e07bb9d2b7416c3880ec87296c1cd50e942c84c8e784021df2e19cdb3878c45",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Fore_Right_15.png"
+    },
+    {
+      "file": "assets/Hind_Left_15.png",
+      "bytes": 14902,
+      "sha256": "ea78222395a0050b7abbbb8448370bf2d843ef4192bcf6cd6f8f9e252c6f999f",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Left_15.png"
+    },
+    {
+      "file": "assets/Hind_Right_15.png",
+      "bytes": 14831,
+      "sha256": "b204a56f3c72dfec39dad4deee38caec3c828ad68b0326862da185e12d4c5460",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/Hind_Right_15.png"
+    },
+    {
+      "file": "assets/native_reference_00.png",
+      "bytes": 117466,
+      "sha256": "2549c71fecc805da9e9a843f220e59b93ca74bb5263b6932e519e285d88af2a1",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/native_reference_00.png"
+    },
+    {
+      "file": "assets/native_reference_04.png",
+      "bytes": 112935,
+      "sha256": "05788601af5dd76fe486695c9c0f72a87ad5d030e29eac5674ccc1d1d9281d5c",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/native_reference_04.png"
+    },
+    {
+      "file": "assets/native_reference_08.png",
+      "bytes": 112567,
+      "sha256": "0e4a941480ec8a48aae82481bbca6b67c4edb96abfa1e19587a3e0d6cf34d77b",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/native_reference_08.png"
+    },
+    {
+      "file": "assets/native_reference_12.png",
+      "bytes": 116586,
+      "sha256": "62dfb30936a390a7b23042b648e9a979d4d5860eaea827ff958fb0e107d8d3fd",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/rebuild_20261023_g/hybrid/native_reference_12.png"
+    },
+    {
+      "file": "eight_directions.png",
+      "bytes": 549838,
+      "sha256": "e8f17630b81df22aeb23c6086c6010b77cd08295604c5773cb7e677f1e4c447f",
+      "derived_from": "actual final_live_20261023_j GPU PNGs; original-scale diagnostic crops"
+    },
+    {
+      "file": "turn_and_stop.png",
+      "bytes": 555960,
+      "sha256": "c4dcb87f585ababe7e9ff49f2e29cdaff8cf18e6e7b14bdcd2023822cd45d5fd",
+      "derived_from": "actual final_live_20261023_j GPU PNGs; original-scale diagnostic crops"
+    },
+    {
+      "file": "evidence/diagnostics.json",
+      "bytes": 4352,
+      "sha256": "035d4000535645cc372e3e2ef980078875dcd17344164928b9d14b79e284503a",
+      "derived_from": "actual final_live_20261023_j GPU PNGs; original-scale diagnostic crops"
+    },
+    {
+      "file": "evidence/public_replay.json",
+      "bytes": 1116481,
+      "sha256": "b5403337b0806d1c752b98c414ef73f28508a62f43a9a2090e91fb46194d4935",
+      "copied_from": "build/art-pipeline/player_hybrid_v005/public_replay_20261023_h/live/live_motion.json",
+      "scope": "supplementary earlier run after production pickup fix, before floor-prop layer correction; primary latest run is evidence/live_motion.json"
+    },
+    {
+      "file": "evidence/public_check.json",
+      "bytes": 775,
+      "sha256": "c2af1b74a4ab341083cfa65c9e7c2f4a5f65b8234453145f97e043af89c84ef2",
+      "copied_from": "build/hybrid_public_check_20261023_h.json",
+      "scope": "supplementary earlier run after production pickup fix, before floor-prop layer correction; primary latest run is evidence/live_motion.json"
+    },
+    {
+      "file": "evidence/interactive_startup.log",
+      "bytes": 183,
+      "sha256": "00be3647230cd8c1b7125e540553c53d1ad644993853d938f4e858809f0a8ed8",
+      "copied_from": "build/hybrid_interactive_startup_20261023_i.log",
+      "scope": "supplementary earlier run after production pickup fix, before floor-prop layer correction; primary latest run is evidence/live_motion.json"
+    },
+    {
+      "file": "evidence/pickup_regression.json",
+      "bytes": 1610,
+      "sha256": "d691764ccd3f362eff6771a0d08fbe6df0db20ca16af70d3483d8bb9b46e0cee",
+      "derived_from": "actual red/green logs identified above; full local logs retained"
+    },
+    {
+      "file": "evidence/source/world.gd.txt",
+      "bytes": 4047,
+      "sha256": "1e57feed41de04a0ffb86f48a99aa1e4d538e51be104c6b79ba86bdd5d6905ea",
+      "copied_from": "tools/art/player_motion_world.gd"
+    },
+    {
+      "file": "pickup_visible_then_consumed.png",
+      "bytes": 90666,
+      "sha256": "3f4ee12fe55199e7a7fd186fca4b0743eec2023b28f2e7c73c7c4b0ea29db245",
+      "derived_from": "actual final_live_20261023_j GPU PNGs; original-scale diagnostic crops"
+    },
+    {
+      "file": "evidence/local_gate.json",
+      "bytes": 6910,
+      "sha256": "27489b96c8e62d0f3c7e04a09b73d87271c7fd1b5ca47b0c4050003a94ddfb34",
+      "copied_from": "build/logs/check_project-20261023T094005288Z-p69352-be2526a8.json"
+    }
+  ]
+}

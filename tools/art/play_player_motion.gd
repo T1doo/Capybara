@@ -175,9 +175,6 @@ func _after(_delta: float) -> void:
 		caption.text += " / committed pickup"
 	if expected["axes"] != [0.0, 0.0] and Vector2(expected["motion"][0], expected["motion"][1]).length() < .001:
 		caption.text += " / blocked by wall"
-	var flow := root.get_node("SceneFlowService") as SceneFlowCoordinator
-	var pickup := flow.current_zone.find_interactable(&"pickup_motion_study_branch") as PickupInteractable
-	if pickup.quantity == 0: (pickup.get_node("Visual") as CanvasItem).hide()
 	if tick in [60, 267, 420, 650, 840, 2100, 2580, 3060]:
 		call_deferred(&"_capture", tick)
 	tick += 1

@@ -1,0 +1,68 @@
+{
+	"cases": [
+		{
+			"max_reach_px": 0.0,
+			"max_stance_slide_px": 0.0,
+			"mode": "blocked",
+			"physics_hz": 60.0,
+			"settled": true,
+			"stance_comparisons": 1436
+		},
+		{
+			"max_reach_px": 20.565601348877,
+			"max_stance_slide_px": 0.0,
+			"mode": "straight",
+			"physics_hz": 60.0,
+			"settled": true,
+			"stance_comparisons": 616
+		},
+		{
+			"max_reach_px": 63.1059951782227,
+			"max_stance_slide_px": 0.0,
+			"mode": "reverse",
+			"physics_hz": 60.0,
+			"settled": true,
+			"stance_comparisons": 554
+		},
+		{
+			"max_reach_px": 33.5387725830078,
+			"max_stance_slide_px": 0.0,
+			"mode": "turn_in_place",
+			"physics_hz": 60.0,
+			"settled": true,
+			"stance_comparisons": 1272
+		},
+		{
+			"max_reach_px": 39.1653480529785,
+			"max_stance_slide_px": 0.0,
+			"mode": "eight_directions",
+			"physics_hz": 60.0,
+			"settled": true,
+			"stance_comparisons": 588
+		},
+		{
+			"max_reach_px": 54.4493255615234,
+			"max_stance_slide_px": 0.0,
+			"mode": "eight_directions",
+			"physics_hz": 30.0,
+			"settled": true,
+			"stance_comparisons": 242
+		},
+		{
+			"max_reach_px": 45.0904235839844,
+			"max_stance_slide_px": 0.0,
+			"mode": "eight_directions",
+			"physics_hz": 120.0,
+			"settled": true,
+			"stance_comparisons": 1312
+		},
+		{
+			"gait_resets": 2,
+			"mode": "teleport"
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"scope": "online gait state invariants, not art/renderer acceptance",
+	"source_sha256": "bfc0491a2f2dd4597a4a10d0bb8828a96526b964a15624482e0a4ddc15821180"
+}

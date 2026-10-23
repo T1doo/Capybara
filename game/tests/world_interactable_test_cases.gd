@@ -7,6 +7,7 @@ const CONTEXT_SCRIPT: Script = preload("res://systems/interaction/interaction_co
 const DOOR_SCRIPT: Script = preload("res://systems/interaction/door_interactable.gd")
 const NPC_SCRIPT: Script = preload("res://systems/interaction/npc_interactable.gd")
 const PICKUP_SCRIPT: Script = preload("res://systems/interaction/pickup_interactable.gd")
+const PICKUP_SCENE: PackedScene = preload("res://scenes/interactables/pickup_placeholder.tscn")
 const RESOURCE_SCRIPT: Script = preload("res://systems/interaction/resource_interactable.gd")
 
 
@@ -18,6 +19,7 @@ static func run(assert_true: Callable, assert_int_equal: Callable) -> void:
 		Vector2.RIGHT
 	)
 	_test_pickup(context, assert_true, assert_int_equal)
+	_test_pickup_presentation(assert_true)
 	_test_resource(context, assert_true, assert_int_equal)
 	_test_bed(context, assert_true, assert_int_equal)
 	_test_chest(context, assert_true, assert_int_equal)
@@ -50,6 +52,29 @@ static func _test_pickup(
 		"used pickup returns Blocked"
 	)
 	pickup.free()
+
+
+static func _test_pickup_presentation(check: Callable) -> void:
+	var zone := WorldZone.new()
+	zone.zone_id = &"zone_pickup_presentation_test"
+	var pickup := PICKUP_SCENE.instantiate() as PickupInteractable
+	zone.add_child(pickup)
+	var image := pickup.get_node("Visual") as CanvasItem
+	pickup.quantity = 3
+	check.call(image.visible, "available pickup is visible")
+	pickup.commit_pickup(1)
+	check.call(pickup.quantity == 2 and image.visible, "partial transfer keeps remaining pickup visible")
+	var available: Dictionary = zone.capture_runtime_state()
+	pickup.commit_pickup(3)
+	check.call(pickup.quantity == 2 and image.visible, "invalid over-transfer does not hide pickup")
+	pickup.commit_pickup(2)
+	check.call(not image.visible and not pickup.interaction_enabled, "consumed pickup disappears with committed quantity")
+	var consumed: Dictionary = zone.capture_runtime_state()
+	check.call(zone.apply_runtime_state(available), "available pickup snapshot restores")
+	check.call(pickup.quantity == 2 and image.visible and pickup.interaction_enabled, "restoring available quantity restores its image")
+	check.call(zone.apply_runtime_state(consumed), "consumed pickup snapshot restores")
+	check.call(pickup.quantity == 0 and not image.visible and not pickup.interaction_enabled, "loaded consumed pickup remains invisible")
+	zone.free()
 
 
 static func _test_resource(

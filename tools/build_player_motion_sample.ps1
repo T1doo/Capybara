@@ -1,5 +1,8 @@
 [CmdletBinding()]
-param([Parameter(Mandatory = $true)][string]$OutputDirectory)
+param(
+    [Parameter(Mandatory = $true)][string]$OutputDirectory,
+    [switch]$LiveHybrid
+)
 
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).ProviderPath
@@ -21,7 +24,7 @@ function Invoke-SampleStep([string]$Name, [string]$Executable, [string[]]$Argume
     & $Executable @Arguments *> $log
     $code = $LASTEXITCODE
     $text = Get-Content -LiteralPath $log -Raw
-    if ($code -ne 0 -or $text -match '(?m)^SCRIPT ERROR:|^ERROR:|^Traceback') {
+    if ($code -ne 0 -or $text -match '(?m)^SCRIPT ERROR:|^ERROR:|^WARNING:|^Traceback') {
         throw "Sample step failed: $Name (exit $code). Evidence retained at $log"
     }
     [Console]::WriteLine('[motion-build] PASS: ' + $Name)
@@ -41,6 +44,15 @@ Invoke-BlenderStep 'paint' 'tools/art/probe_player_paint_projection.py' @('--mod
     '--paintover', 'art/candidates/player_v003_paintover_v001/paintover_a_v001.png', '--paintover-sha256', '06781018de02905d017667e0bb03c3a3fde82a2c164ba8153dfa281ab3a4201a',
     '--rear-paintover', 'art/candidates/player_v003_rear_paintover_v001/rear_paintover_a_v001.png', '--rear-sha256', 'c7c384daf098b66950df8d42c124708a40304989b717193174449affa14b2d1b',
     '--rear-uv-offset', '0.00318979266347687', '0.023125996810207337', '--view-transform', 'Standard', '--output-dir', $paint)
+if ($LiveHybrid) {
+    $hybrid = Join-Path $output 'hybrid'
+    Invoke-BlenderStep 'hybrid' 'tools/art/export_player_hybrid_v005.py' @('--model-dir', $paint, '--output-dir', $hybrid)
+    Invoke-SampleStep 'gpu_live' $godot @('--path', 'game', '--fixed-fps', '60', '--write-movie', (Join-Path $output 'capture.avi'),
+        '--script', 'res://../tools/art/probe_player_hybrid_v005.gd', '--', (Join-Path $hybrid 'hybrid_manifest.json'), (Join-Path $output 'live'))
+    Invoke-BlenderStep 'mp4' 'tools/art/encode_player_motion.py' @('--input', (Join-Path $output 'capture.avi'), '--output', (Join-Path $output 'review.mp4'))
+    [Console]::WriteLine('[motion-build] Live hybrid candidate generated from repository inputs; no trajectory bank consumed. ' + $output)
+    return
+}
 $record = Join-Path $output 'record'
 Invoke-SampleStep 'record' $godot @('--headless', '--path', 'game', '--fixed-fps', '60', '--script', 'res://../tools/art/record_player_motion.gd', '--', $record)
 $bank = Join-Path $output 'bank'

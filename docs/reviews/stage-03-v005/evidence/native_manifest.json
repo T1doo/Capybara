@@ -1,0 +1,283 @@
+{
+  "route": "blender_v002",
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    384
+  ],
+  "display_scale": 0.5,
+  "camera_pitch_degrees": 35,
+  "orthographic_scale": 3.9299935028876787,
+  "reference_body_height_px": 288,
+  "actual_reference_alpha_height_px": 288,
+  "scale_calibration": "one DR standing calibration, unchanged across all directions",
+  "pivot_definition": "fixed anatomical ground origin, not alpha bottom",
+  "frames": [
+    {
+      "direction": "down_right",
+      "pose": "idle",
+      "path": "down_right_idle.png",
+      "yaw_degrees": -15.16243352168621,
+      "walk_frame": null,
+      "feet": [
+        {
+          "id": "Fore_Left_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            354.3564147949219,
+            421.7470703125
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Fore_Right_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            263.9483337402344,
+            451.4903869628906
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Left_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            250.64454650878906,
+            318.0351867675781
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Right_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            160.2364501953125,
+            347.77850341796875
+          ],
+          "sole_height_model": 0.004999999888241291
+        }
+      ],
+      "sha256": "4a81442d2efee88dd2e938941d1a572848347825b1b5a62afd60b61db2be0221",
+      "alpha_bbox": [
+        112,
+        170,
+        390,
+        458
+      ],
+      "alpha_height": 288,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "down_left",
+      "pose": "idle",
+      "path": "down_left_idle.png",
+      "yaw_degrees": -74.83756647831379,
+      "walk_frame": null,
+      "feet": [
+        {
+          "id": "Fore_Left_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            248.05172729492188,
+            451.4903869628906
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Fore_Right_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            157.6436309814453,
+            421.7470397949219
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Left_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            351.7636413574219,
+            347.7785339355469
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Right_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            261.3555603027344,
+            318.0351867675781
+          ],
+          "sole_height_model": 0.004999999888241291
+        }
+      ],
+      "sha256": "dc84b4f73e0a8bbdfdf7f6c17428dc0dbfdc92b1a6294c2b4075b5b5411b3d99",
+      "alpha_bbox": [
+        122,
+        171,
+        398,
+        458
+      ],
+      "alpha_height": 287,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "up_right",
+      "pose": "idle",
+      "path": "up_right_idle.png",
+      "yaw_degrees": 105.16243352168622,
+      "walk_frame": null,
+      "feet": [
+        {
+          "id": "Fore_Left_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            263.9483642578125,
+            315.4423828125
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Fore_Right_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            354.3564453125,
+            345.18572998046875
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Left_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            160.23643493652344,
+            419.15423583984375
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Right_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            250.64451599121094,
+            448.8975830078125
+          ],
+          "sole_height_model": 0.004999999888241291
+        }
+      ],
+      "sha256": "faaf2c742f7da5f5e382d0ff5bdb67d1f0968ea41940e28f3529a712bf31febb",
+      "alpha_bbox": [
+        114,
+        193,
+        390,
+        468
+      ],
+      "alpha_height": 275,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "direction": "up_left",
+      "pose": "idle",
+      "path": "up_left_idle.png",
+      "yaw_degrees": 164.8375664783138,
+      "walk_frame": null,
+      "feet": [
+        {
+          "id": "Fore_Left_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            157.64364624023438,
+            345.18572998046875
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Fore_Right_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            248.0517578125,
+            315.4423828125
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Left_foot_control",
+          "stance": true,
+          "phase": 0.5,
+          "sole_native_px": [
+            261.35552978515625,
+            448.8975830078125
+          ],
+          "sole_height_model": 0.004999999888241291
+        },
+        {
+          "id": "Hind_Right_foot_control",
+          "stance": true,
+          "phase": 0.0,
+          "sole_native_px": [
+            351.7636413574219,
+            419.15423583984375
+          ],
+          "sole_height_model": 0.004999999888241291
+        }
+      ],
+      "sha256": "cf8b60580cd38abeb120d7dc9a1c6f6149c2134b2f692dc244eb4074bfa7136c",
+      "alpha_bbox": [
+        122,
+        193,
+        400,
+        468
+      ],
+      "alpha_height": 275,
+      "edge_alpha_pixels": 0
+    }
+  ],
+  "sources": {
+    "build_player_mesh_v001.py": "06824c351484a69a5426474d79babbecc99e78e47bbb93630a935e463975328f",
+    "build_player_mesh_v002.py": "143aff3e157e5e1b8ac10396ad2074fe00236ca6f24f21992e61810e0740e458",
+    "player_mesh_v002_geometry.py": "1e538d20aae57141c5f227c69a3ad7bce146abb92b343dcbb734dfc1d4b73d7c",
+    "player_mesh_v002_materials.py": "b8fababc06238cbae0444e196b78380f3c4c82d04b915a21bd8c9841d054dc1b",
+    "player_mesh_v002_motion.py": "ede7eed33efb7237b64fb8a4dae488ecd12d4e515aac449b329fad29d1b3e112"
+  },
+  "blend_path": "player_mesh_v002.blend",
+  "blend_sha256": "35ae998dce11df2326e55b1ccab1eb58342262d485e06f0aa9bbb8baa0d9612a",
+  "blender_version": "4.5.13 LTS",
+  "samples": 32,
+  "threads": 8,
+  "render_device": "CPU",
+  "walk": {
+    "fps": 60,
+    "frame_count": 18,
+    "move_speed": 240.0,
+    "scope": "down_right only, diagonal trot study, not full animation acceptance"
+  },
+  "elapsed_seconds": 8.72,
+  "accessories": {
+    "scarf_knot": "anatomical_left",
+    "satchel": "anatomical_right"
+  },
+  "limitations": [
+    "technical_unapproved",
+    "procedural_pigment_is_not_visual_acceptance",
+    "four_static_views_and_optional_one_direction_walk_probe",
+    "no_image_assets_loaded",
+    "no_baked_ground_shadow"
+  ]
+}

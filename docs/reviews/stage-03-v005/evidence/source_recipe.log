@@ -1,0 +1,8 @@
+[motion-build] PASS: import
+[motion-build] PASS: native
+[motion-build] PASS: shape
+[motion-build] PASS: paint
+[motion-build] PASS: hybrid
+[motion-build] PASS: gpu_live
+[motion-build] PASS: mp4
+[motion-build] Live hybrid candidate generated from repository inputs; no trajectory bank consumed. E:\Capybara\build\art-pipeline\player_hybrid_v005\rebuild_20261023_g
