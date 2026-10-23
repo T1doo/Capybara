@@ -12,3 +12,8 @@ art/candidates/player_v003_rear_paintover_v001/*.png filter=lfs diff=lfs merge=l
 tools/art/probe_player_shape_v003.py text eol=lf
 **/tex_cottage_material_atlas_v001.png filter=lfs diff=lfs merge=lfs -text
 **/tex_broadleaf_foliage_v001.png filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v004/*.png filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v004/*.mp4 filter=lfs diff=lfs merge=lfs -text
+# Frozen execution evidence is hashed byte-for-byte, including its original newlines.
+docs/reviews/stage-03-v004/evidence/*.json -text whitespace=cr-at-eol
+docs/reviews/stage-03-v004/evidence/source/* -text whitespace=cr-at-eol

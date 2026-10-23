@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-23",
+  "implementation_commit": "75bac70558257feb1088e0c9c84eb243cd41f7bb",
+  "execution_source": "91c00f1d36808f42fb4c6d448940fc3d6bf11b58 + then-uncommitted implementation, committed as 75bac70; exact source snapshots included",
+  "scope": "unapproved review evidence, no game asset promotion; still/coverage groups are explicitly separate from corrected motion bank",
+  "files": [
+    {
+      "file": "motion_corrected.mp4",
+      "bytes": 8249407,
+      "sha256": "fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64",
+      "copied_from": "build/art-pipeline/player_motion_v004/movie_20261023_corrected/review.mp4"
+    },
+    {
+      "file": "motion_before_leg_fix.mp4",
+      "bytes": 8261009,
+      "sha256": "163960b71ce6cf0f2de0f506c1308b69902ee3eda0ea689db38a68f032bec8b0",
+      "copied_from": "build/art-pipeline/player_motion_v004/movie_20261023_final/review.mp4"
+    },
+    {
+      "file": "ordered_motion.png",
+      "bytes": 745113,
+      "sha256": "163529c1d03ddf8778b305354dc1102459da022a7d95c9a15c7207783af00975",
+      "copied_from": "build/art-pipeline/player_motion_v004/review_images_corrected_20261023/ordered_motion.png"
+    },
+    {
+      "file": "four_directions.png",
+      "bytes": 1564026,
+      "sha256": "aabcc4dd74d6814ddf9af3c6676fec353d4149e1c9b58d27027aa002c8f94b66",
+      "copied_from": "build/art-pipeline/player_motion_v004/review_images_20261023/four_directions.png"
+    },
+    {
+      "file": "four_atmospheres.png",
+      "bytes": 2532545,
+      "sha256": "e458d9e4fe29477be8789c0b38d728a005939db761b91dbf4f3741e1cd4e142a",
+      "copied_from": "build/art-pipeline/player_motion_v004/review_images_20261023/four_atmospheres.png"
+    },
+    {
+      "file": "alpha_four_backgrounds.png",
+      "bytes": 72543,
+      "sha256": "3553b2ea6312caaea92cd9b3a26b4a0c2d93e10708f80fc69f2b2a6d6c531c92",
+      "copied_from": "build/art-pipeline/player_motion_v004/review_images_20261023/alpha_four_backgrounds.png"
+    },
+    {
+      "file": "coverage.png",
+      "bytes": 130632,
+      "sha256": "aef8f27d154e0b98c0c7cec4209298b179e7b27f45c87bb35ab55d11b7888220",
+      "copied_from": "build/art-pipeline/player_motion_v004/review_images_20261023/coverage.png"
+    },
+    {
+      "file": "pickup_peak.png",
+      "bytes": 760523,
+      "sha256": "b424bcc878689cee47de7f76b054adeb33925f8d35f4075c1497ae1d82a9eaf9",
+      "copied_from": "build/art-pipeline/player_motion_v004/playback_20261023_corrected/frame_0267.png"
+    },
+    {
+      "file": "wall_contact.png",
+      "bytes": 759866,
+      "sha256": "e0b8c6eb6b183b196c5b15946da344da1a79e687258fabf4f6799d5c44501614",
+      "copied_from": "build/art-pipeline/player_motion_v004/playback_20261023_corrected/frame_0840.png"
+    },
+    {
+      "file": "evidence/motion_record.json",
+      "bytes": 705552,
+      "sha256": "3fefb268d1daecc8f883c3f4ed31307433821e3377a017887e61e5412b1daa49",
+      "copied_from": "build/art-pipeline/player_motion_v004/record_20261023/motion.json"
+    },
+    {
+      "file": "evidence/motion_bank.json",
+      "bytes": 1888951,
+      "sha256": "660ed9f3208d7556083b5fc56c1785e44d704508fd9ea3afbf9b2e38e77c5e00",
+      "copied_from": "build/art-pipeline/player_motion_v004/render_20261023_c/motion_manifest.json"
+    },
+    {
+      "file": "evidence/marker_check.json",
+      "bytes": 474,
+      "sha256": "7b8de3ab8b59575c2ccd0ca86641e252f075cd3890e78024e13fbc672c58bdb1",
+      "copied_from": "build/player_motion_v004_check_20261023_c.json"
+    },
+    {
+      "file": "evidence/playback.json",
+      "bytes": 1421,
+      "sha256": "5295d0d7005aecbd104b8e05b13d5bbc81a7feaecadf1c2d2235b00b6a09ba6e",
+      "copied_from": "build/art-pipeline/player_motion_v004/playback_20261023_corrected/playback.json"
+    },
+    {
+      "file": "evidence/encode.json",
+      "bytes": 462,
+      "sha256": "830abbb85216f319fcdd4c78110a25deee3ec2deec2a7815fc5879f4d0d9017a",
+      "copied_from": "build/art-pipeline/player_motion_v004/movie_20261023_corrected/review.json"
+    },
+    {
+      "file": "evidence/visibility.json",
+      "bytes": 2959,
+      "sha256": "165f8e2d2a7bb659a983d45d4f0c4da123ac7852549057b7c8ab7d7b64eced82",
+      "copied_from": "build/art-pipeline/paint_visibility_fixtures/20261023/results.json"
+    },
+    {
+      "file": "evidence/color_roundtrip.json",
+      "bytes": 226,
+      "sha256": "fc206d9227a59b5b2719ce673e4a89b38722dabf76a23c82bdc13acefb40e8b5",
+      "copied_from": "build/art-pipeline/paint_color/roundtrip_final_20261023/results.json"
+    },
+    {
+      "file": "evidence/color_swatches.json",
+      "bytes": 1066,
+      "sha256": "d21b3befc88eb206ea46a9aa562d6e81c9c1d9e292a1b4f66139e8df21adc107",
+      "copied_from": "build/art-pipeline/paint_color/20260930_first/results.json"
+    },
+    {
+      "file": "evidence/four_directions_capture.json",
+      "bytes": 1757,
+      "sha256": "8b203bd0788023fb6eb75b70fecf69658103f42c1fac94ff798220b94c1621c3",
+      "copied_from": "build/art-pipeline/player_motion_v004/four_views_gpu_20261023_b/capture_manifest.json"
+    },
+    {
+      "file": "evidence/four_directions_bank.json",
+      "bytes": 2884,
+      "sha256": "0366bc697e985076335e94852adac9079ceb4d20bd5556a8f65cddd3d7274935",
+      "copied_from": "build/art-pipeline/player_motion_v004/stills_20261023/motion_manifest.json"
+    },
+    {
+      "file": "evidence/source/record_world.gd.txt",
+      "bytes": 3910,
+      "sha256": "84086846472bce6e4b4b3ba32c1d35384e9266830a1a8521696684d339497f93",
+      "copied_from": "build/art-pipeline/player_motion_v004/record_20261023/world_source.gd"
+    },
+    {
+      "file": "evidence/source/recorder.gd.txt",
+      "bytes": 4034,
+      "sha256": "b83ee2108f680ecc8d0888e5f531ec24325f839a924e7d8cf4933fd1f14bbf15",
+      "copied_from": "tools/art/record_player_motion.gd"
+    },
+    {
+      "file": "evidence/source/playback_world.gd.txt",
+      "bytes": 3951,
+      "sha256": "e1a54e55d31027988152814d16d78313a260ceaccd86159b41510c78eeab3c06",
+      "copied_from": "tools/art/player_motion_world.gd"
+    },
+    {
+      "file": "evidence/source/viewer.gd.txt",
+      "bytes": 10240,
+      "sha256": "038172c3514f3581f580ed91cd72e76ef3be1f8c67d654890d6a86604e724783",
+      "copied_from": "build/art-pipeline/player_motion_v004/playback_20261023_corrected/viewer_source.gd"
+    },
+    {
+      "file": "evidence/source/renderer.py.txt",
+      "bytes": 10028,
+      "sha256": "813d124a86fc30d7a878a6e1312d3663240cee572148681f2e38bc9f33f315fe",
+      "copied_from": "build/art-pipeline/player_motion_v004/render_20261023_c/renderer_source.py"
+    },
+    {
+      "file": "evidence/source/planner.py.txt",
+      "bytes": 5971,
+      "sha256": "71eb9e925f14291777d5ceeba64c36082591a7d5a65224d0dd76edc64af82d5d",
+      "copied_from": "build/art-pipeline/player_motion_v004/render_20261023_c/planner_source.py"
+    }
+  ]
+}

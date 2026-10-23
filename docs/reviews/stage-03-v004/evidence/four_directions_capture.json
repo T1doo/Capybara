@@ -1,0 +1,55 @@
+{
+	"camera_position": [
+		0,
+		-96
+	],
+	"camera_zoom": 1,
+	"candidate_manifest_sha256": "0366bc697e985076335e94852adac9079ceb4d20bd5556a8f65cddd3d7274935",
+	"fixture_sha256": "1fbe7bafe5706be46c2d7f0477a187e92ffbe3591b9535cd634b9221bd2dd0c4",
+	"frames": [
+		{
+			"direction": "down_right",
+			"file": "candidate_00.png",
+			"pose": "standing_v004",
+			"source": "E:/Capybara/build/art-pipeline/player_motion_v004/stills_20261023/frames/pose_0000.png",
+			"source_sha256": "2dcd7cd8ad23c4fc49d32454b4912c83c603e2e59a8c0c48025e81e49ae60e54"
+		},
+		{
+			"direction": "down_left",
+			"file": "candidate_01.png",
+			"pose": "standing_v004",
+			"source": "E:/Capybara/build/art-pipeline/player_motion_v004/stills_20261023/frames/pose_0001.png",
+			"source_sha256": "d0eecb38a806f547ea913a6f580b738be065d9a708a95c05ccab32074dc3ce22"
+		},
+		{
+			"direction": "up_right",
+			"file": "candidate_02.png",
+			"pose": "standing_v004",
+			"source": "E:/Capybara/build/art-pipeline/player_motion_v004/stills_20261023/frames/pose_0002.png",
+			"source_sha256": "f0e2b67c2c183b4347b65a2584a62d16e932025a2237cdf8af26aec884dd981f"
+		},
+		{
+			"direction": "up_left",
+			"file": "candidate_03.png",
+			"pose": "standing_v004",
+			"source": "E:/Capybara/build/art-pipeline/player_motion_v004/stills_20261023/frames/pose_0003.png",
+			"source_sha256": "69dc20c74176259016c93cf75c4d31502cf0cb9b25c82358459d371cb7a3385b"
+		}
+	],
+	"mode": "Compatibility GPU",
+	"pivot": [
+		320.0,
+		480.0
+	],
+	"player_position": [
+		64,
+		0
+	],
+	"resolution": [
+		1280,
+		720
+	],
+	"scope": "Visual fixture; not production integration or animation acceptance",
+	"shadow_scope": "shared approximate static contact shadow, separate from sprite; not final foot-contact animation",
+	"world_scale": 0.5
+}

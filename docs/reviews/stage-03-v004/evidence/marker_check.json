@@ -1,0 +1,11 @@
+{
+  "scope": "authored sole markers, not image-inferred contact or visual approval",
+  "actual_player_ticks": 3840,
+  "nominal_seconds": 64,
+  "rendered_poses": 375,
+  "stance_comparisons": 9388,
+  "max_marker_error_px": 0.004704647268731243,
+  "max_stance_slide_px": 0.006710346339104072,
+  "record_sha256": "3fefb268d1daecc8f883c3f4ed31307433821e3377a017887e61e5412b1daa49",
+  "bank_sha256": "660ed9f3208d7556083b5fc56c1785e44d704508fd9ea3afbf9b2e38e77c5e00"
+}

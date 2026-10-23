@@ -522,3 +522,11 @@ GPU 复核命令：
 - 颜色：7色块Standard回传0字节差、AgX最大48差；原图RGB-only未连接Alpha试验最大4差，按实际材质链接Alpha后294779个近不透明像素最大1差，未放宽阈值。角色导出采用sRGB输入/线性混合/Standard输出，世界色调未重调。固定四氛围GPU图已生成；该校准不批准混合材质/全部边界。
 - 机制/负例：12项Blender覆盖同mesh/异物/可见/背面/掠射/细分形态键/厚度/透视误用等；PNG保留旧7项并补外层validator触边/空图退出21及具体原因，复用现有不透明端到端负例，不另建治理体系。
 - 完整门首轮20261023T064417140Z-p80880-77bc79da因精简STATUS丢结构化safe_branch/review_baseline退出10，Godot未执行。恢复字段后20261023T064452263Z-p34128-c0dd001e实际19/19、827/827、61事务及Debug导出/启动通过，受测为91c00f1+dirty，前后源指纹见JSON。后续日志/媒体及修正版GPU证据独立记录，不冒充该次受测源。
+
+## 2026-10-23 · V004-CORRECTED-GPU-AND-REVIEW · 修正版连续证据
+
+- 来源类型：executed_now。修正版c完整375姿态渲染实际exit0；独立检查重新读取PNG/哈希/Alpha、实际位移和足点，9388次stance比较最大漂移0.00671035px、marker误差0.00470465px，未改变0.25px/0.02px容差。只验证作者标记，不宣称图像脚掌接触通过。
+- Windows Godot4.7.2 Compatibility / RTX4060 Laptop实际重播exit0：3840物理帧、逐帧位置误差0、真实拾取1，速度240、scale3、radius22、safe_margin0.08保留。GPU捕捉墙钟71.333789秒，3845张60fps、片长64.083333秒；Blender4.5.13 VSE转H264 exit0，修正版MP4 SHA256 `fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64`。不是实时性能或长时soak，输入是脚本注入，不冒充实体手柄。
+- 实现已原子提交`75bac70558257feb1088e0c9c84eb243cd41f7bb`，实际核验public仓库T1doo/Capybara、身份push权限、干净祖先、staged来源/秘密及LFS；仅显式安全分支非强制push成功。[exact Windows CI39914105478](https://github.com/T1doo/Capybara/actions/runs/39914105478)实际completed/success、headSha一致。没有旧main/autonomous-v1合回或Stage标签。
+- 主线程查看修正版连续抽帧、四向/四底/覆盖/四氛围：腿部伸长较b减轻，背面没有整块切回无纹理灰模，但鼻下/边缘仍有回退，长身体可探出原圆碰撞范围，材质与腿形未达到独立视觉批准。24纹理LRU约37.5MiB只是角色原始像素；375姿态仍为录制轨迹专用库，不是正式自由输入动画组件。[下一小样决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)保留可编辑B制作源，做同源walk/pickup分层A对照，不锁定路线/母图。
+- [审阅包](../../reviews/stage-03-v004/README.md)从明确allowlist复制25项、25719550字节，不上传整个build、原始AVI/.blend或375PNG。初次打包缺不存在的recorder_source.gd而中止；核验当前recorder与record hash一致后复制，重复项只允许完全相同字节，未删除失败/用户数据。精选媒体及JSON/源码证据登记来源/哈希、四向静态与修正版动态分开，全部仍未批准。该条记录时尚待本审阅包提交/实际匿名下载核验，不把“本机生成”冒充外部送达。

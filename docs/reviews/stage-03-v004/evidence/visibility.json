@@ -1,0 +1,138 @@
+{
+  "passed": 12,
+  "cases": [
+    {
+      "case": "same_mesh_hidden_front_facing_sheet",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "same_mesh_depth_occlusion",
+        "depth_separation": 1.0,
+        "epsilon": 3.0000000000000004e-05
+      }
+    },
+    {
+      "case": "visible_front_sheet",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 1,
+        "reason": "visible_surface",
+        "depth_separation": 0.0,
+        "epsilon": 3.0000000000000004e-05
+      }
+    },
+    {
+      "case": "back_facing",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "back_or_grazing"
+      }
+    },
+    {
+      "case": "grazing_surface",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "back_or_grazing"
+      }
+    },
+    {
+      "case": "other_object_occlusion",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "other_object_occlusion"
+      }
+    },
+    {
+      "case": "outside_orthographic_frame",
+      "observed": {
+        "uv": [
+          1.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "outside_frame"
+      }
+    },
+    {
+      "case": "behind_camera_clip",
+      "observed": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "clipped"
+      }
+    },
+    {
+      "case": "nonuniform_object_transform",
+      "observed": {
+        "uv": [
+          0.550000011920929,
+          0.42500001192092896
+        ],
+        "weight": 1,
+        "reason": "visible_surface",
+        "depth_separation": 2.9802322387695312e-08,
+        "epsilon": 1.6770509831248423e-05
+      }
+    },
+    {
+      "case": "perspective_projection_rejected"
+    },
+    {
+      "case": "thickness_surface_not_control_plane",
+      "control_plane": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 0.0,
+        "reason": "same_mesh_depth_occlusion",
+        "depth_separation": 0.09999990575011103,
+        "epsilon": 2.8354893762508125e-05
+      },
+      "surface": {
+        "uv": [
+          0.5,
+          0.5
+        ],
+        "weight": 1,
+        "reason": "visible_surface",
+        "depth_separation": 9.685754776000977e-08,
+        "epsilon": 2.8354893762508125e-05
+      }
+    },
+    {
+      "case": "subdivided_shape_key_surfaces_preserved",
+      "max_error": 1.1920928955078125e-07,
+      "bake": {
+        "baked_meshes": 1,
+        "control_vertices": 8,
+        "surface_vertices": 26,
+        "preserved_shape_keys": 1
+      }
+    },
+    {
+      "case": "different_render_subdivision_rejected"
+    }
+  ]
+}

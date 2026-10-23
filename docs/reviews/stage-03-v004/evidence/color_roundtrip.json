@@ -1,0 +1,6 @@
+{
+  "pixels_compared": 294779,
+  "max_srgb8_error": 1,
+  "mean_srgb8_error": 0.5060344642370499,
+  "scope": "Alpha-connected Image Texture RGB return on substantially opaque source pixels; not mixed material approval"
+}

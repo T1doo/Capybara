@@ -1,0 +1,11 @@
+{
+  "input_sha256": "2fc89288d71f6bb4b9d307e18d88410b605dc76e17bccd5d7ba32bda1cbc0f86",
+  "output_sha256": "fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64",
+  "frames": 3845,
+  "fps": 60,
+  "duration_seconds": 64.08333333333333,
+  "codec": "H264 MP4",
+  "color": "sRGB sequencer + Standard view; no artistic regrade",
+  "source": "actual Godot Compatibility viewport capture, not a concept illustration",
+  "blender": "4.5.13 LTS"
+}

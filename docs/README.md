@@ -35,4 +35,4 @@
 - Stage 11：[平衡、性能、可靠性、无障碍与本地化](stages/stage-11/PLAN.md) · [日志](stages/stage-11/LOG.md)
 - Stage 12：[Windows RC1 与 Steam 准备](stages/stage-12/PLAN.md) · [日志](stages/stage-12/LOG.md)
 
-机器日志、截图、视频和构建保留在被忽略的build，LOG记录run/source SHA和可取性。任务汇总仅可从各PLAN派生至build，禁止第二份手写backlog。一次性接管附件为用户文件保留原样，不是每次恢复必读的永久master prompt。[迁移映射](stages/stage-00-5/MIGRATION_MAP.csv)只记录本次迁移，不是长期目录数据库。
+机器日志、原始录像、完整帧库和构建保留在被忽略的build，LOG记录run/source SHA和可取性。供外部审阅的精选小型证据可在既有授权仓库中登记分发：[Stage3 v004 连续样板](reviews/stage-03-v004/README.md)含原速视频、实景图、来源哈希和限制；审阅副本不等于正式资源批准。任务汇总仅可从各PLAN派生至build，禁止第二份手写backlog。一次性接管附件为用户文件保留原样，不是每次恢复必读的永久master prompt。[迁移映射](stages/stage-00-5/MIGRATION_MAP.csv)只记录本次迁移，不是长期目录数据库。
