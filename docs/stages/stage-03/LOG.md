@@ -551,3 +551,10 @@ GPU 复核命令：
 - [A/B审阅页](../../reviews/stage-03-v004/AB_REVIEW.md)含视频、同帧图、全部16层与机器证据；新增family登记和LFS仅为review，不进game/assets。[设计决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)集中下一小样为分层加必要转体替换的背侧转向，B保留共同制作源，不扩建两套全量动作管线。ART3-100/角色母图/Stage3仍未完成；全门及本批精确CI待下条实际结果。
 
 - 本批实际完整门run`20261023T073546602Z-p81508-452914a6`退出0：19/19、required_checks_satisfied=true、827/827、61事务、素材及Windows Debug导出/启动通过。受测为ff12938+dirty本批，前后源码指纹同为`0f3a019049bd8f787d16e74ba4123c32eb1bd20efb71866ba21c56a09b6cccaa`；[机器摘要](../../reviews/stage-03-v004/evidence/ab_local_gate.json)随包保存。共用B播放器另以Windows反斜杠输入实际GPU smoke120tick/位置误差0/诊断0；只为路径回归，不冒充64秒复跑。检查后只补本条和机器证据，无运行行为变更，新精确CI仍须实际查询。
+
+## 2026-10-23 · V004-AB-EXACT-CI-AND-DOWNLOAD · 实现与外部分发闭环
+
+- 来源类型：executed_now。50文件实现/证据提交`5ed253870c34cebea6492c0aad74b99e9f68ac1b`实际仅安全分支普通push；18新LFS对象约3.2MB上传成功，`git lfs fsck HEAD`通过，60项payload在staged中哈希/指针精确吻合，秘密模式扫描无命中，原交接附件哈希未变。无game/assets晋级、旧祖先合入或Stage标签。
+- [exact Windows CI39919257839](https://github.com/T1doo/Capybara/actions/runs/39919257839)实际completed/success、headSha精确一致；下载capybara-check-logs，run`20261023T074011687Z-p2516-f393e59f`，19/19、827/827、61事务及Debug导出/启动实际通过，exit0，前后dirty=false/untracked0/fingerprint均`4e855805af96ea34f0565f1154a5817a785d129ba4ca4a4becdfb37a29fa2f99`。[冻结摘要](../../reviews/stage-03-v004/evidence/ci_5ed2538.json)公开提供，不用旧CI代替。
+- 对固定5ed2538的新增33项逐项匿名GET：视频、同帧PNG、16层、manifest/报告/源码均HTTP200，长度/SHA全部吻合；主审阅页/A-B页raw均200。[分发记录](../../reviews/stage-03-v004/evidence/ab_public_delivery.json)有真实固定URL。没有替用户向其他人发消息，没有新建Release或上传整个build。
+- 自审重点为：子集不冒充完整银行、旧/新PNG元数据与RGBA分开、二维分层确实独立绘制、路径规范化不放宽根目录/哈希边界、错误退出不计录制成功。路线/母图/Stage3依旧未批准；下批继续背侧转向和自由起停，不重复本批已完成的walk/pickup、分发或PNG治理。后续文档检查点与受测实现分开，不为自身最终SHA循环amend。

@@ -364,6 +364,18 @@
       "bytes": 6629,
       "sha256": "2010618f91a328d915025d1d9f1f6677c16cf645a5dce233c9e864a5261801bc",
       "copied_from": "build/logs/check_project-20261023T073546602Z-p81508-452914a6.json"
+    },
+    {
+      "file": "evidence/ci_5ed2538.json",
+      "bytes": 6628,
+      "sha256": "fed94016e0037e9fc772eaa42335542355fbbc5390a8ccab3e255a970ddc16aa",
+      "copied_from": "build/ci-review-5ed2538/check_project-latest.json"
+    },
+    {
+      "file": "evidence/ab_public_delivery.json",
+      "bytes": 12112,
+      "sha256": "299048a7fa8cfc81c83537f9311895553d58be2c4fd52c0cf105588e98664dec",
+      "copied_from": "build/review_packets/v004_ab_anonymous_20261023/delivery.json"
     }
   ]
 }

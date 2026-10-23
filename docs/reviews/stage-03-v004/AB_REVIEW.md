@@ -1,8 +1,8 @@
 # v004 同源 A/B · 下右 walk 与 pickup
 
-2026-10-23 实际执行。制作源与64秒B样板完全相同：packed blend SHA `089bdb4cfb5c3f3d9af5a9c6a4f75467a62cc04c489c580ae854a3c200e09677`。这是 ART3-100 的小规模连续对照，仍为 **technical_unapproved**，不批准母图或 Stage 3。
+2026-10-23 实际执行，[实现固定提交5ed2538](https://github.com/T1doo/Capybara/commit/5ed253870c34cebea6492c0aad74b99e9f68ac1b)。[exact Windows CI39919257839](https://github.com/T1doo/Capybara/actions/runs/39919257839)已success，并已下载日志核对干净检出19/19、827/827及61事务；[机器摘要](evidence/ci_5ed2538.json)可取。制作源与64秒B样板完全相同：packed blend SHA `089bdb4cfb5c3f3d9af5a9c6a4f75467a62cc04c489c580ae854a3c200e09677`。这是 ART3-100 的小规模连续对照，仍为 **technical_unapproved**，不批准母图或 Stage 3。
 
-[原速并排视频](ab_same_source.mp4)：左A cutout，右B正交预渲染。每侧原1280×720，合成2560×720，60fps、335个画面帧/5.583秒；两侧同起点、同实际Player轨迹、原240速度、同相机/尺寸/晴天预设。真实动作330物理帧/5.5秒，其中2–3.2秒为walk、4–4.9秒为明显低头拾取。5个附加画面帧来自Movie Maker启停。没有把某侧放大、换机位或用旧占位A作对手。
+[原速并排视频](https://media.githubusercontent.com/media/T1doo/Capybara/5ed253870c34cebea6492c0aad74b99e9f68ac1b/docs/reviews/stage-03-v004/ab_same_source.mp4)：左A cutout，右B正交预渲染。每侧原1280×720，合成2560×720，60fps、335个画面帧/5.583秒；两侧同起点、同实际Player轨迹、原240速度、同相机/尺寸/晴天预设。真实动作330物理帧/5.5秒，其中2–3.2秒为walk、4–4.9秒为明显低头拾取。5个附加画面帧来自Movie Maker启停。没有把某侧放大、换机位或用旧占位A作对手。新增33项公开文件已匿名回读HTTP200、长度/哈希全部一致，见[分发记录](evidence/ab_public_delivery.json)；未代用户发给外部人员，也不声称已被外部签收。
 
 ![从实际并排录像按同帧抽取的原像素裁图](ab_ordered.png)
 
