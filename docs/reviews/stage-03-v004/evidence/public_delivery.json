@@ -1,0 +1,79 @@
+{
+  "commit": "9257d8db7df3d9f67371d87d52963e2f4ff1d583",
+  "authentication": "none; no Authorization/cookie header",
+  "readme_url": "https://raw.githubusercontent.com/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/README.md",
+  "media": [
+    {
+      "file": "motion_corrected.mp4",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/motion_corrected.mp4",
+      "http_status": 200,
+      "bytes": 8249407,
+      "sha256": "fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64",
+      "content_type": "application/octet-stream"
+    },
+    {
+      "file": "motion_before_leg_fix.mp4",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/motion_before_leg_fix.mp4",
+      "http_status": 200,
+      "bytes": 8261009,
+      "sha256": "163960b71ce6cf0f2de0f506c1308b69902ee3eda0ea689db38a68f032bec8b0",
+      "content_type": "application/octet-stream"
+    },
+    {
+      "file": "ordered_motion.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/ordered_motion.png",
+      "http_status": 200,
+      "bytes": 745113,
+      "sha256": "163529c1d03ddf8778b305354dc1102459da022a7d95c9a15c7207783af00975",
+      "content_type": "image/png"
+    },
+    {
+      "file": "four_directions.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/four_directions.png",
+      "http_status": 200,
+      "bytes": 1564026,
+      "sha256": "aabcc4dd74d6814ddf9af3c6676fec353d4149e1c9b58d27027aa002c8f94b66",
+      "content_type": "image/png"
+    },
+    {
+      "file": "four_atmospheres.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/four_atmospheres.png",
+      "http_status": 200,
+      "bytes": 2532545,
+      "sha256": "e458d9e4fe29477be8789c0b38d728a005939db761b91dbf4f3741e1cd4e142a",
+      "content_type": "image/png"
+    },
+    {
+      "file": "alpha_four_backgrounds.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/alpha_four_backgrounds.png",
+      "http_status": 200,
+      "bytes": 72543,
+      "sha256": "3553b2ea6312caaea92cd9b3a26b4a0c2d93e10708f80fc69f2b2a6d6c531c92",
+      "content_type": "image/png"
+    },
+    {
+      "file": "coverage.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/coverage.png",
+      "http_status": 200,
+      "bytes": 130632,
+      "sha256": "aef8f27d154e0b98c0c7cec4209298b179e7b27f45c87bb35ab55d11b7888220",
+      "content_type": "image/png"
+    },
+    {
+      "file": "pickup_peak.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/pickup_peak.png",
+      "http_status": 200,
+      "bytes": 760523,
+      "sha256": "b424bcc878689cee47de7f76b054adeb33925f8d35f4075c1497ae1d82a9eaf9",
+      "content_type": "image/png"
+    },
+    {
+      "file": "wall_contact.png",
+      "url": "https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/wall_contact.png",
+      "http_status": 200,
+      "bytes": 759866,
+      "sha256": "e0b8c6eb6b183b196c5b15946da344da1a79e687258fabf4f6799d5c44501614",
+      "content_type": "image/png"
+    }
+  ]
+}

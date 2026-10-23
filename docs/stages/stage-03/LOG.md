@@ -530,3 +530,12 @@ GPU 复核命令：
 - 实现已原子提交`75bac70558257feb1088e0c9c84eb243cd41f7bb`，实际核验public仓库T1doo/Capybara、身份push权限、干净祖先、staged来源/秘密及LFS；仅显式安全分支非强制push成功。[exact Windows CI39914105478](https://github.com/T1doo/Capybara/actions/runs/39914105478)实际completed/success、headSha一致。没有旧main/autonomous-v1合回或Stage标签。
 - 主线程查看修正版连续抽帧、四向/四底/覆盖/四氛围：腿部伸长较b减轻，背面没有整块切回无纹理灰模，但鼻下/边缘仍有回退，长身体可探出原圆碰撞范围，材质与腿形未达到独立视觉批准。24纹理LRU约37.5MiB只是角色原始像素；375姿态仍为录制轨迹专用库，不是正式自由输入动画组件。[下一小样决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)保留可编辑B制作源，做同源walk/pickup分层A对照，不锁定路线/母图。
 - [审阅包](../../reviews/stage-03-v004/README.md)从明确allowlist复制25项、25719550字节，不上传整个build、原始AVI/.blend或375PNG。初次打包缺不存在的recorder_source.gd而中止；核验当前recorder与record hash一致后复制，重复项只允许完全相同字节，未删除失败/用户数据。精选媒体及JSON/源码证据登记来源/哈希、四向静态与修正版动态分开，全部仍未批准。该条记录时尚待本审阅包提交/实际匿名下载核验，不把“本机生成”冒充外部送达。
+
+## 2026-10-23 · V004-PUBLIC-DELIVERY · 固定提交媒体匿名回读
+
+- 来源类型：executed_now。35文件审阅媒体/文档提交`9257d8db7df3d9f67371d87d52963e2f4ff1d583`仅显式安全分支正常push成功；9项媒体均LFS指针，16项报告/源码payload与EVIDENCE的原始字节SHA一致，staged secret-pattern扫描无命中、`git lfs fsck HEAD`成功。冻结CRLF证据曾被diff --check识别为行尾空白；仅对本包证据设置`whitespace=cr-at-eol`，不改原始报告字节或全局检查。
+- 远端归属T1doo/Capybara、public、身份push权限和安全ref在实际Windows凭据环境核验；隔离环境ls-remote曾SEC_E_NO_CREDENTIALS，随后本机只读同ref成功，不把隔离失败解释为全局凭据失效。旧main/autonomous-v1未被推送/合入，原附件SHA仍72ab1263...且未跟踪。
+- 对固定9257d8d的media.githubusercontent.com逐项匿名GET，无Authorization/cookie：9/9 HTTP200，23075664媒体字节与全部SHA完全一致；README raw也200。详细URL/Content-Type/大小/hash见[public_delivery](../../reviews/stage-03-v004/evidence/public_delivery.json)。可向外部提供真实可取链接，但未代用户发消息，也不声称外部已看过或批准。
+- 本地格式466文本通过、治理14阶段/102任务/21负正例通过、cached diff通过。该提交[exact Windows CI39915780544](https://github.com/T1doo/Capybara/actions/runs/39915780544)已启动、headSha一致，记录本条时仍in_progress，不能用75bac70的绿灯代替；Stage3/Goal继续in_progress/active。
+
+- 后续actual查询已completed/success且headSha=9257d8d；实际下载capybara-check-logs产物，run`20261023T070805508Z-p1316-1abf3dba`，19步全部passed/exit0/diagnostic_count0，required_checks_satisfied=true，前后dirty=false/fingerprint同为`0e1662dae2e8fb0c805174e8d845c1d2d9db2dfac166bbb89a587df23d5ab29a`。原始日志及JSON在build/ci-review-9257d8d；[冻结机器摘要](../../reviews/stage-03-v004/evidence/ci_9257d8d.json)随审阅包提供。首次匿名下载运行日志API403，改用已核验的GCM凭据在内存授权后成功；没有写入/打印密钥。此为后续勘误，不改写前一观察点的in_progress。

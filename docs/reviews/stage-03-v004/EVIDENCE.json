@@ -154,6 +154,18 @@
       "bytes": 5971,
       "sha256": "71eb9e925f14291777d5ceeba64c36082591a7d5a65224d0dd76edc64af82d5d",
       "copied_from": "build/art-pipeline/player_motion_v004/render_20261023_c/planner_source.py"
+    },
+    {
+      "file": "evidence/public_delivery.json",
+      "bytes": 3796,
+      "sha256": "1e03391aded213209623cd37d8f2ea3fca12409fda0d054c5f3ab7d2135861cd",
+      "copied_from": "build/review_packets/v004_anonymous_delivery_20261023/delivery.json"
+    },
+    {
+      "file": "evidence/ci_9257d8d.json",
+      "bytes": 6631,
+      "sha256": "7c085fec791440766cde77786162c952e678647847fa1bab13f894e43c93f0d4",
+      "copied_from": "build/ci-review-9257d8d/check_project-latest.json"
     }
   ]
 }

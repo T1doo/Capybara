@@ -1,10 +1,10 @@
 # Stage 3 · v004 连续实景动作审阅
 
-日期：2026-10-23。实现源码固定于 [`75bac70558257feb1088e0c9c84eb243cd41f7bb`](https://github.com/T1doo/Capybara/commit/75bac70558257feb1088e0c9c84eb243cd41f7bb)，[对应 Windows CI](https://github.com/T1doo/Capybara/actions/runs/39914105478)为 completed / success。素材为 **technical_unapproved**；本页是审阅包，不是角色母图、路线或 Stage 3 签收。
+日期：2026-10-23。实现源码固定于 [`75bac70558257feb1088e0c9c84eb243cd41f7bb`](https://github.com/T1doo/Capybara/commit/75bac70558257feb1088e0c9c84eb243cd41f7bb)；媒体提交 [`9257d8db7df3d9f67371d87d52963e2f4ff1d583`](https://github.com/T1doo/Capybara/commit/9257d8db7df3d9f67371d87d52963e2f4ff1d583)的 [exact Windows CI39915780544](https://github.com/T1doo/Capybara/actions/runs/39915780544)为 completed / success。已实际下载其原始日志，19/19工程门通过、前后工作树干净且指纹相同；[完整机器摘要](evidence/ci_9257d8d.json)可公开读取。素材为 **technical_unapproved**；本页是审阅包，不是角色母图、路线或 Stage 3 签收。
 
 ## 先看连续片段
 
-[修正版原速视频：64.08 秒、1280×720、60fps](motion_corrected.mp4)。如 GitHub 内嵌播放器不可用，使用文件页的 Download raw file。文件通过本仓库 LFS 分发；不是本机 build 路径。文件 SHA-256：`fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64`。
+[修正版原速视频：64.08 秒、1280×720、60fps](https://media.githubusercontent.com/media/T1doo/Capybara/9257d8db7df3d9f67371d87d52963e2f4ff1d583/docs/reviews/stage-03-v004/motion_corrected.mp4)。[GitHub 文件页](motion_corrected.mp4)也可 Download raw file。文件通过本仓库 LFS 分发；不是本机 build 路径。文件 SHA-256：`fcb38512358bc17551654d042beadd65b4765dfe0b37fd8f4a3ce43026290e64`。2026-10-23 已用无 Authorization/cookie 的匿名请求回读固定提交的全部9项媒体，均 HTTP 200、字节长度和 SHA 一致；分发核验记录见 [public_delivery](evidence/public_delivery.json)。这只证明外部可以取得，不声称外部审阅者已经看过。
 
 | 片段位置（约） | 实际内容与观察重点 |
 |---|---|
