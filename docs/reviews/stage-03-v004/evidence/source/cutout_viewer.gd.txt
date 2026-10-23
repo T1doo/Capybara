@@ -1,0 +1,151 @@
+extends "res://../tools/art/play_player_motion.gd"
+
+# Same actual Player replay as B, limited to its initial DR walk and pickup.
+# Only feet deform as 2D meshes; head/scarf use five small replacement plates.
+var layer_manifest: Dictionary
+var layer_base: String
+var cutout_root: Node2D
+var cutout_textures: Dictionary[String, Texture2D] = {}
+var replacements: Dictionary[String, Sprite2D] = {}
+var foot_meshes: Array[MeshInstance2D] = []
+var grid_points: Array[PackedVector2Array] = []
+var grid_uvs: Array[PackedVector2Array] = []
+var grid_indices: Array[PackedInt32Array] = []
+
+
+func _run() -> void:
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	if args.size() != 4:
+		_fail("Expected B bank, actual record, new output and cutout layer manifest.")
+		return
+	var build: String = ProjectSettings.globalize_path("res://../build").simplify_path()
+	if not args[3].replace("\\", "/").simplify_path().begins_with(build + "/"):
+		_fail("Cutout inputs must remain in build.")
+		return
+	layer_manifest = JSON.parse_string(FileAccess.get_file_as_string(args[3]))
+	layer_base = args[3].get_base_dir()
+	if layer_manifest["b_manifest_sha256"] != FileAccess.get_sha256(args[0]):
+		_fail("Cutout must match the exact B bank/model.")
+		return
+	await super._run()
+
+
+func _make_layers() -> bool:
+	cutout_root = Node2D.new()
+	cutout_root.scale = sprite.scale
+	cutout_root.position = sprite.position
+	main.player.add_child(cutout_root)
+	sprite.hide()
+	for entry: Dictionary in layer_manifest["layers"]:
+		var path: String = layer_base.path_join(entry["path"]).simplify_path()
+		if not path.begins_with(layer_base + "/") or FileAccess.get_sha256(path) != entry["sha256"]:
+			_fail("Cutout plate path/hash mismatch.")
+			return false
+		cutout_textures[entry["path"]] = ImageTexture.create_from_image(Image.load_from_file(path))
+	var foot_ids: Array[String] = ["Fore_Left", "Fore_Right", "Hind_Left", "Hind_Right"]
+	foot_meshes.resize(4)
+	grid_points.resize(4)
+	grid_uvs.resize(4)
+	grid_indices.resize(4)
+	for id: String in layer_manifest["draw_order"]:
+		if id in foot_ids:
+			var index: int = foot_ids.find(id)
+			var mesh_node := MeshInstance2D.new()
+			mesh_node.texture = cutout_textures[id + "_00.png"]
+			cutout_root.add_child(mesh_node)
+			foot_meshes[index] = mesh_node
+			_make_grid(index, id)
+		else:
+			var plate := Sprite2D.new()
+			plate.centered = false
+			plate.texture = cutout_textures[id + "_00.png"]
+			cutout_root.add_child(plate)
+			replacements[id] = plate
+	return true
+
+
+func _make_grid(foot: int, id: String) -> void:
+	var bbox: Array
+	for entry: Dictionary in layer_manifest["layers"]:
+		if entry["layer"] == id:
+			bbox = entry["alpha_bbox"]
+	var rect := Rect2(float(bbox[0]) - 1, float(bbox[1]) - 1,
+		float(bbox[2]) - float(bbox[0]) + 2, float(bbox[3]) - float(bbox[1]) + 2)
+	var points := PackedVector2Array()
+	var uv := PackedVector2Array()
+	var indices := PackedInt32Array()
+	for y in range(9):
+		for x in range(7):
+			var point: Vector2 = rect.position + rect.size * Vector2(x / 6.0, y / 8.0)
+			points.append(point)
+			uv.append(point / 640.0)
+	for y in range(8):
+		for x in range(6):
+			var start: int = y * 7 + x
+			indices.append_array(PackedInt32Array([start, start + 1, start + 8, start, start + 8, start + 7]))
+	grid_points[foot] = points
+	grid_uvs[foot] = uv
+	grid_indices[foot] = indices
+
+
+func _show_pose(index: int) -> void:
+	if cutout_root == null and not _make_layers(): return
+	var pose: Dictionary = manifest["poses"][index]
+	var key: int = clampi(roundi(float(pose["dip"]) * 4), 0, 4)
+	for id: String in ["head", "scarf"]:
+		replacements[id].texture = cutout_textures[id + "_%02d.png" % key]
+	for foot in range(4):
+		var source: Dictionary = layer_manifest["feet"][foot]
+		var hip := Vector2(source["hip"][0], source["hip"][1])
+		var sole := Vector2(source["sole"][0], source["sole"][1])
+		var marker: Array = frame_map[index]["soles"][foot]
+		var target := Vector2(marker[0], marker[1])
+		var offset: Vector2 = target - sole
+		var axis: Vector2 = sole - hip
+		var vertices := PackedVector3Array()
+		for point: Vector2 in grid_points[foot]:
+			var weight: float = smoothstep(0.0, 0.95, (point - hip).dot(axis) / axis.length_squared())
+			var moved: Vector2 = point + offset * weight
+			vertices.append(Vector3(moved.x, moved.y, 0))
+		var arrays: Array = []
+		arrays.resize(Mesh.ARRAY_MAX)
+		arrays[Mesh.ARRAY_VERTEX] = vertices
+		arrays[Mesh.ARRAY_TEX_UV] = grid_uvs[foot]
+		arrays[Mesh.ARRAY_INDEX] = grid_indices[foot]
+		var mesh := ArrayMesh.new()
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+		foot_meshes[foot].mesh = mesh
+		var height: float = float(pose["feet"][foot][2]) * float(manifest["height_scale"])
+		shadows[foot].global_position = cutout_root.to_global(target) + Vector2(0, height)
+		shadows[foot].modulate.a = 1.0 / (1.0 + height * .15)
+
+
+func _after(delta: float) -> void:
+	if done: return
+	super._after(delta)
+	if failed: return
+	caption.text = "A cutout v004 / %.2fs / DR walk + pickup / same Player 240 px/s — UNAPPROVED" % ((tick - 1) / 60.0)
+	if tick - 1 in [130, 136, 142, 148, 250, 272, 294]:
+		call_deferred(&"_capture", tick - 1)
+	if tick >= 330:
+		done = true
+		main.player.set_physics_process(false)
+		call_deferred(&"_finish")
+
+
+func _finish() -> void:
+	if failed: return
+	if tick != 330 or maximum_position_error > 0.01:
+		_fail("Cutout DR sample did not complete its matching 330-tick replay.")
+		return
+	var file := FileAccess.open(output.path_join("cutout.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"ticks": tick, "duration_game_seconds": tick / 60.0,
+		"plate_count": cutout_textures.size(), "raw_texture_bytes": 640 * 640 * 4 * cutout_textures.size(),
+		"layer_model_sha256": layer_manifest["model_sha256"],
+		"layer_manifest_sha256": FileAccess.get_sha256(OS.get_cmdline_user_args()[3]),
+		"base_viewer_sha256": FileAccess.get_sha256("res://../tools/art/play_player_motion.gd"),
+		"foot_deformation": "63 vertices per foot; hip anchored 2D plate deformation; DR only",
+		"scope": "same-source DR walk/pickup; 2D foot deformation and 5 head/scarf replacements; not all directions",
+		"limits": "no cutout idle breath; no production performance/visual approval; raw pixel budget is unoptimized"}, "\t"))
+	file.close()
+	await super._finish()

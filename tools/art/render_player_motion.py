@@ -6,6 +6,7 @@ import json
 import math
 from pathlib import Path
 import sys
+import time
 
 import bpy
 from mathutils import Matrix, Vector
@@ -42,7 +43,10 @@ def main():
     parser.add_argument("--preview", action="store_true")
     parser.add_argument("--stills", action="store_true")
     parser.add_argument("--coverage", action="store_true")
+    parser.add_argument("--first-ticks", type=int, default=3840)
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
+    if not 1 <= args.first_ticks <= 3840 or (args.first_ticks != 3840 and (args.preview or args.stills or args.coverage)):
+        raise ValueError("A bounded motion cost sample cannot mix with static/coverage modes")
     model, motion, output = args.model_dir.resolve(), args.motion.resolve(), args.output_dir.resolve()
     for source in (model, motion, output):
         if (ROOT / "build") not in source.parents:
@@ -57,6 +61,7 @@ def main():
     if not record["passed"] or len(record["rows"]) != 3840 or record["speed"] != 240:
         raise ValueError("Expected actual 64-second 240px/s motion record")
     output.mkdir(parents=True)
+    started = time.monotonic()
     bpy.ops.wm.open_mainfile(filepath=str(blend))
     scene, camera = bpy.context.scene, bpy.context.scene.camera
     size, display_scale = 640, .5
@@ -127,6 +132,8 @@ def main():
     frames_dir = output / "frames"
     frames_dir.mkdir()
     indices = range(len(data["poses"]))
+    if args.first_ticks != 3840:
+        indices = sorted({row["pose"] for row in data["timeline"][:args.first_ticks]})
     if args.preview:
         indices = sorted({0, max(range(len(data["poses"])), key=lambda i: data["poses"][i]["dip"]),
                           max(range(len(data["poses"])), key=lambda i: abs(data["poses"][i]["yaw"])),
@@ -171,7 +178,10 @@ def main():
         if index % 20 == 0:
             print("MOTION RENDER %d/%d" % (index, len(data["poses"])), flush=True)
             (output / "render_progress.json").write_text(json.dumps({"done": index + 1, "total": len(data["poses"])}))
-    data["complete"] = not args.preview and not args.stills and not args.coverage
+    data["complete"] = not args.preview and not args.stills and not args.coverage and args.first_ticks == 3840
+    data["rendered_ticks"] = args.first_ticks
+    data["subset_complete"] = args.first_ticks < 3840
+    data["elapsed_seconds"] = time.monotonic() - started
     data["stills_complete"] = args.stills
     data["coverage_diagnostic"] = args.coverage
     (output / "motion_manifest.json").write_text(json.dumps(data, separators=(",", ":")))

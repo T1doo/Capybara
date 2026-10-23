@@ -539,3 +539,15 @@ GPU 复核命令：
 - 本地格式466文本通过、治理14阶段/102任务/21负正例通过、cached diff通过。该提交[exact Windows CI39915780544](https://github.com/T1doo/Capybara/actions/runs/39915780544)已启动、headSha一致，记录本条时仍in_progress，不能用75bac70的绿灯代替；Stage3/Goal继续in_progress/active。
 
 - 后续actual查询已completed/success且headSha=9257d8d；实际下载capybara-check-logs产物，run`20261023T070805508Z-p1316-1abf3dba`，19步全部passed/exit0/diagnostic_count0，required_checks_satisfied=true，前后dirty=false/fingerprint同为`0e1662dae2e8fb0c805174e8d845c1d2d9db2dfac166bbb89a587df23d5ab29a`。原始日志及JSON在build/ci-review-9257d8d；[冻结机器摘要](../../reviews/stage-03-v004/evidence/ci_9257d8d.json)随审阅包提供。首次匿名下载运行日志API403，改用已核验的GCM凭据在内存授权后成功；没有写入/打印密钥。此为后续勘误，不改写前一观察点的in_progress。
+
+## 2026-10-23 · V004-SAME-SOURCE-AB · 分层/预渲染实际连续对照
+
+- 来源类型：executed_now。文档分发后继`ff12938bdf6e1cf4a770c228cccc6746030b47de`的[exact Windows CI39916463633](https://github.com/T1doo/Capybara/actions/runs/39916463633)实际success、headSha一致。以下为该提交上的dirty新A/B工具/素材/记录，不能继承该CI。唯一工作树及原附件保留，未改默认正式入口或批准资产。
+- 新A从同一packed blend089bdb4c...提取重叠头躯、四足与配件，共16张真RGBA，32采样/Cycles CPU/8线程实际27.188秒。第一轮按身体holdout裁远足造成Hind_Left空Alpha并exit1；保留a组，b组保留完整隐藏足层并用躯干二维遮挡，16层exit0。未忽略空Alpha失败。A用二维足网格与5档头/围巾替换，不是把B完整帧重命名。
+- 同真实Player/Input/WorldZone/拾取链的A样板330物理帧/5.5游戏秒、位置误差0、拾取1。首次Movie Maker相对路径落到game/build下不存在的目录，Godot虽exit0但连续ERROR，明确不计录制通过；改仓库内绝对路径，扫描诊断后b/c两组均exit0/诊断0。335画面帧含5启停帧，非性能/soak或实体输入验收。无意义的代数足点自比较已去掉，不拿恒等式当接地证据。
+- B按相同前330tick新渲染68完整姿态，实际123.937秒；新增受限first-ticks选项，子集complete=false/subset_complete=true，不能冒充全64秒。初次逐文件SHA一致断言失败，调查发现PNG的Date/RenderTime/cycles计时元数据不同；独立逐张RGBA比较68/68像素完全相同，未放宽像素阈值。源快照、子集manifest和实测成本随包保存。
+- 实际AVI并排为2560×720，左右每侧原1280×720、60fps、335帧/5.583秒；MP4 SHA`b2ea74e39aa72160d190dbc435bb175bff95f0488d903e07527a99b47fa8e74c`。按原分辨率解码7个同帧对照，主线程查看walk与低头关键帧，体块/材质对应；A二维脚形、5档替换的连续性仍未批准。A无idle呼吸，B有；不以该成本表冒充全生产/性能胜负，也未宣称服装修改成本已测。
+- [公开素材复现脚本](../../../tools/replay_player_cutout_review.ps1)只从仓库审阅副本复制2份JSON/16层到新build目录，不依赖未提交blend或B PNG库。首轮因Windows反斜杠/斜杠混用导致路径边界误拒；base viewer与A入口规范化后，新目录public_replay_20261023_b实际import/replay退出0、330tick位置误差0/拾取1/诊断0。源哈希与两版运行报告均保留，不把首轮失败覆盖成首轮通过。
+- [A/B审阅页](../../reviews/stage-03-v004/AB_REVIEW.md)含视频、同帧图、全部16层与机器证据；新增family登记和LFS仅为review，不进game/assets。[设计决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)集中下一小样为分层加必要转体替换的背侧转向，B保留共同制作源，不扩建两套全量动作管线。ART3-100/角色母图/Stage3仍未完成；全门及本批精确CI待下条实际结果。
+
+- 本批实际完整门run`20261023T073546602Z-p81508-452914a6`退出0：19/19、required_checks_satisfied=true、827/827、61事务、素材及Windows Debug导出/启动通过。受测为ff12938+dirty本批，前后源码指纹同为`0f3a019049bd8f787d16e74ba4123c32eb1bd20efb71866ba21c56a09b6cccaa`；[机器摘要](../../reviews/stage-03-v004/evidence/ab_local_gate.json)随包保存。共用B播放器另以Windows反斜杠输入实际GPU smoke120tick/位置误差0/诊断0；只为路径回归，不冒充64秒复跑。检查后只补本条和机器证据，无运行行为变更，新精确CI仍须实际查询。

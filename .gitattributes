@@ -17,3 +17,5 @@ docs/reviews/stage-03-v004/*.mp4 filter=lfs diff=lfs merge=lfs -text
 # Frozen execution evidence is hashed byte-for-byte, including its original newlines.
 docs/reviews/stage-03-v004/evidence/*.json -text whitespace=cr-at-eol
 docs/reviews/stage-03-v004/evidence/source/* -text whitespace=cr-at-eol
+docs/reviews/stage-03-v004/cutout_layers/*.png filter=lfs diff=lfs merge=lfs -text
+docs/reviews/stage-03-v004/cutout_layers/layer_manifest.json -text whitespace=cr-at-eol

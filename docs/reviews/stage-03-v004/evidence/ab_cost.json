@@ -1,0 +1,27 @@
+{
+  "scope": "same source and initial 330 ticks; A has no idle breath, no universal production cost claim",
+  "model_sha256": "089bdb4cfb5c3f3d9af5a9c6a4f75467a62cc04c489c580ae854a3c200e09677",
+  "A": {
+    "plates": 16,
+    "elapsed_seconds": 27.187999999994645,
+    "cpu_threads": 8,
+    "samples": 32,
+    "raw_loaded_pixels_bytes": 26214400,
+    "png_bytes": 645494
+  },
+  "B": {
+    "poses": 68,
+    "elapsed_seconds": 123.93700000000536,
+    "cpu_threads": 8,
+    "samples": 32,
+    "raw_pixel_cache_budget_bytes": 39321600,
+    "png_bytes": 7998312
+  },
+  "B_pixel_identity": {
+    "images": 68,
+    "max_rgba_error": 0,
+    "file_bytes_identical": false,
+    "reason": "PNG Date/RenderTime/cycles timing metadata differ; actual RGBA independently compared"
+  },
+  "limits": "single direction; cloth/hidden overlaps/5 replacement transitions and 2D foot deformation need visual review; B includes quantized idle breath, A idle is static; raw budgets unoptimized for both"
+}

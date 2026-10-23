@@ -1,0 +1,75 @@
+{
+  "scope": "unscaled crops from decoded actual combined video; 5 startup movie frames",
+  "frames": [
+    {
+      "video_frame": 130,
+      "physics_tick_from_caption_offset": 125,
+      "left_view_crop": [
+        337,
+        33,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 136,
+      "physics_tick_from_caption_offset": 131,
+      "left_view_crop": [
+        354,
+        50,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 142,
+      "physics_tick_from_caption_offset": 137,
+      "left_view_crop": [
+        371,
+        67,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 148,
+      "physics_tick_from_caption_offset": 143,
+      "left_view_crop": [
+        388,
+        84,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 250,
+      "physics_tick_from_caption_offset": 245,
+      "left_view_crop": [
+        524,
+        220,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 272,
+      "physics_tick_from_caption_offset": 267,
+      "left_view_crop": [
+        524,
+        220,
+        320,
+        320
+      ]
+    },
+    {
+      "video_frame": 294,
+      "physics_tick_from_caption_offset": 289,
+      "left_view_crop": [
+        524,
+        220,
+        320,
+        320
+      ]
+    }
+  ]
+}

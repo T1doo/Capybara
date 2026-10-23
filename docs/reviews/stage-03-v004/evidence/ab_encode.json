@@ -1,0 +1,17 @@
+{
+  "input_sha256": "2e02f1f58b4e3c33e7616c0ce254e9c42911bf7108ba5cc5032a91aaa4b0efbc",
+  "output_sha256": "b2ea74e39aa72160d190dbc435bb175bff95f0488d903e07527a99b47fa8e74c",
+  "frames": 335,
+  "fps": 60,
+  "duration_seconds": 5.583333333333333,
+  "resolution": [
+    2560,
+    720
+  ],
+  "comparison_sha256": "2fc89288d71f6bb4b9d307e18d88410b605dc76e17bccd5d7ba32bda1cbc0f86",
+  "layout": "unscaled A left / B right, same capture start",
+  "codec": "H264 MP4",
+  "color": "sRGB sequencer + Standard view; no artistic regrade",
+  "source": "actual Godot Compatibility viewport capture, not a concept illustration",
+  "blender": "4.5.13 LTS"
+}

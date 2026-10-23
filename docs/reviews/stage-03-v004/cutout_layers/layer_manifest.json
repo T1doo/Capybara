@@ -1,0 +1,304 @@
+{
+  "status": "technical_unapproved",
+  "direction": "down_right",
+  "canvas": [
+    640,
+    640
+  ],
+  "pivot": [
+    320,
+    480
+  ],
+  "display_scale": 0.5,
+  "camera_pitch_degrees": 35,
+  "model_sha256": "089bdb4cfb5c3f3d9af5a9c6a4f75467a62cc04c489c580ae854a3c200e09677",
+  "b_manifest_sha256": "660ed9f3208d7556083b5fc56c1785e44d704508fd9ea3afbf9b2e38e77c5e00",
+  "exporter_sha256": "e64f89172ae78a668226dda183477c6931bc64d7b7ca00701421cead07c2209a",
+  "helper_sha256": "813d124a86fc30d7a878a6e1312d3663240cee572148681f2e38bc9f33f315fe",
+  "feet": [
+    {
+      "id": "Fore_Left",
+      "hip": [
+        407.9851989746094,
+        456.6842346191406
+      ],
+      "sole": [
+        418.3563537597656,
+        517.7470703125
+      ]
+    },
+    {
+      "id": "Fore_Right",
+      "hip": [
+        317.57708740234375,
+        486.4275817871094
+      ],
+      "sole": [
+        327.9482727050781,
+        547.4903564453125
+      ]
+    },
+    {
+      "id": "Hind_Left",
+      "hip": [
+        304.2733154296875,
+        352.9723815917969
+      ],
+      "sole": [
+        314.6445007324219,
+        414.0351867675781
+      ]
+    },
+    {
+      "id": "Hind_Right",
+      "hip": [
+        213.86521911621094,
+        382.7156982421875
+      ],
+      "sole": [
+        224.23641967773438,
+        443.77850341796875
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Fore_Left",
+      "dip": 0.0,
+      "path": "Fore_Left_00.png",
+      "sha256": "e38415d426ce6b85a9492150e44f52b0da83dab6db8035f5146344d28dd5e61d",
+      "alpha_bbox": [
+        386,
+        448,
+        438,
+        525
+      ],
+      "alpha_height": 77,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "Fore_Right",
+      "dip": 0.0,
+      "path": "Fore_Right_00.png",
+      "sha256": "06644cdbb74df96df21e776155e2becc4dbef32a819649898c5577d8854dbc2f",
+      "alpha_bbox": [
+        296,
+        478,
+        348,
+        554
+      ],
+      "alpha_height": 76,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "Hind_Left",
+      "dip": 0.0,
+      "path": "Hind_Left_00.png",
+      "sha256": "463d39bf180c2dfe654047a77d98e7312e542a12820de3f9737412405c57dff8",
+      "alpha_bbox": [
+        283,
+        344,
+        334,
+        421
+      ],
+      "alpha_height": 77,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "Hind_Right",
+      "dip": 0.0,
+      "path": "Hind_Right_00.png",
+      "sha256": "83f9e343b2ae68aa9b124d8085a5ea9e78fff8d13c7d044880c3497bcf809751",
+      "alpha_bbox": [
+        192,
+        374,
+        243,
+        451
+      ],
+      "alpha_height": 77,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "torso",
+      "dip": 0.0,
+      "path": "torso_00.png",
+      "sha256": "d874133de160bc87b610c017599054e2332fd58f6fe85fe8b56392ee8af4b2ec",
+      "alpha_bbox": [
+        178,
+        266,
+        400,
+        478
+      ],
+      "alpha_height": 212,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "head",
+      "dip": 0,
+      "path": "head_00.png",
+      "sha256": "ae2058eab245150a4f8831acc058de17cda0cf6496a29db13bf1ab679ab3ae3b",
+      "alpha_bbox": [
+        245,
+        334,
+        453,
+        531
+      ],
+      "alpha_height": 197,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "head",
+      "dip": 0.25,
+      "path": "head_01.png",
+      "sha256": "4e77db3579af534879aac60b8f69ad98d9b49af68ca98d9ef1090a1559b426ed",
+      "alpha_bbox": [
+        245,
+        334,
+        453,
+        537
+      ],
+      "alpha_height": 203,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "head",
+      "dip": 0.5,
+      "path": "head_02.png",
+      "sha256": "9153e704bdfbd12e6838923add5fb1ab583f9d76e652d4381712682923e83193",
+      "alpha_bbox": [
+        245,
+        334,
+        452,
+        543
+      ],
+      "alpha_height": 209,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "head",
+      "dip": 0.75,
+      "path": "head_03.png",
+      "sha256": "6f6b6a7b7a0f6d3619436e4d2dbcc796a4132da2a89a09eb7b23723180acf802",
+      "alpha_bbox": [
+        245,
+        334,
+        451,
+        548
+      ],
+      "alpha_height": 214,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "head",
+      "dip": 1,
+      "path": "head_04.png",
+      "sha256": "478ec685bf3078cfdb06e680c1212a20dd21002aed9c3b7d4ddbf9d201d02319",
+      "alpha_bbox": [
+        245,
+        334,
+        450,
+        553
+      ],
+      "alpha_height": 219,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "scarf",
+      "dip": 0,
+      "path": "scarf_00.png",
+      "sha256": "899f601c459a9791637bc4efdb792d698e357dc196bc18447d86d55cd88c9237",
+      "alpha_bbox": [
+        247,
+        338,
+        398,
+        493
+      ],
+      "alpha_height": 155,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "scarf",
+      "dip": 0.25,
+      "path": "scarf_01.png",
+      "sha256": "83b89b5e383518f02de30e511ae3c649b053b56955f4b544ae19e3035fb77cd6",
+      "alpha_bbox": [
+        247,
+        338,
+        398,
+        493
+      ],
+      "alpha_height": 155,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "scarf",
+      "dip": 0.5,
+      "path": "scarf_02.png",
+      "sha256": "12da8f75bae988bb961b31c4f148cbb299465d722d4e45f882ecfb0dfa1a139d",
+      "alpha_bbox": [
+        247,
+        338,
+        408,
+        492
+      ],
+      "alpha_height": 154,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "scarf",
+      "dip": 0.75,
+      "path": "scarf_03.png",
+      "sha256": "644551a6ece9ab6ee569172ec83155a05f834be185d40ed2d5ef26fd8c7f6da2",
+      "alpha_bbox": [
+        247,
+        338,
+        410,
+        491
+      ],
+      "alpha_height": 153,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "scarf",
+      "dip": 1,
+      "path": "scarf_04.png",
+      "sha256": "70b8ab5fdfd7bd457c322b04caecf106447eca9043398d6a22a48ffb30cdc2d7",
+      "alpha_bbox": [
+        247,
+        338,
+        410,
+        490
+      ],
+      "alpha_height": 152,
+      "edge_alpha_pixels": 0
+    },
+    {
+      "layer": "bag",
+      "dip": 0.0,
+      "path": "bag_00.png",
+      "sha256": "0301d7b33f5095b8da627a633e20c07397f324b4aa0b675e71c05abc766fc057",
+      "alpha_bbox": [
+        176,
+        322,
+        381,
+        463
+      ],
+      "alpha_height": 141,
+      "edge_alpha_pixels": 0
+    }
+  ],
+  "draw_order": [
+    "Hind_Left",
+    "Fore_Left",
+    "Hind_Right",
+    "Fore_Right",
+    "torso",
+    "head",
+    "scarf",
+    "bag"
+  ],
+  "method": "four 2D foot plates + torso + fixed bag + five head/scarf pickup replacements; same v004 source",
+  "limitations": "DR walk/pickup only; hidden layer/overlap and replacement transitions require visual QA; no route approval",
+  "elapsed_seconds": 27.187999999994645,
+  "blender": "4.5.13 LTS"
+}

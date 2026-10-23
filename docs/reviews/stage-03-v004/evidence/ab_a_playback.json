@@ -1,0 +1,73 @@
+{
+	"camera_position": [
+		0,
+		-96
+	],
+	"camera_zoom": 1,
+	"captures": [
+		{
+			"file": "frame_0060.png",
+			"render_tick": 60,
+			"requested_tick": 60
+		},
+		{
+			"file": "frame_0130.png",
+			"render_tick": 130,
+			"requested_tick": 130
+		},
+		{
+			"file": "frame_0136.png",
+			"render_tick": 136,
+			"requested_tick": 136
+		},
+		{
+			"file": "frame_0142.png",
+			"render_tick": 142,
+			"requested_tick": 142
+		},
+		{
+			"file": "frame_0148.png",
+			"render_tick": 148,
+			"requested_tick": 148
+		},
+		{
+			"file": "frame_0250.png",
+			"render_tick": 250,
+			"requested_tick": 250
+		},
+		{
+			"file": "frame_0267.png",
+			"render_tick": 267,
+			"requested_tick": 267
+		},
+		{
+			"file": "frame_0272.png",
+			"render_tick": 272,
+			"requested_tick": 272
+		},
+		{
+			"file": "frame_0294.png",
+			"render_tick": 294,
+			"requested_tick": 294
+		}
+	],
+	"committed_pickups": 1,
+	"gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+	"maximum_position_error_px": 0.0,
+	"mode": "Compatibility GPU, fixed 60Hz movie/replay; not a performance/soak benchmark",
+	"move_speed": 240.0,
+	"passed": true,
+	"radius": 22.0,
+	"safe_margin": 0.0799999982118607,
+	"scale": [
+		3.0,
+		3.0
+	],
+	"scope": "candidate sample; no mother/route/Stage3 acceptance",
+	"smoke_only": false,
+	"texture_cache_limit": 24,
+	"ticks": 330,
+	"viewer_sha256": "0f34cf34e9bc746bebc60cc33081bdee7b5ed7e140d471fe9de1caf7075eabd1",
+	"wall_seconds": 5.938021,
+	"world_script_sha256": "e1a54e55d31027988152814d16d78313a260ceaccd86159b41510c78eeab3c06"
+}

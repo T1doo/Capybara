@@ -46,6 +46,8 @@ func _run() -> void:
 		_fail("Expected bank manifest, motion JSON and a new build output directory.")
 		return
 	var build: String = ProjectSettings.globalize_path("res://../build").simplify_path()
+	for index in range(3):
+		args[index] = args[index].replace("\\", "/").simplify_path()
 	for path: String in args.slice(0, 3):
 		if not path.replace("\\", "/").simplify_path().begins_with(build + "/"):
 			_fail("All inputs/outputs must remain in build.")

@@ -1,0 +1,12 @@
+{
+	"base_viewer_sha256": "038172c3514f3581f580ed91cd72e76ef3be1f8c67d654890d6a86604e724783",
+	"duration_game_seconds": 5.5,
+	"foot_deformation": "63 vertices per foot; hip anchored 2D plate deformation; DR only",
+	"layer_manifest_sha256": "40bf9f715223d796fe4cea5e48dd45bc65ad18a11e6c69c21f2169a307a9a5c6",
+	"layer_model_sha256": "089bdb4cfb5c3f3d9af5a9c6a4f75467a62cc04c489c580ae854a3c200e09677",
+	"limits": "no cutout idle breath; no production performance/visual approval; raw pixel budget is unoptimized",
+	"plate_count": 16,
+	"raw_texture_bytes": 26214400,
+	"scope": "same-source DR walk/pickup; 2D foot deformation and 5 head/scarf replacements; not all directions",
+	"ticks": 330
+}

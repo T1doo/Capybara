@@ -67,7 +67,7 @@ AG1是造型锚点，未锁定PLAYER_MASTER；A1家园、主屋/桥/水车/码�
 
 样板不足则修具体失败，足够后完成真正可比的小规模A/B与路线决定，再集中扩展本阶段完整方向/代表动作。未批准候选仅进显式开发夹具；正式资源接入仍遵守ART3-104依赖。
 
-本轮实现/连续证据：[v004审阅包](../../reviews/stage-03-v004/README.md)、[路线决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)。evaluated surface和颜色回传局部机制已实测；候选仍有墙边身体探出、掠射覆盖/材质与轨迹专用姿态库限制。ART3-100继续in_progress，下一小样使用同一v004源做少量分层cutout的walk/pickup对照；不以旧A较弱批准B。
+本轮实现/连续证据：[v004审阅包](../../reviews/stage-03-v004/README.md)、[同源A/B首段](../../reviews/stage-03-v004/AB_REVIEW.md)、[路线决定](../../design/PLAYER_ANIMATION_V004_DECISION.md)。evaluated surface和颜色回传局部机制已实测；候选仍有墙边身体探出、掠射覆盖/材质与轨迹专用姿态库限制。ART3-100继续in_progress；同源下右walk/pickup现已完成，下一小样集中少量分层加必要转体替换的背侧转向，不以旧A较弱批准B。
 
 ## 退出质量门
 
